@@ -12,6 +12,7 @@
             let content = helper.generateGraphviz(component, event, helper);
             let erdMarkup = Viz(content, format);
             document.getElementById("graph").innerHTML = erdMarkup;
+            return erdMarkup;
         }
     },
 
