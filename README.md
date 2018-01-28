@@ -1,6 +1,14 @@
-# SFDX  App
+# Graphvizforce for Lightning
 
-## Dev, Build and Test
+A Salesforce Entity Relationship diagramming tool built as a Lightning Component.
+
+Status: **In Development**. We will announce on social media when v1 is ready for user testing.
+
+TODO setup Travis CI with build indicator
+
+## Getting started as a developer
+
+Install the SFDX CLI and
 
 Login and set default dev hub org:
 
@@ -26,14 +34,14 @@ Assign permission set to access App/Tab:
 
 `sfdx force:user:permset:assign --permsetname graphvizforce`
 
-
-
-## Resources
-
+Now refresh Lightning Experience and you should be able to switch to the **Graphvizforce** app and
+see the single tab where the ERD component is available.
 
 ## Description of Files and Directories
 
+This project uses SFDX for all stages.
 
 ## Issues
 
+We manage our roadmap and defects as [Github issues](https://github.com/stevebuik/Graphvizforce-Lightning/issues)
 
