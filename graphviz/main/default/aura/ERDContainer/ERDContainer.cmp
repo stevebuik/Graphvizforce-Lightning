@@ -29,7 +29,7 @@
 
     <div style="background:white;">
 
-        <c:AppHeader title="GraphVizForce" subTitle="A better schema builder">
+        <c:AppHeader title="GraphVizForce" subTitle="Schema Diagrams made easy!">
             <aura:set attribute="icon">
                 <lightning:icon iconName="standard:apps_admin" size="medium"/>
             </aura:set>
