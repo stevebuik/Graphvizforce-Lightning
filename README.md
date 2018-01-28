@@ -22,6 +22,10 @@ Deploy code (ensure you are in gvf2 dir):
 
 `sfdx force:source:push`
 
+Assign permission set to access App/Tab:
+
+`sfdx force:user:permset:assign --permsetname graphvizforce`
+
 
 
 ## Resources
