@@ -2,6 +2,8 @@
 
 A Salesforce Entity Relationship diagramming tool built as a Lightning Component.
 
+Replaces and improves [Graphvizforce for Visualforce](http://stevebuik.github.io/GraphVizForce)
+
 Status: **In Development**. We will announce on social media when v1 is ready for user testing.
 
 TODO setup Travis CI with build indicator
