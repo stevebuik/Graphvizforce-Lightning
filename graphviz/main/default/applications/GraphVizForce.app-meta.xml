@@ -6,7 +6,6 @@
     <formFactors>Large</formFactors>
     <label>GraphVizForce</label>
     <navType>Standard</navType>
-    <tab>standard-AppLauncher</tab>
     <tab>GraphVizForce</tab>
     <uiType>Lightning</uiType>
     <utilityBar>GraphVizForce_UtilityBar</utilityBar>

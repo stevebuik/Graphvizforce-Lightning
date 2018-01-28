@@ -6,4 +6,8 @@
     </applicationVisibilities>
     <hasActivationRequired>false</hasActivationRequired>
     <label>Graphvizforce</label>
+    <tabSettings>
+        <tab>GraphVizForce</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
 </PermissionSet>
