@@ -1,0 +1,76 @@
+<aura:component >
+    
+    <aura:attribute name="groups" type="Object[]" />
+    <aura:attribute name="newGroupName" type="String" />
+    <aura:attribute name="currentState" type="String" default="GROUPS" description="Options: GROUPS, ATTRIBUTES" />
+    <aura:attribute name="selectedObject" type="Object" />
+    <aura:attribute name="showHelp3" type="Boolean" default="false" />
+    <aura:attribute name="showHelp5" type="Boolean" default="false" />
+    
+    <aura:registerEvent name="onObjectClicked" type="c:actionEvent" />
+    <aura:registerEvent name="onRemoveObject" type="c:actionEvent" />
+    <aura:registerEvent name="onAddGroup" type="c:actionEvent" />
+    <aura:registerEvent name="onDragObjectToGroup" type="c:actionEvent" />
+    <aura:registerEvent name="UserGuideEvent" type="c:UserGuideEvent"/>
+    
+    <aura:handler name="onIconClicked" event="c:actionEvent" action="{!c.onRemoveObject}" />
+    <aura:handler name="onLabelClicked" event="c:actionEvent" action="{!c.onPillLabelClicked}" />
+    <aura:handler event="c:UserGuideEvent" action="{!c.handleUserGuideEvent}"/>
+    
+    <c:panel title="{! v.currentState == 'GROUPS' ? 'Groups' : 'Attributes for ' + v.selectedObject.label}">
+        <aura:set attribute="icon">
+            <aura:if isTrue="{! v.currentState == 'GROUPS'}">
+            	<lightning:icon iconName="standard:product_item" size="medium"/>
+                <aura:set attribute="else">
+                	<lightning:buttonIcon iconName="utility:left" alternativeText="Back" iconClass="slds-button_icon-x-small" onclick="{!c.onBackToGroups}" />
+                </aura:set>
+            </aura:if>
+        </aura:set>
+
+        <aura:if isTrue="{! v.showHelp5}">
+            <div class="slds-popover slds-popover_tooltip slds-nubbin_top-left slds-theme_success" role="tooltip" id="help">
+                <div class="slds-popover__body">Press back button to go to groups</div>
+            </div>
+        </aura:if>
+
+        <aura:if isTrue="{! v.currentState == 'GROUPS'}">
+            <div id="groups">
+                <div class="slds-grid slds-grid_vertical-align-end">
+                    <div class="slds-col slds-p-right_small" style="width:100%;">
+                        <lightning:input type="text" label="Add New Group" name="newGroup" value="{!v.newGroupName}" />
+                    </div>
+                    <div class="slds-col slds-col_bump-left">
+                        <lightning:buttonIcon iconName="utility:add" alternativeText="Add" iconClass="slds-button_icon-x-small" disabled="{! empty(v.newGroupName)}" onclick="{!c.onAddGroup}" />
+                    </div>
+                </div>
+                <br />
+
+                <aura:if isTrue="{! v.showHelp3}">
+                    <div>
+                        <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-theme_success" role="tooltip" id="help" style="position:absolute;margin-top:20px;">
+                            <div class="slds-popover__body">Click on an object below to add fields</div>
+                        </div>
+                    </div>
+                </aura:if>
+
+                <div style="max-height:100vh;overflow:scroll;">
+                    <aura:iteration items="{!v.groups}" var="group">
+                        <div data-drop-effect="all" class="dropTarget" data-group="{!group.value}" ondragenter="{!c.onDragEnter}" ondragleave="{!c.onDragLeave}" ondragover="{!c.onDragOver}" ondrop="{!c.onDrop}">
+                            <c:GroupPanel group="{!group}" />
+                        </div>
+                        <br />
+                    </aura:iteration>
+                </div>
+            </div>
+            <aura:set attribute="else">
+                <div id="attributes">
+                    <c:AttributePanel object="{!v.selectedObject}" />
+                </div>
+            </aura:set>
+        </aura:if>
+        
+    </c:panel>
+
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+
+</aura:component>

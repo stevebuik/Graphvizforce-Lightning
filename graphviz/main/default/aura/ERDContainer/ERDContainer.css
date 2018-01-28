@@ -1,0 +1,14 @@
+/**
+ * Created by guan on 29/11/17.
+ */
+
+.THIS .flexContainer{
+    width:100%;
+}
+
+.THIS .flexList{
+    display: -webkit-flex; /* Safari */
+    -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+    display: flex;
+    flex-wrap: wrap;
+}

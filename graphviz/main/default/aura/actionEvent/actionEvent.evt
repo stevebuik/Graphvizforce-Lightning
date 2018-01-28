@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="Simple event to carry action information when user interaction happens">
+    <aura:attribute name="scope" type="Object" />
+</aura:event>
