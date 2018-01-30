@@ -10,29 +10,34 @@ TODO setup Travis CI with build indicator
 
 ## Getting started as a developer
 
-Install the SFDX CLI and
+First, clone this project to you local filesystem.
 
-Login and set default dev hub org:
+You will need access to a *Developer Hub* org. You can do by this enabling the dev hub feature in your production org
+or [signing up for a 30 trial org](https://developer.salesforce.com/promotions/orgs/dx-signup) with the dev hub enabled.
+
+Then you should install the SFDX CLI and
+
+Login to the dev hub org and using this command: (this will open a new browser window)
 
 `sfdx force:auth:web:login --setdefaultdevhubusername --setalias my-hub-org`
 
-Create a new scratch org:
+Now you are ready to create a new scratch org:
 
 `sfdx force:org:create --definitionfile config/project-scratch-def.json --setalias scratch1 --setdefaultusername`
 
-List all orgs:
+List all orgs to see which you have setup and connected to your SFDX CLI:
 
 `sfdx force:org:list`
 
-Open/login to new (default) scratch org:
+At any time you can open/login a window to new (default) scratch org:
 
 `sfdx force:org:open --path one/one.app`
 
-Install the Lightning Testing Service:
+Now, install the Lightning Testing Service:
 
 `sfdx force:lightning:test:install`
 
-Deploy code (ensure you are in gvf2 dir):
+Deploy the code (ensure you are in graphvizforce-lightning dir):
 
 `sfdx force:source:push`
 
