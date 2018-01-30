@@ -10,14 +10,14 @@ TODO setup Travis CI with build indicator
 
 ## Getting started as a developer
 
-First, clone this project to you local filesystem.
+First, clone this project to your local filesystem.
 
 You will need access to a *Developer Hub* org. You can do by this enabling the dev hub feature in your production org
 or [signing up for a 30 trial org](https://developer.salesforce.com/promotions/orgs/dx-signup) with the dev hub enabled.
 
 Then you should install the SFDX CLI and
 
-Login to the dev hub org and using this command: (this will open a new browser window)
+Login to the dev hub org using this command: (a new browser window will open)
 
 `sfdx force:auth:web:login --setdefaultdevhubusername --setalias my-hub-org`
 
@@ -41,7 +41,7 @@ Deploy the code (ensure you are in graphvizforce-lightning dir):
 
 `sfdx force:source:push`
 
-Assign permission set to access App/Tab:
+Assign permission set to access the App and Tab:
 
 `sfdx force:user:permset:assign --permsetname graphvizforce`
 
