@@ -76,6 +76,12 @@ or you can run the testing app in the browser using:
 
 This project uses SFDX for all stages.
 
+## Architecture
+
+We document our architectural decisions using a standard [Architecture Review Document](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions) format.
+
+These documents can be seen in [the ADR dir](/stevebuik/Graphvizforce-Lightning/tree/master/doc/ADR).
+
 ## Issues
 
 We manage our roadmap and defects as [Github issues](https://github.com/stevebuik/Graphvizforce-Lightning/issues)
