@@ -55,6 +55,12 @@ to the local dir using:
 
 ..and then committed to SCM as normal.
 
+## Linting
+
+We use the Lightning Linter to check our code. To run this locally use:
+
+`sfdx force:lightning:lint graphviz`
+
 ## Testing
 
 We use the [Lightning Testing Service](https://forcedotcom.github.io/LightningTestingService/) (Jasmine flavoured) to test the components in this project.
