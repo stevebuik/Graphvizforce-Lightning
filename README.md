@@ -80,7 +80,7 @@ This project uses SFDX for all stages.
 
 We document our architectural decisions using a standard [Architecture Review Document](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions) format.
 
-These documents can be seen in [the ADR dir](/tree/master/doc/ADR).
+These documents can be seen in [the ADR dir](https://github.com/stevebuik/Graphvizforce-Lightning/tree/master/doc/ADR).
 
 ## Issues
 
