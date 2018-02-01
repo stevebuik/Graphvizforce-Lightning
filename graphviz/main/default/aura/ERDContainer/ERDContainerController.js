@@ -50,7 +50,7 @@
         var diagrams = component.get('v.diagrams');
         var term = component.get('v.searchTerm').toLowerCase();
         diagrams.forEach(function(diagram){
-            diagram.visible = (term == '' || diagram.label.toLowerCase().indexOf(term) != -1);
+            diagram.visible = (term === '' || diagram.label.toLowerCase().indexOf(term) !== -1);
         });
         component.set('v.diagrams', diagrams);
     },
@@ -78,8 +78,8 @@
        var diagrams = component.get('v.diagrams');
        var diagramToRemove = event.getParam('scope');
        diagrams.forEach(function (diagram) {
-           if(diagram.value == diagramToRemove.value){
-               var index = diagrams.findIndex((x) => x.value === diagramToRemove.value);
+           if(diagram.value === diagramToRemove.value){
+               var index = diagrams.findIndex(function(x) { return x.value === diagramToRemove.value});
                diagrams.splice(index, 1);
                component.set('v.diagrams', diagrams);
                return;
@@ -106,11 +106,11 @@
         var selectedDiagram = component.get('v.selectedDiagram');
         var objects = component.get('v.objects');
         selectedDiagram.groups.forEach(function (targetGroup) {
-            if(targetGroup.value == group.value){
+            if(targetGroup.value === group.value){
                 targetGroup.entities.forEach(function (targetObject) {
                     objects.push(targetObject);
                 });
-                var index = selectedDiagram.groups.findIndex((x) => x.value === targetGroup.value);
+                var index = selectedDiagram.groups.findIndex(function(x) {return x.value === targetGroup.value});
                 selectedDiagram.groups.splice(index, 1);
                 objects.sort(helper.compare);
                 selectedDiagram.groups.sort(helper.compare);
@@ -156,14 +156,14 @@
         var objectToRemove;
         selectedDiagram.groups.forEach(function (group) {
             group.entities.forEach(function (targetObject) {
-                if(targetObject.value == obj.value){
-                    objectIndex = group.entities.findIndex((x) => x.value === targetObject.value);
-                    groupIndex = selectedDiagram.groups.findIndex((x) => x.value === group.value);
+                if(targetObject.value === obj.value){
+                    objectIndex = group.entities.findIndex(function(x) {return x.value === targetObject.value});
+                    groupIndex = selectedDiagram.groups.findIndex(function(x) {return x.value === group.value});
                     objectToRemove = targetObject;
                     return;
                 }
             });
-            if(groupIndex != -1 && objectIndex != -1){
+            if(groupIndex !== -1 && objectIndex !== -1){
                 selectedDiagram.groups[groupIndex].entities.splice(objectIndex, 1);
                 objects.push(objectToRemove);
                 objects.sort(helper.compare);
@@ -183,9 +183,9 @@
         // Find target object in groups and propagate attribute changes
         selectedDiagram.groups.forEach(function (group) {
             group.entities.forEach(function (targetObject) {
-                if(targetObject.value == selectedObject.value){
+                if(targetObject.value === selectedObject.value){
                     targetObject.attributes.forEach(function (targetAttribute) {
-                        if(targetAttribute.value == attribute.value){
+                        if(targetAttribute.value === attribute.value){
                             targetAttribute.selected = attribute.selected;
                             component.set('v.selectedDiagram', selectedDiagram);
                             component.set('v.selectedObject', targetObject);
@@ -198,9 +198,9 @@
 
         // Find target object in objects and propagate attribute changes
         objects.forEach(function (targetObject) {
-            if(targetObject.value == selectedObject.value){
+            if(targetObject.value === selectedObject.value){
                 targetObject.attributes.forEach(function (targetAttribute) {
-                    if(targetAttribute.value == attribute.value){
+                    if(targetAttribute.value === attribute.value){
                         targetAttribute.selected = attribute.selected;
                         component.set('v.objects', objects);
                         component.set('v.selectedObject', targetObject);
@@ -215,11 +215,11 @@
         var scope = event.getParam('scope');
         var newGroupName = scope.newValue;
         var selectedDiagram = component.get('v.selectedDiagram');
-        var updateIndex = selectedDiagram.groups.findIndex((x) => x.value === scope.oldValue);
+        var updateIndex = selectedDiagram.groups.findIndex(function(x) { return x.value === scope.oldValue});
 
         var exists = false;
         selectedDiagram.groups.forEach(function (group){
-            if(group.label == newGroupName){
+            if(group.label === newGroupName){
                 exists = true;
                 return;
             }

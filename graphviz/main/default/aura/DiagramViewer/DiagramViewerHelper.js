@@ -39,7 +39,7 @@
                     if(attribute.selected){
                         objectNode += ' <TR><TD PORT="' + attribute.value + '">' + attribute.label + '</TD></TR> \n';
                     }
-                    if(attribute.type == 'REFERENCE' && attribute.references != null){
+                    if(attribute.type === 'REFERENCE' && attribute.references !== null){
                         referenceFields = referenceFields.concat(attribute.references);
                     }
                 });
@@ -53,7 +53,7 @@
             value.forEach(function (reference){
                 //var relationship = reference.parentAPIName + ':' + reference.parentAPIName + ' -> ' + key + ':' + reference.referenceFieldAPIName;
                 var relationship = reference.parentAPIName + ':' + reference.parentAPIName + ' -> ' + key + ':' + key;
-                if(objectReferenceMap.has(reference.parentAPIName) && relationshipList.indexOf(relationship) == -1){
+                if(objectReferenceMap.has(reference.parentAPIName) && relationshipList.indexOf(relationship) === -1){
                     relationshipList.push(relationship);
                 }
             });
@@ -65,7 +65,7 @@
 
         graphviz += '}';
 
-        console.log('#### Graphviz Content:', graphviz);
+        //console.log('#### Graphviz Content:', graphviz);
 
         return graphviz;
     },

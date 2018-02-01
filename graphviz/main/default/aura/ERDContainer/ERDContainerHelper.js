@@ -29,11 +29,10 @@
                 var errors = response.getError();
                 if (errors) {
                     if (errors[0] && errors[0].message) {
-                        console.log("Error message: " +
-                                 errors[0].message);
+                        throw "Error message: " + errors[0].message;
                     }
                 } else {
-                    console.log("Unknown error");
+                    throw "Unknown error";
                 }
             }
         });
@@ -83,8 +82,7 @@
             var exists = false;
             selectedDiagram.groups.forEach(function (group) {
                 group.entities.forEach(function (selectedObj){
-                    if(obj.value == selectedObj.value){
-                        console.log('found');
+                    if(obj.value === selectedObj.value){
                         exists = true;
                         return;
                     }
@@ -104,7 +102,7 @@
     isObjectInGroup : function(obj, groups){
         groups.forEach(function (group) {
             group.entities.forEach(function (selectedObj){
-                if(obj.value == selectedObj.value){
+                if(obj.value === selectedObj.value){
                     return true;
                 }
             });
@@ -116,14 +114,14 @@
         var objects = component.get('v.objects');
         var selectedDiagram = component.get('v.selectedDiagram');
         var groups = selectedDiagram.groups;
-        console.log('addObjectToGroup > groupValue:', groupValue);
         var groupRemoved = false;
         var groupAdded = false;
+        var i;
 
         // Remove object from object list
-        for(var i=0;i<objects.length;i++){
+        for(i=0;i<objects.length;i++){
             var targetObject = objects[i];
-            if(targetObject.value == objectToAdd.value){
+            if(targetObject.value === objectToAdd.value){
                 objects.splice(i, 1);
                 groupRemoved = true;
                 break;
@@ -131,22 +129,22 @@
         }
 
         // Add object to group AND Remove object from current group
-        for(var i=0;i<groups.length;i++){
+        for(i=0;i<groups.length;i++){
             if(groupRemoved && groupAdded) break;
 
             var group = groups[i];
 
             group.entities.forEach(function (entity) {
-                if(entity.value == objectToAdd.value){
-                    var index = group.entities.findIndex((x) => x.value === entity.value);
-                    if(index != -1){
+                if(entity.value === objectToAdd.value){
+                    var index = group.entities.findIndex(function(x) {return x.value === entity.value});
+                    if(index !== -1){
                         group.entities.splice(index, 1);
                         groupRemoved = true;
                     }
                 }
             });
 
-            if(group.value == groupValue){
+            if(group.value === groupValue){
                 group.entities.push(objectToAdd);
                 group.entities.sort(helper.compare);
                 groupAdded = true;
@@ -165,8 +163,8 @@
         var diagrams = component.get('v.diagrams');
         var selectedDiagram = component.get('v.selectedDiagram');
         diagrams.forEach(function (diagram){
-           if(diagram.value == selectedDiagram.value){
-               var index = diagrams.findIndex((x) => x.value === diagram.value);
+           if(diagram.value === selectedDiagram.value){
+               var index = diagrams.findIndex(function(x) {return x.value === diagram.value});
                diagrams[index] = selectedDiagram;
                component.set('v.diagrams', diagrams);
                return;
@@ -184,7 +182,7 @@
 
         var exists = false;
         diagrams.forEach(function (diagram){
-            if(diagram.label == diagramName){
+            if(diagram.label === diagramName){
                 exists = true;
                 return;
             }
@@ -217,7 +215,7 @@
 
         var exists = false;
         diagrams.forEach(function (diagram){
-            if(diagram.label == newDiagramName){
+            if(diagram.label === newDiagramName){
                 exists = true;
                 return;
             }

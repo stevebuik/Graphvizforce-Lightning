@@ -18,7 +18,7 @@
     },
 
     onKeyUp : function(component, event, helper) {
-        if(event.keyCode == 13){
+        if(event.keyCode === 13){
         component.set('v.isEditMode', false);
             helper.handleTitleChange(component, event, helper);
         }

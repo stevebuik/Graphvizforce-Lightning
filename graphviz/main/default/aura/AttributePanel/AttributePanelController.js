@@ -1,7 +1,6 @@
 ({
     handleObjectChange : function(component, event, helper) {
         var object = component.get('v.object');
-        console.log('handleObjectChange:', object);
         var availableAttributes = [];
         var selectedAttributes = [];
         object.attributes.forEach(function(attribute){
@@ -51,6 +50,6 @@
 
     handleUserGuideEvent : function(component, event, helper){
         var step = event.getParam('scope');
-        component.set('v.showHelp4', step == 'step4' && window.showUserGuide);
+        component.set('v.showHelp4', step === 'step4' && window.showUserGuide);
     },
 })

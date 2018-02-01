@@ -12,7 +12,7 @@
         var term = component.get('v.searchTerm').toLowerCase();
         var objectFound = false;
         objects.forEach(function(object){
-            objectFound = (term == '' ? component.get('v.displayAllObjects') : object.label.toLowerCase().indexOf(term) != -1);
+            objectFound = (term === '' ? component.get('v.displayAllObjects') : object.label.toLowerCase().indexOf(term) !== -1);
             object.visible = objectFound;
         });
         component.set('v.objects', objects);
@@ -23,8 +23,8 @@
 
     handleUserGuideEvent : function(component, event, helper){
         var step = event.getParam('scope');
-        component.set('v.showHelp1', step == 'step1' && window.showUserGuide);
-        component.set('v.showHelp2', step == 'step2' && window.showUserGuide);
+        component.set('v.showHelp1', step === 'step1' && window.showUserGuide);
+        component.set('v.showHelp2', step === 'step2' && window.showUserGuide);
     },
 
     onToggleAllObjects : function(component, event, helper){

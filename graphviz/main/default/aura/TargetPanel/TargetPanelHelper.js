@@ -5,7 +5,7 @@
     
         // find vendor prefix
         ['matches','webkitMatchesSelector','mozMatchesSelector','msMatchesSelector','oMatchesSelector'].some(function(fn) {
-            if (typeof document.body[fn] == 'function') {
+            if (typeof document.body[fn] === 'function') {
                 matchesFn = fn;
                 return true;
             }
