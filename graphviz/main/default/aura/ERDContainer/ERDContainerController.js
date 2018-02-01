@@ -5,14 +5,14 @@
     doInit : function(component, event, helper){
 
         // Get cookies and setup user guide
-        let userGuideCompleted = localStorage.getItem('userGuideCompleted');
+        var userGuideCompleted = localStorage.getItem('userGuideCompleted');
         window.showUserGuide = !userGuideCompleted;
         if(window.showUserGuide) component.find('diagramConfigurator').find('sourcePanel').find('objectPanel').set('v.showHelp1', true);
 
         /* Start Setup Mock Data */
         /*
-        let objectNames = ['Account', 'Site', 'Task', 'Contract', 'ContractContactRole', 'Event', 'OpportunityCompetitor', 'OpportunityContactRole', 'OpportunityLineItem', 'PartnerRole', 'Pricebook', 'Contact', 'Lead', 'Case', 'User', 'Opportunity', 'Order', 'Product', 'Asset', 'Solution', 'AccountContactRole', 'Activity', 'Campaign', 'CampaignMember', 'CaseContactRole', 'ContentVersion'];
-        let attributeArray = [{label:'Id', value:'Id', selected:true}, {label:'Name', value:'Name', selected:true}, {label:'Owner', value:'Owner', selected:true}, {label:'CreatedBy', value:'CreatedBy', selected:true}, {label:'Description', value:'Description', selected:false}, {label:'LastModifiedBy', value:'LastModifiedBy', selected:false}, {label:'Phone', value:'Phone', selected:false}, {label:'ShippingAddress', value:'ShippingAddress', selected:false}, {label:'Type', value:'Type', selected:false}, {label:'MobilePhone', value:'MobilePhone', selected:false}, {label:'Email', value:'Email', selected:false}, {label:'Website', value:'Website', selected:false}];
+        var objectNames = ['Account', 'Site', 'Task', 'Contract', 'ContractContactRole', 'Event', 'OpportunityCompetitor', 'OpportunityContactRole', 'OpportunityLineItem', 'PartnerRole', 'Pricebook', 'Contact', 'Lead', 'Case', 'User', 'Opportunity', 'Order', 'Product', 'Asset', 'Solution', 'AccountContactRole', 'Activity', 'Campaign', 'CampaignMember', 'CaseContactRole', 'ContentVersion'];
+        var attributeArray = [{label:'Id', value:'Id', selected:true}, {label:'Name', value:'Name', selected:true}, {label:'Owner', value:'Owner', selected:true}, {label:'CreatedBy', value:'CreatedBy', selected:true}, {label:'Description', value:'Description', selected:false}, {label:'LastModifiedBy', value:'LastModifiedBy', selected:false}, {label:'Phone', value:'Phone', selected:false}, {label:'ShippingAddress', value:'ShippingAddress', selected:false}, {label:'Type', value:'Type', selected:false}, {label:'MobilePhone', value:'MobilePhone', selected:false}, {label:'Email', value:'Email', selected:false}, {label:'Website', value:'Website', selected:false}];
         for(var i=0;i<100;i++){
             attributeArray.push({label:'Z Attribute Name' + i, value:'ZAttributeValue' + i, selected:false});
         }
@@ -21,11 +21,11 @@
         }
         attributeArray.sort(helper.compare);
 
-        let objects = [];
-        let groupIndex = 0;
+        var objects = [];
+        var groupIndex = 0;
         for(var i=0;i<objectNames.length;i++){
-            let objectName = objectNames[i];
-            let groupName = 'Group'
+            var objectName = objectNames[i];
+            var groupName = 'Group'
             objects.push({label:objectName, value:objectName, visible:false, attributes:JSON.parse(JSON.stringify(attributeArray))});
         }
 
@@ -38,8 +38,8 @@
         */
         /* END Setup Mock Data */
 
-        let groups = [{label:'First Group', value:'First Group', entities:[]}];
-        let diagrams = [{label:'Sample Diagram', value:'Sample Diagram', visible:true, groups:groups}];
+        var groups = [{label:'First Group', value:'First Group', entities:[]}];
+        var diagrams = [{label:'Sample Diagram', value:'Sample Diagram', visible:true, groups:groups}];
         component.set('v.diagrams', diagrams);
 
         helper.loadSchema(component, event, helper);
@@ -47,8 +47,8 @@
 
     /** List View Functions **/
     onSearchDiagrams : function(component, event, helper) {
-        let diagrams = component.get('v.diagrams');
-        let term = component.get('v.searchTerm').toLowerCase();
+        var diagrams = component.get('v.diagrams');
+        var term = component.get('v.searchTerm').toLowerCase();
         diagrams.forEach(function(diagram){
             diagram.visible = (term == '' || diagram.label.toLowerCase().indexOf(term) != -1);
         });
@@ -58,14 +58,14 @@
     gotoDiagramDetail : function(component, event, helper){
         component.set('v.currentState', 'DETAIL');
         component.find('diagramConfigurator').find('sourcePanel').find('objectPanel').set('v.searchTerm', '');
-        let diagram = event.getParam('scope');
+        var diagram = event.getParam('scope');
         component.set('v.selectedDiagram', diagram);
         helper.initialiseObjects(component, event, helper);
         component.find('diagramConfigurator').find('targetPanel').set('v.currentState', 'GROUPS');
     },
 
     onObjectClicked : function(component, event, helper) {
-        let obj = event.getParam('scope');
+        var obj = event.getParam('scope');
         component.find('diagramConfigurator').find('targetPanel').set('v.currentState', 'ATTRIBUTES');
         component.set('v.selectedObject', obj);
     },
@@ -75,11 +75,11 @@
     },
 
     onRemoveDiagram : function(component, event, helper){
-       let diagrams = component.get('v.diagrams');
-       let diagramToRemove = event.getParam('scope');
+       var diagrams = component.get('v.diagrams');
+       var diagramToRemove = event.getParam('scope');
        diagrams.forEach(function (diagram) {
            if(diagram.value == diagramToRemove.value){
-               let index = diagrams.findIndex((x) => x.value === diagramToRemove.value);
+               var index = diagrams.findIndex((x) => x.value === diagramToRemove.value);
                diagrams.splice(index, 1);
                component.set('v.diagrams', diagrams);
                return;
@@ -93,24 +93,24 @@
 
     /** Detail View functions **/
     onAddGroup : function(component, event, helper) {
-        let selectedDiagram = component.get('v.selectedDiagram');
-        let groupName = event.getParam('scope');
-        let group = {label:groupName, value:groupName, entities:[]};
+        var selectedDiagram = component.get('v.selectedDiagram');
+        var groupName = event.getParam('scope');
+        var group = {label:groupName, value:groupName, entities:[]};
         selectedDiagram.groups.push(group);
         selectedDiagram.groups.sort(helper.compare);
         component.set('v.selectedDiagram', selectedDiagram);
     },
 
     onRemoveGroup : function(component, event, helper) {
-        let group = event.getParam('scope');
-        let selectedDiagram = component.get('v.selectedDiagram');
-        let objects = component.get('v.objects');
+        var group = event.getParam('scope');
+        var selectedDiagram = component.get('v.selectedDiagram');
+        var objects = component.get('v.objects');
         selectedDiagram.groups.forEach(function (targetGroup) {
             if(targetGroup.value == group.value){
                 targetGroup.entities.forEach(function (targetObject) {
                     objects.push(targetObject);
                 });
-                let index = selectedDiagram.groups.findIndex((x) => x.value === targetGroup.value);
+                var index = selectedDiagram.groups.findIndex((x) => x.value === targetGroup.value);
                 selectedDiagram.groups.splice(index, 1);
                 objects.sort(helper.compare);
                 selectedDiagram.groups.sort(helper.compare);
@@ -128,17 +128,17 @@
 
     onAddObjectToGroupClicked : function(component, event, helper){
         component.set('v.showAddGroup', false);
-        let objectToAdd = component.get('v.objectToAdd');
-        let groupValue = event.getSource().get('v.value');
+        var objectToAdd = component.get('v.objectToAdd');
+        var groupValue = event.getSource().get('v.value');
         helper.addObjectToGroup(component, helper, objectToAdd, groupValue);
     },
 
     onDragObjectToGroup : function(component, event, helper){
-        let objects = component.get('v.objects');
-        let selectedDiagram = component.get('v.selectedDiagram');
-        let scope = event.getParam('scope');
-        let groupValue = scope.group;
-        let objectToAdd = JSON.parse(scope.object);
+        var objects = component.get('v.objects');
+        var selectedDiagram = component.get('v.selectedDiagram');
+        var scope = event.getParam('scope');
+        var groupValue = scope.group;
+        var objectToAdd = JSON.parse(scope.object);
 
         helper.addObjectToGroup(component, helper, objectToAdd, groupValue);
     },
@@ -147,13 +147,13 @@
     * @description:	Remove the object from target panel and add it back to source panel
     */
     onTargetPanelRemoveObject : function(component, event, helper){
-        let obj = event.getParam('scope');
-        let selectedDiagram = component.get('v.selectedDiagram');
-        let objects = component.get('v.objects');
+        var obj = event.getParam('scope');
+        var selectedDiagram = component.get('v.selectedDiagram');
+        var objects = component.get('v.objects');
 
-        let groupIndex = -1;
-        let objectIndex = -1;
-        let objectToRemove;
+        var groupIndex = -1;
+        var objectIndex = -1;
+        var objectToRemove;
         selectedDiagram.groups.forEach(function (group) {
             group.entities.forEach(function (targetObject) {
                 if(targetObject.value == obj.value){
@@ -175,10 +175,10 @@
     },
 
     onObjectAttributesUpdated : function(component, event, helper){
-        let attribute = event.getParam('scope');
-        let selectedDiagram = component.get('v.selectedDiagram');
-        let objects = component.get('v.objects');
-        let selectedObject = component.get('v.selectedObject');
+        var attribute = event.getParam('scope');
+        var selectedDiagram = component.get('v.selectedDiagram');
+        var objects = component.get('v.objects');
+        var selectedObject = component.get('v.selectedObject');
 
         // Find target object in groups and propagate attribute changes
         selectedDiagram.groups.forEach(function (group) {
@@ -212,12 +212,12 @@
     },
 
     onEditGroupName : function(component, event, helper) {
-        let scope = event.getParam('scope');
-        let newGroupName = scope.newValue;
-        let selectedDiagram = component.get('v.selectedDiagram');
-        let updateIndex = selectedDiagram.groups.findIndex((x) => x.value === scope.oldValue);
+        var scope = event.getParam('scope');
+        var newGroupName = scope.newValue;
+        var selectedDiagram = component.get('v.selectedDiagram');
+        var updateIndex = selectedDiagram.groups.findIndex((x) => x.value === scope.oldValue);
 
-        let exists = false;
+        var exists = false;
         selectedDiagram.groups.forEach(function (group){
             if(group.label == newGroupName){
                 exists = true;
@@ -247,7 +247,7 @@
     },
 
     onTogglePreview : function(component, event, helper){
-        let isExpanded = event.getParam('scope');
+        var isExpanded = event.getParam('scope');
         component.set('v.isShowDiagramConfigurator', !isExpanded);
     },
 })

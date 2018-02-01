@@ -3,10 +3,10 @@
  */
 ({
     handleTitleChange : function(component, event, helper){
-        let title = component.get('v.title');
-        let newTitle = component.get('v.newTitle');
+        var title = component.get('v.title');
+        var newTitle = component.get('v.newTitle');
         if(title != newTitle){
             component.getEvent("onEditPanelTitle").setParams({scope:{oldValue:title, newValue:newTitle}}).fire();
         }
-    },
+    }
 })

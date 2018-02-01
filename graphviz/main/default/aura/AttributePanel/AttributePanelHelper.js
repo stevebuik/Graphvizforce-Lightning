@@ -8,8 +8,8 @@
     },
     
     handleFilterAvailable : function(component, event, helper) {
-        let attributes = component.get('v.availableAttributes');
-        let term = component.get('v.availableSearchTerm');
+        var attributes = component.get('v.availableAttributes');
+        var term = component.get('v.availableSearchTerm');
         if(term != null){
             term = term.toLowerCase();
             
@@ -22,8 +22,8 @@
     },
     
     handleFilterSelected : function(component, event, helper) {
-        let attributes = component.get('v.selectedAttributes');
-        let term = component.get('v.selectedSearchTerm')
+        var attributes = component.get('v.selectedAttributes');
+        var term = component.get('v.selectedSearchTerm')
         if(term != null){
             term = term.toLowerCase();
             

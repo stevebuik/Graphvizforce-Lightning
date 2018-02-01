@@ -1,9 +1,9 @@
 ({
     handleObjectChange : function(component, event, helper) {
-        let object = component.get('v.object');
+        var object = component.get('v.object');
         console.log('handleObjectChange:', object);
-        let availableAttributes = [];
-        let selectedAttributes = [];
+        var availableAttributes = [];
+        var selectedAttributes = [];
         object.attributes.forEach(function(attribute){
             attribute.visible = true;
             if(attribute.selected){
@@ -24,14 +24,14 @@
 	},
     
 	onAddClicked : function(component, event, helper) {
-        let attribute = event.getParam('scope');
+        var attribute = event.getParam('scope');
         attribute.selected = true;
         component.getEvent('onObjectAttributesUpdated').setParams({scope:attribute}).fire();
         if(window.showUserGuide) $A.get("e.c:UserGuideEvent").setParams({scope:'step5'}).fire();
 	},
     
     onRemoveClicked : function(component, event, helper) {
-        let attribute = event.getParam('scope');
+        var attribute = event.getParam('scope');
         attribute.selected = false;
         component.getEvent('onObjectAttributesUpdated').setParams({scope:attribute}).fire();
         if(window.showUserGuide) $A.get("e.c:UserGuideEvent").setParams({scope:'step5'}).fire();
@@ -50,7 +50,7 @@
     },
 
     handleUserGuideEvent : function(component, event, helper){
-        let step = event.getParam('scope');
+        var step = event.getParam('scope');
         component.set('v.showHelp4', step == 'step4' && window.showUserGuide);
     },
 })

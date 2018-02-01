@@ -3,9 +3,9 @@
  */
 ({
     handleToggleObjects : function(component, event, helper){
-        let displayAllObjects = !component.get('v.displayAllObjects');
+        var displayAllObjects = !component.get('v.displayAllObjects');
         component.set('v.displayAllObjects', displayAllObjects);
-        let objects = component.get('v.objects');
+        var objects = component.get('v.objects');
         objects.forEach(function(object){
             object.visible = displayAllObjects;
         });

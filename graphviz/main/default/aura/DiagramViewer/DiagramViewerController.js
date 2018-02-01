@@ -8,16 +8,16 @@
 
     renderDiagram : function(component, event, helper){
         if(component.get('v.initialised')){
-            let format = 'svg';
-            let content = helper.generateGraphviz(component, event, helper);
-            let erdMarkup = Viz(content, format);
+            var format = 'svg';
+            var content = helper.generateGraphviz(component, event, helper);
+            var erdMarkup = Viz(content, format);
             document.getElementById("graph").innerHTML = erdMarkup;
             return erdMarkup;
         }
     },
 
     onToggleState : function(component, event, helper){
-        let isExpanded = !component.get('v.isExpanded');
+        var isExpanded = !component.get('v.isExpanded');
         component.set('v.isExpanded', isExpanded);
 
         component.getEvent('onTogglePreview').setParams({scope:isExpanded}).fire();

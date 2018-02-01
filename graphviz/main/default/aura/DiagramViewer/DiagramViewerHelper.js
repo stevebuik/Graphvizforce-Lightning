@@ -4,7 +4,7 @@
 ({
     generateGraphviz : function(component, event, helper){
         /* Sample Diagram
-        let content = 'digraph G { \n'+
+        var content = 'digraph G { \n'+
                        'node [shape=plaintext, fontsize=12]; \n'+
                        'edge  [arrowhead=crow]; \n'+
                        'a [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"> \n'+
@@ -21,20 +21,20 @@
                    '}';
         */
 
-        let allObjects = component.get('v.allObjects');
-        let selectedDiagram = component.get('v.selectedDiagram');
-        let objectReferenceMap = new Map();
-        let relationshipList = [];
+        var allObjects = component.get('v.allObjects');
+        var selectedDiagram = component.get('v.selectedDiagram');
+        var objectReferenceMap = new Map();
+        var relationshipList = [];
 
-        let graphviz = 'digraph G { \n'+
+        var graphviz = 'digraph G { \n'+
                        'graph [rankdir=LR,nodesep=1.0]; \n'+
                        'node [shape=plaintext, fontsize=12]; \n'+
                        'edge  [arrowhead=crow]; \n';
         selectedDiagram.groups.forEach(function (group){
             group.entities.forEach(function (object){
-                let objectNode = object.value + ' [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"> \n' +
+                var objectNode = object.value + ' [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"> \n' +
                                     ' <TR><TD PORT="' + object.value + '" BGCOLOR="lightgray">' + object.label + '</TD></TR> \n';
-                let referenceFields = [];
+                var referenceFields = [];
                 object.attributes.forEach(function (attribute){
                     if(attribute.selected){
                         objectNode += ' <TR><TD PORT="' + attribute.value + '">' + attribute.label + '</TD></TR> \n';
@@ -51,8 +51,8 @@
 
         objectReferenceMap.forEach(function (value, key, map) {
             value.forEach(function (reference){
-                //let relationship = reference.parentAPIName + ':' + reference.parentAPIName + ' -> ' + key + ':' + reference.referenceFieldAPIName;
-                let relationship = reference.parentAPIName + ':' + reference.parentAPIName + ' -> ' + key + ':' + key;
+                //var relationship = reference.parentAPIName + ':' + reference.parentAPIName + ' -> ' + key + ':' + reference.referenceFieldAPIName;
+                var relationship = reference.parentAPIName + ':' + reference.parentAPIName + ' -> ' + key + ':' + key;
                 if(objectReferenceMap.has(reference.parentAPIName) && relationshipList.indexOf(relationship) == -1){
                     relationshipList.push(relationship);
                 }

@@ -8,9 +8,9 @@
     },
     
     onSearchObject : function(component, event, helper) {
-        let objects = component.get('v.objects');
-        let term = component.get('v.searchTerm').toLowerCase();
-        let objectFound = false;
+        var objects = component.get('v.objects');
+        var term = component.get('v.searchTerm').toLowerCase();
+        var objectFound = false;
         objects.forEach(function(object){
             objectFound = (term == '' ? component.get('v.displayAllObjects') : object.label.toLowerCase().indexOf(term) != -1);
             object.visible = objectFound;
@@ -22,7 +22,7 @@
     },
 
     handleUserGuideEvent : function(component, event, helper){
-        let step = event.getParam('scope');
+        var step = event.getParam('scope');
         component.set('v.showHelp1', step == 'step1' && window.showUserGuide);
         component.set('v.showHelp2', step == 'step2' && window.showUserGuide);
     },
