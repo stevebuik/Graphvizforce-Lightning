@@ -1,2 +1,5 @@
 mdapi
 .sfdx
+*.iml
+.idea
+IlluminatedCloud
