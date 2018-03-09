@@ -5,7 +5,6 @@
 <aura:component description="DiagramViewer">
 
     <aura:attribute name="initialised" type="Boolean" default="false" />
-    <aura:attribute name="allObjects" type="Object[]" />
     <aura:attribute name="graphvizContent" type="Object" />
 
     <!--<aura:method name="renderDiagram" action="{!c.renderDiagram}" />-->
