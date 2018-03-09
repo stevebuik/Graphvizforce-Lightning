@@ -100,7 +100,7 @@
                 </div>
 
                 <div class="{!join(' ', 'slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-p-around_xx-small', v.isShowDiagramConfigurator ? 'slds-large-size_1-of-2' : 'slds-large-size_1-of-1')}">
-                    <c:DiagramViewer aura:id="diagramViewer" selectedDiagram="{!v.selectedDiagram}" allObjects="{!v.allObjects}" />
+                    <c:DiagramOutput aura:id="diagramOutput" selectedDiagram="{!v.selectedDiagram}" allObjects="{!v.allObjects}" />
                 </div>
             </div>
         </div>

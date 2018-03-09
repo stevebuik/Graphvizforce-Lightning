@@ -4,33 +4,18 @@
 
 <aura:component description="DiagramViewer">
 
-    <aura:attribute name="allObjects" type="Object[]" />
-    <aura:attribute name="selectedDiagram" type="Object" />
     <aura:attribute name="initialised" type="Boolean" default="false" />
-    <aura:attribute name="isExpanded" type="Boolean" default="false" />
+    <aura:attribute name="allObjects" type="Object[]" />
+    <aura:attribute name="graphvizContent" type="Object" />
 
-    <!--<aura:handler event="c:UserGuideEvent" action="{!c.handleUserGuideEvent}"/>-->
-    <aura:registerEvent name="onTogglePreview" type="c:actionEvent" />
-    <aura:method name="renderDiagram" action="{!c.renderDiagram}" />
+    <!--<aura:method name="renderDiagram" action="{!c.renderDiagram}" />-->
+
+    <aura:registerEvent name="onDiagramRendered" type="c:actionEvent"/>
+    <aura:handler name="change" value="{!v.graphvizContent}" action="{!c.onContentChange}" />
 
     <ltng:require scripts="{!join(',', $Resource.VizJS)}"
                   afterScriptsLoaded="{!c.doInit}" />
 
-    <!--
-    <tramn:panel title="Preview">
-        <div id="graph" style="text-align: center; width:100%;max-width:100%;"></div>
-    </tramn:panel>-->
-
-    <c:panel title="Preview">
-        <aura:set attribute="icon">
-            <aura:if isTrue="{!v.isExpanded}">
-                <lightning:buttonIcon iconName="utility:contract" alternativeText="Contract" iconClass="slds-button_icon-x-small" onclick="{!c.onToggleState}" />
-                <aura:set attribute="else">
-                    <lightning:buttonIcon iconName="utility:expand" alternativeText="Expand" iconClass="slds-button_icon-x-small" onclick="{!c.onToggleState}" />
-                </aura:set>
-            </aura:if>
-        </aura:set>
-        <div id="graph" style="text-align: center; width:100%;max-width:100%;"></div>
-    </c:panel>
+    <div id="graph" style="text-align: center; width:100%;max-width:100%;"></div>
 
 </aura:component>

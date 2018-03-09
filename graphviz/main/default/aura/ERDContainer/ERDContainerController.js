@@ -239,7 +239,7 @@
 
     onDiagramChanged : function(component, event, helper) {
         helper.onSaveDiagram(component, event, helper);
-        component.find('diagramViewer').renderDiagram(component, event, helper);
+        component.find('diagramOutput').renderDiagram(component, event, helper);
     },
 
     onCloneDiagram : function(component, event, helper) {
