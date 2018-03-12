@@ -7,7 +7,7 @@
     <aura:attribute name="initialised" type="Boolean" default="false" />
     <aura:attribute name="graphvizContent" type="Object" />
 
-    <!--<aura:method name="renderDiagram" action="{!c.renderDiagram}" />-->
+    <aura:method name="onContentChange" action="{!c.onContentChange}" />-->
 
     <aura:registerEvent name="onDiagramRendered" type="c:actionEvent"/>
     <aura:handler name="change" value="{!v.graphvizContent}" action="{!c.onContentChange}" />

@@ -20,7 +20,7 @@ describe("Diagram Viewer Tests", function () {
                         }
                     })
                 })
-                .then(function (component, helper) {
+                .then(function (component) {
                     expect(component.get("v.initialised")).toBe(true);
 
                     var content = 'digraph G { \n'+
@@ -40,9 +40,10 @@ describe("Diagram Viewer Tests", function () {
                                    '}';
                     component.set("v.graphvizContent", content);
 
-                    //expect(document.getElementById("graph").innerHTML).toBeGreaterThan(100);
-                    //var erdMarkup = helper.renderSVGMarkup(content);
-                    //expect(erdMarkup).toBeGreaterThan(100);
+                    var erdMarkup = component.onContentChange();
+
+                    expect(erdMarkup).not.toBe(null);
+
                     done();
                 }).catch(function (e) {
                 done.fail(e);

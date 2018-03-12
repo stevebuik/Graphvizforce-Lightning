@@ -11,7 +11,9 @@
             var erdMarkup = helper.renderSVGMarkup(component.get('v.graphvizContent'));
             document.getElementById("graph").innerHTML = erdMarkup;
             component.getEvent('onDiagramRendered').setParams({scope:erdMarkup}).fire();
+            return erdMarkup;
         }
+        return null;
     },
 
 })
