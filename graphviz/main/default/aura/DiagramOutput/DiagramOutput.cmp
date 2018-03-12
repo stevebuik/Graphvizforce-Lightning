@@ -28,7 +28,7 @@
                 <aura:set attribute="label">
                     Preview
                 </aura:set>
-                <c:DiagramViewer aura:id="diagramViewer" allObjects="{!v.allObjects}" graphvizContent="{!v.graphvizContent}" onDiagramRendered="{!c.onDiagramRendered}" />
+                <c:DiagramViewer aura:id="diagramViewer" graphvizContent="{!v.graphvizContent}" onDiagramRendered="{!c.onDiagramRendered}" />
             </lightning:tab>
 
             <lightning:tab>
