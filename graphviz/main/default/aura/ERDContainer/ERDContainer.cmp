@@ -1,4 +1,4 @@
-<aura:component controller="GraphVizForceController" implements="flexipage:availableForAllPageTypes,force:appHostable">
+<aura:component controller="GraphVizForceController" implements="flexipage:availableForAllPageTypes, force:appHostable">
     <aura:attribute name="currentState" type="String" default="LIST" description="Options: LIST, DETAIL" />
     <aura:attribute name="allObjects" type="Object[]" />
     <aura:attribute name="objects" type="Object[]" />
@@ -12,9 +12,10 @@
     <aura:attribute name="searchTerm" type="String" default="" />
     <aura:attribute name="displayAllObjects" type="Boolean" default="false" />
     <aura:attribute name="isShowDiagramConfigurator" type="Boolean" default="true" />
+    <aura:attribute name="selectedDiagramSObject" type="Graphviz_Diagram__c" />
 
+    <!-- handlers -->
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-
     <aura:handler name="onAddGroup" event="c:actionEvent" action="{!c.onAddGroup}" />
     <aura:handler name="onRemoveGroup" event="c:actionEvent" action="{!c.onRemoveGroup}" />
     <aura:handler name="onAddObject" event="c:actionEvent" action="{!c.onAddObject}" />
@@ -24,10 +25,21 @@
     <aura:handler name="onRemoveObject" event="c:actionEvent" action="{!c.onTargetPanelRemoveObject}" />
     <aura:handler name="onObjectClicked" event="c:actionEvent" action="{!c.onObjectClicked}" />
     <aura:handler name="onTogglePreview" event="c:actionEvent" action="{!c.onTogglePreview}" />
-
     <aura:handler name="change" value="{!v.selectedDiagram}" action="{!c.onDiagramChanged}" />
 
+    <!-- Markup -->
     <div style="background:white;">
+
+        <c:DiagramDataService aura:id="diagramDataService" onDiagramCreated="{!c.onDiagramCreated}" />
+
+        <!-- Display Lightning Data Service errors -->
+        <aura:if isTrue="{!not(empty(v.newContactError))}">
+            <div class="recordError">
+                <ui:message title="Error" severity="error" closable="true">
+                    {!v.newContactError}
+                </ui:message>
+            </div>
+        </aura:if>
 
         <c:AppHeader title="GraphVizForce" subTitle="Schema Diagrams made easy!">
             <aura:set attribute="icon">
@@ -38,7 +50,10 @@
                     <lightning:input type="search" name="inputSearchDiagram" label="Search Diagram Name" value="{!v.searchTerm}" onchange="{!c.onSearchDiagrams}" />
                 </aura:if>
                 <aura:if isTrue="{!v.currentState == 'DETAIL'}">
-                    <h2><lightning:button class="slds-button slds-button_neutral" label="Back" onclick="{!c.onBackToList}" />&nbsp;&nbsp;&nbsp;&nbsp;{!v.selectedDiagram.label}</h2>
+                    <h2>
+                        <lightning:button class="slds-button slds-button_neutral" label="Back" onclick="{!c.onBackToList}" />&nbsp;&nbsp;&nbsp;&nbsp;
+                        {!v.selectedDiagram.label}
+                    </h2>
                 </aura:if>
             </aura:set>
             <aura:set attribute="rightSection">
@@ -56,6 +71,7 @@
                         <lightning:button class="slds-button slds-button_neutral" label="Clone" disabled="{!v.cloneDiagramName.length == 0}" onclick="{!c.onCloneDiagram}" />
                     </div>
                 </aura:if>
+
             </aura:set>
         </c:AppHeader>
 

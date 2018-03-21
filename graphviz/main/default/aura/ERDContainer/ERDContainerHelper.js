@@ -11,7 +11,7 @@
         // Create a callback that is executed after
         // the server-side action returns
         action.setCallback(this, function(response) {
-            $A.util.toggleClass(component.find("mySpinner"), "slds-hide");
+            //$A.util.toggleClass(component.find("mySpinner"), "slds-hide");
             var state = response.getState();
             if (state === "SUCCESS") {
                 // You would typically fire a event here to trigger
@@ -21,6 +21,7 @@
                 if(returnValue != null) result = JSON.parse(returnValue);
                 helper.inspectSchema(component, event, helper, result);
                 // action is complete
+                helper.loadDiagrams(component, event, helper);
             }
             else if (state === "INCOMPLETE") {
                 // do something
@@ -45,6 +46,57 @@
         // $A.enqueueAction adds the server-side action to the queue.
         $A.enqueueAction(action);
 
+    },
+
+    loadDiagrams : function(component, event, helper){
+        // create a one-time use instance of the serverEcho action
+        // in the server-side controller
+        var action = component.get("c.loadDiagrams");
+
+        // Create a callback that is executed after
+        // the server-side action returns
+        action.setCallback(this, function(response) {
+            $A.util.toggleClass(component.find("mySpinner"), "slds-hide");
+            var state = response.getState();
+            if (state === "SUCCESS") {
+                // You would typically fire a event here to trigger
+                // client-side notification that the server-side
+                var returnValue = response.getReturnValue();
+                //var result;
+                //if(returnValue != null) result = JSON.parse(returnValue);
+
+                var diagrams = [];
+                returnValue.forEach(function (item){
+                    var diagram = JSON.parse(item.Content__c);
+                    diagram.recordId = item.Id;
+                    diagrams.push(diagram);
+                });
+                diagrams.sort(helper.compare);
+                component.set('v.diagrams', diagrams);
+                // action is complete
+            }
+            else if (state === "INCOMPLETE") {
+                // do something
+            }
+            else if (state === "ERROR") {
+                var errors = response.getError();
+                if (errors) {
+                    if (errors[0] && errors[0].message) {
+                        throw "Error message: " + errors[0].message;
+                    }
+                } else {
+                    throw "Unknown error";
+                }
+            }
+        });
+
+        // optionally set storable, abortable, background flag here
+
+        // A client-side action could cause multiple events,
+        // which could trigger other events and
+        // other server-side action calls.
+        // $A.enqueueAction adds the server-side action to the queue.
+        $A.enqueueAction(action);
     },
 
     inspectSchema : function(component, event, helper, result){
@@ -170,11 +222,10 @@
                return;
            }
         });
+        component.find('diagramDataService').updateDiagramRecord(selectedDiagram);
     },
 
     onCloneDiagram : function(component, event, helper) {
-
-        helper.onSaveDiagram(component, event, helper);
 
         var diagrams = component.get('v.diagrams');
         var selectedDiagram = component.get('v.selectedDiagram');
@@ -205,6 +256,7 @@
                 "title": "Info",
                 "message": 'A new diagram "' + diagramName + '" has been cloned successfully.'
             });
+            component.find('diagramDataService').createDiagramRecord(newDiagram);
         }
     },
 
@@ -228,9 +280,11 @@
             });
         }
         else{
-            diagrams.push({label:newDiagramName, value:newDiagramName, visible:true, groups:groups});
+            var newDiagramObject = {label:newDiagramName, value:newDiagramName, visible:true, groups:groups};
+            diagrams.push(newDiagramObject);
             diagrams.sort(helper.compare);
             component.set('v.diagrams', diagrams);
+            component.find('diagramDataService').createDiagramRecord(newDiagramObject);
         }
-    }
+    },
 })

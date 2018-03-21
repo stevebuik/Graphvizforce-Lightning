@@ -5,8 +5,12 @@
     doInit : function(component, event, helper){
 
         // Get cookies and setup user guide
-        var userGuideCompleted = localStorage.getItem('userGuideCompleted');
-        window.showUserGuide = !userGuideCompleted;
+        // var userGuideCompleted = localStorage.getItem('userGuideCompleted');
+        // window.showUserGuide = !userGuideCompleted;
+        // Disable user guide
+        window.showUserGuide = false;
+
+        // Display user guide step 1
         if(window.showUserGuide) component.find('diagramConfigurator').find('sourcePanel').find('objectPanel').set('v.showHelp1', true);
 
         /* Start Setup Mock Data */
@@ -38,11 +42,15 @@
         */
         /* END Setup Mock Data */
 
+        /*
         var groups = [{label:'First Group', value:'First Group', entities:[]}];
-        var diagrams = [{label:'Sample Diagram', value:'Sample Diagram', visible:true, groups:groups}];
+        //var diagrams = [{label:'Sample Diagram', value:'Sample Diagram', visible:true, groups:groups}];
+        var diagrams = [];
         component.set('v.diagrams', diagrams);
+        */
 
         helper.loadSchema(component, event, helper);
+
     },
 
     /** List View Functions **/
@@ -50,7 +58,7 @@
         var diagrams = component.get('v.diagrams');
         var term = component.get('v.searchTerm').toLowerCase();
         diagrams.forEach(function(diagram){
-            diagram.visible = (term === '' || diagram.label.toLowerCase().indexOf(term) !== -1);
+            diagram.visible = (term === '' || diagram.Diagram_Name__c.toLowerCase().indexOf(term) !== -1);
         });
         component.set('v.diagrams', diagrams);
     },
@@ -61,7 +69,7 @@
         var diagram = event.getParam('scope');
         component.set('v.selectedDiagram', diagram);
         helper.initialiseObjects(component, event, helper);
-        component.find('diagramConfigurator').find('targetPanel').set('v.currentState', 'GROUPS');
+
     },
 
     onObjectClicked : function(component, event, helper) {
@@ -72,6 +80,21 @@
 
     onAddNewDiagram : function(component, event, helper){
         helper.handleAddDiagram(component, event, helper);
+    },
+
+    onDiagramCreated : function(component, event, helper){
+        var newRecord = event.getParam('scope');
+        console.log('newRecord', JSON.stringify(newRecord));
+        component.set('v.selectedDiagram', newRecord);
+        var diagrams = component.get('v.diagrams');
+        diagrams.forEach(function (diagram){
+           if(diagram.value === newRecord.value){
+               var index = diagrams.findIndex(function(x) {return x.value === diagram.value});
+               diagrams[index] = newRecord;
+               component.set('v.diagrams', diagrams);
+               return;
+           }
+        });
     },
 
     onRemoveDiagram : function(component, event, helper){
@@ -250,4 +273,5 @@
         var isExpanded = event.getParam('scope');
         component.set('v.isShowDiagramConfigurator', !isExpanded);
     },
+
 })

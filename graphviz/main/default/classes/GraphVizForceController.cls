@@ -6,6 +6,11 @@
 public without sharing class GraphVizForceController {
 
     @AuraEnabled
+    public static List<Graphviz_Diagram__c> loadDiagrams(){
+        return [SELECT Id, Content__c FROM Graphviz_Diagram__c WHERE OwnerId = :UserInfo.getUserId()];
+    }
+
+    @AuraEnabled
     public static String loadSchema(){
 
         List<ObjectWrapper> objectWrappers = new List<ObjectWrapper>();
