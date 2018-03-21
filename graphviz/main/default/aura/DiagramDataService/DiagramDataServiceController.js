@@ -8,12 +8,17 @@
         var eventString = JSON.stringify(eventParams);
         console.log('handleRecordUpdated called:', eventString);
         if(eventParams.changeType === "LOADED") {
-           // record is loaded (render other component which needs record data value)
-           // Save the record:
-           var content = component.get('v.content');
-           component.set("v.simpleRecord.Content__c", JSON.stringify(content));
-           helper.saveRecord(component);
-
+            // record is loaded (render other component which needs record data value)
+            // Save the record:
+            var content = component.get('v.content');
+            component.set("v.simpleRecord.Content__c", JSON.stringify(content));
+            var operation = component.get('v.operation');
+            if(operation == 'UPDATE'){
+                helper.saveRecord(component);
+            }
+            else if(operation == 'DELETE'){
+                helper.deleteRecord(component);
+            }
         } else if(eventParams.changeType === "CHANGED") {
             // record is changed
             console.log('Record Updater: CHANGED');
@@ -41,6 +46,7 @@
             console.log('update diagram called');
             component.set('v.recordId', diagramObject.recordId);
             component.set('v.content', diagramObject);
+            component.set('v.operation', 'UPDATE');
             component.find("diagramRecordUpdater").reloadRecord();
         }
         else{
@@ -80,6 +86,7 @@
         if (params == null) return;
         var diagramObject = params.diagramObject;
         component.set('v.recordId', diagramObject.recordId);
-        helper.deleteRecord(component);
+        component.set('v.operation', 'DELETE');
+        component.find("diagramRecordUpdater").reloadRecord();
     },
 })

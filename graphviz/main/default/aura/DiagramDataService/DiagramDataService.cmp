@@ -14,6 +14,8 @@
     <aura:attribute name="simpleRecord" type="Object"/>
     <aura:attribute name="recordError" type="String"/>
 
+    <aura:attribute name="operation" type="String" default="UPDATE" />
+
     <aura:method name="createDiagramRecord" action="{!c.createDiagramRecord}">
         <aura:attribute name="diagramObject" type="Object"/>
     </aura:method>
@@ -44,6 +46,7 @@
                       targetFields="{!v.simpleRecord}"
                       targetError="{!v.recordError}"
                       recordUpdated="{!c.handleRecordUpdated}"/>
+
 
     <!-- Display Lightning Data Service errors -->
     <aura:if isTrue="{!not(empty(v.newDiagramError))}">
