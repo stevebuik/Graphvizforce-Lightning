@@ -22,6 +22,10 @@
         <aura:attribute name="diagramObject" type="Object" />
     </aura:method>
 
+    <aura:method name="deleteDiagramRecord" action="{!c.deleteDiagramRecord}">
+        <aura:attribute name="diagramObject" type="Object" />
+    </aura:method>
+
     <aura:registerEvent name="onDiagramCreated" type="c:actionEvent" />
 
     <force:recordData aura:id="diagramRecordCreator"

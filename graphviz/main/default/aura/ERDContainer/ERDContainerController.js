@@ -108,6 +108,7 @@
                return;
            }
        });
+       component.find('diagramDataService').deleteDiagramRecord(diagramToRemove);
     },
 
     onBackToList : function(component, event, helper){

@@ -18,8 +18,14 @@
             // record is changed
             console.log('Record Updater: CHANGED');
         } else if(eventParams.changeType === "REMOVED") {
-            // record is deleted
             console.log('Record Updater: REMOVED');
+            // record is deleted, show a toast UI message
+            var resultsToast = $A.get("e.force:showToast");
+            resultsToast.setParams({
+                "title": "Deleted",
+                "message": "The record was deleted."
+            });
+            resultsToast.fire();
         } else if(eventParams.changeType === "ERROR") {
             // there’s an error while loading, saving, or deleting the record
             console.log('Record Updater: ERROR');
@@ -67,5 +73,13 @@
         );
 
 
+    },
+
+    deleteDiagramRecord: function(component, event, helper) {
+        var params = event.getParam('arguments');
+        if (params == null) return;
+        var diagramObject = params.diagramObject;
+        component.set('v.recordId', diagramObject.recordId);
+        helper.deleteRecord(component);
     },
 })
