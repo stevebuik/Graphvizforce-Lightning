@@ -1,8 +1,11 @@
+/**
+ * Created by guan on 23/3/18.
+ */
 ({
 	onToggle : function(component, event, helper) {
 		component.set('v.collapsed', !component.get('v.collapsed'));
 	},
-    
+
     onRemove : function(component, event, helper) {
 		component.getEvent("onRemovePanel").setParams({scope:'REMOVE'}).fire();
 	},

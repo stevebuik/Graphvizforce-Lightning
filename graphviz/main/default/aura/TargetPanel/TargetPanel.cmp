@@ -7,17 +7,17 @@
     <aura:attribute name="showHelp3" type="Boolean" default="false" />
     <aura:attribute name="showHelp5" type="Boolean" default="false" />
     
-    <aura:registerEvent name="onObjectClicked" type="c:actionEvent" />
-    <aura:registerEvent name="onRemoveObject" type="c:actionEvent" />
-    <aura:registerEvent name="onAddGroup" type="c:actionEvent" />
-    <aura:registerEvent name="onDragObjectToGroup" type="c:actionEvent" />
+    <aura:registerEvent name="onObjectClicked" type="c:ActionEvent" />
+    <aura:registerEvent name="onRemoveObject" type="c:ActionEvent" />
+    <aura:registerEvent name="onAddGroup" type="c:ActionEvent" />
+    <aura:registerEvent name="onDragObjectToGroup" type="c:ActionEvent" />
     <aura:registerEvent name="UserGuideEvent" type="c:UserGuideEvent"/>
     
-    <aura:handler name="onIconClicked" event="c:actionEvent" action="{!c.onRemoveObject}" />
-    <aura:handler name="onLabelClicked" event="c:actionEvent" action="{!c.onPillLabelClicked}" />
+    <aura:handler name="onIconClicked" event="c:ActionEvent" action="{!c.onRemoveObject}" />
+    <aura:handler name="onLabelClicked" event="c:ActionEvent" action="{!c.onPillLabelClicked}" />
     <aura:handler event="c:UserGuideEvent" action="{!c.handleUserGuideEvent}"/>
-    
-    <c:panel title="{! v.currentState == 'GROUPS' ? 'Groups' : 'Attributes for ' + v.selectedObject.label}">
+
+    <c:Panel title="{! v.currentState == 'GROUPS' ? 'Groups' : 'Attributes for ' + v.selectedObject.label}">
         <aura:set attribute="icon">
             <aura:if isTrue="{! v.currentState == 'GROUPS'}">
             	<lightning:icon iconName="standard:product_item" size="medium"/>
@@ -68,8 +68,8 @@
                 </div>
             </aura:set>
         </aura:if>
-        
-    </c:panel>
+
+    </c:Panel>
 
     <lightning:notificationsLibrary aura:id="notifLib"/>
 

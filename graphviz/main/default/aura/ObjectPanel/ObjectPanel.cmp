@@ -6,7 +6,7 @@
     <aura:attribute name="showHelp2" type="Boolean" default="false" />
     <aura:attribute name="displayAllObjects" type="Boolean" />
 
-    <aura:registerEvent name="onAddObject" type="c:actionEvent" />
+    <aura:registerEvent name="onAddObject" type="c:ActionEvent" />
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:handler event="c:UserGuideEvent" action="{!c.handleUserGuideEvent}"/>
@@ -47,7 +47,7 @@
         <ul class="flexList" role="listbox" aria-label="Selected Options:" aria-orientation="horizontal">
             <aura:iteration items="{!v.objects}" var="object">
                 <li role="presentation" class="{! join(' ', 'slds-p-around_xx-small', object.visible ? '' : 'slds-hide')}">
-                    <c:pill value="{!object}" iconName="add" draggable="true" onIconClicked="{!c.onAddObject}" />
+                    <c:Pill value="{!object}" iconName="add" draggable="true" onIconClicked="{!c.onAddObject}" />
                 </li>
             </aura:iteration>
         </ul>

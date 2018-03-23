@@ -11,10 +11,10 @@
     <aura:attribute name="svgContent" type="String" />
 
     <!--<aura:handler event="c:UserGuideEvent" action="{!c.handleUserGuideEvent}"/>-->
-    <aura:registerEvent name="onTogglePreview" type="c:actionEvent" />
+    <aura:registerEvent name="onTogglePreview" type="c:ActionEvent" />
     <aura:method name="renderDiagram" action="{!c.renderDiagram}" />
 
-    <c:panel title="Output 1">
+    <c:Panel title="Output 1">
         <aura:set attribute="icon">
             <aura:if isTrue="{!v.isExpanded}">
                 <lightning:buttonIcon iconName="utility:contract" alternativeText="Contract" iconClass="slds-button_icon-x-small" onclick="{!c.onToggleState}" />
@@ -53,7 +53,7 @@
                 Coming Soon...
             </lightning:tab>
         </lightning:tabset>
-    </c:panel>
+    </c:Panel>
 
     <lightning:notificationsLibrary aura:id="notifLib"/>
 

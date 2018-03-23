@@ -2,26 +2,26 @@
     <aura:attribute name="group" type="Object" />
     <aura:attribute name="showRemoveConfirm" type="Boolean" default="false" />
     
-    <aura:registerEvent name="onRemoveGroup" type="c:actionEvent" />
-    <aura:registerEvent name="onEditGroupName" type="c:actionEvent"/>
-    
-	<c:panel title="{!v.group.label}" titleClass="slds-text-heading_xsmall" editable="true" removable="true" collapsible="true" onRemovePanel="{!c.onRemovePanel}" onEditPanelTitle="{!c.onEditPanelTitle}">
+    <aura:registerEvent name="onRemoveGroup" type="c:ActionEvent" />
+    <aura:registerEvent name="onEditGroupName" type="c:ActionEvent"/>
+
+	<c:Panel title="{!v.group.label}" titleClass="slds-text-heading_xsmall" editable="true" removable="true" collapsible="true" onRemovePanel="{!c.onRemovePanel}" onEditPanelTitle="{!c.onEditPanelTitle}">
         <div class="flexContainer">
             <ul class="flexList" role="listbox" aria-label="Selected Options:" aria-orientation="horizontal">
                 <aura:iteration items="{!v.group.entities}" var="object">
                     <li role="presentation" class="slds-p-around_xx-small">
-                        <c:pill value="{!object}" iconName="close" draggable="true" />
+                        <c:Pill value="{!object}" iconName="close" draggable="true" />
                     </li>
                 </aura:iteration>
             </ul>
         </div>
-    </c:panel>
+    </c:Panel>
 
-    <c:modal heading="Confirm" show="{!v.showRemoveConfirm}" showCancel="true">
+    <c:Modal heading="Confirm" show="{!v.showRemoveConfirm}" showCancel="true">
         <aura:set attribute="buttons">
             <button class="slds-button slds-button_neutral" onclick="{!c.onConfirmRemoveGroup}">Yes</button>
         </aura:set>
         <p>Do you want to remove this group?</p>
-    </c:modal>
+    </c:Modal>
 
 </aura:component>

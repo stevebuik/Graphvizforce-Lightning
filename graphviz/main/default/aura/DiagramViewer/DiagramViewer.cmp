@@ -9,7 +9,7 @@
 
     <aura:method name="onContentChange" action="{!c.onContentChange}" />
 
-    <aura:registerEvent name="onDiagramRendered" type="c:actionEvent"/>
+    <aura:registerEvent name="onDiagramRendered" type="c:ActionEvent"/>
     <aura:handler name="change" value="{!v.graphvizContent}" action="{!c.onContentChange}" />
 
     <ltng:require scripts="{!join(',', $Resource.VizJS)}"

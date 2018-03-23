@@ -10,7 +10,7 @@
     <aura:handler name="change" value="{!v.object}" action="{!c.handleObjectChange}" />
     <aura:handler event="c:UserGuideEvent" action="{!c.handleUserGuideEvent}"/>
     
-    <aura:registerEvent name="onObjectAttributesUpdated" type="c:actionEvent" />
+    <aura:registerEvent name="onObjectAttributesUpdated" type="c:ActionEvent" />
 
     <aura:if isTrue="{! v.showHelp4}">
         <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-theme_success" role="tooltip" id="help" style="position:absolute;margin-top:70px;">
@@ -20,30 +20,30 @@
 
     <div class="slds-grid">
         <div class="slds-size-1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-right_x-small" style="width:50%;">
-            <c:panel title="Available">
+            <c:Panel title="Available">
                 <lightning:input type="search" label="Search" name="search" value="{!v.availableSearchTerm}" onchange="{!c.onSearchAvailable}" />
                 <br />
                 <ul style="max-height:100vh;overflow:scroll;">
                     <aura:iteration items="{!v.availableAttributes}" var="field">
                         <li class="{! join(' ', 'slds-p-bottom_xxx-small', field.visible ? '' : 'slds-hide')}">
-                            <c:pill value="{!field}" iconName="chevronright" fullWidth="true" onIconClicked="{!c.onAddClicked}" onLabelClicked="{!c.onAttributeClicked}" />
+                            <c:Pill value="{!field}" iconName="chevronright" fullWidth="true" onIconClicked="{!c.onAddClicked}" onLabelClicked="{!c.onAttributeClicked}" />
                         </li>
                     </aura:iteration>
                 </ul>
-            </c:panel>
+            </c:Panel>
         </div>
         <div class="slds-size-1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2" style="width:50%;">
-            <c:panel title="Selected">
+            <c:Panel title="Selected">
                 <lightning:input type="search" label="Search" name="search" value="{!v.selectedSearchTerm}" onchange="{!c.onSearchSelected}" />
                 <br />
                 <ul style="max-height:100vh;overflow:scroll;">
                     <aura:iteration items="{!v.selectedAttributes}" var="field">
                         <li class="{! join(' ', 'slds-p-bottom_xxx-small', field.visible ? '' : 'slds-hide')}">
-                            <c:pill value="{!field}" iconName="chevronleft" iconPosition="left" fullWidth="true" onIconClicked="{!c.onRemoveClicked}" onLabelClicked="{!c.onAttributeClicked}" />
+                            <c:Pill value="{!field}" iconName="chevronleft" iconPosition="left" fullWidth="true" onIconClicked="{!c.onRemoveClicked}" onLabelClicked="{!c.onAttributeClicked}" />
                         </li>
                     </aura:iteration>
                 </ul>
-            </c:panel>
+            </c:Panel>
         </div>
     </div>
 </aura:component>

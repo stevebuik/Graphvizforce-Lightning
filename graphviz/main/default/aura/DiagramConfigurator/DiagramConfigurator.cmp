@@ -1,7 +1,6 @@
 <aura:component >
 
     <aura:attribute name="objects" type="Object[]" />
-    <!--<aura:attribute name="groups" type="Object[]" />-->
     <aura:attribute name="diagram" type="Object" />
     <aura:attribute name="selectedObject" type="Object" />
     <aura:attribute name="displayAllObjects" type="Boolean" />
@@ -14,5 +13,4 @@
             <c:TargetPanel aura:id="targetPanel" groups="{!v.diagram.groups}" selectedObject="{!v.selectedObject}" />
         </div>
     </div>
-
 </aura:component>

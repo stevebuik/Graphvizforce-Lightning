@@ -28,7 +28,7 @@
         <aura:attribute name="diagramObject" type="Object" />
     </aura:method>
 
-    <aura:registerEvent name="onDiagramCreated" type="c:actionEvent" />
+    <aura:registerEvent name="onDiagramCreated" type="c:ActionEvent" />
 
     <force:recordData aura:id="diagramRecordCreator"
                       layoutType="FULL"

@@ -1,16 +1,13 @@
 <aura:component >
-    
-    <!--<aura:attribute name="currentState" type="String" default="Objects" description="options: Objects, Attributes" />-->
+
     <aura:attribute name="objects" type="Object[]" />
     <aura:attribute name="displayAllObjects" type="Boolean" />
-    
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-    
-    <c:panel title="Objects">
+
+    <c:Panel title="Objects">
         <aura:set attribute="icon">
         	<lightning:icon iconName="standard:product_item_transaction" size="medium"/>
         </aura:set>
         <c:ObjectPanel aura:id="objectPanel" objects="{!v.objects}" displayAllObjects="{!v.displayAllObjects}" />
-    </c:panel>
+    </c:Panel>
     
 </aura:component>

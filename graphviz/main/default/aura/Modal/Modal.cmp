@@ -1,10 +1,14 @@
+<!--
+ - Created by guan on 23/3/18.
+ -->
+
 <aura:component >
-	
+
     <aura:attribute name="heading" type="String" />
     <aura:attribute name="showCancel" type="Boolean" default="true" />
     <aura:attribute name="buttons" type="Aura.Component[]" />
     <aura:attribute name="show" type="Boolean" default="false" />
-    
+
     <div class="{!join(' ', 'demo-only', v.show ? 'slds-show' : 'slds-hide')}" style="height: 640px;">
         <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
             <div class="slds-modal__container">

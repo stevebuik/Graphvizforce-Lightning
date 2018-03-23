@@ -1,3 +1,7 @@
+<!--
+ - Created by guan on 23/3/18.
+ -->
+
 <aura:component >
     <aura:attribute name="title" type="String" />
     <aura:attribute name="newTitle" type="String" />
@@ -8,14 +12,14 @@
     <aura:attribute name="collapsible" type="Boolean" default="false" />
     <aura:attribute name="collapsed" type="Boolean" default="false" />
     <aura:attribute name="isEditMode" type="Boolean" default="false" />
-    
-    <aura:registerEvent name="onRemovePanel" type="c:actionEvent"/>
-    <aura:registerEvent name="onEditPanelTitle" type="c:actionEvent"/>
-    
+
+    <aura:registerEvent name="onRemovePanel" type="c:ActionEvent"/>
+    <aura:registerEvent name="onEditPanelTitle" type="c:ActionEvent"/>
+
     <div class="slds-box slds-box_x-small">
         <div class="slds-grid slds-grid_vertical-align-center">
             <div class="{! join(' ', 'slds-p-right_x-small', not(empty(v.icon)) ? 'slds-show' : 'slds-hide')}">
-				{!v.icon}
+                {!v.icon}
             </div>
             <aura:if isTrue="{!v.isEditMode}">
                 <div class="slds-col">
@@ -45,10 +49,10 @@
             </aura:if>
 
         </div>
-		<aura:if isTrue="{!not(v.collapsed)}">
-	        <br />
-        	{!v.body}
+        <aura:if isTrue="{!not(v.collapsed)}">
+            <br />
+            {!v.body}
         </aura:if>
     </div>
-    
+
 </aura:component>
