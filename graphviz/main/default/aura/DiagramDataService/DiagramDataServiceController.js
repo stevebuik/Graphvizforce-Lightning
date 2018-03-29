@@ -38,6 +38,7 @@
     updateDiagramRecord : function(component, event, helper){
         var params = event.getParam('arguments');
         if (params == null) return;
+
         var diagramObject = params.diagramObject;
         var currentRecordId = component.get('v.recordId');
         if(currentRecordId != diagramObject.recordId){
@@ -57,13 +58,16 @@
         var params = event.getParam('arguments');
         if (params == null) return;
         var diagramObject = params.diagramObject;
+        var isClone = params.isClone;
 
         // Prepare a new record from template
+        $A.util.toggleClass(component.find("mySpinner"), "slds-hide");
         component.find("diagramRecordCreator").getNewRecord(
             "Graphviz_Diagram__c", // sObject type (objectApiName)
             null,      // recordTypeId
             false,     // skip cache?
             $A.getCallback(function() {
+                $A.util.toggleClass(component.find("mySpinner"), "slds-hide");
                 var rec = component.get("v.newDiagram");
                 var error = component.get("v.newDiagramError");
                 if(error || (rec === null)) {
@@ -72,16 +76,15 @@
                 }
                 console.log("Record template initialized: " + rec.sobjectType);
                 component.set("v.simpleNewDiagram.Content__c", JSON.stringify(diagramObject));
-                helper.createRecord(component, diagramObject);
+                helper.createRecord(component, diagramObject, isClone);
             })
         );
-
-
     },
 
     deleteDiagramRecord: function(component, event, helper) {
         var params = event.getParam('arguments');
         if (params == null) return;
+
         var diagramObject = params.diagramObject;
         component.set('v.recordId', diagramObject.recordId);
         component.set('v.operation', 'DELETE');

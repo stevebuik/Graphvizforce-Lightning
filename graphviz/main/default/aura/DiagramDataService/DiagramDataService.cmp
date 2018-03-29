@@ -18,6 +18,7 @@
 
     <aura:method name="createDiagramRecord" action="{!c.createDiagramRecord}">
         <aura:attribute name="diagramObject" type="Object"/>
+        <aura:attribute name="isClone" type="Boolean"/>
     </aura:method>
 
     <aura:method name="updateDiagramRecord" action="{!c.updateDiagramRecord}">
@@ -65,5 +66,7 @@
             </ui:message>
         </div>
     </aura:if>
+
+    <lightning:spinner variant="brand" size="large" aura:id="mySpinner" class="slds-hide" />
 
 </aura:component>

@@ -19,12 +19,14 @@
        }));
     },
 
-    createRecord : function(component, diagramObject){
+    createRecord : function(component, diagramObject, isClone){
+        $A.util.toggleClass(component.find("mySpinner"), "slds-hide");
         component.find("diagramRecordCreator").saveRecord(function(saveResult) {
+            $A.util.toggleClass(component.find("mySpinner"), "slds-hide");
             if (saveResult.state === "SUCCESS" || saveResult.state === "DRAFT") {
                 console.log('CREATE DIAGRAM SUCCESS');
                 diagramObject.recordId = component.get("v.simpleNewDiagram.Id");
-                component.getEvent('onDiagramCreated').setParams({scope:diagramObject}).fire();
+                component.getEvent('onDiagramCreated').setParams({scope:{diagramObject:diagramObject, isClone:isClone}}).fire();
             } else if (saveResult.state === "INCOMPLETE") {
                 // handle the incomplete state
                 console.log("User is offline, device doesn't support drafts.");
@@ -38,7 +40,9 @@
     },
 
     deleteRecord : function(component){
+        $A.util.toggleClass(component.find("mySpinner"), "slds-hide");
         component.find("diagramRecordUpdater").deleteRecord($A.getCallback(function(deleteResult) {
+            $A.util.toggleClass(component.find("mySpinner"), "slds-hide");
             // NOTE: If you want a specific behavior(an action or UI behavior) when this action is successful
             // then handle that in a callback (generic logic when record is changed should be handled in recordUpdated event handler)
             if (deleteResult.state === "SUCCESS" || deleteResult.state === "DRAFT") {

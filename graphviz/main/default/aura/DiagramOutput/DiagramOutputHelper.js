@@ -87,7 +87,7 @@
                        'edge  [arrowhead=crow]; \n';
         selectedDiagram.groups.forEach(function (group){
             group.entities.forEach(function (object){
-                var customFlag = object.isCustom ? ' (C)' : '';
+                var customFlag = object.isCustom ? ' [C]' : '';
                 var objectNode = object.value + ' [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"> \n' +
                                     ' <TR><TD PORT="' + object.value + '" BGCOLOR="lightgray">' + object.label + customFlag + '</TD></TR> \n';
                 var referenceFields = [];

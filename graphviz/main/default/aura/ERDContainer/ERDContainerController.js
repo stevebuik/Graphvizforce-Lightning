@@ -69,7 +69,6 @@
         var diagram = event.getParam('scope');
         component.set('v.selectedDiagram', diagram);
         helper.initialiseObjects(component, event, helper);
-
     },
 
     onObjectClicked : function(component, event, helper) {
@@ -83,10 +82,11 @@
     },
 
     onDiagramCreated : function(component, event, helper){
-        var newRecord = event.getParam('scope');
-        console.log('newRecord', JSON.stringify(newRecord));
-        component.set('v.selectedDiagram', newRecord);
+        var scope = event.getParam('scope');
+        var newRecord = scope.diagramObject;
+        var isClone = scope.isClone;
         var diagrams = component.get('v.diagrams');
+        var diagramName = newRecord.label;
         diagrams.forEach(function (diagram){
            if(diagram.value === newRecord.value){
                var index = diagrams.findIndex(function(x) {return x.value === diagram.value});
@@ -95,6 +95,23 @@
                return;
            }
         });
+        component.set('v.selectedDiagram', newRecord);
+
+        if(isClone){
+            component.find('diagramConfigurator').find('sourcePanel').find('objectPanel').set('v.searchTerm', '');
+            helper.initialiseObjects(component, event, helper);
+
+            component.find('notifLib').showToast({
+                "title": "Info",
+                "message": 'A new diagram "' + diagramName + '" has been cloned successfully.'
+            });
+        }
+        else{
+            component.find('notifLib').showToast({
+                "title": "Info",
+                "message": 'A new diagram "' + diagramName + '" has been created successfully.'
+            });
+        }
     },
 
     onRemoveDiagram : function(component, event, helper){

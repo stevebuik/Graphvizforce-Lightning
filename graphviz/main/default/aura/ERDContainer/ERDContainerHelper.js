@@ -11,7 +11,6 @@
         // Create a callback that is executed after
         // the server-side action returns
         action.setCallback(this, function(response) {
-            //$A.util.toggleClass(component.find("mySpinner"), "slds-hide");
             var state = response.getState();
             if (state === "SUCCESS") {
                 // You would typically fire a event here to trigger
@@ -250,13 +249,9 @@
             diagrams.push(newDiagram);
             diagrams.sort(helper.compare);
             component.set('v.diagrams', diagrams);
-            component.set('v.selectedDiagram', newDiagram);
+            //component.set('v.selectedDiagram', newDiagram);
             helper.initialiseObjects(component, event, helper);
-            component.find('notifLib').showToast({
-                "title": "Info",
-                "message": 'A new diagram "' + diagramName + '" has been cloned successfully.'
-            });
-            component.find('diagramDataService').createDiagramRecord(newDiagram);
+            component.find('diagramDataService').createDiagramRecord(newDiagram, true);
         }
     },
 
@@ -284,7 +279,7 @@
             diagrams.push(newDiagramObject);
             diagrams.sort(helper.compare);
             component.set('v.diagrams', diagrams);
-            component.find('diagramDataService').createDiagramRecord(newDiagramObject);
+            component.find('diagramDataService').createDiagramRecord(newDiagramObject, false);
         }
     },
 })
