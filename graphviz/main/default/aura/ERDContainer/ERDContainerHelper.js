@@ -185,9 +185,8 @@
 
             var group = groups[i];
 
-            group.entities.forEach(function (entity) {
+            group.entities.forEach(function (entity, index) {
                 if(entity.value === objectToAdd.value){
-                    var index = group.entities.findIndex(function(x) {return x.value === entity.value});
                     if(index !== -1){
                         group.entities.splice(index, 1);
                         groupRemoved = true;
@@ -213,9 +212,8 @@
     onSaveDiagram : function(component, event, helper) {
         var diagrams = component.get('v.diagrams');
         var selectedDiagram = component.get('v.selectedDiagram');
-        diagrams.forEach(function (diagram){
+        diagrams.forEach(function (diagram, index){
            if(diagram.value === selectedDiagram.value){
-               var index = diagrams.findIndex(function(x) {return x.value === diagram.value});
                diagrams[index] = selectedDiagram;
                component.set('v.diagrams', diagrams);
                return;
@@ -258,7 +256,7 @@
     handleAddDiagram : function(component, event, helper) {
         var diagrams = component.get('v.diagrams');
         var newDiagramName = component.get('v.newDiagramName');
-        var groups = [{label:'First Group', value:'First Group', entities:[]}];
+        var groups = [{label:'ContainerGroup', value:'ContainerGroup', entities:[]}];
 
         var exists = false;
         diagrams.forEach(function (diagram){

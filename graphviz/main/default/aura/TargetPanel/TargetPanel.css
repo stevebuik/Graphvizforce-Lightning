@@ -19,3 +19,7 @@
 .THIS .attributes{
     float:left;
 }
+
+.THIS .dropTarget{
+    min-height: 300px;
+}

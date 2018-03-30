@@ -19,33 +19,17 @@
 		component.getEvent('onRemoveObject').setParams(event.getParams()).fire();
     },
     
-    onAddGroup : function(component, event, helper){
-        var newGroupName = component.get('v.newGroupName');
-        var groups = component.get('v.groups');
-        var exists = false;
-        groups.forEach(function (group){
-            if(group.label === newGroupName){
-                exists = true;
-                return;
-            }
-        });
-
-        if(exists){
-            component.find('notifLib').showToast({
-                "title": "Info",
-                "message": 'This group name "'+ newGroupName +'" already exists.'
-            });
-        }
-        else{
-            component.getEvent('onAddGroup').setParams({scope:newGroupName}).fire();
-        }
-    },
-    
     onDragEnter : function(component, e, helper){
         if(e.target.nodeType === 1) {
 			e.preventDefault();
-            var target = helper.closest(e.target, '.slds-box');
-            target.classList.add("drag-enter");
+			var dropTarget;
+            if(e.target.classList.contains('dropTarget')){
+                dropTarget = e.target;
+            }
+            else{
+                dropTarget = helper.closest(e.target, '.dropTarget');
+            }
+            dropTarget.classList.add("drag-enter");
         }
     },
     
@@ -67,19 +51,76 @@
     onDrop : function(component, e, helper){
         if(e.target.nodeType === 1) {
             e.preventDefault();
-            e.target.classList.remove("drag-enter");
-			//var value = JSON.parse(e.dataTransfer.getData("value"));
+            var dropTarget;
+            if(e.target.classList.contains('dropTarget')){
+                dropTarget = e.target;
+            }
+            else{
+                dropTarget = helper.closest(e.target, '.dropTarget');
+            }
+            console.log('@@@@ onDrop dropTarget:', dropTarget);
+			dropTarget.classList.remove("drag-enter");
 			var value = e.dataTransfer.getData('value');
+            component.getEvent('onDragObjectToGroup').setParams({scope:{object:value}}).fire();
+        }
+    },
+
+
+    /*
+    onDragEnter : function(component, e, helper){
+        if(e.target.nodeType === 1) {
+            e.preventDefault();
+            var target = helper.closest(e.target, '.slds-box');
+            target.classList.add("drag-enter");
+        }
+    },
+
+    onDragLeave : function(component, e, helper){
+        if(e.target.nodeType === 1) {
+            e.preventDefault();
+            e.target.classList.remove("drag-enter");
+        }
+    },
+
+    onDrop : function(component, e, helper){
+        if(e.target.nodeType === 1) {
+            e.preventDefault();
+            e.target.classList.remove("drag-enter");
+            //var value = JSON.parse(e.dataTransfer.getData("value"));
+            var value = e.dataTransfer.getData('value');
             var dropTarget = helper.closest(e.target, '.dropTarget');
             var group = dropTarget.getAttribute('data-group');
             component.getEvent('onDragObjectToGroup').setParams({scope:{group:group, object:value}}).fire();
         }
     },
-    
+
+    onAddGroup : function(component, event, helper){
+        var newGroupName = component.get('v.newGroupName');
+        var groups = component.get('v.groups');
+        var exists = false;
+        groups.forEach(function (group){
+            if(group.label === newGroupName){
+                exists = true;
+                return;
+            }
+        });
+
+        if(exists){
+            component.find('notifLib').showToast({
+                "title": "Info",
+                "message": 'This group name "'+ newGroupName +'" already exists.'
+            });
+        }
+        else{
+            component.getEvent('onAddGroup').setParams({scope:newGroupName}).fire();
+        }
+    },
+    */
+
     onGroupsClicked : function(component, event, helper) {
         component.set('v.currentState', 'GROUPS');
     },
-    
+
     onAttributesClicked : function(component, event, helper) {
         component.set('v.currentState', 'ATTRIBUTES');
     },

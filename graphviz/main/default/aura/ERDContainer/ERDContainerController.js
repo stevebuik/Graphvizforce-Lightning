@@ -87,9 +87,8 @@
         var isClone = scope.isClone;
         var diagrams = component.get('v.diagrams');
         var diagramName = newRecord.label;
-        diagrams.forEach(function (diagram){
+        diagrams.forEach(function (diagram, index){
            if(diagram.value === newRecord.value){
-               var index = diagrams.findIndex(function(x) {return x.value === diagram.value});
                diagrams[index] = newRecord;
                component.set('v.diagrams', diagrams);
                return;
@@ -117,9 +116,8 @@
     onRemoveDiagram : function(component, event, helper){
        var diagrams = component.get('v.diagrams');
        var diagramToRemove = event.getParam('scope');
-       diagrams.forEach(function (diagram) {
+       diagrams.forEach(function (diagram, index) {
            if(diagram.value === diagramToRemove.value){
-               var index = diagrams.findIndex(function(x) { return x.value === diagramToRemove.value});
                diagrams.splice(index, 1);
                component.set('v.diagrams', diagrams);
                return;
@@ -146,12 +144,11 @@
         var group = event.getParam('scope');
         var selectedDiagram = component.get('v.selectedDiagram');
         var objects = component.get('v.objects');
-        selectedDiagram.groups.forEach(function (targetGroup) {
+        selectedDiagram.groups.forEach(function (targetGroup, index) {
             if(targetGroup.value === group.value){
                 targetGroup.entities.forEach(function (targetObject) {
                     objects.push(targetObject);
                 });
-                var index = selectedDiagram.groups.findIndex(function(x) {return x.value === targetGroup.value});
                 selectedDiagram.groups.splice(index, 1);
                 objects.sort(helper.compare);
                 selectedDiagram.groups.sort(helper.compare);
@@ -163,14 +160,10 @@
     },
 
     onAddObject : function(component, event, helper) {
-        component.set('v.showAddGroup', true);
-        component.set('v.objectToAdd', event.getParam('scope'));
-    },
-
-    onAddObjectToGroupClicked : function(component, event, helper){
-        component.set('v.showAddGroup', false);
-        var objectToAdd = component.get('v.objectToAdd');
-        var groupValue = event.getSource().get('v.value');
+        //component.set('v.showAddGroup', true);
+        //component.set('v.objectToAdd', event.getParam('scope'));
+        var objectToAdd = event.getParam('scope');
+        var groupValue = 'ContainerGroup';
         helper.addObjectToGroup(component, helper, objectToAdd, groupValue);
     },
 
@@ -178,9 +171,11 @@
         var objects = component.get('v.objects');
         var selectedDiagram = component.get('v.selectedDiagram');
         var scope = event.getParam('scope');
-        var groupValue = scope.group;
         var objectToAdd = JSON.parse(scope.object);
-
+        var groupValue = 'ContainerGroup';
+        console.log('@@@@ onDragObjectToGroup');
+        console.log(objectToAdd);
+        console.log(groupValue);
         helper.addObjectToGroup(component, helper, objectToAdd, groupValue);
     },
 
@@ -191,21 +186,14 @@
         var obj = event.getParam('scope');
         var selectedDiagram = component.get('v.selectedDiagram');
         var objects = component.get('v.objects');
+        var group = selectedDiagram.groups[0];
 
-        var groupIndex = -1;
         var objectIndex = -1;
         var objectToRemove;
-        selectedDiagram.groups.forEach(function (group) {
-            group.entities.forEach(function (targetObject) {
-                if(targetObject.value === obj.value){
-                    objectIndex = group.entities.findIndex(function(x) {return x.value === targetObject.value});
-                    groupIndex = selectedDiagram.groups.findIndex(function(x) {return x.value === group.value});
-                    objectToRemove = targetObject;
-                    return;
-                }
-            });
-            if(groupIndex !== -1 && objectIndex !== -1){
-                selectedDiagram.groups[groupIndex].entities.splice(objectIndex, 1);
+        group.entities.forEach(function (targetObject, objectIndex) {
+            if(targetObject.value === obj.value){
+                objectToRemove = targetObject;
+                selectedDiagram.groups[0].entities.splice(objectIndex, 1);
                 objects.push(objectToRemove);
                 objects.sort(helper.compare);
                 component.set('v.selectedDiagram', selectedDiagram);
@@ -284,6 +272,7 @@
     },
 
     onCloneDiagram : function(component, event, helper) {
+        $A.util.toggleClass(component.find("mySpinner"), "slds-hide");
         helper.onCloneDiagram(component, event, helper);
     },
 
@@ -292,4 +281,41 @@
         component.set('v.isShowDiagramConfigurator', !isExpanded);
     },
 
+
+    /* Deprecated functions
+    // Diagram Group Implementation
+    onTargetPanelRemoveObject : function(component, event, helper){
+        var obj = event.getParam('scope');
+        var selectedDiagram = component.get('v.selectedDiagram');
+        var objects = component.get('v.objects');
+
+        var groupIndex = -1;
+        var objectIndex = -1;
+        var objectToRemove;
+        selectedDiagram.groups.forEach(function (group, groupIndex) {
+            group.entities.forEach(function (targetObject, objectIndex) {
+                if(targetObject.value === obj.value){
+                    objectToRemove = targetObject;
+                    return;
+                }
+            });
+            if(groupIndex !== -1 && objectIndex !== -1){
+                selectedDiagram.groups[groupIndex].entities.splice(objectIndex, 1);
+                objects.push(objectToRemove);
+                objects.sort(helper.compare);
+                component.set('v.selectedDiagram', selectedDiagram);
+                component.set('v.objects', objects);
+                return;
+            }
+        });
+    },
+
+    onAddObjectToGroupClicked : function(component, event, helper){
+        component.set('v.showAddGroup', false);
+        var objectToAdd = component.get('v.objectToAdd');
+        var groupValue = event.getSource().get('v.value');
+        helper.addObjectToGroup(component, helper, objectToAdd, groupValue);
+    },
+
+    */
 })
