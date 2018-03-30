@@ -15,9 +15,8 @@
     <aura:attribute name="selectedDiagramSObject" type="Graphviz_Diagram__c" />
 
     <!-- handlers -->
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-    <aura:handler name="onAddGroup" event="c:ActionEvent" action="{!c.onAddGroup}" />
-    <aura:handler name="onRemoveGroup" event="c:ActionEvent" action="{!c.onRemoveGroup}" />
+    <!--<aura:handler name="onAddGroup" event="c:ActionEvent" action="{!c.onAddGroup}" />-->
+    <!--<aura:handler name="onRemoveGroup" event="c:ActionEvent" action="{!c.onRemoveGroup}" />-->
     <aura:handler name="onAddObject" event="c:ActionEvent" action="{!c.onAddObject}" />
     <aura:handler name="onObjectAttributesUpdated" event="c:ActionEvent" action="{!c.onObjectAttributesUpdated}" />
     <aura:handler name="onDragObjectToGroup" event="c:ActionEvent" action="{!c.onDragObjectToGroup}" />
@@ -26,6 +25,9 @@
     <aura:handler name="onObjectClicked" event="c:ActionEvent" action="{!c.onObjectClicked}" />
     <aura:handler name="onTogglePreview" event="c:ActionEvent" action="{!c.onTogglePreview}" />
     <aura:handler name="change" value="{!v.selectedDiagram}" action="{!c.onDiagramChanged}" />
+
+    <ltng:require scripts="{!join(',', $Resource.LightningUtils, $Resource.GraphvizForceUtils)}"
+                  afterScriptsLoaded="{!c.doInit}"/>
 
     <!-- Markup -->
     <div style="background:white;">

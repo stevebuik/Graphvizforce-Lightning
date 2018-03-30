@@ -13,8 +13,8 @@
             }
         });
 		
-        availableAttributes.sort(helper.compare);
-        selectedAttributes.sort(helper.compare);
+        availableAttributes.sort(GraphvizForce.DiagramHelper.compare);
+        selectedAttributes.sort(GraphvizForce.DiagramHelper.compare);
 		        
 		component.set('v.availableAttributes', availableAttributes);
 		component.set('v.selectedAttributes', selectedAttributes);

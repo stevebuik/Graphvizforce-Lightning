@@ -12,8 +12,8 @@
     <aura:registerEvent name="onDiagramRendered" type="c:ActionEvent"/>
     <aura:handler name="change" value="{!v.graphvizContent}" action="{!c.onContentChange}" />
 
-    <ltng:require scripts="{!join(',', $Resource.VizJS)}"
-                  afterScriptsLoaded="{!c.doInit}" />
+    <ltng:require scripts="{! $Resource.VizJS}"
+                  afterScriptsLoaded="{!c.doInit}"/>
 
     <div id="graph" style="text-align: center; width:100%;max-width:100%;"></div>
 

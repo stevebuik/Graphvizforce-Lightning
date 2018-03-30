@@ -1,12 +1,4 @@
 ({
-	compare : function(a,b) {
-        if (a.label < b.label)
-            return -1;
-        if (a.label > b.label)
-            return 1;
-        return 0;
-    },
-    
     handleFilterAvailable : function(component, event, helper) {
         var attributes = component.get('v.availableAttributes');
         var term = component.get('v.availableSearchTerm');

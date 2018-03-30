@@ -11,7 +11,7 @@
         window.showUserGuide = false;
 
         // Display user guide step 1
-        if(window.showUserGuide) component.find('diagramConfigurator').find('sourcePanel').find('objectPanel').set('v.showHelp1', true);
+        //if(window.showUserGuide) component.find('diagramConfigurator').find('sourcePanel').find('objectPanel').set('v.showHelp1', true);
 
         /* Start Setup Mock Data */
         /*
@@ -23,7 +23,7 @@
         for(var i=0;i<attributeArray.length;i++){
             attributeArray[i].visible = true;
         }
-        attributeArray.sort(helper.compare);
+        attributeArray.sort(GraphvizForce.DiagramHelper.compare);
 
         var objects = [];
         var groupIndex = 0;
@@ -37,7 +37,7 @@
             objects.push({label:'Z Object Name' + i, value:'ZObjectValue' + i, visible:false, attributes:JSON.parse(JSON.stringify(attributeArray))});
         }
 
-        objects.sort(helper.compare);
+        objects.sort(GraphvizForce.DiagramHelper.compare);
         component.set('v.allObjects', objects);
         */
         /* END Setup Mock Data */
@@ -55,20 +55,42 @@
 
     /** List View Functions **/
     onSearchDiagrams : function(component, event, helper) {
-        var diagrams = component.get('v.diagrams');
-        var term = component.get('v.searchTerm').toLowerCase();
-        diagrams.forEach(function(diagram){
-            diagram.visible = (term === '' || diagram.Diagram_Name__c.toLowerCase().indexOf(term) !== -1);
-        });
-        component.set('v.diagrams', diagrams);
+        GraphvizForce.DiagramUtils.onSearchDiagrams(component, event, helper);
     },
 
     gotoDiagramDetail : function(component, event, helper){
-        component.set('v.currentState', 'DETAIL');
-        component.find('diagramConfigurator').find('sourcePanel').find('objectPanel').set('v.searchTerm', '');
-        var diagram = event.getParam('scope');
-        component.set('v.selectedDiagram', diagram);
-        helper.initialiseObjects(component, event, helper);
+        GraphvizForce.DiagramUtils.gotoDiagramDetail(component, event, helper);
+    },
+
+    onAddNewDiagram : function(component, event, helper){
+        helper.handleAddDiagram(component, event, helper);
+    },
+
+    onDiagramCreated : function(component, event, helper){
+        GraphvizForce.DiagramUtils.onDiagramCreated(component, event, helper);
+    },
+
+    onRemoveDiagram : function(component, event, helper){
+        GraphvizForce.DiagramUtils.onRemoveDiagram(component, event, helper);
+    },
+
+    onDragObjectToGroup : function(component, event, helper){
+        GraphvizForce.DiagramUtils.onDragObjectToGroup(component, event, helper);
+    },
+
+    /**
+    * @description:	Remove the object from target panel and add it back to source panel
+    */
+    onTargetPanelRemoveObject : function(component, event, helper){
+        GraphvizForce.DiagramUtils.onTargetPanelRemoveObject(component, event, helper);
+    },
+
+    onObjectAttributesUpdated : function(component, event, helper){
+        GraphvizForce.DiagramUtils.onObjectAttributesUpdated(component, event, helper);
+    },
+
+    onBackToList : function(component, event, helper){
+        component.set('v.currentState', 'LIST');
     },
 
     onObjectClicked : function(component, event, helper) {
@@ -77,193 +99,10 @@
         component.set('v.selectedObject', obj);
     },
 
-    onAddNewDiagram : function(component, event, helper){
-        helper.handleAddDiagram(component, event, helper);
-    },
-
-    onDiagramCreated : function(component, event, helper){
-        var scope = event.getParam('scope');
-        var newRecord = scope.diagramObject;
-        var isClone = scope.isClone;
-        var diagrams = component.get('v.diagrams');
-        var diagramName = newRecord.label;
-        diagrams.forEach(function (diagram, index){
-           if(diagram.value === newRecord.value){
-               diagrams[index] = newRecord;
-               component.set('v.diagrams', diagrams);
-               return;
-           }
-        });
-        component.set('v.selectedDiagram', newRecord);
-
-        if(isClone){
-            component.find('diagramConfigurator').find('sourcePanel').find('objectPanel').set('v.searchTerm', '');
-            helper.initialiseObjects(component, event, helper);
-
-            component.find('notifLib').showToast({
-                "title": "Info",
-                "message": 'A new diagram "' + diagramName + '" has been cloned successfully.'
-            });
-        }
-        else{
-            component.find('notifLib').showToast({
-                "title": "Info",
-                "message": 'A new diagram "' + diagramName + '" has been created successfully.'
-            });
-        }
-    },
-
-    onRemoveDiagram : function(component, event, helper){
-       var diagrams = component.get('v.diagrams');
-       var diagramToRemove = event.getParam('scope');
-       diagrams.forEach(function (diagram, index) {
-           if(diagram.value === diagramToRemove.value){
-               diagrams.splice(index, 1);
-               component.set('v.diagrams', diagrams);
-               return;
-           }
-       });
-       component.find('diagramDataService').deleteDiagramRecord(diagramToRemove);
-    },
-
-    onBackToList : function(component, event, helper){
-        component.set('v.currentState', 'LIST');
-    },
-
-    /** Detail View functions **/
-    onAddGroup : function(component, event, helper) {
-        var selectedDiagram = component.get('v.selectedDiagram');
-        var groupName = event.getParam('scope');
-        var group = {label:groupName, value:groupName, entities:[]};
-        selectedDiagram.groups.push(group);
-        selectedDiagram.groups.sort(helper.compare);
-        component.set('v.selectedDiagram', selectedDiagram);
-    },
-
-    onRemoveGroup : function(component, event, helper) {
-        var group = event.getParam('scope');
-        var selectedDiagram = component.get('v.selectedDiagram');
-        var objects = component.get('v.objects');
-        selectedDiagram.groups.forEach(function (targetGroup, index) {
-            if(targetGroup.value === group.value){
-                targetGroup.entities.forEach(function (targetObject) {
-                    objects.push(targetObject);
-                });
-                selectedDiagram.groups.splice(index, 1);
-                objects.sort(helper.compare);
-                selectedDiagram.groups.sort(helper.compare);
-                component.set('v.objects', objects);
-                component.set('v.selectedDiagram', selectedDiagram);
-                return;
-            }
-        });
-    },
-
     onAddObject : function(component, event, helper) {
-        //component.set('v.showAddGroup', true);
-        //component.set('v.objectToAdd', event.getParam('scope'));
         var objectToAdd = event.getParam('scope');
         var groupValue = 'ContainerGroup';
         helper.addObjectToGroup(component, helper, objectToAdd, groupValue);
-    },
-
-    onDragObjectToGroup : function(component, event, helper){
-        var objects = component.get('v.objects');
-        var selectedDiagram = component.get('v.selectedDiagram');
-        var scope = event.getParam('scope');
-        var objectToAdd = JSON.parse(scope.object);
-        var groupValue = 'ContainerGroup';
-        console.log('@@@@ onDragObjectToGroup');
-        console.log(objectToAdd);
-        console.log(groupValue);
-        helper.addObjectToGroup(component, helper, objectToAdd, groupValue);
-    },
-
-    /**
-    * @description:	Remove the object from target panel and add it back to source panel
-    */
-    onTargetPanelRemoveObject : function(component, event, helper){
-        var obj = event.getParam('scope');
-        var selectedDiagram = component.get('v.selectedDiagram');
-        var objects = component.get('v.objects');
-        var group = selectedDiagram.groups[0];
-
-        var objectIndex = -1;
-        var objectToRemove;
-        group.entities.forEach(function (targetObject, objectIndex) {
-            if(targetObject.value === obj.value){
-                objectToRemove = targetObject;
-                selectedDiagram.groups[0].entities.splice(objectIndex, 1);
-                objects.push(objectToRemove);
-                objects.sort(helper.compare);
-                component.set('v.selectedDiagram', selectedDiagram);
-                component.set('v.objects', objects);
-                return;
-            }
-        });
-    },
-
-    onObjectAttributesUpdated : function(component, event, helper){
-        var attribute = event.getParam('scope');
-        var selectedDiagram = component.get('v.selectedDiagram');
-        var objects = component.get('v.objects');
-        var selectedObject = component.get('v.selectedObject');
-
-        // Find target object in groups and propagate attribute changes
-        selectedDiagram.groups.forEach(function (group) {
-            group.entities.forEach(function (targetObject) {
-                if(targetObject.value === selectedObject.value){
-                    targetObject.attributes.forEach(function (targetAttribute) {
-                        if(targetAttribute.value === attribute.value){
-                            targetAttribute.selected = attribute.selected;
-                            component.set('v.selectedDiagram', selectedDiagram);
-                            component.set('v.selectedObject', targetObject);
-                            return;
-                        }
-                    });
-                }
-            });
-        });
-
-        // Find target object in objects and propagate attribute changes
-        objects.forEach(function (targetObject) {
-            if(targetObject.value === selectedObject.value){
-                targetObject.attributes.forEach(function (targetAttribute) {
-                    if(targetAttribute.value === attribute.value){
-                        targetAttribute.selected = attribute.selected;
-                        component.set('v.objects', objects);
-                        component.set('v.selectedObject', targetObject);
-                        return;
-                    }
-                });
-            }
-        });
-    },
-
-    onEditGroupName : function(component, event, helper) {
-        var scope = event.getParam('scope');
-        var newGroupName = scope.newValue;
-        var selectedDiagram = component.get('v.selectedDiagram');
-        var updateIndex = selectedDiagram.groups.findIndex(function(x) { return x.value === scope.oldValue});
-
-        var exists = false;
-        selectedDiagram.groups.forEach(function (group){
-            if(group.label === newGroupName){
-                exists = true;
-                return;
-            }
-        });
-
-        if(exists){
-            component.find('notifLib').showToast({
-                "title": "Info",
-                "message": 'This group name "'+ newGroupName +'" already exists.'
-            });
-        }
-        else{
-            selectedDiagram.groups[updateIndex].label = selectedDiagram.groups[updateIndex].value = scope.newValue;
-            component.set('v.selectedDiagram', selectedDiagram);
-        }
     },
 
     onDiagramChanged : function(component, event, helper) {
@@ -272,7 +111,6 @@
     },
 
     onCloneDiagram : function(component, event, helper) {
-        $A.util.toggleClass(component.find("mySpinner"), "slds-hide");
         helper.onCloneDiagram(component, event, helper);
     },
 
@@ -302,7 +140,7 @@
             if(groupIndex !== -1 && objectIndex !== -1){
                 selectedDiagram.groups[groupIndex].entities.splice(objectIndex, 1);
                 objects.push(objectToRemove);
-                objects.sort(helper.compare);
+                objects.sort(GraphvizForce.DiagramHelper.compare);
                 component.set('v.selectedDiagram', selectedDiagram);
                 component.set('v.objects', objects);
                 return;
@@ -317,5 +155,58 @@
         helper.addObjectToGroup(component, helper, objectToAdd, groupValue);
     },
 
+    onAddGroup : function(component, event, helper) {
+        var selectedDiagram = component.get('v.selectedDiagram');
+        var groupName = event.getParam('scope');
+        var group = {label:groupName, value:groupName, entities:[]};
+        selectedDiagram.groups.push(group);
+        selectedDiagram.groups.sort(GraphvizForce.DiagramHelper.compare);
+        component.set('v.selectedDiagram', selectedDiagram);
+    },
+
+    onRemoveGroup : function(component, event, helper) {
+        var group = event.getParam('scope');
+        var selectedDiagram = component.get('v.selectedDiagram');
+        var objects = component.get('v.objects');
+        selectedDiagram.groups.forEach(function (targetGroup, index) {
+            if(targetGroup.value === group.value){
+                targetGroup.entities.forEach(function (targetObject) {
+                    objects.push(targetObject);
+                });
+                selectedDiagram.groups.splice(index, 1);
+                objects.sort(GraphvizForce.DiagramHelper.compare);
+                selectedDiagram.groups.sort(GraphvizForce.DiagramHelper.compare);
+                component.set('v.objects', objects);
+                component.set('v.selectedDiagram', selectedDiagram);
+                return;
+            }
+        });
+    },
+
+    onEditGroupName : function(component, event, helper) {
+        var scope = event.getParam('scope');
+        var newGroupName = scope.newValue;
+        var selectedDiagram = component.get('v.selectedDiagram');
+        var updateIndex = selectedDiagram.groups.findIndex(function(x) { return x.value === scope.oldValue});
+
+        var exists = false;
+        selectedDiagram.groups.forEach(function (group){
+            if(group.label === newGroupName){
+                exists = true;
+                return;
+            }
+        });
+
+        if(exists){
+            component.find('notifLib').showToast({
+                "title": "Info",
+                "message": 'This group name "'+ newGroupName +'" already exists.'
+            });
+        }
+        else{
+            selectedDiagram.groups[updateIndex].label = selectedDiagram.groups[updateIndex].value = scope.newValue;
+            component.set('v.selectedDiagram', selectedDiagram);
+        }
+    },
     */
 })
