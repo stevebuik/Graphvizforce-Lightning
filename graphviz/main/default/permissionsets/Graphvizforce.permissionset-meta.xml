@@ -4,6 +4,10 @@
         <application>GraphVizForce</application>
         <visible>true</visible>
     </applicationVisibilities>
+    <classAccesses>
+        <apexClass>GraphVizForceController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <fieldPermissions>
         <editable>true</editable>
         <field>Graphviz_Diagram__c.Content__c</field>
