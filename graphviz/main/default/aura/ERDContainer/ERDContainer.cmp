@@ -1,4 +1,4 @@
-<aura:component controller="GraphVizForceController" implements="flexipage:availableForAllPageTypes, force:appHostable">
+<aura:component controller="GraphVizForceController" implements="flexipage:availableForAllPageTypes, force:appHostable" access="global">
     <aura:attribute name="currentState" type="String" default="LIST" description="Options: LIST, DETAIL" />
     <aura:attribute name="allObjects" type="Object[]" />
     <aura:attribute name="objects" type="Object[]" />
