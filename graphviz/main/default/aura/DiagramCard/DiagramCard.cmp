@@ -4,6 +4,7 @@
 <aura:component description="DiagramCard">
 
     <aura:attribute name="diagram" type="Object" />
+    <aura:attribute name="numberOfObjects" type="Integer" />
     <aura:attribute name="showRemoveConfirm" type="Boolean" default="false" />
 
     <aura:registerEvent name="onViewDiagram" type="c:ActionEvent"/>
@@ -24,7 +25,7 @@
         </div>
         <div class="slds-card__body slds-card__body_inner">
             <br />
-            {!v.diagram.groups.length} Groups
+            {!v.diagram.groups[0].entities.length} Objects
             <br />
         </div>
         <footer class="slds-card__footer">
