@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>SampleDeployClass</members>
+        <members>SampleFailingTestClass</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>SampleAccountTrigger</members>
+        <name>ApexTrigger</name>
+    </types>
+    <version>41.0</version>
+</Package>

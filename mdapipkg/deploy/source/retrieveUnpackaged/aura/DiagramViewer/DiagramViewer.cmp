@@ -1,0 +1,20 @@
+<!--
+ - Created by guan on 27/11/17.
+ -->
+
+<aura:component description="DiagramViewer">
+
+    <aura:attribute name="initialised" type="Boolean" default="false" />
+    <aura:attribute name="graphvizContent" type="Object" />
+
+    <aura:method name="onContentChange" action="{!c.onContentChange}" />
+
+    <aura:registerEvent name="onDiagramRendered" type="c:ActionEvent"/>
+    <aura:handler name="change" value="{!v.graphvizContent}" action="{!c.onContentChange}" />
+
+    <ltng:require scripts="{! $Resource.VizJS}"
+                  afterScriptsLoaded="{!c.doInit}"/>
+
+    <div id="graph" style="text-align: center; width:100%;max-width:100%;"></div>
+
+</aura:component>

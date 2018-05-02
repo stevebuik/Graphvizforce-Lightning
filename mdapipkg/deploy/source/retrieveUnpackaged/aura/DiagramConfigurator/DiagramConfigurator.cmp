@@ -1,0 +1,16 @@
+<aura:component >
+
+    <aura:attribute name="objects" type="Object[]" />
+    <aura:attribute name="diagram" type="Object" />
+    <aura:attribute name="selectedObject" type="Object" />
+    <aura:attribute name="displayAllObjects" type="Boolean" />
+
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size-1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2 slds-p-around_xx-small">
+            <c:SourcePanel aura:id="sourcePanel" objects="{!v.objects}" displayAllObjects="{!v.displayAllObjects}" />
+        </div>
+        <div class="slds-col slds-size-1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2 slds-p-around_xx-small">
+            <c:TargetPanel aura:id="targetPanel" group="{!v.diagram.groups[0]}" selectedObject="{!v.selectedObject}" />
+        </div>
+    </div>
+</aura:component>

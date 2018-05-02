@@ -1,0 +1,72 @@
+<!--
+ - Created by guan on 13/3/18.
+ -->
+
+<aura:component description="DiagramDataService" implements="flexipage:availableForRecordHome,force:hasRecordId">
+
+    <aura:attribute name="content" type="Object" />
+
+    <aura:attribute name="newDiagram" type="Object"/>
+    <aura:attribute name="simpleNewDiagram" type="Object"/>
+    <aura:attribute name="newDiagramError" type="String"/>
+
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="simpleRecord" type="Object"/>
+    <aura:attribute name="recordError" type="String"/>
+
+    <aura:attribute name="operation" type="String" default="UPDATE" />
+
+    <aura:method name="createDiagramRecord" action="{!c.createDiagramRecord}">
+        <aura:attribute name="diagramObject" type="Object"/>
+        <aura:attribute name="isClone" type="Boolean"/>
+    </aura:method>
+
+    <aura:method name="updateDiagramRecord" action="{!c.updateDiagramRecord}">
+        <aura:attribute name="diagramObject" type="Object" />
+    </aura:method>
+
+    <aura:method name="deleteDiagramRecord" action="{!c.deleteDiagramRecord}">
+        <aura:attribute name="diagramObject" type="Object" />
+    </aura:method>
+
+    <aura:registerEvent name="onDiagramCreated" type="c:ActionEvent" />
+
+    <force:recordData aura:id="diagramRecordCreator"
+                      layoutType="FULL"
+                      fields="Id,Content__c"
+                      targetRecord="{!v.newDiagram}"
+                      targetFields="{!v.simpleNewDiagram}"
+                      targetError="{!v.newDiagramError}"/>
+
+    <force:recordData aura:id="diagramRecordUpdater"
+                      layoutType="FULL"
+                      mode="EDIT"
+                      fields="Id,Content__c"
+                      recordId="{!v.recordId}"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"
+                      targetError="{!v.recordError}"
+                      recordUpdated="{!c.handleRecordUpdated}"/>
+
+
+    <!-- Display Lightning Data Service errors -->
+    <aura:if isTrue="{!not(empty(v.newDiagramError))}">
+        <div class="recordError">
+            <ui:message title="Error" severity="error" closable="true">
+                {!v.newDiagramError}
+            </ui:message>
+        </div>
+    </aura:if>
+
+    <!-- Display Lightning Data Service errors, if any -->
+    <aura:if isTrue="{!not(empty(v.recordError))}">
+        <div class="recordError">
+            <ui:message title="Error" severity="error" closable="true">
+                {!v.recordError}
+            </ui:message>
+        </div>
+    </aura:if>
+
+    <lightning:spinner variant="brand" size="large" aura:id="mySpinner" class="slds-hide" />
+
+</aura:component>
