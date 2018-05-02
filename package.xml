@@ -27,6 +27,7 @@
     </types>
     <types>
         <members>GraphVizForceController</members>
+        <members>GraphvizForceControllerTest</members>
         <name>ApexClass</name>
     </types>
     <types>

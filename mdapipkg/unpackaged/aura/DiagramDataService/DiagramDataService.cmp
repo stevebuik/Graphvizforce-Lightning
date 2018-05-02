@@ -2,7 +2,7 @@
  - Created by guan on 13/3/18.
  -->
 
-<aura:component description="DiagramDataService" implements="flexipage:availableForRecordHome, force:hasRecordId" access="global">
+<aura:component description="DiagramDataService" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global">
 
     <aura:attribute name="content" type="Object" />
 
