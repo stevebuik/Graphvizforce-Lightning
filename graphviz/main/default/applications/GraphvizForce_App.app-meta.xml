@@ -6,7 +6,7 @@
     <formFactors>Large</formFactors>
     <label>GraphvizForce App</label>
     <navType>Standard</navType>
-    <tab>GraphvizForce_Page</tab>
+    <tab>GraphvizForce_Tab</tab>
     <uiType>Lightning</uiType>
     <utilityBar>GraphvizForce_App_UtilityBar</utilityBar>
 </CustomApplication>

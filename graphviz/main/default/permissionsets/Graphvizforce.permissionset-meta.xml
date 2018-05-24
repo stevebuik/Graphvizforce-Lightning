@@ -25,7 +25,7 @@
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <tabSettings>
-        <tab>GraphvizForce_Page</tab>
+        <tab>GraphvizForce_Tab</tab>
         <visibility>Visible</visibility>
     </tabSettings>
 </PermissionSet>
