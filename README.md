@@ -23,7 +23,7 @@ Login to the dev hub org using this command: (a new browser window will open)
 
 Now you are ready to create a new scratch org:
 
-`sfdx force:org:create --definitionfile config/project-scratch-def.json --setalias scratch1 --setdefaultusername`
+`sfdx force:org:create --definitionfile config/project-scratch-def.json --durationdays 30 --setalias scratch1 --setdefaultusername`
 
 List all orgs to see which you have setup and connected to your SFDX CLI:
 

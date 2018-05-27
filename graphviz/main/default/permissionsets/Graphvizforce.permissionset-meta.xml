@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <applicationVisibilities>
-        <application>GraphVizForce</application>
+        <application>GraphvizForce_App</application>
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
@@ -25,7 +25,7 @@
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <tabSettings>
-        <tab>GraphVizForce</tab>
+        <tab>GraphvizForce_Tab</tab>
         <visibility>Visible</visibility>
     </tabSettings>
 </PermissionSet>
