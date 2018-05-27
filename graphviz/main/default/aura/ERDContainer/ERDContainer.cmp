@@ -34,14 +34,7 @@
 
         <c:DiagramDataService aura:id="diagramDataService" onDiagramCreated="{!c.onDiagramCreated}" />
 
-        <!-- Display Lightning Data Service errors -->
-        <aura:if isTrue="{!not(empty(v.newContactError))}">
-            <div class="recordError">
-                <ui:message title="Error" severity="error" closable="true">
-                    {!v.newContactError}
-                </ui:message>
-            </div>
-        </aura:if>
+        <!-- TODO Display Lightning Data Service errors -->
 
         <c:AppHeader title="GraphVizForce" subTitle="Schema Diagrams made easy!">
             <aura:set attribute="icon">
