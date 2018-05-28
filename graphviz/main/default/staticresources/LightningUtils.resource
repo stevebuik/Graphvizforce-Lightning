@@ -16,7 +16,7 @@ window.Core;
                         Core.AuraUtils.findErrorMessages(a.getError(), messages);
                         alert('Server error : ' + messages);
                     }
-                    
+
 				});
 				$A.enqueueAction(action);
             },
@@ -31,8 +31,20 @@ window.Core;
                     }
                 }
             },
+            showNotification: function(title, message) {
+                var resultsToast = $A.get("e.force:showToast");
+                if ($A.util.isUndefined(resultsToast)) {
+                    console.log("Could not create showToast event!");
+                } else {
+                    resultsToast.setParams({
+                        "title": title,
+                        "message": message
+                    });
+                    resultsToast.fire();
+                }
+            }
         };
     })();
     Core.AuraUtils = AuraUtils;
-	
+
 })(window.Core || ( window.Core = {} ));

@@ -23,12 +23,7 @@
         } else if(eventParams.changeType === "REMOVED") {
             console.log('Record Updater: REMOVED');
             // record is deleted, show a toast UI message
-            var resultsToast = $A.get("e.force:showToast");
-            resultsToast.setParams({
-                "title": "Deleted",
-                "message": "The record was deleted."
-            });
-            resultsToast.fire();
+            Core.AuraUtils.showNotification("Deleted", "The diagram was deleted.")
         } else if(eventParams.changeType === "ERROR") {
             // there’s an error while loading, saving, or deleting the record
             console.log('Record Updater: ERROR');

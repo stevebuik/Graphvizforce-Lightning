@@ -38,17 +38,10 @@ window.GraphvizForce;
                 if(isClone){
                     component.find('diagramConfigurator').find('sourcePanel').find('objectPanel').set('v.searchTerm', '');
                     helper.initialiseObjects(component, event, helper);
-
-                    component.find('notifLib').showToast({
-                        "title": "Info",
-                        "message": 'A new diagram "' + diagramName + '" has been cloned successfully.'
-                    });
+                    Core.AuraUtils.showNotification("Info", "The diagram '" + diagramName + "' was cloned successfully.")
                 }
                 else{
-                    component.find('notifLib').showToast({
-                        "title": "Info",
-                        "message": 'A new diagram "' + diagramName + '" has been created successfully.'
-                    });
+                    Core.AuraUtils.showNotification("Info", "The diagram '" + diagramName + "' was created successfully.")
                 }
             },
 
