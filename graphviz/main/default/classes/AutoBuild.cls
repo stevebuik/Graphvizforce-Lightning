@@ -10,24 +10,40 @@ public with sharing class AutoBuild {
 
     @AuraEnabled
     public static List<BuilderSource> getSources(String sourceType) {
-        return getBuilder(sourceType).getSources();
+        try {
+            return getBuilder(sourceType).getSources();
+        } catch (UmlService.UmlServiceException se) {
+            throw handleToolingAPIException(se);
+        }
     }
 
     @AuraEnabled
     public static BuilderUpdate startSource(String sourceType, Id diagramId, String source) {
-        BuilderSource builderSource = (BuilderSource) JSON.deserialize(source, BuilderSource.class);
-        return getBuilder(sourceType).startSource(diagramId, builderSource);
+        try {
+            BuilderSource builderSource = (BuilderSource) JSON.deserialize(source, BuilderSource.class);
+            return getBuilder(sourceType).startSource(diagramId, builderSource);
+        } catch (UmlService.UmlServiceException se) {
+            throw handleToolingAPIException(se);
+        }
     }
 
     @AuraEnabled
     public static BuilderUpdate pollSource(String sourceType, Id diagramId, String source, String prevUpdate) {
-        BuilderSource builderSource = (BuilderSource) JSON.deserialize(source, BuilderSource.class);
-        BuilderUpdate builderUpdate = (BuilderUpdate) JSON.deserialize(prevUpdate, BuilderUpdate.class);
-        return getBuilder(sourceType).pollSource(diagramId, builderSource, builderUpdate);
+        try {
+            BuilderSource builderSource = (BuilderSource) JSON.deserialize(source, BuilderSource.class);
+            BuilderUpdate builderUpdate = (BuilderUpdate) JSON.deserialize(prevUpdate, BuilderUpdate.class);
+            return getBuilder(sourceType).pollSource(diagramId, builderSource, builderUpdate);
+        } catch (UmlService.UmlServiceException se) {
+            throw handleToolingAPIException(se);
+        }
+    }
+
+    private static AuraHandledException handleToolingAPIException(UmlService.UmlServiceException e) {
+        String userMessage = e.getMessage();
+        return new AuraHandledException(userMessage);
     }
 
     private static AutoBuilder getBuilder(String sourceType) {
-        System.debug('Creating builder: ' + sourceType);
         List<BuilderSourceType> types = getTypes();
         for (BuilderSourceType t : types) {
             if (t.sourceType == sourceType) {

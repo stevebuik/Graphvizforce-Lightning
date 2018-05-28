@@ -69,7 +69,7 @@ public class UmlService
 
     private static UmlServiceException makeException(final ToolingApi.ToolingAPIAuthorizationException tapiae)
     {
-        string message = 'In order to use ApexUML, you must establish a Remote Site entry for \''+System.Url.getSalesforceBaseUrl().toExternalForm()+'\'';
+        string message = 'In order to use the Tooling API, you must create a Remote Site Setting record for \''+System.Url.getSalesforceBaseUrl().toExternalForm()+'\'';
         return new UmlServiceException(message);
     }
 

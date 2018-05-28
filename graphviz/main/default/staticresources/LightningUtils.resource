@@ -14,7 +14,7 @@ window.Core;
                     else if (a.getState() === "ERROR"){
                     	var messages = [];
                         Core.AuraUtils.findErrorMessages(a.getError(), messages);
-                        alert('Error in Aura Action: ' + messages);
+                        alert('Server error : ' + messages);
                     }
                     
 				});
