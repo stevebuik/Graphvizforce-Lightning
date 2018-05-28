@@ -12,6 +12,10 @@ public without sharing class GraphVizForceController {
 
     @AuraEnabled
     public static String loadSchema(){
+        return JSON.serialize(loadSchemaWrappers());
+    }
+
+    public static List<ObjectWrapper> loadSchemaWrappers(){
 
         List<ObjectWrapper> objectWrappers = new List<ObjectWrapper>();
         Map<String, Schema.SObjectType> gd = Schema.getGlobalDescribe();
@@ -62,7 +66,7 @@ public without sharing class GraphVizForceController {
             }
         }
 
-        return JSON.serialize(objectWrappers);
+        return objectWrappers;
     }
 
     public class ObjectWrapper{
