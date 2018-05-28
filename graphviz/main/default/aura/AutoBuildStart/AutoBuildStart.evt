@@ -1,0 +1,6 @@
+<aura:event type="COMPONENT"
+            description="Fired when an auto-build is requested by a user, typically from a button click">
+
+    <aura:attribute access="public" name="type" type="String"/>
+
+</aura:event>

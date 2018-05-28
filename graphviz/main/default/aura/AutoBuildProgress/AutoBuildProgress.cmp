@@ -1,0 +1,47 @@
+<aura:component description="Display a progress bar and errors as a diagram is automatically created"
+                controller="AutoBuild">
+
+    <!--public-->
+    <aura:attribute type="Id" name="diagramId" access="public"
+                    description="The id for the diagram being populated"/>
+    <!--private-->
+    <aura:attribute type="Integer" name="progress" access="private" default="0"/>
+    <aura:attribute type="Boolean" name="active" access="private" default="false"/>
+    <aura:attribute type="String" name="currentSource" access="public"
+                    description="The name of the current source being analyzed for fields"/>
+    <aura:attribute type="List" name="sources" access="private"
+                    description="The sources that are being used to populate objects"/>
+    <aura:attribute type="Integer" name="currentSourceIndex" access="private" default="0"/>
+    <aura:attribute type="String" name="sourceType" access="public"
+                    description="The type of builder/plugin being used to find objects/fields"/>
+
+    <aura:registerEvent name="updateEvent" type="c:AutoBuildUpdate"/>
+
+    <aura:method name="start" action="{!c.start}"/>
+
+    <aura:if isTrue="{!v.active}">
+
+        <lightning:card>
+
+            <aura:set attribute="title">
+                <span>Loading Objects/Fields from </span>
+                <span><b>{!v.currentSource}</b></span>
+            </aura:set>
+
+            <aura:set attribute="actions">
+                <div class="spinnerContainer">
+                    <lightning:spinner alternativeText="Loading" size="small" variant="brand"/>
+                </div>
+            </aura:set>
+
+            <lightning:layout>
+                <lightning:layoutItem size="12" padding="around-small">
+                    <lightning:progressBar value="{!v.progress}" size="medium"/>
+                </lightning:layoutItem>
+            </lightning:layout>
+
+        </lightning:card>
+
+    </aura:if>
+
+</aura:component>

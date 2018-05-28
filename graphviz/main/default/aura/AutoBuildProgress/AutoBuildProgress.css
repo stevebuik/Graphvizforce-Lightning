@@ -1,0 +1,10 @@
+.THIS {
+    margin-bottom: 1rem;
+}
+
+.THIS .spinnerContainer {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 15px;
+}

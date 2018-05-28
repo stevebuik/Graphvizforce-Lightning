@@ -1,0 +1,23 @@
+<aura:component description="Allows user to select a method of automatically finding fields"
+                controller="AutoBuild">
+
+    <aura:attribute name="sources"
+                    description="All the types of sources available for generation"
+                    type="AutoBuild.BuilderSourceType[]"
+                    access="private"/>
+
+    <ltng:require scripts="{!join(',', $Resource.LightningUtils, $Resource.GraphvizForceUtils)}"
+                  afterScriptsLoaded="{!c.doInit}"/>
+
+    <aura:registerEvent name="startEvent" type="c:AutoBuildStart"/>
+
+    <lightning:select aura:id="select"
+                      label="Auto-add fields from:"
+                      onchange="{!c.handleSelection}">
+        <option value="prompt">Select a source</option>
+        <aura:iteration items="{!v.sources}" var="src">
+            <option value="{!src.sourceType}">{!src.label}</option>
+        </aura:iteration>
+    </lightning:select>
+
+</aura:component>
