@@ -1,0 +1,25 @@
+<apex:page>
+
+    <!--
+    This page hosts the ERD Container component, for two reasons.
+    1/ it can be used in Salesforce Classic, extending the reach of the tool to orgs not using LEX
+    2/ it works around this bug (still not fixed) https://success.salesforce.com/issues_view?id=a1p3A000000EAUPQA4&title=summer-17-generating-a-session-id-from-lightning-domain-provides-invalid-session-id
+       by hosting the ERDContainer on a visualforce domain instead of a lightning domain
+    -->
+
+    <apex:includeLightning/>
+
+    <div id="erd"></div>
+
+    <script>
+        $Lightning.use("c:ERDLightningOut", function () {
+            $Lightning.createComponent("c:ERDContainer",
+                    {},
+                    "erd",
+                    function (cmp) {
+                        // nothing to do, component will start itself
+                    });
+        });
+    </script>
+
+</apex:page>
