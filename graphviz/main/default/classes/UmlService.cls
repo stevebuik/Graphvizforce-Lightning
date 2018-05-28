@@ -30,9 +30,9 @@ public class UmlService
     {
         if (symbolTable != null)
         {
-            Map<String, ApexClass> classes = new ApexClassesSelector().selectByName(new List<String> { symbolTable.name });
+            ApexClass clazz = [select Id, Name, Body from ApexClass Where Name = :symbolTable.name];
 
-            list<string> classBodyLines = classes.get( symbolTable.name ).body.split('\n');
+            list<string> classBodyLines = clazz.body.split('\n');
 
             if ( classBodyLines[symbolTable.tableDeclaration.location.line - 1].containsIgnoreCase(' interface ') )
             {
@@ -76,13 +76,7 @@ public class UmlService
     public static ToolingApi.ContainerAsyncRequest compile(String className)
     {
         // Retrieve the ApexClass Body
-        Map<String, ApexClass> classes =
-                new ApexClassesSelector().selectByName(new List<String> { className });
-
-        if (classes.isEmpty())
-        {
-            throw new UmlServiceException('Apex Class ' + className + ' not found');
-        }
+        ApexClass clazz = [select Id, Name,Body From ApexClass Where Name = :className];
 
         // Delete any existing MetadataContainer?
         ToolingApi tooling = new ToolingApi();
@@ -131,8 +125,8 @@ public class UmlService
         // Create ApexClassMember and associate them with the MetadataContainer
         ToolingAPI.ApexClassMember apexClassMember = new ToolingAPI.ApexClassMember();
 
-        apexClassMember.Body = classes.get(className).Body;
-        apexClassMember.ContentEntityId = classes.get(className).id;
+        apexClassMember.Body = clazz.Body;
+        apexClassMember.ContentEntityId = clazz.id;
         apexClassMember.MetadataContainerId = containerId;
 
         ToolingAPI.SaveResult apexClassMemberSaveResult = tooling.createSObject(apexClassMember);
