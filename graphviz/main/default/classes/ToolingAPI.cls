@@ -1581,6 +1581,9 @@ public with sharing class ToolingAPI {
             }
         }
 
+        // uncomment this to record data for test mocks
+        //System.debug(JSON.serialize(data));
+
         HttpResponse queryRes = null;
         try {
             queryRes = h.send(queryReq);
@@ -1591,6 +1594,9 @@ public with sharing class ToolingAPI {
                 throw ce;
             }
         }
+
+        // uncomment to record data for test mocks
+        //System.debug(queryRes.getBody());
 
         Integer successCode = 200;
         if (method.equals('POST'))
