@@ -40,6 +40,7 @@ public without sharing class AutoBuildApex implements AutoBuild.AutoBuilder {
         result.status = request.state;
         if (request.state == 'Completed') {
 
+            System.debug('reading completed symbol table for class: '+source.source);
             ToolingApi.SymbolTable symbolTable = UmlService.symbolTable(request.metadataContainerId, source.source);
 
             AutoBuildDiagram diagram = new AutoBuildDiagram(payload.diagramId);
