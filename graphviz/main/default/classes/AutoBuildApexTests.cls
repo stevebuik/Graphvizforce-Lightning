@@ -5,7 +5,7 @@ public class AutoBuildApexTests {
 
     @IsTest
     private static void testApexSingleSourceWithoutEntities() {
-        // tests parsing a class (in this recorded data it's AutoBuild.class) using the tooling api and handling the completed response
+        // tests parsing a class (in this recorded data it's AutoBuildApex.class) using the tooling api and handling the completed response
 
         Map<String, AutoBuild.BuilderSourceType> typesByValue = new Map<String, AutoBuild.BuilderSourceType>();
         for (AutoBuild.BuilderSourceType sourceType : AutoBuild.getSourceTypes()) {
@@ -18,7 +18,7 @@ public class AutoBuildApexTests {
         List<BuilderSource> sources = AutoBuild.getSources(APEX_BUILDER_KEY);
         System.debug(sources);
 
-        String autoBuildClassSource = [SELECT Body FROM ApexClass WHERE Name = 'AutoBuild'].body;
+        String autoBuildClassSource = [SELECT Body FROM ApexClass WHERE Name = 'AutoBuildApex'].body;
         System.debug(new ToolingAPIMocks.RestRequest('POST', '/services/data/v29.0/tooling/sobjects/ApexClassMember', new Map<String, String>()).toString());
 
         // JSON responses recorded using System.debug in the ToolingAPI class.
@@ -45,6 +45,7 @@ public class AutoBuildApexTests {
                 new ToolingAPIMocks.RestResponse(ToolingAPIMocks.HTTP_CREATED, '{"id":"1dc0l000000bJ9wAAE","success":true,"errors":[]}'));
 
         startSourceHTTPResponses.put(
+                // note : the body of POST requests is not used by ToolingAPIMocks.RestRequest since it adds no value in tests
                 new ToolingAPIMocks.RestRequest('POST', '/services/data/v29.0/tooling/sobjects/ApexClassMember', new Map<String, String>()),
                 new ToolingAPIMocks.RestResponse(ToolingAPIMocks.HTTP_CREATED, '{"id":"4000l000000bWOwAAM","success":true,"errors":[]}'));
 

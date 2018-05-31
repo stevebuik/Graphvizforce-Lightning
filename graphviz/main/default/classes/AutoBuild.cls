@@ -105,13 +105,6 @@ public with sharing class AutoBuild {
             this.apexClass = metaData.Apex_Class__c;
             this.configComponent = metaData.Lightning_Config_Component__c;
         }
-        public BuilderSourceType(String sourceType, String label, String description, String apexClass, String config) {
-            this.sourceType = sourceType;
-            this.label = label;
-            this.description = description;
-            this.apexClass = apexClass;
-            this.configComponent = config;
-        }
     }
 
 }

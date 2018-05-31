@@ -158,6 +158,91 @@ public class UmlService
         return asyncRequest;
     }
 
+    public static ToolingApi.ContainerAsyncRequest compileTrigger(String triggerId)
+    {
+        // Retrieve the Body
+        ToolingAPI.ApexTrigger triggerObject = (ToolingAPI.ApexTrigger) new ToolingAPI().retrieveSObject(ToolingAPI.SObjectType.ApexTrigger, triggerId);
+
+        // Delete any existing MetadataContainer?
+        ToolingApi tooling = new ToolingApi();
+
+        List<ToolingAPI.MetadataContainer> containers = new List<ToolingAPI.MetadataContainer>();
+
+        try
+        {
+            containers = (List<ToolingAPI.MetadataContainer>)
+                    tooling.query(
+                            'SELECT Id, Name FROM MetadataContainer WHERE Name = \'GraphvizForce\'').records;
+        }
+        catch (ToolingApi.ToolingAPIAuthorizationException tapiae)
+        {
+            throw makeException(tapiae);
+        }
+
+        if ( containers != null && ! containers.isEmpty() )
+        {
+            tooling.deleteSObject(ToolingAPI.SObjectType.MetadataContainer, containers[0].Id);
+        }
+
+        // Create MetadataContainer
+        ToolingAPI.MetadataContainer container = new ToolingAPI.MetadataContainer();
+        container.name = 'GraphvizForce';
+
+        ToolingAPI.SaveResult containerSaveResult = new ToolingAPI.SaveResult();
+
+        try
+        {
+            containerSaveResult = tooling.createSObject(container);
+        }
+        catch (ToolingApi.ToolingAPIAuthorizationException tapiae)
+        {
+            throw makeException(tapiae);
+        }
+
+        system.debug( 'containerSaveResult == '+containerSaveResult );
+
+        if ( ! containerSaveResult.success )
+        {
+            throw makeException(containerSaveResult);
+        }
+        Id containerId = containerSaveResult.id;
+
+        // Create ApexClassMember and associate them with the MetadataContainer
+        ToolingAPI.ApexTriggerMember apexTriggerMember = new ToolingAPI.ApexTriggerMember();
+
+        apexTriggerMember.Body = triggerObject.Body;
+        apexTriggerMember.ContentEntityId = triggerObject.id;
+        apexTriggerMember.MetadataContainerId = containerId;
+
+        ToolingAPI.SaveResult apexTriggerMemberSaveResult = tooling.createSObject(apexTriggerMember);
+
+        if ( ! apexTriggerMemberSaveResult.success )
+        {
+            throw makeException(apexTriggerMemberSaveResult);
+        }
+
+        // Create ContainerAysncRequest to deploy (check only) the Apex Classes and thus obtain the SymbolTable's
+        ToolingAPI.ContainerAsyncRequest asyncRequest = new ToolingAPI.ContainerAsyncRequest();
+
+        asyncRequest.metadataContainerId = containerId;
+        asyncRequest.IsCheckOnly = true;
+
+        ToolingAPI.SaveResult asyncRequestSaveResult = tooling.createSObject(asyncRequest);
+
+        if ( ! asyncRequestSaveResult.success )
+        {
+            throw makeException(asyncRequestSaveResult);
+        }
+
+        asyncRequest = ((List<ToolingAPI.ContainerAsyncRequest>)
+                tooling.query(
+                        'SELECT Id, State, MetadataContainerId, CompilerErrors ' +
+                                'FROM ContainerAsyncRequest ' +
+                                'WHERE Id = \'' + asyncRequestSaveResult.Id + '\'').records)[0];
+
+        return asyncRequest;
+    }
+
     public static ToolingAPI.ContainerAsyncRequest containerAsyncRequest(String asyncRequestId)
     {
         // Query ContainerAsyncRequest and return to client
@@ -187,6 +272,23 @@ public class UmlService
             throw new UmlServiceException('Apex Class ' + className + ' not found in Metadata Container ' + asyncRequestId);
 
         return augumentSymbolTable(classes[0].symbolTable);
+    }
+
+    public static ToolingApi.SymbolTable symbolTableTrigger(String asyncRequestId, String triggerName)
+    {
+        ToolingApi toolingAPI = new ToolingApi();
+
+        List<ToolingAPI.ApexTriggerMember> triggers = (List<ToolingAPI.ApexTriggerMember>)
+                toolingAPI.query(
+                        'SELECT ContentEntityId, ContentEntity.Name, SymbolTable ' +
+                                'FROM ApexTriggerMember ' +
+                                'WHERE MetadataContainerId = \'' + asyncRequestId + '\' '  +
+                                'AND ContentEntity.Name = \'' + triggerName + '\'').records;
+
+        if (triggers == null || triggers.isEmpty())
+            throw new UmlServiceException('Apex Trigger ' + triggerName + ' not found in Metadata Container ' + asyncRequestId);
+
+        return triggers[0].symbolTable;
     }
 
     public class UmlServiceException extends Exception { }

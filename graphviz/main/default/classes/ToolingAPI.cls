@@ -99,6 +99,11 @@ public with sharing class ToolingAPI {
         return parseQueryResult(response.getBody());
     }
 
+    public QueryResult queryMore(String nextRecordsUrl) {
+        HttpResponse response = submitRestCall(nextRecordsUrl);
+        return parseQueryResult(response.getBody());
+    }
+
     /**
      * Describes all the sobjects via the tooling api.  This is the equivalent of
      * calling //instance/api/tooling/sobjects via the Tooling REST API.
@@ -180,7 +185,7 @@ public with sharing class ToolingAPI {
      * @param sobjectId Id of the applicable record to retrieve
      */
     public SObject_x retrieveSObject(SObjectType sobjType, Id sobjectId) {
-        //Have to prefix the sobjType with outter class name before type casting
+        //Have to prefix the sobjType with outer class name before type casting
         return (SObject_x) submitRestCallAndDeserialize(
                 '/sobjects/' + sobjType.name() + '/' + sobjectId
                 , Type.forName('ToolingAPI.' + sobjType.name())
@@ -562,7 +567,7 @@ public with sharing class ToolingAPI {
         public String name;
         public String namespacePrefix;
         public String status;
-        public Id tableEnumOrId;
+        public String tableEnumOrId;
         public boolean usageAfterDelete;
         public boolean usageAfterInsert;
         public boolean usageAfterUndelete;
