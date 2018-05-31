@@ -4,9 +4,9 @@
         <headerColor>#0070D2</headerColor>
     </brand>
     <formFactors>Large</formFactors>
-    <label>GraphvizForce App</label>
+    <label>GraphvizForce</label>
     <navType>Standard</navType>
-    <tab>GraphvizForce_Tab</tab>
+    <tab>Graphviz_Diagrams</tab>
     <uiType>Lightning</uiType>
     <utilityBar>GraphvizForce_App_UtilityBar</utilityBar>
 </CustomApplication>

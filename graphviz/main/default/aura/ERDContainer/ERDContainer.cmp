@@ -1,30 +1,35 @@
-<aura:component controller="GraphVizForceController" implements="flexipage:availableForAllPageTypes, force:appHostable" access="global">
-    <aura:attribute name="currentState" type="String" default="LIST" description="Options: LIST, DETAIL" />
-    <aura:attribute name="allObjects" type="Object[]" />
-    <aura:attribute name="objects" type="Object[]" />
-    <aura:attribute name="diagrams" type="Object[]" />
-    <aura:attribute name="selectedDiagram" type="Object" />
-    <aura:attribute name="objectToAdd" type="Object" />
-    <aura:attribute name="selectedObject" type="Object" />
-    <aura:attribute name="showAddGroup" type="Boolean" default="false" />
-    <aura:attribute name="newDiagramName" type="String" default="" />
-    <aura:attribute name="cloneDiagramName" type="String" default="" />
-    <aura:attribute name="searchTerm" type="String" default="" />
-    <aura:attribute name="displayAllObjects" type="Boolean" default="false" />
-    <aura:attribute name="isShowDiagramConfigurator" type="Boolean" default="true" />
-    <aura:attribute name="selectedDiagramSObject" type="Graphviz_Diagram__c" />
+<aura:component controller="GraphVizForceController" implements="flexipage:availableForAllPageTypes, force:appHostable"
+                access="global">
+    <aura:attribute name="currentState" type="String" default="LIST" description="Options: LIST, DETAIL"/>
+    <aura:attribute name="allObjects" type="Object[]"/>
+    <aura:attribute name="objects" type="Object[]"/>
+    <aura:attribute name="diagrams" type="Object[]"/>
+    <aura:attribute name="selectedDiagram" type="Object"/>
+    <aura:attribute name="objectToAdd" type="Object"/>
+    <aura:attribute name="selectedObject" type="Object"/>
+    <aura:attribute name="showAddGroup" type="Boolean" default="false"/>
+    <aura:attribute name="newDiagramName" type="String" default=""/>
+    <aura:attribute name="cloneDiagramName" type="String" default=""/>
+    <aura:attribute name="searchTerm" type="String" default=""/>
+    <aura:attribute name="displayAllObjects" type="Boolean" default="false"/>
+    <aura:attribute name="isShowDiagramConfigurator" type="Boolean" default="true"/>
+    <aura:attribute name="selectedDiagramSObject" type="Graphviz_Diagram__c"/>
+    <aura:attribute name="isAutoBuildActive" type="Boolean" default="false"
+                    description="Used to suppress diagram saves since they are performed by the Apex in an auto-build."/>
 
     <!-- handlers -->
     <!--<aura:handler name="onAddGroup" event="c:ActionEvent" action="{!c.onAddGroup}" />-->
     <!--<aura:handler name="onRemoveGroup" event="c:ActionEvent" action="{!c.onRemoveGroup}" />-->
-    <aura:handler name="onAddObject" event="c:ActionEvent" action="{!c.onAddObject}" />
-    <aura:handler name="onObjectAttributesUpdated" event="c:ActionEvent" action="{!c.onObjectAttributesUpdated}" />
-    <aura:handler name="onDragObjectToGroup" event="c:ActionEvent" action="{!c.onDragObjectToGroup}" />
-    <aura:handler name="onEditGroupName" event="c:ActionEvent" action="{!c.onEditGroupName}" />
-    <aura:handler name="onRemoveObject" event="c:ActionEvent" action="{!c.onTargetPanelRemoveObject}" />
-    <aura:handler name="onObjectClicked" event="c:ActionEvent" action="{!c.onObjectClicked}" />
-    <aura:handler name="onTogglePreview" event="c:ActionEvent" action="{!c.onTogglePreview}" />
-    <aura:handler name="change" value="{!v.selectedDiagram}" action="{!c.onDiagramChanged}" />
+    <aura:handler name="onAddObject" event="c:ActionEvent" action="{!c.onAddObject}"/>
+    <aura:handler name="onObjectAttributesUpdated" event="c:ActionEvent" action="{!c.onObjectAttributesUpdated}"/>
+    <aura:handler name="onDragObjectToGroup" event="c:ActionEvent" action="{!c.onDragObjectToGroup}"/>
+    <aura:handler name="onEditGroupName" event="c:ActionEvent" action="{!c.onEditGroupName}"/>
+    <aura:handler name="onRemoveObject" event="c:ActionEvent" action="{!c.onTargetPanelRemoveObject}"/>
+    <aura:handler name="onObjectClicked" event="c:ActionEvent" action="{!c.onObjectClicked}"/>
+    <aura:handler name="onTogglePreview" event="c:ActionEvent" action="{!c.onTogglePreview}"/>
+    <aura:handler name="change" value="{!v.selectedDiagram}" action="{!c.onDiagramChanged}"/>
+    <aura:handler name="startEvent" event="c:AutoBuildStart" action="{!c.onAutoBuildStart}"/>
+    <aura:handler name="updateEvent" event="c:AutoBuildUpdate" action="{!c.onAutoBuildUpdate}"/>
 
     <ltng:require scripts="{!join(',', $Resource.LightningUtils, $Resource.GraphvizForceUtils)}"
                   afterScriptsLoaded="{!c.doInit}"/>
@@ -32,7 +37,7 @@
     <!-- Markup -->
     <div style="background:white;">
 
-        <c:DiagramDataService aura:id="diagramDataService" onDiagramCreated="{!c.onDiagramCreated}" />
+        <c:DiagramDataService aura:id="diagramDataService" onDiagramCreated="{!c.onDiagramCreated}"/>
 
         <!-- TODO Display Lightning Data Service errors -->
 
@@ -52,18 +57,19 @@
                 </aura:if>
             </aura:set>
             <aura:set attribute="rightSection">
-                <!--
                 <aura:if isTrue="{!v.currentState == 'LIST'}">
                     <div class="slds-grid slds-grid_vertical-align-end">
-                        <lightning:input type="text" label="New Diagram Name" name="newDiagramName" class="slds-p-right_small" value="{!v.newDiagramName}" />
-                        <lightning:button class="slds-button slds-button_neutral slds-align-bottom" label="Add" disabled="{!v.newDiagramName.length == 0}" onclick="{!c.onAddDiagram}" />
                     </div>
                 </aura:if>
-                -->
                 <aura:if isTrue="{!v.currentState == 'DETAIL'}">
                     <div class="slds-grid slds-grid_vertical-align-end">
-                        <lightning:input type="text" label="New Diagram Name" name="cloneDiagramName" class="slds-p-right_small" value="{!v.cloneDiagramName}" />
-                        <lightning:button class="slds-button slds-button_neutral" label="Clone" disabled="{!v.cloneDiagramName.length == 0}" onclick="{!c.onCloneDiagram}" />
+                        <span style="margin-right: 4rem;">
+                            <c:AutoBuildSelector/>
+                        </span>
+                        <lightning:input type="text" placeholder="Save As New Diagram" name="cloneDiagramName"
+                                         class="slds-p-right_small" value="{!v.cloneDiagramName}"/>
+                        <lightning:button class="slds-button slds-button_neutral" label="Clone"
+                                          disabled="{!v.cloneDiagramName.length == 0}" onclick="{!c.onCloneDiagram}"/>
                     </div>
                 </aura:if>
 
@@ -76,7 +82,8 @@
                     <aura:iteration items="{!v.diagrams}" var="diagram">
                         <aura:if isTrue="{!diagram.visible}">
                             <li class="slds-p-around_small">
-                                <c:DiagramCard diagram="{!diagram}" onViewDiagram="{!c.gotoDiagramDetail}" onRemoveDiagram="{!c.onRemoveDiagram}" />
+                                <c:DiagramCard diagram="{!diagram}" onViewDiagram="{!c.gotoDiagramDetail}"
+                                               onRemoveDiagram="{!c.onRemoveDiagram}"/>
                             </li>
                         </aura:if>
                     </aura:iteration>
@@ -93,11 +100,15 @@
                                 </header>
                             </div>
                             <div class="slds-card__body slds-card__body_inner">
-                                <lightning:input type="text" label="New Diagram Name" name="newDiagramName" class="slds-p-right_small" value="{!v.newDiagramName}" />
+                                <lightning:input type="text" label="New Diagram Name" name="newDiagramName"
+                                                 class="slds-p-right_small" value="{!v.newDiagramName}"/>
                             </div>
                             <footer class="slds-card__footer">
                                 <div class="slds-button-group" role="group">
-                                    <button class="slds-button slds-button_neutral" disabled="{!v.newDiagramName.length == 0}" onclick="{!c.onAddNewDiagram}">Add Diagram</button>
+                                    <button class="slds-button slds-button_neutral"
+                                            disabled="{!v.newDiagramName.length == 0}" onclick="{!c.onAddNewDiagram}">
+                                        Add Diagram
+                                    </button>
                                 </div>
                             </footer>
                         </article>
@@ -107,21 +118,27 @@
 
             <div class="{! join(' ', 'slds-grid slds-wrap', v.currentState == 'DETAIL' ? '' : 'slds-hide')}">
                 <div class="{!join(' ', 'slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2', v.isShowDiagramConfigurator ? '' : 'slds-hide')}">
-                    <c:DiagramConfigurator aura:id="diagramConfigurator" objects="{!v.objects}" selectedObject="{!v.selectedObject}" diagram="{!v.selectedDiagram}" displayAllObjects="{!v.displayAllObjects}" />
+                    <c:DiagramConfigurator aura:id="diagramConfigurator" objects="{!v.objects}"
+                                           selectedObject="{!v.selectedObject}" diagram="{!v.selectedDiagram}"
+                                           displayAllObjects="{!v.displayAllObjects}"/>
                 </div>
 
                 <div class="{!join(' ', 'slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-p-around_xx-small', v.isShowDiagramConfigurator ? 'slds-large-size_1-of-2' : 'slds-large-size_1-of-1')}">
-                    <c:DiagramOutput aura:id="diagramOutput" selectedDiagram="{!v.selectedDiagram}" allObjects="{!v.allObjects}" />
+                    <c:AutoBuildProgress aura:id="autoBuildProgress"/>
+                    <c:DiagramOutput aura:id="diagramOutput" selectedDiagram="{!v.selectedDiagram}"
+                                     allObjects="{!v.allObjects}"/>
                 </div>
             </div>
         </div>
 
         <c:Modal heading="Add to a Group" show="{!v.showAddGroup}">
             <div class="slds-scrollable" style="max-height:320px;">
-                <ul class="slds-listbox slds-listbox_horizontal" role="listbox" aria-label="Selected Options:" aria-orientation="horizontal">
+                <ul class="slds-listbox slds-listbox_horizontal" role="listbox" aria-label="Selected Options:"
+                    aria-orientation="horizontal">
                     <aura:iteration items="{!v.selectedDiagram.groups}" var="group">
                         <li class="slds-p-around_xx-small">
-                            <lightning:button class="slds-button slds-button_neutral" label="{!group.label}" value="{!group.value}" onclick="{!c.onAddObjectToGroupClicked}" />
+                            <lightning:button class="slds-button slds-button_neutral" label="{!group.label}"
+                                              value="{!group.value}" onclick="{!c.onAddObjectToGroupClicked}"/>
                         </li>
                     </aura:iteration>
                 </ul>
@@ -132,6 +149,6 @@
 
     <lightning:notificationsLibrary aura:id="notifLib"/>
 
-    <lightning:spinner variant="brand" size="large" aura:id="mySpinner" />
+    <lightning:spinner variant="brand" size="large" aura:id="mySpinner"/>
 
 </aura:component>

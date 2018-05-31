@@ -79,9 +79,9 @@
     },
 
     /**
-    * @description:	Remove the object from target panel and add it back to source panel
-    */
-    onTargetPanelRemoveObject : function(component, event, helper){
+     * @description:    Remove the object from target panel and add it back to source panel
+     */
+    onTargetPanelRemoveObject: function (component, event, helper) {
         GraphvizForce.DiagramUtils.onTargetPanelRemoveObject(component, event, helper);
     },
 
@@ -105,8 +105,10 @@
         helper.addObjectToGroup(component, helper, objectToAdd, groupValue);
     },
 
-    onDiagramChanged : function(component, event, helper) {
-        helper.onSaveDiagram(component, event, helper);
+    onDiagramChanged: function (component, event, helper) {
+        if (!component.get("v.isAutoBuildActive")) {
+            helper.onSaveDiagram(component, event, helper);
+        }
         component.find('diagramOutput').renderDiagram(component, event, helper);
     },
 
@@ -114,11 +116,22 @@
         helper.onCloneDiagram(component, event, helper);
     },
 
-    onTogglePreview : function(component, event, helper){
+    onTogglePreview: function (component, event, helper) {
         var isExpanded = event.getParam('scope');
         component.set('v.isShowDiagramConfigurator', !isExpanded);
     },
-
+    onAutoBuildStart: function (component, event, helper) {
+        var progress = component.find("autoBuildProgress");
+        progress.set("v.diagramId", component.get("v.selectedDiagram").recordId);
+        progress.set("v.sourceType", event.getParam("type"));
+        progress.start();
+    },
+    onAutoBuildUpdate: function (component, event, helper) {
+        component.set("v.isAutoBuildActive", true); // suppress the diagram save above
+        component.set('v.selectedDiagram', event.getParams().diagram);
+        component.set("v.isAutoBuildActive", false);
+        helper.initialiseObjects(component, event, helper);
+    },
 
     /* Deprecated functions
     // Diagram Group Implementation
