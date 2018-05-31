@@ -1,10 +1,19 @@
 public without sharing class AutoBuildApex implements AutoBuild.AutoBuilder {
 
     public List<BuilderSource> getSources() {
+
+        Set<String> excluded = new Set<String>{
+                'AutoBuild', 'AutoBuildApex', 'AutoBuildApexTests', 'AutoBuildDiagram', 'AutoBuildTrigger',
+                'AutoBuildTriggerTests', 'BuilderSource', 'GraphVizForceController', 'GraphvizForceControllerTest',
+                'ToolingAPI', 'ToolingAPITest', 'ToolingAPIMocks', 'UmlService',
+                'egServerSideActionController', 'egServerSideActionControllerTest'
+        };
+
         List<BuilderSource> results = new List<BuilderSource>();
         for (List<ApexClass> classes : [
                 SELECT Id, Name
-                From ApexClass
+                FROM ApexClass
+                WHERE Name <> :excluded
                 ORDER BY NAME
         ]) {
             for (ApexClass clazz : classes) {
@@ -40,7 +49,7 @@ public without sharing class AutoBuildApex implements AutoBuild.AutoBuilder {
         result.status = request.state;
         if (request.state == 'Completed') {
 
-            System.debug('reading completed symbol table for class: '+source.source);
+            System.debug('reading completed symbol table for class: ' + source.source);
             ToolingApi.SymbolTable symbolTable = UmlService.symbolTable(request.metadataContainerId, source.source);
 
             AutoBuildDiagram diagram = new AutoBuildDiagram(payload.diagramId);
