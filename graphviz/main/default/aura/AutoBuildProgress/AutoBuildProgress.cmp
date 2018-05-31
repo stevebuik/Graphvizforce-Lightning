@@ -21,26 +21,23 @@
 
     <aura:if isTrue="{!v.active}">
 
-        <lightning:card>
+        <lightning:layout multipleRows="true">
 
-            <aura:set attribute="title">
-                <span>Loading Objects/Fields from </span>
-                <span><b>{!v.currentSource}</b></span>
-            </aura:set>
-
-            <aura:set attribute="actions">
+            <lightning:layoutItem size="1" padding="around-small">
                 <div class="spinnerContainer">
                     <lightning:spinner alternativeText="Loading" size="small" variant="brand"/>
                 </div>
-            </aura:set>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="11" padding="around-small">
+                <span>Loading Objects and Fields from </span>
+                <span><b>{!v.currentSource}</b></span>
+            </lightning:layoutItem>
 
-            <lightning:layout>
-                <lightning:layoutItem size="12" padding="around-small">
-                    <lightning:progressBar value="{!v.progress}" size="medium"/>
-                </lightning:layoutItem>
-            </lightning:layout>
+            <lightning:layoutItem size="12" padding="around-small">
+                <lightning:progressBar value="{!v.progress}" size="medium"/>
+            </lightning:layoutItem>
 
-        </lightning:card>
+        </lightning:layout>
 
     </aura:if>
 

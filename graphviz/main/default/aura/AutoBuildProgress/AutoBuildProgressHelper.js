@@ -39,6 +39,8 @@
         var isLastSource = current == sources.length - 1;
         if (isLastSource) {
             component.set("v.active", false);
+            component.set("v.currentSource", '');
+            component.set("v.progress", 0);
         } else {
             current++;
             component.set("v.currentSourceIndex", current);
