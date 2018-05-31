@@ -2,6 +2,6 @@
 <CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
     <label>Graphviz Diagrams</label>
     <mobileReady>false</mobileReady>
-    <motif>Custom67: Gears</motif>
+    <motif>Custom78: Map</motif>
     <page>AutoBuildBridge</page>
 </CustomTab>

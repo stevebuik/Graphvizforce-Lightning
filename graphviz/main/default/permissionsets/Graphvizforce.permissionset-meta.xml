@@ -24,8 +24,12 @@
         <object>Graphviz_Diagram__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+    <pageAccesses>
+        <apexPage>AutoBuildBridge</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <tabSettings>
-        <tab>GraphvizForce_Tab</tab>
+        <tab>Graphviz_Diagrams</tab>
         <visibility>Visible</visibility>
     </tabSettings>
 </PermissionSet>
