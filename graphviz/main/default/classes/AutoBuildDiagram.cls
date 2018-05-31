@@ -5,18 +5,18 @@ public class AutoBuildDiagram {
 
     private final Id diagramId;
 
-    private final AutoBuild.Diagram diagram;
+    private final Diagram diagram;
 
-    public final Map<String, AutoBuild.DiagramEntity> diagramEntitiesByName = new Map<String, AutoBuild.DiagramEntity>();
+    public final Map<String, DiagramEntity> diagramEntitiesByName = new Map<String, DiagramEntity>();
 
     public AutoBuildDiagram(Id diagramId) {
         this.diagramId = diagramId;
 
         String content = [SELECT Id,Content__c from Graphviz_Diagram__c WHERE Id = :diagramId][0].Content__c;
-        this.diagram = (AutoBuild.Diagram) JSON.deserialize(content, AutoBuild.Diagram.class);
+        this.diagram = (Diagram) JSON.deserialize(content, Diagram.class);
 
         // create a lookup for all the entities in the persisted JSON diagram
-        for (AutoBuild.DiagramEntity entity : this.diagram.groups.get(0).entities) {
+        for (DiagramEntity entity : this.diagram.groups.get(0).entities) {
             diagramEntitiesByName.put(entity.value, entity);
         }
     }
@@ -34,7 +34,7 @@ public class AutoBuildDiagram {
 
     /** Add a new entity to the existing diagram
      */
-    public void addEntity(AutoBuild.DiagramEntity diagramEntity) {
+    public void addEntity(DiagramEntity diagramEntity) {
         if (diagramEntitiesByName.containsKey(diagramEntity.value)) {
             throw new UnsupportedOperationException('entity already in diagram: ' + diagramEntity.value);
         }
@@ -54,6 +54,73 @@ public class AutoBuildDiagram {
 
     public String asJSON() {
         return JSON.serialize(this.diagram);
+    }
+
+    /**
+     * @group Diagram Persistence
+     *
+     * @description The top level entity stored as JSON for a diagram.
+     */
+    public class Diagram {
+        public String label;
+        public String value;
+        public Boolean visible;
+        public Id recordId;
+        public List<DiagramGroup> groups;
+    }
+
+    public class DiagramGroup {
+        public String label;
+        public String value;
+        public List<DiagramEntity> entities;
+    }
+
+    public class DiagramEntity {
+        public String label;
+        public String value;
+        public Boolean isCustom;
+        public Boolean visible;
+        public List<DiagramAttribute> attributes;
+        public DiagramEntity(GraphVizForceController.ObjectWrapper objectWrapper) {
+            this.value = objectWrapper.apiName;
+            this.label = objectWrapper.label;
+            this.visible = true;
+            this.isCustom = objectWrapper.isCustom;
+            this.attributes = new List<DiagramAttribute>();
+            for (GraphVizForceController.FieldWrapper fieldWrapper : objectWrapper.fields) {
+                this.attributes.add(new DiagramAttribute(fieldWrapper));
+            }
+        }
+    }
+
+    public class DiagramAttribute {
+        public String label;
+        public String value;
+        public String type;
+        public Boolean isCustom;
+        public Boolean isMDOrCascadeDelete;
+        public Boolean visible;
+        public Boolean selected;
+        public List<Map<String, String>> references;
+        public DiagramAttribute(GraphVizForceController.FieldWrapper fieldWrapper) {
+            this.label = fieldWrapper.label;
+            this.value = fieldWrapper.apiName;
+            this.type = fieldWrapper.type;
+            this.isCustom = fieldWrapper.isCustom;
+            this.isMDOrCascadeDelete = fieldWrapper.isMDOrCascadeDelete;
+            this.visible = false;
+            this.selected = false;
+            this.references = new List<Map<String, String>>();
+            if (fieldWrapper.referenceFields != NULL) {
+                for (GraphVizForceController.RelationshipWrapper relationshipWrapper : fieldWrapper.referenceFields) {
+                    Map<String, String> relationship = new Map<String, String>();
+                    relationship.put('referenceFieldAPIName', relationshipWrapper.referenceFieldAPIName);
+                    relationship.put('parentLabel', relationshipWrapper.parentLabel);
+                    relationship.put('parentAPIName', relationshipWrapper.parentAPIName);
+                    this.references.add(relationship);
+                }
+            }
+        }
     }
 
 }

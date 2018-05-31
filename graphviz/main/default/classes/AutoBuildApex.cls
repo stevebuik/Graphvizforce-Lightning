@@ -51,7 +51,7 @@ public without sharing class AutoBuildApex implements AutoBuild.AutoBuilder {
                 String objectName = reference.name;
 
                 // ensure there is an entity in the persisted diagram JSON
-                AutoBuild.DiagramEntity diagramEntity = utils.diagramEntitiesByName.get(objectName);
+                AutoBuildDiagram.DiagramEntity diagramEntity = utils.diagramEntitiesByName.get(objectName);
 
                 if (diagramEntity == NULL) {
                     GraphVizForceController.ObjectWrapper entityDescribe = entityDescribesByName.get(objectName);
@@ -59,7 +59,7 @@ public without sharing class AutoBuildApex implements AutoBuild.AutoBuilder {
                     // only add Data Model references to diagram i.e. ignore references to List.class etc
 
                     if (entityDescribe != NULL) {
-                        diagramEntity = new AutoBuild.DiagramEntity(entityDescribe);
+                        diagramEntity = new AutoBuildDiagram.DiagramEntity(entityDescribe);
                         utils.addEntity(diagramEntity);
 
                         // for all field references found in the class...
@@ -68,7 +68,7 @@ public without sharing class AutoBuildApex implements AutoBuild.AutoBuilder {
                             fieldsFromClass.add(symbol.name);
                         }
                         // make the fields visible in the persisted diagram JSON entity
-                        for (AutoBuild.DiagramAttribute diagramAttribute : diagramEntity.attributes) {
+                        for (AutoBuildDiagram.DiagramAttribute diagramAttribute : diagramEntity.attributes) {
                             if (fieldsFromClass.contains(diagramAttribute.value)) {
                                 diagramAttribute.visible = true;
                                 diagramAttribute.selected = true;

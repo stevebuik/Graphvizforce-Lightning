@@ -98,7 +98,7 @@ public class AutoBuildTests {
                 JSON.serialize(sources.get(0)),
                 JSON.serialize(builderUpdate1));
 
-        AutoBuild.Diagram diagram = (AutoBuild.Diagram) JSON.deserialize(builderUpdate2.diagramJSON, AutoBuild.Diagram.class);
+        AutoBuildDiagram.Diagram diagram = (AutoBuildDiagram.Diagram) JSON.deserialize(builderUpdate2.diagramJSON, AutoBuildDiagram.Diagram.class);
         System.assertEquals(0, diagram.groups.get(0).entities.size(), 'No entity references found in AutoBuild');
 
         Test.stopTest();
@@ -185,7 +185,7 @@ public class AutoBuildTests {
                 JSON.serialize(sources.get(0)),
                 JSON.serialize(builderUpdate1));
 
-        AutoBuild.Diagram diagram = (AutoBuild.Diagram) JSON.deserialize(builderUpdate2.diagramJSON, AutoBuild.Diagram.class);
+        AutoBuildDiagram.Diagram diagram = (AutoBuildDiagram.Diagram) JSON.deserialize(builderUpdate2.diagramJSON, AutoBuildDiagram.Diagram.class);
         System.assertEquals(2, diagram.groups.get(0).entities.size(), '2 entity references found in AutoBuildTests');
         System.assertEquals('Apex Class', diagram.groups.get(0).entities.get(0).label);
         System.assertEquals('Graphviz Diagram', diagram.groups.get(0).entities.get(1).label);
@@ -270,17 +270,17 @@ public class AutoBuildTests {
     @TestSetup
     public static void createDiagram() {
 
-        AutoBuild.Diagram diagram = new AutoBuild.Diagram();
+        AutoBuildDiagram.Diagram diagram = new AutoBuildDiagram.Diagram();
         diagram.label = 'Test Diagram';
         diagram.value = diagram.label;
         diagram.visible = true;
 
         // diagrams have a single group
-        diagram.groups = new List<AutoBuild.DiagramGroup>();
-        AutoBuild.DiagramGroup diagramGroup = new AutoBuild.DiagramGroup();
+        diagram.groups = new List<AutoBuildDiagram.DiagramGroup>();
+        AutoBuildDiagram.DiagramGroup diagramGroup = new AutoBuildDiagram.DiagramGroup();
         diagramGroup.label = 'ContainerGroup';
         diagramGroup.value = diagramGroup.label;
-        diagramGroup.entities = new List<AutoBuild.DiagramEntity>();
+        diagramGroup.entities = new List<AutoBuildDiagram.DiagramEntity>();
         diagram.groups.add(diagramGroup);
 
         Graphviz_Diagram__c diagramRecord = new Graphviz_Diagram__c(
