@@ -1,6 +1,8 @@
 @IsTest
 public class AutoBuildTests {
 
+    private static final String APEX_BUILDER_KEY = 'All_Apex';
+
     @IsTest
     private static void testApexSingleSourceWithoutEntities() {
         // tests parsing a class (in this recorded data it's AutoBuild.class) using the tooling api and handling the completed response
@@ -9,11 +11,11 @@ public class AutoBuildTests {
         for (AutoBuild.BuilderSourceType sourceType : AutoBuild.getSourceTypes()) {
             typesByValue.put(sourceType.sourceType, sourceType);
         }
-        System.debug(typesByValue.keySet());
-        System.assert(typesByValue.containsKey('All Apex'), 'Apex source is available to users');
+        System.debug('auto-build types available: ' + typesByValue.keySet());
+        System.assert(typesByValue.containsKey(APEX_BUILDER_KEY), 'Apex source is available to users');
 
         // no callouts used for Apex to list classes
-        List<BuilderSource> sources = AutoBuild.getSources('All Apex');
+        List<BuilderSource> sources = AutoBuild.getSources(APEX_BUILDER_KEY);
         System.debug(sources);
 
         String autoBuildClassSource = [SELECT Body FROM ApexClass WHERE Name = 'AutoBuild'].body;
@@ -64,7 +66,7 @@ public class AutoBuildTests {
         Test.startTest();
 
         // start compiling the first source (AutoBuild.class) by calling the start method, exactly as done by the Lightning client
-        AutoBuild.BuilderUpdate builderUpdate1 = AutoBuild.startSource('All Apex', diagramId, JSON.serialize(findSource(sources, 'AutoBuild')));
+        AutoBuild.BuilderUpdate builderUpdate1 = AutoBuild.startSource(APEX_BUILDER_KEY, diagramId, JSON.serialize(findSource(sources, 'AutoBuild')));
 
         System.assertEquals(AutoBuild.STATUS_WORKING, builderUpdate1.status,
                 'start for Apex returns working while tooling api is compiling');
@@ -93,7 +95,7 @@ public class AutoBuildTests {
 
         // now poll the source to see if the tooling api is done
         AutoBuild.BuilderUpdate builderUpdate2 = AutoBuild.pollSource(
-                'All Apex',
+                APEX_BUILDER_KEY,
                 diagramId,
                 JSON.serialize(sources.get(0)),
                 JSON.serialize(builderUpdate1));
@@ -148,10 +150,10 @@ public class AutoBuildTests {
         Id diagramId = [Select Id from Graphviz_Diagram__c][0].Id;
         Test.startTest();
 
-        List<BuilderSource> sources = AutoBuild.getSources('All Apex');
+        List<BuilderSource> sources = AutoBuild.getSources(APEX_BUILDER_KEY);
 
         // start compiling the a source by calling the start method, exactly as done by the Lightning client
-        AutoBuild.BuilderUpdate builderUpdate1 = AutoBuild.startSource('All Apex', diagramId, JSON.serialize(findSource(sources, 'AutoBuildTests')));
+        AutoBuild.BuilderUpdate builderUpdate1 = AutoBuild.startSource(APEX_BUILDER_KEY, diagramId, JSON.serialize(findSource(sources, 'AutoBuildTests')));
 
         System.assertEquals(AutoBuild.STATUS_WORKING, builderUpdate1.status,
                 'start for Apex returns working while tooling api is compiling');
@@ -180,7 +182,7 @@ public class AutoBuildTests {
 
         // now poll the source to see if the tooling api is done
         AutoBuild.BuilderUpdate builderUpdate2 = AutoBuild.pollSource(
-                'All Apex',
+                APEX_BUILDER_KEY,
                 diagramId,
                 JSON.serialize(sources.get(0)),
                 JSON.serialize(builderUpdate1));
@@ -219,10 +221,10 @@ public class AutoBuildTests {
         Id diagramId = [Select Id from Graphviz_Diagram__c][0].Id;
         Test.startTest();
 
-        List<BuilderSource> sources = AutoBuild.getSources('All Apex');
+        List<BuilderSource> sources = AutoBuild.getSources(APEX_BUILDER_KEY);
 
         try {
-            AutoBuild.BuilderUpdate builderUpdate1 = AutoBuild.startSource('All Apex', diagramId, JSON.serialize(findSource(sources, 'AutoBuild')));
+            AutoBuild.BuilderUpdate builderUpdate1 = AutoBuild.startSource(APEX_BUILDER_KEY, diagramId, JSON.serialize(findSource(sources, 'AutoBuild')));
             System.assert(false, 'startSource should fail');
         } catch (AuraHandledException e) {
             System.assert(true, 'Got the exception expected');
@@ -245,10 +247,10 @@ public class AutoBuildTests {
         Id diagramId = [Select Id from Graphviz_Diagram__c][0].Id;
         Test.startTest();
 
-        List<BuilderSource> sources = AutoBuild.getSources('All Apex');
+        List<BuilderSource> sources = AutoBuild.getSources(APEX_BUILDER_KEY);
 
         try {
-            AutoBuild.BuilderUpdate builderUpdate1 = AutoBuild.startSource('All Apex', diagramId, JSON.serialize(findSource(sources, 'AutoBuild')));
+            AutoBuild.BuilderUpdate builderUpdate1 = AutoBuild.startSource(APEX_BUILDER_KEY, diagramId, JSON.serialize(findSource(sources, 'AutoBuild')));
             System.assert(false, 'startSource should fail');
         } catch (AuraHandledException e) {
             System.assert(true, 'Sent an exception to the Lightning client');

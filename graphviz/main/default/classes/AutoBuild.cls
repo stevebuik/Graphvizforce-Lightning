@@ -47,7 +47,7 @@ public with sharing class AutoBuild {
         List<BuilderSourceType> types = getTypes();
         for (BuilderSourceType t : types) {
             if (t.sourceType == sourceType) {
-                AutoBuilder builder = (AutoBuilder) System.Type.forName('AutoBuildApex').newInstance();
+                AutoBuilder builder = (AutoBuilder) System.Type.forName(t.apexClass).newInstance();
                 return builder;
             }
         }
@@ -56,7 +56,12 @@ public with sharing class AutoBuild {
 
     private static List<BuilderSourceType> getTypes() {
         List<BuilderSourceType> results = new List<BuilderSourceType>();
-        results.add(new BuilderSourceType('All Apex', 'Apex Classes', 'Finds all references to Objects in your Apex classes', null));
+        for (Graphviz_AutoBuild__mdt autoBuild : [
+                SELECT Label, DeveloperName, Apex_Class__c, Lightning_Config_Component__c, Description__c
+                FROM Graphviz_AutoBuild__mdt
+        ]) {
+            results.add(new BuilderSourceType(autoBuild));
+        }
         return results;
     }
 
@@ -90,11 +95,21 @@ public with sharing class AutoBuild {
         @AuraEnabled
         public String description;
         @AuraEnabled
+        public String apexClass;
+        @AuraEnabled
         public String configComponent;
-        public BuilderSourceType(String sourceType, String label, String description, String config) {
+        public BuilderSourceType(Graphviz_AutoBuild__mdt metaData) {
+            this.sourceType = metaData.DeveloperName;
+            this.label = metaData.Label;
+            this.description = metaData.Description__c;
+            this.apexClass = metaData.Apex_Class__c;
+            this.configComponent = metaData.Lightning_Config_Component__c;
+        }
+        public BuilderSourceType(String sourceType, String label, String description, String apexClass, String config) {
             this.sourceType = sourceType;
             this.label = label;
             this.description = description;
+            this.apexClass = apexClass;
             this.configComponent = config;
         }
     }
