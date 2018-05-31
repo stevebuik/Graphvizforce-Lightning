@@ -42,25 +42,26 @@ public without sharing class AutoBuildApex implements AutoBuild.AutoBuilder {
 
             ToolingApi.SymbolTable symbolTable = UmlService.symbolTable(request.metadataContainerId, source.source);
 
-            AutoBuildDiagram utils = new AutoBuildDiagram(payload.diagramId);
+            AutoBuildDiagram diagram = new AutoBuildDiagram(payload.diagramId);
 
-            Map<String, GraphVizForceController.ObjectWrapper> entityDescribesByName = utils.getDescribeMap();
+            Map<String, GraphVizForceController.ObjectWrapper> entityDescribesByName = diagram.getDescribeMap();
 
             // for every entity found in the Tooling API Symbol Table....
             for (ToolingAPI.ExternalReference reference : symbolTable.externalReferences) {
                 String objectName = reference.name;
 
-                // ensure there is an entity in the persisted diagram JSON
-                AutoBuildDiagram.DiagramEntity diagramEntity = utils.diagramEntitiesByName.get(objectName);
+                AutoBuildDiagram.DiagramEntity diagramEntity = diagram.diagramEntitiesByName.get(objectName);
 
+                // ensure there is an entity in the persisted diagram JSON
                 if (diagramEntity == NULL) {
+
                     GraphVizForceController.ObjectWrapper entityDescribe = entityDescribesByName.get(objectName);
 
                     // only add Data Model references to diagram i.e. ignore references to List.class etc
-
                     if (entityDescribe != NULL) {
+
                         diagramEntity = new AutoBuildDiagram.DiagramEntity(entityDescribe);
-                        utils.addEntity(diagramEntity);
+                        diagram.addEntity(diagramEntity);
 
                         // for all field references found in the class...
                         Set<String> fieldsFromClass = new Set<String>();
@@ -78,10 +79,10 @@ public without sharing class AutoBuildApex implements AutoBuild.AutoBuilder {
                 }
             }
 
-            utils.updateDiagram();
+            diagram.updateDiagram();
 
             // return the updated diagram
-            result.diagramJSON = utils.asJSON();
+            result.diagramJSON = diagram.asJSON();
             result.status = AutoBuild.STATUS_COMPLETE;
         } else {
             result.payload = prevUpdate.payload; // pass back to client for use in next poll/update request
