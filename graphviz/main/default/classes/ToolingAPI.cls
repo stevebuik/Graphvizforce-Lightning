@@ -754,6 +754,7 @@ public with sharing class ToolingAPI {
             super(SObjectType.CustomField);
         }
         public override void serialize(JSONGenerator jsonGen) {
+            jsonGen.writeStartObject();
             super.serialize(jsonGen);
             if (fullName != null)
                 jsonGen.writeStringField('fullName', fullName);
@@ -765,6 +766,7 @@ public with sharing class ToolingAPI {
                 jsonGen.writeStringField('namespacePrefix', namespacePrefix);
             if (tableEnumOrId != null)
                 jsonGen.writeStringField('tableEnumOrId', tableEnumOrId);
+            jsonGen.writeEndObject();
         }
     }
 
@@ -823,6 +825,7 @@ public with sharing class ToolingAPI {
             super(SObjectType.CustomObject);
         }
         public override void serialize(JSONGenerator jsonGen) {
+            jsonGen.writeStartObject();
             super.serialize(jsonGen);
             if (developerName != null)
                 jsonGen.writeStringField('developerName', developerName);
@@ -830,6 +833,7 @@ public with sharing class ToolingAPI {
                 jsonGen.writeStringField('externalDataSourceId', externalDataSourceId);
             if (namespacePrefix != null)
                 jsonGen.writeStringField('namespacePrefix', namespacePrefix);
+            jsonGen.writeEndObject();
         }
     }
 
@@ -1152,60 +1156,6 @@ public with sharing class ToolingAPI {
         public String returnType;
     }
 
-    public class Name extends SObject_x implements ISerialize {
-        public String alias;
-        public String email;
-        public String firstName;
-        public Boolean isActive;
-        public String lastName;
-        public DateTime lastReferencedDate;
-        public DateTime lastViewedDate;
-        public String name;
-        public String phone;
-        public Id profileId;
-        public Id recordTypeId;
-        public String title;
-        public String type_x;
-        public Id userRoleId;
-        public String username;
-        public Name() {
-            super(SObjectType.Name);
-        }
-        public override void serialize(JSONGenerator jsonGen) {
-            super.serialize(jsonGen);
-            if (alias != null)
-                jsonGen.writeStringField('alias', alias);
-            if (email != null)
-                jsonGen.writeStringField('email', email);
-            if (firstName != null)
-                jsonGen.writeStringField('firstName', firstName);
-            if (isActive != null)
-                jsonGen.writeBooleanField('isActive', isActive);
-            if (lastName != null)
-                jsonGen.writeStringField('lastName', lastName);
-            if (lastReferencedDate != null)
-                jsonGen.writeDateTimeField('lastReferencedDate', lastReferencedDate);
-            if (lastViewedDate != null)
-                jsonGen.writeDateTimeField('lastViewedDate', lastViewedDate);
-            if (name != null)
-                jsonGen.writeStringField('name', name);
-            if (phone != null)
-                jsonGen.writeStringField('phone', phone);
-            if (profileId != null)
-                jsonGen.writeIdField('profileId', profileId);
-            if (recordTypeId != null)
-                jsonGen.writeIdField('recordTypeId', recordTypeId);
-            if (title != null)
-                jsonGen.writeStringField('title', title);
-            if (type_x != null)
-                jsonGen.writeStringField('type', type_x);
-            if (userRoleId != null)
-                jsonGen.writeIdField('userRoleId', userRoleId);
-            if (username != null)
-                jsonGen.writeStringField('username', lastName);
-        }
-    }
-
     public class NumberValue {
         public Double value;
     }
@@ -1330,36 +1280,6 @@ public with sharing class ToolingAPI {
         public MapValue[] queryResult;
     }
 
-    public class StaticResource extends SObject_x implements ISerialize {
-        public String body;
-        public Integer bodyLength;
-        public String cacheControl;
-        public String contentType;
-        public String description;
-        public String name;
-        public String namespacePrefix;
-        public StaticResource() {
-            super(SObjectType.StaticResource);
-        }
-        public override void serialize(JSONGenerator jsonGen) {
-            super.serialize(jsonGen);
-            if (body != null)
-                jsonGen.writeStringField('body', body);
-            if (bodyLength != null)
-                jsonGen.writeNumberField('bodyLength', bodyLength);
-            if (cacheControl != null)
-                jsonGen.writeStringField('cacheControl', cacheControl);
-            if (contentType != null)
-                jsonGen.writeStringField('contentType', contentType);
-            if (description != null)
-                jsonGen.writeStringField('description', description);
-            if (name != null)
-                jsonGen.writeStringField('name', name);
-            if (namespacePrefix != null)
-                jsonGen.writeStringField('namespacePrefix', namespacePrefix);
-        }
-    }
-
     public class StateValue {
     }
 
@@ -1400,52 +1320,6 @@ public with sharing class ToolingAPI {
 
     }
 
-    public class TraceFlag extends SObject_x implements ISerialize {
-        public String apexCode;
-        public String apexProfiling;
-        public String callout;
-        public String database;
-        public DateTime expirationDate;
-        public User_x scope;
-        public Id scopeId;
-        public String system_x;
-        public SObject_x tracedEntity;
-        public Id tracedEntityId;
-        public String validation;
-        public String visualforce;
-        public String workflow;
-        public TraceFlag() {
-            super(SObjectType.TraceFlag);
-        }
-        public virtual void seralize(JSONGenerator jsonGen) {
-            super.serialize(jsonGen);
-            if (apexCode != null)
-                jsonGen.writeStringField('apexCode', apexCode);
-            if (apexProfiling != null)
-                jsonGen.writeStringField('apexProfiling', apexProfiling);
-            if (callout != null)
-                jsonGen.writeStringField('callout', callout);
-            if (expirationDate != null)
-                jsonGen.writeDateTimeField('expirationDate', expirationDate);
-            if (scope != null)
-                jsonGen.writeObjectField('scope', scope);
-            if (scopeId != null)
-                jsonGen.writeIdField('scopeId', scopeId);
-            if (system_x != null)
-                jsonGen.writeStringField('system', system_x);
-            if (tracedEntity != null)
-                jsonGen.writeObjectField('tracedEntity', tracedEntity);
-            if (tracedEntityId != null)
-                jsonGen.writeStringField('tracedEntityId', tracedEntityId);
-            if (validation != null)
-                jsonGen.writeStringField('validation', validation);
-            if (visualforce != null)
-                jsonGen.writeStringField('visualforce', visualforce);
-            if (workflow != null)
-                jsonGen.writeStringField('workflow', visualforce);
-        }
-    }
-
     public class TypeExtent {
         public String collectionType;
         public Integer count;
@@ -1460,24 +1334,6 @@ public with sharing class ToolingAPI {
         public Error[] errors;
         public Id id;
         public boolean success;
-    }
-
-    public class UserPreference extends SObject_x implements ISerialize {
-        public String preference;
-        public Id userId;
-        public String value;
-        public UserPreference() {
-            super(SObjectType.UserPreference);
-        }
-        public override void serialize(JSONGenerator jsonGen) {
-            super.serialize(jsonGen);
-            if (preference != null)
-                jsonGen.writeStringField('preference', preference);
-            if (userId != null)
-                jsonGen.writeIdField('userId', userId);
-            if (value != null)
-                jsonGen.writeStringField('value', value);
-        }
     }
 
     public class User_x extends SObject_x implements ISerialize {

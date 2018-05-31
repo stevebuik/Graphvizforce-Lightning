@@ -87,7 +87,7 @@ public class UmlService
         {
             containers = (List<ToolingAPI.MetadataContainer>)
                     tooling.query(
-                            'SELECT Id, Name FROM MetadataContainer WHERE Name = \'ApexNavigator\'').records;
+                            'SELECT Id, Name FROM MetadataContainer WHERE Name = \'GraphvizForce\'').records;
         }
         catch (ToolingApi.ToolingAPIAuthorizationException tapiae)
         {
@@ -101,7 +101,7 @@ public class UmlService
 
         // Create MetadataContainer
         ToolingAPI.MetadataContainer container = new ToolingAPI.MetadataContainer();
-        container.name = 'ApexNavigator';
+        container.name = 'GraphvizForce';
 
         ToolingAPI.SaveResult containerSaveResult = new ToolingAPI.SaveResult();
 
@@ -170,36 +170,6 @@ public class UmlService
                                 'WHERE Id = \'' + asyncRequestId + '\'').records)[0];
 
         return asyncRequest;
-    }
-
-    public static ToolingApi.SymbolTable symbolTable(String className)
-    {
-        List<ToolingAPI.ApexClass> classes = new List<ToolingAPI.ApexClass>();
-
-        try
-        {
-            classes = executeCalloutQueryForApexClass(className);
-        }
-        catch (ToolingApi.ToolingAPIAuthorizationException tapiae)
-        {
-            throw makeException(tapiae);
-        }
-        catch (System.CalloutException ce)
-        {
-            system.debug('ce == '+ce.getStackTraceString());
-            if ('Read timed out'.equalsIgnoreCase(ce.getMessage()))
-            {
-                // try one more time
-                // This time if there is an exception thrown, just let it go up
-                // the call stack
-                classes = executeCalloutQueryForApexClass(className);
-            }
-        }
-
-        if (classes == null || classes.isEmpty())
-            throw new UmlServiceException('Apex Class ' + className + ' not found');
-
-        return augumentSymbolTable(classes[0].symbolTable);
     }
 
     public static ToolingApi.SymbolTable symbolTable(String asyncRequestId, String className)
