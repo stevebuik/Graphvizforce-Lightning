@@ -6,7 +6,11 @@
                 component.set("v.sources", sources);
                 component.set("v.currentSourceIndex", 0);
                 component.set("v.progress", 0);
-                helper.analyzeSource(component, sources[0], $A.getCallback(helper.nextSource));
+                if ($A.util.isEmpty(sources)) {
+                    component.set('v.active', false);
+                } else {
+                    helper.analyzeSource(component, sources[0], $A.getCallback(helper.nextSource));
+                }
             }));
     }
 })
