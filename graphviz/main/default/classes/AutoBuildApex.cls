@@ -13,6 +13,7 @@ public without sharing class AutoBuildApex implements AutoBuild.AutoBuilder {
         List<BuilderSource> results = new List<BuilderSource>();
 
         Map<String, String> config = GraphVizForceController.getConfig();
+        System.debug('Config:' + config);
 
         if (config.get('development mode') == NULL) {
             for (List<ApexClass> classes : [

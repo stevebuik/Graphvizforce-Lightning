@@ -92,8 +92,10 @@ public class AutoBuildDiagram {
                 this.attributes.add(new DiagramAttribute(fieldWrapper));
             }
             this.children = new List<DiagramChildRelationship>();
-            for (GraphVizForceController.ChildRelationshipWrapper childRelationship : objectWrapper.childRelationships) {
-                this.children.add(new DiagramChildRelationship(childRelationship.relationshipName, childRelationship.childAPIName));
+            if (objectWrapper.childRelationships != NULL) {
+                for (GraphVizForceController.ChildRelationshipWrapper childRelationship : objectWrapper.childRelationships) {
+                    this.children.add(new DiagramChildRelationship(childRelationship.relationshipName, childRelationship.childAPIName));
+                }
             }
         }
     }
