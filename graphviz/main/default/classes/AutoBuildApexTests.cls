@@ -272,6 +272,9 @@ public class AutoBuildApexTests {
     @TestSetup
     public static void createDiagram() {
 
+        GraphvizConfig__c config = new GraphvizConfig__c(Name__c='development mode', Value__c='TRUE');
+        insert config;
+
         AutoBuildDiagram.Diagram diagram = new AutoBuildDiagram.Diagram();
         diagram.label = 'Test Diagram';
         diagram.value = diagram.label;

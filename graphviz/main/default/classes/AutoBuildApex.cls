@@ -1,23 +1,39 @@
 public without sharing class AutoBuildApex implements AutoBuild.AutoBuilder {
 
+    // a set of class names that are not used as field/object sources in normal operation
+    private final Set<String> excluded = new Set<String>{
+            'AutoBuild', 'AutoBuildApex', 'AutoBuildApexTests', 'AutoBuildDiagram', 'AutoBuildTrigger',
+            'AutoBuildTriggerTests', 'BuilderSource', 'GraphVizForceController', 'GraphvizForceControllerTest',
+            'ToolingAPI', 'ToolingAPITest', 'ToolingAPIMocks', 'UmlService',
+            'egServerSideActionController', 'egServerSideActionControllerTest'
+    };
+
     public List<BuilderSource> getSources() {
 
-        Set<String> excluded = new Set<String>{
-                'AutoBuild', 'AutoBuildApex', 'AutoBuildApexTests', 'AutoBuildDiagram', 'AutoBuildTrigger',
-                'AutoBuildTriggerTests', 'BuilderSource', 'GraphVizForceController', 'GraphvizForceControllerTest',
-                'ToolingAPI', 'ToolingAPITest', 'ToolingAPIMocks', 'UmlService',
-                'egServerSideActionController', 'egServerSideActionControllerTest'
-        };
-
         List<BuilderSource> results = new List<BuilderSource>();
-        for (List<ApexClass> classes : [
-                SELECT Id, Name
-                FROM ApexClass
-                WHERE Name <> :excluded
-                ORDER BY NAME
-        ]) {
-            for (ApexClass clazz : classes) {
-                results.add(new BuilderSource(clazz.Name, clazz.Id));
+
+        Map<String, String> config = GraphVizForceController.getConfig();
+
+        if (config.get('development mode') == NULL) {
+            for (List<ApexClass> classes : [
+                    SELECT Id, Name
+                    FROM ApexClass
+                    WHERE Name <> :excluded
+                    ORDER BY NAME
+            ]) {
+                for (ApexClass clazz : classes) {
+                    results.add(new BuilderSource(clazz.Name, clazz.Id));
+                }
+            }
+        } else {
+            for (List<ApexClass> classes : [
+                    SELECT Id, Name
+                    FROM ApexClass
+                    ORDER BY NAME
+            ]) {
+                for (ApexClass clazz : classes) {
+                    results.add(new BuilderSource(clazz.Name, clazz.Id));
+                }
             }
         }
         return results;
