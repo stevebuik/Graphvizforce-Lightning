@@ -69,6 +69,8 @@
                                 <div class="slds-float_right">
                                     <lightning:buttonIcon class="control" variant="bare"
                                                           iconName="utility:copy" size="large"
+                                                          alternativeText="Copy SOQL to Clipboard"
+                                                          title="Copy SOQL to Clipboard"
                                                           onclick="{! c.handleCopyClick }"/>
                                     <lightning:button class="control" variant="base" label="Show SOQL"
                                                       onclick="{! c.handleSOQLClick }"/>
