@@ -6,6 +6,15 @@
 public without sharing class GraphVizForceController {
 
     @AuraEnabled
+    public static Map<String, String> getConfig() {
+        Map<String, String> result = new Map<String, String>();
+        for (GraphvizConfig__c config : [select Name__c, Value__c from GraphvizConfig__c]) {
+            result.put(config.Name__c, config.Value__c);
+        }
+        return result;
+    }
+
+    @AuraEnabled
     public static List<Graphviz_Diagram__c> loadDiagrams(){
         return [SELECT Id, Content__c FROM Graphviz_Diagram__c WHERE OwnerId = :UserInfo.getUserId()];
     }
