@@ -81,6 +81,7 @@ public class AutoBuildDiagram {
         public Boolean isCustom;
         public Boolean visible;
         public List<DiagramAttribute> attributes;
+        public List<DiagramChildRelationship> children;
         public DiagramEntity(GraphVizForceController.ObjectWrapper objectWrapper) {
             this.value = objectWrapper.apiName;
             this.label = objectWrapper.label;
@@ -90,6 +91,19 @@ public class AutoBuildDiagram {
             for (GraphVizForceController.FieldWrapper fieldWrapper : objectWrapper.fields) {
                 this.attributes.add(new DiagramAttribute(fieldWrapper));
             }
+            this.children = new List<DiagramChildRelationship>();
+            for (GraphVizForceController.ChildRelationshipWrapper childRelationship : objectWrapper.childRelationships) {
+                this.children.add(new DiagramChildRelationship(childRelationship.relationshipName, childRelationship.childAPIName));
+            }
+        }
+    }
+
+    public class DiagramChildRelationship {
+        public String relationshipName;
+        public String childAPIName;
+        public DiagramChildRelationship(String relationshipName, String childAPIName) {
+            this.relationshipName = relationshipName;
+            this.childAPIName = childAPIName;
         }
     }
 
@@ -117,6 +131,7 @@ public class AutoBuildDiagram {
                     relationship.put('referenceFieldAPIName', relationshipWrapper.referenceFieldAPIName);
                     relationship.put('parentLabel', relationshipWrapper.parentLabel);
                     relationship.put('parentAPIName', relationshipWrapper.parentAPIName);
+                    relationship.put('relationshipName', relationshipWrapper.relationshipName);
                     this.references.add(relationship);
                 }
             }
