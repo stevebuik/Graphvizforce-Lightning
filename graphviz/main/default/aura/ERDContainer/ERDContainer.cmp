@@ -39,6 +39,7 @@
 
         <c:DiagramDataService aura:id="diagramDataService" onDiagramCreated="{!c.onDiagramCreated}"/>
 
+        <!-- TODO Display Lightning Data Service save confirmations -->
         <!-- TODO Display Lightning Data Service errors -->
 
         <c:AppHeader title="GraphVizForce" subTitle="Schema Diagrams made easy!">
@@ -127,6 +128,7 @@
                     <c:AutoBuildProgress aura:id="autoBuildProgress"/>
                     <c:DiagramOutput aura:id="diagramOutput" selectedDiagram="{!v.selectedDiagram}"
                                      allObjects="{!v.allObjects}"/>
+                    <c:SOQLRenderer diagram="{!v.selectedDiagram}"/>
                 </div>
             </div>
         </div>

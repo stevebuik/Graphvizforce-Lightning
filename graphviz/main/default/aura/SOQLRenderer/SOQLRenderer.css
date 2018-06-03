@@ -1,0 +1,26 @@
+.THIS {
+}
+
+.THIS .from-select {
+    margin-left: 1rem;
+}
+
+.THIS .from-select .slds-form-element__label {
+    display: none;
+}
+
+.THIS ul.preview {
+    font-size: 1rem;
+}
+
+.THIS .close-button {
+    margin-left: 1rem;
+}
+
+.THIS .control {
+    margin-right: 2rem;
+}
+
+.THIS .soql {
+    font-size: 1rem;
+}

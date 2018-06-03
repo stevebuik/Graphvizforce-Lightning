@@ -46,12 +46,6 @@
 
             </lightning:tab>
 
-            <lightning:tab>
-                <aura:set attribute="label">
-                    SOQL
-                </aura:set>
-                Coming Soon...
-            </lightning:tab>
         </lightning:tabset>
     </c:Panel>
 
