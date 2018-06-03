@@ -31,6 +31,21 @@ public without sharing class GraphVizForceController {
                 objWrapper.apiName = sObjResult.getName();
                 objWrapper.isCustom = sObjResult.isCustom();
 
+                List<ChildRelationship> childRelationships = sObjResult.getChildRelationships();
+                if (!childRelationships.isEmpty()) {
+                    objWrapper.childRelationships = new List<ChildRelationshipWrapper>();
+                    for (ChildRelationship rel : childRelationships) {
+                        // only return relationships with names since they are used in diagram arrows
+                        // and SOQL joins and these features don't work without a name
+                        if (rel.getRelationshipName() != NULL) {
+                            ChildRelationshipWrapper wrapper = new ChildRelationshipWrapper();
+                            wrapper.childAPIName = rel.getChildSObject().getDescribe().getName();
+                            wrapper.relationshipName = rel.getRelationshipName();
+                            objWrapper.childRelationships.add(wrapper);
+                        }
+                    }
+                }
+
                 // Describe Fields
                 Map<String, Schema.SObjectField> fieldsMap = sObjResult.fields.getMap();
                 List<Schema.SObjectField> fieldList = fieldsMap.values();
@@ -55,6 +70,7 @@ public without sharing class GraphVizForceController {
                                 rWrapper.parentLabel = parentSObjectResult.getLabel();
                                 rWrapper.parentAPIName = parentSObjectResult.getName();
                                 rWrapper.referenceFieldAPIName = fieldResult.getName();
+                                rWrapper.relationshipName = fieldResult.getRelationshipName();
                                 fieldWrapper.referenceFields.add(rWrapper);
                             }
                         }
@@ -74,6 +90,7 @@ public without sharing class GraphVizForceController {
         public String apiName;
         public Boolean isCustom;
         public List<FieldWrapper> fields;
+        public List<ChildRelationshipWrapper> childRelationships;
     }
 
     public class FieldWrapper{
@@ -85,9 +102,15 @@ public without sharing class GraphVizForceController {
         public List<RelationshipWrapper> referenceFields;
     }
 
+    public class ChildRelationshipWrapper {
+        public String relationshipName;
+        public String childAPIName;
+    }
+
     public class RelationshipWrapper{
         public String parentLabel;
         public String parentAPIName;
         public String referenceFieldAPIName;
+        public String relationshipName;
     }
 }

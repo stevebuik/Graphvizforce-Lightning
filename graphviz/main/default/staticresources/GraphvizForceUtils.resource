@@ -136,11 +136,25 @@ window.GraphvizForce;
             inspectSchema : function(component, event, helper, result){
                 var allObjects = [];
                 result.forEach(function (item){
-                    var object = {label:item.label, value:item.apiName, isCustom:item.isCustom, visible:false};
+                    var object = {
+                        label: item.label,
+                        value: item.apiName,
+                        isCustom: item.isCustom,
+                        visible: false,
+                        children: item.childRelationships
+                    };
                     var attributes = [];
                     if(!$A.util.isEmpty(item.fields)){
                         item.fields.forEach(function (fieldItem){
-                            attributes.push({label:fieldItem.label, value:fieldItem.apiName, type:fieldItem.type, isCustom:fieldItem.isCustom, isMDOrCascadeDelete:fieldItem.isMDOrCascadeDelete, references:fieldItem.referenceFields, selected:false});
+                            attributes.push({
+                                label: fieldItem.label,
+                                value: fieldItem.apiName,
+                                type: fieldItem.type,
+                                isCustom: fieldItem.isCustom,
+                                isMDOrCascadeDelete: fieldItem.isMDOrCascadeDelete,
+                                references: fieldItem.referenceFields,
+                                selected: false
+                            });
                         });
                         object.attributes = attributes;
                     }
