@@ -3,15 +3,23 @@ public without sharing class AutoBuildTrigger implements AutoBuild.AutoBuilder {
     public List<BuilderSource> getSources() {
         List<BuilderSource> results = new List<BuilderSource>();
 
-        // need to use Tooling API since Apex doesn't expose ApexTrigger in SOQL
-        ToolingAPI.QueryResult queryResult = new ToolingAPI().query('select Id, Name from ApexTrigger');
-        addTriggers(results, queryResult.records);
-        while (!queryResult.done) {
-            queryResult = new ToolingAPI().queryMore(queryResult.nextRecordsUrl);
-            addTriggers(results, queryResult.records);
-        }
+        try {
+            // need to use Tooling API since Apex doesn't expose ApexTrigger in SOQL
+            ToolingAPI.QueryResult queryResult = new ToolingAPI().query('select Id, Name from ApexTrigger');
+            if (queryResult.records != NULL && !queryResult.records.isEmpty()) {
+                addTriggers(results, queryResult.records);
+            }
+            while (!queryResult.done) {
+                queryResult = new ToolingAPI().queryMore(queryResult.nextRecordsUrl);
+                if (queryResult.records != NULL && !queryResult.records.isEmpty()) {
+                    addTriggers(results, queryResult.records);
+                }
+            }
 
-        return results;
+            return results;
+        } catch (ToolingApi.ToolingAPIAuthorizationException tapiae) {
+            throw UmlService.makeException(tapiae);
+        }
     }
 
     private void addTriggers(List<BuilderSource> sources, List<ToolingAPI.SObject_x> triggers) {

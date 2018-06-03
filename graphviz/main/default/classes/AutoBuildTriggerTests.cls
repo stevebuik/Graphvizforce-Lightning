@@ -115,6 +115,31 @@ public class AutoBuildTriggerTests {
 
     }
 
+    @IsTest
+    private static void testWithoutRemoteSiteSetting() {
+        Map<ToolingAPIMocks.RestRequest, ToolingAPIMocks.RestResponse> startSourceHTTPResponses = new Map<ToolingAPIMocks.RestRequest, ToolingAPIMocks.RestResponse>();
+
+        startSourceHTTPResponses.put(
+                new ToolingAPIMocks.RestRequest('GET', '/services/data/v29.0/tooling/query/',
+                        new Map<String, String>{
+                                'q' => 'select Id, Name from ApexTrigger'
+                        }),
+                new ToolingAPIMocks.RestResponse(new ToolingAPI.ToolingAPIAuthorizationException('No setting')));
+
+        Test.setMock(HttpCalloutMock.class, new ToolingAPIMocks(startSourceHTTPResponses));
+
+        Id diagramId = [Select Id from Graphviz_Diagram__c][0].Id;
+        Test.startTest();
+
+        // trigger builder uses Tooling API for getSources call so will fail on this call when setting is missing
+        try {
+            List<BuilderSource> sources = AutoBuild.getSources(TRIGGER_BUILDER_KEY);
+            System.assert(false, 'startSource should fail');
+        } catch (AuraHandledException e) {
+            System.assert(true, 'Sent an exception to the Lightning client');
+        }
+    }
+
     private static BuilderSource findSource(List<BuilderSource> sources, String sourceName) {
         for (BuilderSource source : sources) {
             if (source.source == sourceName) {
