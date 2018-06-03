@@ -1,0 +1,35 @@
+<aura:component description="Displays the diagram data as a SOQL statement">
+
+    <ltng:require scripts="{!join(',', $Resource.pure)}"
+                  afterScriptsLoaded="{!c.doInit}"/>
+
+    <aura:attribute name="diagram" type="Object" access="public"/>
+    <aura:attribute name="soql" type="String"/>
+    <aura:attribute name="from" type="String"/>
+    <aura:attribute name="entityOptions" type="List"/>
+
+    <aura:attribute name="ready" type="Boolean" access="private" default="false"/>
+
+    <aura:handler name="change" value="{!v.diagram}" action="{!c.diagramChange}"/>
+    <aura:handler name="change" value="{!v.from}" action="{!c.fromChange}"/>
+
+    <lightning:layout multipleRows="true">
+
+        <lightning:layoutItem size="6" padding="around-small">
+            <lightning:select aura:id="fromSelect" name="from" label="SOQL From:" value="{!v.from}">
+                <option value="">-- Select an Object --</option>
+                <aura:iteration items="{!v.entityOptions}" var="opt">
+                    <option value="{!opt.value}">{!opt.label}</option>
+                </aura:iteration>
+            </lightning:select>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="6" padding="around-small">
+        </lightning:layoutItem>
+
+        <lightning:layoutItem size="12" padding="around-small">
+            <pre>{!v.soql}</pre>
+        </lightning:layoutItem>
+
+    </lightning:layout>
+
+</aura:component>
