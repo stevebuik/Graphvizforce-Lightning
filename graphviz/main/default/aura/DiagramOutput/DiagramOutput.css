@@ -1,6 +1,10 @@
 /**
  * Created by guan on 15/2/18.
  */
-.THIS .downloadTextArea textarea{
+.THIS .downloadTextArea textarea {
     min-height: 200px;
+}
+
+.THIS hr.diagramBottom {
+    margin: 0px;
 }

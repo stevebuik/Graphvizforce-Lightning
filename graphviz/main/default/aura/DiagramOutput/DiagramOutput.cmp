@@ -19,43 +19,38 @@
 
     <aura:handler name="change" value="{!v.selectedDiagram}" action="{!c.onDiagramChanged}"/>
 
-    <c:Panel>
+    <lightning:tabset>
+        <lightning:tab label="Diagram">
+            <div class="slds-clearfix">
+                <div class="slds-float_left">
+                    <aura:if isTrue="{!v.isExpanded}">
+                        <lightning:buttonIcon iconName="utility:contract" alternativeText="Contract" iconClass="slds-button_icon-x-small" onclick="{!c.onToggleState}" />
+                        <aura:set attribute="else">
+                            <lightning:buttonIcon iconName="utility:expand" alternativeText="Expand" iconClass="slds-button_icon-x-small" onclick="{!c.onToggleState}" />
+                        </aura:set>
+                    </aura:if>
+                </div>
+                <div class="slds-float_left">
+                    <c:DiagramViewer aura:id="diagramViewer" graphvizContent="{!v.graphvizContent}" onDiagramRendered="{!c.onDiagramRendered}" />
+                    <hr class="diagramBottom"/>
+                    <c:SOQLRenderer aura:id="soql" diagram="{!v.selectedDiagram}"/>
+                </div>
+            </div>
+        </lightning:tab>
 
-        <aura:set attribute="icon">
-            <aura:if isTrue="{!v.isExpanded}">
-                <lightning:buttonIcon iconName="utility:contract" alternativeText="Contract" iconClass="slds-button_icon-x-small" onclick="{!c.onToggleState}" />
-                <aura:set attribute="else">
-                    <lightning:buttonIcon iconName="utility:expand" alternativeText="Expand" iconClass="slds-button_icon-x-small" onclick="{!c.onToggleState}" />
-                </aura:set>
-            </aura:if>
-        </aura:set>
+        <lightning:tab label="Download">
 
-        <lightning:tabset>
-            <lightning:tab>
-                <aura:set attribute="label">
-                    Preview
-                </aura:set>
-                <c:DiagramViewer aura:id="diagramViewer" graphvizContent="{!v.graphvizContent}" onDiagramRendered="{!c.onDiagramRendered}" />
-                <c:SOQLRenderer aura:id="soql" diagram="{!v.selectedDiagram}"/>
-            </lightning:tab>
+            <lightning:textarea aura:id="graphvizContentText" name="graphvizContent" value="{!v.graphvizContent}" label="Graphviz" readonly="true" class="downloadTextArea" />
+            <lightning:button label="Copy Graphviz" onclick="{! c.handleCopyGraphviz}" />
+            <lightning:button label="Download Graphviz" onclick="{! c.handleDownloadGraphviz}" />
+            <br /><br />
+            <lightning:textarea aura:id="svgContentText" name="svgContent" value="{!v.svgContent}" label="SVG" readonly="true" class="downloadTextArea" />
+            <lightning:button label="Copy SVG" onclick="{! c.handleCopySVG}" />
+            <lightning:button label="Download SVG" onclick="{! c.handleDownloadSVG}" />
 
-            <lightning:tab>
-                <aura:set attribute="label">
-                    Download
-                </aura:set>
+        </lightning:tab>
 
-                <lightning:textarea aura:id="graphvizContentText" name="graphvizContent" value="{!v.graphvizContent}" label="Graphviz" readonly="true" class="downloadTextArea" />
-                <lightning:button label="Copy Graphviz" onclick="{! c.handleCopyGraphviz}" />
-                <lightning:button label="Download Graphviz" onclick="{! c.handleDownloadGraphviz}" />
-                <br /><br />
-                <lightning:textarea aura:id="svgContentText" name="svgContent" value="{!v.svgContent}" label="SVG" readonly="true" class="downloadTextArea" />
-                <lightning:button label="Copy SVG" onclick="{! c.handleCopySVG}" />
-                <lightning:button label="Download SVG" onclick="{! c.handleDownloadSVG}" />
-
-            </lightning:tab>
-
-        </lightning:tabset>
-    </c:Panel>
+    </lightning:tabset>
 
     <lightning:notificationsLibrary aura:id="notifLib"/>
 
