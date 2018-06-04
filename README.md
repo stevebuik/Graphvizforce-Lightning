@@ -8,6 +8,26 @@ Status: **In Development**. We will announce on social media when v1 is ready fo
 
 TODO setup Travis CI with build indicator
 
+## Features
+
+**Graphviz Rendering**
+
+Automatically layout of an ERD diagram based on Objects/Fields of your choice.
+Exportable in Graphviz or SVG format if you want to use these diagrams in documentation.
+
+Save (or clone) your diagrams for later so that you can modify them later.
+
+**Automatic diagram generation**
+
+Scans Apex Classes or Triggers to find Object/Field references and adds them to the diagram.
+In future, other sources will be added e.g. Reports and Dashboards.
+It's open for extension so you can create your own custom sources if required.
+
+**SOQL Generation**
+
+Any diagram can be rendered as a SOQL join query, with support for joins via parent and child relationships.
+1-click copy of the SOQL makes it easy to move into your favourite query runner.
+
 ## Getting started as a developer
 
 First, clone this project to your local filesystem.
@@ -63,7 +83,13 @@ We use the Lightning Linter to check our code. To run this locally use:
 
 ## Testing
 
-We use the [Lightning Testing Service](https://forcedotcom.github.io/LightningTestingService/) (Jasmine flavoured) to test the components in this project.
+#### Apex tests
+
+`sfdx force:apex:test:run` and follow the instruction returned.
+
+#### Lightning Tests
+
+Use the [Lightning Testing Service](https://forcedotcom.github.io/LightningTestingService/) (Jasmine flavoured) to test the components in this project.
 Use the following commands to run the tests:
 
 `sfdx force:lightning:test:run -a DiagramViewerTests.app`
@@ -71,6 +97,40 @@ Use the following commands to run the tests:
 or you can run the testing app in the browser using:
 
 `sfdx force:org:open --path c/DiagramViewerTests.app`
+
+#### Jasmine / Node Tests
+
+`cd js/pure`
+
+`npm install`
+
+`./node_modules/jasmine-node/bin/jasmine-node spec`
+
+#### Development Mode
+
+If you are doing development on this tool, it is useful to enable *development mode*
+
+To enable it, add a new custom setting in *Graphviz Config* with Name = *development mode*
+and Value = *TRUE*
+
+This will:
+
+* cause the Apex auto-build to include Apex classes from this project when generating a diagram
+
+#### Lightning Development
+
+Although testing the full application is important, refreshing it after changes is slow.
+For this reason, there's also TestApp.app which refreshes much faster. It will not support tooling API features.
+
+#### Javascript Development
+
+Functions that have complex logic are built using npm tooling to provide instant feedback when changing code.
+
+`cd js/pure`
+
+`npm install`
+
+`./node_modules/jasmine-node/bin/jasmine-node --watch src test  --autotest --color spec`
 
 ## Description of Files and Directories
 
