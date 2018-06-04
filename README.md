@@ -125,7 +125,9 @@ This will:
 #### Lightning Development
 
 Although testing the full application is important, refreshing it after changes is slow.
-For this reason, there's also TestApp.app which refreshes much faster. It will not support tooling API features.
+For this reason, there's also *TestApp.app* which refreshes much faster. It will not support tooling API features.
+
+`sfdx force:org:open --path c/TestApp.app`
 
 #### Javascript Development
 
@@ -136,6 +138,14 @@ Functions that have complex logic are built using npm tooling to provide instant
 `npm install`
 
 `./node_modules/jasmine-node/bin/jasmine-node --watch src test  --autotest --color spec`
+
+Once you have made your changes and tested them, you will need to deploy the node.js code to the SFDC static resource.
+This is done in 2 steps:
+
+1. `./node_modules/webpack-cli/bin/webpack.js` updates the static resource file on your local filesystem
+2. `sfdx force:source:push` deploys the changed static resource to SFDC
+
+Now you can refresh the Test app or the full app to see your new code in action.
 
 ## Description of Files and Directories
 
