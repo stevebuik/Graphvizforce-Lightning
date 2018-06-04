@@ -7,3 +7,6 @@ graphviz/main/default/profiles/Admin.profile-meta.xml
 
 # Force.com Migration Tool
 build.properties
+
+# Metadata API Package
+mdapipkg/
