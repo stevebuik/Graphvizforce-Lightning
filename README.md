@@ -20,6 +20,9 @@ Save (or clone) your diagrams for later so that you can modify them later.
 **Automatic diagram generation**
 
 Scans Apex Classes or Triggers to find Object/Field references and adds them to the diagram.
+
+![Demo](doc/assets/auto-build-demo.gif)
+
 In future, other sources will be added e.g. Reports and Dashboards.
 It's open for extension so you can create your own custom sources if required.
 
@@ -27,8 +30,6 @@ It's open for extension so you can create your own custom sources if required.
 
 Any diagram can be rendered as a SOQL join query, with support for joins via parent and child relationships.
 1-click copy of the SOQL makes it easy to move into your favourite query runner.
-
-See it action:
 
 ![Demo](doc/assets/gvf2-demo.gif)
 
