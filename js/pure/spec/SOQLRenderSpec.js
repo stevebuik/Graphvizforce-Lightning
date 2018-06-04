@@ -1,5 +1,5 @@
 var gvfp = require('../src/pure.js');
-var samples = require('../test/diagramSamples.js');
+var samples = require('../test/diagramPersistedSamples.js');
 
 describe("account, contact, contact-feed and case joins", function () {
 

@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "jsonschema": "^1.2.4",
+    "mustache": "^2.3.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

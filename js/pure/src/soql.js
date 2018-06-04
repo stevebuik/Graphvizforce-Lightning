@@ -1,4 +1,4 @@
-var all = {
+var soql = {
 
     selectList: function (entity, prefix) {
         var selectList = "";
@@ -104,17 +104,17 @@ var all = {
         // generate fields from the "FROM" entity
         diagram.groups[0].entities.forEach(function (entity) {
             if (entity.value == from) {
-                var sl = all.selectList(entity);
+                var sl = soql.selectList(entity);
                 if (sl.length > 0) {
                     selectLists.push(sl);
                 }
-                selectedFields[from] = all.selectedFieldsFromEntity(entity);
+                selectedFields[from] = soql.selectedFieldsFromEntity(entity);
             }
         });
 
         // generate parent joins, traversing up 5 levels
         if (parentRelationshipsInDiagram[from]) {
-            var ancestorPaths = all.ancestorEntityPaths(0, {}, entitiesInDiagramByAPIName[from], [], parentRelationshipsInDiagram, entitiesInDiagramByAPIName);
+            var ancestorPaths = soql.ancestorEntityPaths(0, {}, entitiesInDiagramByAPIName[from], [], parentRelationshipsInDiagram, entitiesInDiagramByAPIName);
             var ancestorSelectLists = [];
             for (var ancestorEntity in ancestorPaths) {
                 var path = ancestorPaths[ancestorEntity];
@@ -125,8 +125,8 @@ var all = {
                     }
                     prefix += relationshipName;
                 });
-                selectedFields[ancestorEntity] = all.selectedFieldsFromEntity(entitiesInDiagramByAPIName[ancestorEntity]);
-                ancestorSelectLists.push(all.selectList(entitiesInDiagramByAPIName[ancestorEntity], prefix));
+                selectedFields[ancestorEntity] = soql.selectedFieldsFromEntity(entitiesInDiagramByAPIName[ancestorEntity]);
+                ancestorSelectLists.push(soql.selectList(entitiesInDiagramByAPIName[ancestorEntity], prefix));
             }
             selectLists = selectLists.concat(ancestorSelectLists)
         }
@@ -134,8 +134,8 @@ var all = {
         // generate child relationship joins, traversing down a single level
         if (childRelationshipsInDiagram[from]) {
             childRelationshipsInDiagram[from].forEach(function (childRelation) {
-                var selectListForChildEntity = all.selectList(entitiesInDiagramByAPIName[childRelation.childEntity]);
-                selectedFields[childRelation.childEntity] = all.selectedFieldsFromEntity(entitiesInDiagramByAPIName[childRelation.childEntity]);
+                var selectListForChildEntity = soql.selectList(entitiesInDiagramByAPIName[childRelation.childEntity]);
+                selectedFields[childRelation.childEntity] = soql.selectedFieldsFromEntity(entitiesInDiagramByAPIName[childRelation.childEntity]);
 
                 // TODO child joins can also traverse up 5 levels from the child entity
 
@@ -145,7 +145,7 @@ var all = {
         }
 
         return {
-            entities: all.entities(diagram),
+            entities: soql.entities(diagram),
             selectLists: selectLists,
             selectedFields: selectedFields
         };
@@ -167,7 +167,7 @@ var all = {
                     pathToParent.push(parentRelationship.relationshipNameFromChild);
                     descendantPaths[parentRelationship.parentEntity] = pathToParent;
                     // recurse up to parent here
-                    all.ancestorEntityPaths(level + 1, descendantPaths, entitiesInDiagramByAPIName[parentRelationship.parentEntity], pathToParent,
+                    soql.ancestorEntityPaths(level + 1, descendantPaths, entitiesInDiagramByAPIName[parentRelationship.parentEntity], pathToParent,
                         parentRelationshipsInDiagram, entitiesInDiagramByAPIName);
                 });
             }
@@ -190,4 +190,4 @@ var all = {
     }
 }
 
-module.exports = all;
+module.exports = soql;
