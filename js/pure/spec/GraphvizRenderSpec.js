@@ -16,31 +16,45 @@ var renderAndValidate = function (sampleName, variation, opts) {
 };
 
 describe("persisted samples are translated into valid view data", function () {
-
-    describe("contact, account, feed, case simple", function () {
-        var rendered = renderAndValidate("account_contact_feed_case", "basic", {showSelfRelations: false});
-        it("valid translation with no options present", function () {
-            expect(rendered.validation.errors).toEqual([]);
-        })
-        it("translation returns 2 Account fields", function () {
-            expect(rendered.translated.groups[0].entities[0].fields)
-                .toEqual([{
-                        name: 'Account Description',
-                        id: 'Description',
-                        type: 'TEXTAREA'
-                    },
-                        {
-                            name: 'Account Source',
-                            id: 'AccountSource',
-                            type: 'PICKLIST'
-                        }]
-                );
-        })
+    describe("contact, account, feed, case", function () {
+        describe("simple i.e. no options in use", function () {
+            var rendered = renderAndValidate("account_contact_feed_case", "basic", {showSelfRelations: false});
+            it("valid translation", function () {
+                expect(rendered.validation.errors).toEqual([]);
+            })
+            it("translation returns 2 Account fields", function () {
+                expect(rendered.translated.groups[0].entities[0].fields)
+                    .toEqual([{
+                            name: 'Account Description',
+                            id: 'Description',
+                            type: 'TEXTAREA'
+                        },
+                            {
+                                name: 'Account Source',
+                                id: 'AccountSource',
+                                type: 'PICKLIST'
+                            }]
+                    );
+            })
+        });
+        // if a SOQL from change event uses Account then ContactFeed is a grandchild and not included in the SOQL
+        describe("entity obscured", function () {
+            var rendered = renderAndValidate("account_contact_feed_case", "obscuring", {obscureEntities: ["ContactFeed"]});
+            it("valid translation", function () {
+                expect(rendered.validation.errors).toEqual([]);
+            })
+            it("Account entity is not obscured", function () {
+                expect(rendered.translated.groups[0].entities[0].color).toEqual(gvfp.graphviz.entityFocused);
+            })
+            it("ContactFeed entity is obscured", function () {
+                expect(rendered.translated.groups[0].entities[3].color).toEqual(gvfp.graphviz.entityObscured);
+            })
+        });
     });
 
     describe("contact, account, case simple", function () {
         var rendered = renderAndValidate("account_contact_case", "basic", {showSelfRelations: false});
-        it("valid translation with no options present", function () {
+        it("valid translation", function () {
             expect(rendered.validation.errors).toEqual([]);
         })
         it("translation returns 2 Account fields", function () {
@@ -61,7 +75,7 @@ describe("persisted samples are translated into valid view data", function () {
 
     describe("contact, account, case with self", function () {
         var rendered = renderAndValidate("account_contact_case", "with-self", {showSelfRelations: true});
-        it("valid translation with no options present", function () {
+        it("valid translation", function () {
             expect(rendered.validation.errors).toEqual([]);
         })
         it("translation returns 4 Account fields sorted by name", function () {

@@ -12,6 +12,7 @@ var samples =
                         {
                             "name": "Account",
                             "id": "Account",
+                            "color": "black",
                             "fields": [
                                 {
                                     "name": "Phone",
@@ -32,6 +33,7 @@ var samples =
                         {
                             "name": "Contact",
                             "id": "Contact",
+                            "color": "lightgrey",
                             "fields": [
                                 {
                                     "name": "Phone",
@@ -81,6 +83,7 @@ var schema = {
                                 "properties": {
                                     "name": {"type": "String", "required": true},
                                     "id": {"type": "String", "required": true},
+                                    "color": {"type": "String", "required": true},
                                     "fields": {
                                         "type": "array",
                                         "required": true,

@@ -1,3 +1,8 @@
+// this file contains samples of diagrams persisted in the custom object
+// these objects are translated into a "view" object when being rendered to graphviz
+// they're also translated to SOQL
+// to create/update them, just create a diagram in the Lightning client and then copy the JSON from the custom object record
+
 exports.account_contact_feed_case =
     {
         "visible": true,

@@ -741,16 +741,16 @@ var Mustache = __webpack_require__(0);
 
 var gv = {
 
-    template: "digraph G { \n\n" + "   graph [rankdir=LR,nodesep=1.0]; \n" + "   node [shape=plaintext, fontsize=12]; \n" + "   edge  []; \n\n" + "{{#groups}}" + "   {{#entities}}" + "{{id}} [label=<<TABLE BORDER='0' CELLBORDER='1' CELLSPACING='0'>\n" + "     <TR><TD PORT='{{id}}' BGCOLOR='lightgray'>{{name}}</TD></TR>\n" + "  {{#fields}}" + "   <TR>\n" + "       <TD PORT='{{id}}' BGCOLOR='white'>{{name}}</TD>\n" + "     </TR>\n" + "{{/fields}}" + "     </TABLE>>];\n" + "   {{/entities}}" + "{{/groups}}" + "\n\n" + "{{#relationships}}" + "{{from}}:{{field}}:e -> {{to}}:{{to}}:w [style={{style}}] \n" + "{{/relationships}}" + "}",
+    template: "digraph G { \n\n" + "   graph [rankdir=LR,nodesep=1.0]; \n" + "   node [shape=plaintext, fontsize=12]; \n" + "   edge  []; \n\n" + "{{#groups}}" + "   {{#entities}}" + "{{id}} [label=<<TABLE BORDER='0' CELLBORDER='1' CELLSPACING='0' COLOR='{{color}}'>\n" + "     <TR><TD PORT='{{id}}' BGCOLOR='lightgray'><FONT COLOR='{{color}}'>{{name}}</FONT></TD></TR>\n" + "  {{#fields}}" + "   <TR>\n" + "       <TD PORT='{{id}}' BGCOLOR='white'><FONT COLOR='{{color}}'>{{name}}</FONT></TD>\n" + "     </TR>\n" + "{{/fields}}" + "     </TABLE>>];\n" + "   {{/entities}}" + "{{/groups}}" + "\n\n" + "{{#relationships}}" + "{{from}}:{{field}}:e -> {{to}}:{{to}}:w [style={{style}}] \n" + "{{/relationships}}" + "}",
 
     /** translate a persisted diagram into a rendering view object. the result will be validated using gv.schemaDiagram.
      *  the opts arg contains values which change the way the view data is transformed. valid opts are:
      *
      *  showSelfRelations : true will show heirarchical relationships i.e. loops
+     *  obscureEntities : an array of entity names that should be faded to de-emphasise them in the diagram
      * TODO
      *  showEdgeSingularLabels : true will show relationship labels for child to parent
      *  showEdgePluralLabels : true will show relationship labels for parent to children
-     *  obscureEntities : an array of entity names that should be faded to de-emphasise them in the diagram
      *  fromEntity : an entity name that should be highlight to emphasise it in the diagram
      *  showTypes : true will show field types
      *  showAPINames : true will show field using their API Names instead of Labels
@@ -776,6 +776,14 @@ var gv = {
             });
         });
 
+        // create lookups for options data
+        var obscured = {};
+        if (opts.obscureEntities) {
+            opts.obscureEntities.forEach(function (name) {
+                obscured[name] = true;
+            });
+        }
+
         // translate the input diagram into the view shape
         diagram.groups.forEach(function (group) {
             var viewGroup = {
@@ -787,8 +795,12 @@ var gv = {
                 var viewEntity = {
                     name: entity.label,
                     id: entity.value,
+                    color: gv.entityFocused,
                     fields: []
                 };
+                if (obscured[entity.value]) {
+                    viewEntity.color = gv.entityObscured;
+                }
                 entitiesInDiagramByAPIName[entity.value] = viewEntity;
 
                 entity.attributes.forEach(function (attribute) {
@@ -863,6 +875,9 @@ var gv = {
 
         return result;
     },
+
+    entityFocused: "#000000",
+    entityObscured: "#AAAAAA",
 
     compareNames: function compareNames(a, b) {
         if (a.name < b.name) return -1;
