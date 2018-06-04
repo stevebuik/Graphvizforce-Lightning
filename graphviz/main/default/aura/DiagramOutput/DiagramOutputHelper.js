@@ -10,10 +10,7 @@
         var success = Core.AuraUtils.copyToClipboard(text);
 
         if (success) {
-            component.find('notifLib').showToast({
-                "title": "Info",
-                "message": 'Copied Successfully.'
-            });
+            window.alert('Copied Successfully.');
         }
     },
 

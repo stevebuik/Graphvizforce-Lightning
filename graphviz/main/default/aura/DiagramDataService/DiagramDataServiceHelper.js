@@ -12,7 +12,7 @@
            } else if (saveResult.state === "INCOMPLETE") {
                console.log("User is offline, device doesn't support drafts.");
            } else if (saveResult.state === "ERROR") {
-               console.log('Problem saving record, error: ' + JSON.stringify(saveResult.error));
+               window.alert('Problem saving record, error: ' + JSON.stringify(saveResult.error));
            } else {
                console.log('Unknown problem, state: ' + saveResult.state + ', error: ' + JSON.stringify(saveResult.error));
            }
@@ -32,7 +32,7 @@
                 console.log("User is offline, device doesn't support drafts.");
             } else if (saveResult.state === "ERROR") {
                 // handle the error state
-                console.log('Problem saving contact, error: ' + JSON.stringify(saveResult.error));
+                window.alert('Problem saving contact, error: ' + JSON.stringify(saveResult.error));
             } else {
                 console.log('Unknown problem, state: ' + saveResult.state + ', error: ' + JSON.stringify(saveResult.error));
             }
@@ -51,7 +51,7 @@
             } else if (deleteResult.state === "INCOMPLETE") {
                 console.log("User is offline, device doesn't support drafts.");
             } else if (deleteResult.state === "ERROR") {
-                console.log('Problem deleting record, error: ' + JSON.stringify(deleteResult.error));
+                window.alert('Problem deleting record, error: ' + JSON.stringify(deleteResult.error));
             } else {
                 console.log('Unknown problem, state: ' + deleteResult.state + ', error: ' + JSON.stringify(deleteResult.error));
             }

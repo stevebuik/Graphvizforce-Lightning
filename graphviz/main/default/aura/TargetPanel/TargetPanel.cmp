@@ -84,6 +84,4 @@
 
     </c:Panel>
 
-    <lightning:notificationsLibrary aura:id="notifLib"/>
-
 </aura:component>

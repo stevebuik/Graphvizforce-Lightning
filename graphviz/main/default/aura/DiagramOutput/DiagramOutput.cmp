@@ -59,6 +59,4 @@
 
     </lightning:tabset>
 
-    <lightning:notificationsLibrary aura:id="notifLib"/>
-
 </aura:component>
