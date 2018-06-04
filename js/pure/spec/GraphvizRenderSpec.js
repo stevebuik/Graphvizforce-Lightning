@@ -17,6 +17,27 @@ var renderAndValidate = function (sampleName, variation, opts) {
 
 describe("persisted samples are translated into valid view data", function () {
 
+    describe("contact, account, feed, case simple", function () {
+        var rendered = renderAndValidate("account_contact_feed_case", "basic", {showSelfRelations: false});
+        it("valid translation with no options present", function () {
+            expect(rendered.validation.errors).toEqual([]);
+        })
+        it("translation returns 2 Account fields", function () {
+            expect(rendered.translated.groups[0].entities[0].fields)
+                .toEqual([{
+                        name: 'Account Description',
+                        id: 'Description',
+                        type: 'TEXTAREA'
+                    },
+                        {
+                            name: 'Account Source',
+                            id: 'AccountSource',
+                            type: 'PICKLIST'
+                        }]
+                );
+        })
+    });
+
     describe("contact, account, case simple", function () {
         var rendered = renderAndValidate("account_contact_case", "basic", {showSelfRelations: false});
         it("valid translation with no options present", function () {

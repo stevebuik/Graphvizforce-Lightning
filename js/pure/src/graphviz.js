@@ -13,7 +13,7 @@ var gv = {
 
     "   {{#entities}}" +
 
-    "{{name}} [label=<<TABLE BORDER='0' CELLBORDER='1' CELLSPACING='0'>\n" +
+    "{{id}} [label=<<TABLE BORDER='0' CELLBORDER='1' CELLSPACING='0'>\n" +
     "     <TR><TD PORT='{{id}}' BGCOLOR='lightgray'>{{name}}</TD></TR>\n" +
     "  {{#fields}}" +
     "   <TR>\n" +

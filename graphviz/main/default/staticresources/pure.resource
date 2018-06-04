@@ -741,7 +741,7 @@ var Mustache = __webpack_require__(0);
 
 var gv = {
 
-    template: "digraph G { \n\n" + "   graph [rankdir=LR,nodesep=1.0]; \n" + "   node [shape=plaintext, fontsize=12]; \n" + "   edge  []; \n\n" + "{{#groups}}" + "   {{#entities}}" + "{{name}} [label=<<TABLE BORDER='0' CELLBORDER='1' CELLSPACING='0'>\n" + "     <TR><TD PORT='{{id}}' BGCOLOR='lightgray'>{{name}}</TD></TR>\n" + "  {{#fields}}" + "   <TR>\n" + "       <TD PORT='{{id}}' BGCOLOR='white'>{{name}}</TD>\n" + "     </TR>\n" + "{{/fields}}" + "     </TABLE>>];\n" + "   {{/entities}}" + "{{/groups}}" + "\n\n" + "{{#relationships}}" + "{{from}}:{{field}}:e -> {{to}}:{{to}}:w [style={{style}}] \n" + "{{/relationships}}" + "}",
+    template: "digraph G { \n\n" + "   graph [rankdir=LR,nodesep=1.0]; \n" + "   node [shape=plaintext, fontsize=12]; \n" + "   edge  []; \n\n" + "{{#groups}}" + "   {{#entities}}" + "{{id}} [label=<<TABLE BORDER='0' CELLBORDER='1' CELLSPACING='0'>\n" + "     <TR><TD PORT='{{id}}' BGCOLOR='lightgray'>{{name}}</TD></TR>\n" + "  {{#fields}}" + "   <TR>\n" + "       <TD PORT='{{id}}' BGCOLOR='white'>{{name}}</TD>\n" + "     </TR>\n" + "{{/fields}}" + "     </TABLE>>];\n" + "   {{/entities}}" + "{{/groups}}" + "\n\n" + "{{#relationships}}" + "{{from}}:{{field}}:e -> {{to}}:{{to}}:w [style={{style}}] \n" + "{{/relationships}}" + "}",
 
     /** translate a persisted diagram into a rendering view object. the result will be validated using gv.schemaDiagram.
      *  the opts arg contains values which change the way the view data is transformed. valid opts are:
