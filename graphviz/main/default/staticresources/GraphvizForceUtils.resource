@@ -38,10 +38,6 @@ window.GraphvizForce;
                 if(isClone){
                     component.find('diagramConfigurator').find('sourcePanel').find('objectPanel').set('v.searchTerm', '');
                     helper.initialiseObjects(component, event, helper);
-                    Core.AuraUtils.showNotification("Info", "The diagram '" + diagramName + "' was cloned successfully.")
-                }
-                else{
-                    Core.AuraUtils.showNotification("Info", "The diagram '" + diagramName + "' was created successfully.")
                 }
             },
 
@@ -275,10 +271,7 @@ window.GraphvizForce;
                 });
 
                 if(exists){
-                    component.find('notifLib').showToast({
-                        "title": "Info",
-                        "message": 'This diagram name "'+ diagramName +'" already exists.'
-                    });
+                    window.alert('This diagram name "'+ diagramName +'" already exists.');
                 }
                 else{
                     var newDiagram = {label:diagramName, value:diagramName, visible:true, groups:selectedDiagram.groups};
@@ -305,10 +298,7 @@ window.GraphvizForce;
                 });
 
                 if(exists){
-                    component.find('notifLib').showToast({
-                        "title": "Info",
-                        "message": 'This diagram name "'+ newDiagramName +'" already exists.'
-                    });
+                    window.alert('This diagram name "'+ newDiagramName +'" already exists.');
                 }
                 else{
                     var newDiagramObject = {label:newDiagramName, value:newDiagramName, visible:true, groups:groups};

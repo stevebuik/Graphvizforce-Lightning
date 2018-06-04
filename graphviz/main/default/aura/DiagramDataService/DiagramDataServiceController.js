@@ -23,7 +23,6 @@
         } else if(eventParams.changeType === "REMOVED") {
             console.log('Record Updater: REMOVED');
             // record is deleted, show a toast UI message
-            Core.AuraUtils.showNotification("Deleted", "The diagram was deleted.")
         } else if(eventParams.changeType === "ERROR") {
             // there’s an error while loading, saving, or deleting the record
             console.log('Record Updater: ERROR');

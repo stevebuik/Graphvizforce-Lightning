@@ -148,8 +148,6 @@
 
     </div>
 
-    <lightning:notificationsLibrary aura:id="notifLib"/>
-
     <lightning:spinner variant="brand" size="large" aura:id="mySpinner"/>
 
 </aura:component>
