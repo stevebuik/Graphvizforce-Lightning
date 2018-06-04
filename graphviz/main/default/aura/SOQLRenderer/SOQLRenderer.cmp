@@ -36,8 +36,8 @@
             <lightning:layoutItem size="12" padding="around-small">
                 <div class="slds-clearfix">
                     <div class="slds-float_right">
-                        <lightning:button class="" variant="base" label="Back to SOQL Preview"
-                                          onclick="{! c.handlePreviewClick }"/>
+                        <lightning:buttonIcon iconName="utility:hide" size="large" variant="bare"
+                                              onclick="{! c.handlePreviewClick }" alternativeText="Show SOQL Config"/>
                     </div>
                 </div>
             </lightning:layoutItem>
@@ -74,8 +74,8 @@
                                                           alternativeText="Copy SOQL to Clipboard"
                                                           title="Copy SOQL to Clipboard"
                                                           onclick="{! c.handleCopyClick }"/>
-                                    <lightning:button class="control" variant="base" label="Show SOQL"
-                                                      onclick="{! c.handleSOQLClick }"/>
+                                    <lightning:buttonIcon iconName="utility:preview" size="large" variant="bare"
+                                                          onclick="{! c.handleSOQLClick }" alternativeText="Show SOQL"/>
                                 </div>
                             </aura:if>
                         </div>
