@@ -11,6 +11,8 @@
     <aura:attribute name="svgContent" type="String" />
     <aura:attribute name="obscuredEntities" type="List" default="[]"
                     description="Entities in the diagram which are not part of the SOQL query"/>
+    <aura:attribute name="showSelfRelations" type="Boolean" default="false"
+                    description="When true, diagram will show heirarchical/self relationships"/>
 
     <!--<aura:handler event="c:UserGuideEvent" action="{!c.handleUserGuideEvent}"/>-->
     <aura:registerEvent name="onTogglePreview" type="c:ActionEvent" />
@@ -22,13 +24,18 @@
     <lightning:tabset>
         <lightning:tab label="Diagram">
             <div class="slds-clearfix">
-                <div class="slds-float_left">
+                <div class="slds-float_left toolbar">
+                    <div>
                     <aura:if isTrue="{!v.isExpanded}">
                         <lightning:buttonIcon iconName="utility:contract" alternativeText="Contract" iconClass="slds-button_icon-x-small" onclick="{!c.onToggleState}" />
                         <aura:set attribute="else">
                             <lightning:buttonIcon iconName="utility:expand" alternativeText="Expand" iconClass="slds-button_icon-x-small" onclick="{!c.onToggleState}" />
                         </aura:set>
                     </aura:if>
+                    </div>
+                    <div>
+                        <lightning:buttonIcon iconName="utility:refresh" alternativeText="Show Self Relationships" iconClass="slds-button_icon-x-small" onclick="{!c.onToggleSelf}" />
+                    </div>
                 </div>
                 <div class="slds-float_left">
                     <c:DiagramViewer aura:id="diagramViewer" graphvizContent="{!v.graphvizContent}" onDiagramRendered="{!c.onDiagramRendered}" />

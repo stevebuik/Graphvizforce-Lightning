@@ -8,3 +8,7 @@
 .THIS hr.diagramBottom {
     margin: 0px;
 }
+
+.THIS .toolbar button {
+    margin-top: 10px;
+}

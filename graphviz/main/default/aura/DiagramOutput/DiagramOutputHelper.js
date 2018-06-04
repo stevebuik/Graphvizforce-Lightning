@@ -2,14 +2,14 @@
  * Created by guan on 15/2/18.
  */
 ({
-    copyContent : function(component, helper, type){
+    copyContent: function (component, helper, type) {
         var text = type == 'graphvizContent' ? component.get('v.graphvizContent') : component.get('v.svgContent');
         console.log('@@@@ text:', text);
-        if(text == null) return;
+        if (text == null) return;
 
         var success = Core.AuraUtils.copyToClipboard(text);
 
-        if(success){
+        if (success) {
             component.find('notifLib').showToast({
                 "title": "Info",
                 "message": 'Copied Successfully.'
@@ -17,7 +17,7 @@
         }
     },
 
-    saveToFile : function(label, content){
+    saveToFile: function (label, content) {
         var element = document.createElement('a');
         element.setAttribute('href', 'data:svg/plain;charset=utf-8,' + encodeURIComponent(content));
         element.setAttribute('download', label);
@@ -30,8 +30,11 @@
     render: function (component) {
         var diagram = component.get("v.selectedDiagram");
         if (diagram) {
-            var obscured = component.get("v.obscuredEntities");
-            var translated = window.pure.graphviz.diagramAsMustacheView(diagram, {obscureEntities: obscured});
+            var opts = {
+                showSelfRelations: component.get("v.showSelfRelations"),
+                obscureEntities: component.get("v.obscuredEntities"),
+            };
+            var translated = window.pure.graphviz.diagramAsMustacheView(diagram, opts);
             var graphvizContent = window.pure.graphviz.diagramAsText(translated);
             component.set('v.graphvizContent', graphvizContent);
         }

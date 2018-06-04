@@ -9,8 +9,12 @@
     onToggleState: function (component, event, helper) {
         var isExpanded = !component.get('v.isExpanded');
         component.set('v.isExpanded', isExpanded);
-
         component.getEvent('onTogglePreview').setParams({scope: isExpanded}).fire();
+    },
+
+    onToggleSelf: function (component, event, helper) {
+        component.set("v.showSelfRelations", !component.get("v.showSelfRelations"));
+        helper.render(component);
     },
 
     // change handler on attribute
