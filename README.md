@@ -28,6 +28,10 @@ It's open for extension so you can create your own custom sources if required.
 Any diagram can be rendered as a SOQL join query, with support for joins via parent and child relationships.
 1-click copy of the SOQL makes it easy to move into your favourite query runner.
 
+See it action:
+
+![Demo](doc/assets/gvf2-demo.gif)
+
 ## Getting started as a developer
 
 First, clone this project to your local filesystem.
