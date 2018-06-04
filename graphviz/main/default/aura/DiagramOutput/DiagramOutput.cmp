@@ -9,12 +9,18 @@
     <aura:attribute name="isExpanded" type="Boolean" default="false" />
     <aura:attribute name="graphvizContent" type="String" />
     <aura:attribute name="svgContent" type="String" />
+    <aura:attribute name="obscuredEntities" type="List" default="[]"
+                    description="Entities in the diagram which are not part of the SOQL query"/>
 
     <!--<aura:handler event="c:UserGuideEvent" action="{!c.handleUserGuideEvent}"/>-->
     <aura:registerEvent name="onTogglePreview" type="c:ActionEvent" />
-    <aura:method name="renderDiagram" action="{!c.renderDiagram}" />
 
-    <c:Panel title="Output 1">
+    <aura:handler name="fromChange" event="c:SOQLFromChangeEvent" action="{!c.onFromChanged}"/>
+
+    <aura:handler name="change" value="{!v.selectedDiagram}" action="{!c.onDiagramChanged}"/>
+
+    <c:Panel>
+
         <aura:set attribute="icon">
             <aura:if isTrue="{!v.isExpanded}">
                 <lightning:buttonIcon iconName="utility:contract" alternativeText="Contract" iconClass="slds-button_icon-x-small" onclick="{!c.onToggleState}" />
@@ -23,12 +29,14 @@
                 </aura:set>
             </aura:if>
         </aura:set>
+
         <lightning:tabset>
             <lightning:tab>
                 <aura:set attribute="label">
                     Preview
                 </aura:set>
                 <c:DiagramViewer aura:id="diagramViewer" graphvizContent="{!v.graphvizContent}" onDiagramRendered="{!c.onDiagramRendered}" />
+                <c:SOQLRenderer aura:id="soql" diagram="{!v.selectedDiagram}"/>
             </lightning:tab>
 
             <lightning:tab>

@@ -25,6 +25,8 @@
     <aura:handler name="change" value="{!v.diagram}" action="{!c.diagramChange}"/>
     <aura:handler name="change" value="{!v.from}" action="{!c.fromChange}"/>
 
+    <aura:registerEvent name="fromChange" type="c:SOQLFromChangeEvent"/>
+
     <lightning:layout multipleRows="true">
 
         <aura:if isTrue="{!equals(v.mode, 'soql')}">

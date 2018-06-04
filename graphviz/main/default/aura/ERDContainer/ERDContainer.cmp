@@ -128,7 +128,6 @@
                     <c:AutoBuildProgress aura:id="autoBuildProgress"/>
                     <c:DiagramOutput aura:id="diagramOutput" selectedDiagram="{!v.selectedDiagram}"
                                      allObjects="{!v.allObjects}"/>
-                    <c:SOQLRenderer diagram="{!v.selectedDiagram}"/>
                 </div>
             </div>
         </div>

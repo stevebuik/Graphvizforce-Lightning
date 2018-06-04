@@ -27,9 +27,13 @@
         document.body.removeChild(element);
     },
 
-    generateGraphviz: function (component, event, helper) {
-        var selectedDiagram = component.get('v.selectedDiagram');
-        var translated = window.pure.graphviz.diagramAsMustacheView(selectedDiagram, {});
-        return window.pure.graphviz.diagramAsText(translated);
+    render: function (component) {
+        var diagram = component.get("v.selectedDiagram");
+        if (diagram) {
+            var obscured = component.get("v.obscuredEntities");
+            var translated = window.pure.graphviz.diagramAsMustacheView(diagram, {obscureEntities: obscured});
+            var graphvizContent = window.pure.graphviz.diagramAsText(translated);
+            component.set('v.graphvizContent', graphvizContent);
+        }
     }
 })

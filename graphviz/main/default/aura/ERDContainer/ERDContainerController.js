@@ -109,7 +109,6 @@
         if (!component.get("v.isAutoBuildActive")) {
             helper.onSaveDiagram(component, event, helper);
         }
-        component.find('diagramOutput').renderDiagram(component, event, helper);
     },
 
     onCloneDiagram : function(component, event, helper) {
