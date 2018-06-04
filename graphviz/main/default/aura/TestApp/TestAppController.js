@@ -1990,8 +1990,10 @@
                             }]
                         }]
                     }]
-                })
-            //console.log("fake test diagram loaded from testapp");
+                });
+
+            var translated = window.pure.graphviz.diagramAsMustacheView(component.get("v.diagram"), {});
+            console.log(window.pure.graphviz.diagramAsText(translated));
 
             component.find("soql").set("v.from", "Account");
 
