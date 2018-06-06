@@ -17,7 +17,7 @@ var gv = {
     "     <TR><TD PORT='{{id}}' BGCOLOR='lightgray'><FONT COLOR='{{color}}'>{{name}}</FONT></TD></TR>\n" +
     "  {{#fields}}" +
     "   <TR>\n" +
-    "       <TD PORT='{{id}}' BGCOLOR='white'><FONT COLOR='{{color}}'>{{name}}</FONT></TD>\n" +
+    "       <TD PORT='{{id}}' BGCOLOR='white' ALIGN='LEFT'><FONT COLOR='{{color}}'>{{name}}</FONT></TD>\n" +
     "     </TR>\n" +
     "{{/fields}}" +
     "     </TABLE>>];\n" +
