@@ -59,9 +59,15 @@
     },
     handleCopyClick: function (component, event, helper) {
         var success = Core.AuraUtils.copyToClipboard(component.get("v.soql"));
+        var c = component.find("copied");
         if (!success) {
             window.alert("Copy to clipboard failed. Try another browser?");
         }
+
+        c.getElement().setAttribute("style", "opacity: 1;")
+        setTimeout($A.getCallback(function () {
+            c.getElement().setAttribute("style", "opacity: 0;")
+        }), 1000);
     },
     handleSOQLClick: function (component, event, helper) {
         component.set("v.mode", "soql");

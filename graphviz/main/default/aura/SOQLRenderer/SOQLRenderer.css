@@ -28,3 +28,7 @@
 .THIS .soql {
     font-size: 1rem;
 }
+
+.THIS .copied-fade {
+    transition: all 1s ease-in-out;
+}

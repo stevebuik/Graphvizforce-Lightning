@@ -69,6 +69,7 @@
                                                           onclick="{! c.handleClearClick }" alternativeText="Clear"/>
                                 </div>
                                 <div class="slds-float_right">
+                                    <span aura:id="copied" class="copied-fade" style="opacity:0;">Copied!</span>
                                     <lightning:buttonIcon class="control" variant="bare"
                                                           iconName="utility:copy" size="large"
                                                           alternativeText="Copy SOQL to Clipboard"
