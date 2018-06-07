@@ -6,6 +6,12 @@ Replaces and improves [Graphvizforce for Visualforce](http://stevebuik.github.io
 
 Status: **In Development**. We will announce on social media when v1 is ready for user testing.
 
+It's an alpha version because we finalised the storage format yet. This means that diagrams will need to be recreated after an upgrade.
+Despite that, it's still stable and valuable to use in the current state.
+We'll stop with breaking changes in the beta release which will be soon as we are working on the storage format now.
+
+Currently we are distributing using a *managed* package but will convert to an *unlocked* package as soon as they are available.
+
 TODO setup Travis CI with build indicator
 
 ## Features
