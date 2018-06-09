@@ -1,8 +1,21 @@
 var gvfp = require('../src/pure.js');
+var schemas = require('../src/schemas.js');
 var samples = require('../test/diagramPersistedSamples.js');
 var views = require('../test/diagramViewSamples.js');
 var fs = require('fs');
 var Validator = require('jsonschema').Validator;
+
+///// NEW PERSISTENCE SHAPE TESTS /////
+
+describe("persisted diagram samples (lean v2) are translated into valid view data", function () {
+    it("sample is validated by schema", function () {
+        var v = new Validator();
+        var validation = v.validate(samples.account_contact_feed_case2, schemas.persisted);
+        expect(validation.errors).toEqual([]);
+    })
+})
+
+///// INITIAL PERSISTENCE SHAPE TESTS /////
 
 var renderAndValidate = function (sampleName, variation, opts) {
     var translated = gvfp.graphviz.diagramAsMustacheView(samples[sampleName], opts);
@@ -11,7 +24,7 @@ var renderAndValidate = function (sampleName, variation, opts) {
     var v = new Validator();
     return {
         translated: translated,
-        validation: v.validate(translated, views.schema)
+        validation: v.validate(translated, schemas.view)
     }
 };
 
@@ -108,7 +121,7 @@ describe("persisted samples are translated into valid view data", function () {
 
 describe("view data validation", function () {
     var v = new Validator();
-    var validationResult = v.validate(views.samples.account_contact, views.schema);
+    var validationResult = v.validate(views.samples.account_contact, schemas.view);
     it("sample view is valid",
         function () {
             expect(validationResult.errors).toEqual([]);

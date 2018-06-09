@@ -3,6 +3,26 @@
 // they're also translated to SOQL
 // to create/update them, just create a diagram in the Lightning client and then copy the JSON from the custom object record
 
+exports.account_contact_feed_case2 =
+    {
+        "entities":
+            [
+                {
+                    "name": "Account",
+                    "fields": ["Name", "Type"]
+                },
+                {
+                    "name": "Contact",
+                    "fields": ["FirstName", "LastName"]
+                },
+                {
+                    "name": "ContactFeed",
+                    "fields": ["ParentId"]
+                }
+            ],
+        "settings": {"showSelfRelations": true}
+    };
+
 exports.account_contact_feed_case =
     {
         "visible": true,
