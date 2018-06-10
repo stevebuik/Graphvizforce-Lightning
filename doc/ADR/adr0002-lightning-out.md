@@ -6,6 +6,8 @@ There was a [bug that blocked access](https://success.salesforce.com/issues_view
 A workaround was found: host the ERD component in a Lightning Out page in a Visualforce page.
 The visualforce domains provide a session id that does work with the tooling API.
 
+This workaround will no longer be needed when the native Apex meta-data api supports Classes and Triggers.
+
 ## Decision
 
 Migrated the tab to use a VF page and Lightning Out to init the ERD.
@@ -13,6 +15,8 @@ Migrated the tab to use a VF page and Lightning Out to init the ERD.
 ## Status
 
 Accepted. Tested and works except for Toasts.
+
+Waiting for better meta-data API support in Apex. Currently only Page Layouts supported.
 
 ## Consequences
 
