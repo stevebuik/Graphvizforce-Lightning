@@ -1,108 +1,106 @@
 var gvfp = require('../src/pure.js');
+var schemas = require('../src/schemas.js');
 var samples = require('../test/diagramPersistedSamples.js');
+var wrappers = require('../test/describedObjectWrappers.js');
 var views = require('../test/diagramViewSamples.js');
 var fs = require('fs');
 var Validator = require('jsonschema').Validator;
 
-var renderAndValidate = function (sampleName, variation, opts) {// get the persistence and render the view shape
-    var translated = gvfp.graphviz.diagramAsMustacheView(samples[sampleName], opts);
+///// NEW PERSISTENCE SHAPE TESTS /////
+
+var renderAndValidate = function (sample, variation) {
+    var translated = gvfp.graphviz.diagramAsView(sample, wrappers.wrappers);
     fs.mkdir("./generated");
-    fs.writeFileSync("./generated/" + sampleName + "-" + variation + ".gv", gvfp.graphviz.diagramAsText(translated));
+    fs.writeFileSync("./generated/" + variation + ".gv", gvfp.graphviz.diagramAsText(translated));
     var v = new Validator();
     return {
         translated: translated,
-        validation: v.validate(translated, views.schema)
+        inputValidation: v.validate(sample, schemas.persisted),
+        outputValidation: v.validate(translated, schemas.view)
     }
 };
 
-describe("persisted samples are translated into valid view data", function () {
-    describe("contact, account, feed, case", function () {
-        describe("simple i.e. no options in use", function () {
-            var rendered = renderAndValidate("account_contact_feed_case", "basic", {showSelfRelations: false});
-            it("valid translation", function () {
-                expect(rendered.validation.errors).toEqual([]);
-            })
-            it("translation returns 2 Account fields", function () {
-                expect(rendered.translated.groups[0].entities[0].fields)
-                    .toEqual([{
-                            name: 'Account Description',
-                            id: 'Description',
-                            type: 'TEXTAREA'
-                        },
-                            {
-                                name: 'Account Source',
-                                id: 'AccountSource',
-                                type: 'PICKLIST'
-                            }]
-                    );
-            })
-        });
-        // if a SOQL from change event uses Account then ContactFeed is a grandchild and not included in the SOQL
-        describe("entity obscured", function () {
-            var rendered = renderAndValidate("account_contact_feed_case", "obscuring", {obscureEntities: ["ContactFeed"]});
-            it("valid translation", function () {
-                expect(rendered.validation.errors).toEqual([]);
-            })
-            it("Account entity is not obscured", function () {
-                expect(rendered.translated.groups[0].entities[0].color).toEqual(gvfp.graphviz.entityFocused);
-            })
-            it("ContactFeed entity is obscured", function () {
-                expect(rendered.translated.groups[0].entities[3].color).toEqual(gvfp.graphviz.entityObscured);
-            })
-        });
-    });
+describe("persisted diagram samples (lean v2) are translated and rendered ok", function () {
 
-    describe("contact, account, case simple", function () {
-        var rendered = renderAndValidate("account_contact_case", "basic", {showSelfRelations: false});
-        it("valid translation", function () {
-            expect(rendered.validation.errors).toEqual([]);
-        })
-        it("translation returns 2 Account fields", function () {
-            expect(rendered.translated.groups[0].entities[0].fields)
-                .toEqual([{
-                        name: 'Account Description',
-                        id: 'Description',
-                        type: 'TEXTAREA'
-                    },
-                        {
-                            name: 'Account Source',
-                            id: 'AccountSource',
-                            type: 'PICKLIST'
-                        }]
-                );
-        })
-    });
+    var sample = samples["account_contact_feed2"];
+    describe("contact, account, feed ", function () {
+        var result = renderAndValidate(sample, "account_contact_feed2__options-active");
+        it("input data was valid", function () {
+            expect(result.inputValidation.errors).toEqual([]);
+        });
+        it("output data was valid", function () {
+            expect(result.outputValidation.errors).toEqual([]);
+        });
+        it("entities are sorted by name", function () {
+            expect(result.translated.groups[0].entities[0].name).toEqual("Account");
+            expect(result.translated.groups[0].entities[1].name).toEqual("Contact");
+        });
+        it("fields are sorted by name", function () {
+            expect(result.translated.groups[0].entities[1].fields).toEqual([
+                {
+                    name: 'Account ID',
+                    id: 'AccountId',
+                    type: 'REFERENCE'
+                },
+                {
+                    name: 'First Name',
+                    id: 'FirstName',
+                    type: 'STRING'
+                },
+                {
+                    name: 'Last Name',
+                    id: 'LastName',
+                    type: 'STRING'
+                },
+                {
+                    name: 'Master Record ID',
+                    id: 'MasterRecordId',
+                    type: 'REFERENCE'
+                },
+                {
+                    name: 'Reports To ID',
+                    id: 'ReportsToId',
+                    type: 'REFERENCE'
+                }]);
+        });
+    })
 
-    describe("contact, account, case with self", function () {
-        var rendered = renderAndValidate("account_contact_case", "with-self", {showSelfRelations: true});
-        it("valid translation", function () {
-            expect(rendered.validation.errors).toEqual([]);
+    describe("contact, account, feed without groups", function () {
+
+        sample.groups = [];
+
+        var result = renderAndValidate(sample, "account_contact_feed2__without-groups");
+        it("input data was valid", function () {
+            expect(result.inputValidation.errors).toEqual([]);
+        });
+        it("output data was valid", function () {
+            expect(result.outputValidation.errors).toEqual([]);
+        });
+        it("no groups present generates a single/default group", function () {
+            expect(result.translated.groups.length).toEqual(1);
+        });
+    })
+
+    describe("contact, account, feed with settings disabled", function () {
+
+        sample.settings = {};
+
+        var result = renderAndValidate(sample, "account_contact_feed2__with-settings-inactive");
+        it("input data was valid", function () {
+            expect(result.inputValidation.errors).toEqual([]);
+        });
+        it("output data was valid", function () {
+            expect(result.outputValidation.errors).toEqual([]);
+        });
+        result.translated.groups[0].entities.forEach(function (entity) {
+            it("all entities are in focus", function () {
+                expect(entity.color).toEqual(gvfp.graphviz.entityFocused);
+            });
         })
-        it("translation returns 4 Account fields sorted by name", function () {
-            expect(rendered.translated.groups[0].entities[0].fields)
-                .toEqual([
-                    {
-                        name: 'Account Description',
-                        id: 'Description',
-                        type: 'TEXTAREA'
-                    },
-                    {
-                        name: 'Account Source',
-                        id: 'AccountSource',
-                        type: 'PICKLIST'
-                    },
-                    {
-                        name: 'Master Record ID',
-                        id: 'MasterRecordId',
-                        type: 'REFERENCE'
-                    },
-                    {
-                        name: 'Parent Account ID',
-                        id: 'ParentId',
-                        type: 'REFERENCE'
-                    }]);
-        })
-    });
+        it("only inter-entity relationships present", function () {
+            expect(result.translated.relationships.length).toEqual(2);
+        });
+    })
 
     describe("Custom objects with master detail relationship", function () {
         var rendered = renderAndValidate("master_detail_relationships", "with-basic", {showSelfRelations: false});
@@ -119,22 +117,26 @@ describe("persisted samples are translated into valid view data", function () {
     });
 })
 
-describe("view data validation", function () {
-    var v = new Validator();
-    var validationResult = v.validate(views.samples.account_contact, views.schema);
-    it("sample view is valid",
-        function () {
-            expect(validationResult.errors).toEqual([]);
-        })
-})
+////// CANONICAL VIEW MODEL ///////
 
+describe("validation and generation from canonical view JSON", function () {
+
+    describe("view data validation", function () {
+        var v = new Validator();
+        var validationResult = v.validate(views.samples.account_contact, schemas.view);
+        it("sample view is valid",
+            function () {
+                expect(validationResult.errors).toEqual([]);
+            })
+    })
 
 // use the files generated below for instant feedback when changing the template. Graphviz will auto-refresh.
-describe("rendering view samples to graphviz artifacts", function () {
-    var result = gvfp.graphviz.diagramAsText(views.samples.account_contact);
-    //console.log(result);
-    fs.mkdir("./generated");
-    fs.writeFileSync("./generated/canonical_account_contact.gv", result);
+    describe("rendering view samples to graphviz artifacts ", function () {
+        var result = gvfp.graphviz.diagramAsText(views.samples.account_contact);
+        //console.log(result);
+        fs.mkdir("./generated");
+        fs.writeFileSync("./generated/canonical_account_contact.gv", result);
+    })
 })
 
 
