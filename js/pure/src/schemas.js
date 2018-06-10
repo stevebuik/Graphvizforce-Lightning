@@ -4,18 +4,38 @@ var persisted =
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
         "properties": {
+            "name": {"type": "string"},
+            "id": {"type": "string"},
             "entities": {
                 "type": "array",
                 "items": {
                     "type": "object",
                     "properties": {
-                        "name": {"type": "string"},
+                        "apiName": {"type": "string"},
                         "fields": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {"apiName": {"type": "string"}},
+                                "required": ["apiName"]
+                            }
+                        }
+                    },
+                    "required": ["apiName", "fields"]
+                }
+            },
+            "groups": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "name": {"type": "string"},
+                        "entities": {
                             "type": "array",
                             "items": {"type": "string"}
                         }
                     },
-                    "required": ["name", "fields"]
+                    "required": ["name", "entities"]
                 }
             },
             "settings": {
@@ -26,7 +46,7 @@ var persisted =
                 "required": []
             }
         },
-        "required": ["entities", "settings"]
+        "required": ["name", "id", "entities", "groups", "settings"]
     };
 
 // this schema was manually built

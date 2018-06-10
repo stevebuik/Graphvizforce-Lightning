@@ -5,22 +5,52 @@
 
 exports.account_contact_feed_case2 =
     {
+        "name": "Customer Support",
+        "id": "a000l000009yeCLAAY",
         "entities":
             [
+                // all references (even fields) to SFDC meta-data are stored as objects
+                // so that they can have useful keys i.e. extra settings added later
+
+                // not in alpha order, to test sorting of view model output
                 {
-                    "name": "Account",
-                    "fields": ["Name", "Type"]
+                    "apiName": "Contact",
+                    "fields": [
+                        {"apiName": "LastName"},
+                        {"apiName": "FirstName"},
+                        {"apiName": "AccountId"} // auto-added by reference, but only one should be visible
+                    ]
                 },
                 {
-                    "name": "Contact",
-                    "fields": ["FirstName", "LastName"]
+                    "apiName": "Account",
+                    "fields": [
+                        {"apiName": "Name"},
+                        {"apiName": "Type"}
+                    ]
                 },
                 {
-                    "name": "ContactFeed",
-                    "fields": ["ParentId"]
+                    "apiName": "ContactFeed",
+                    "fields": [
+                        {"apiName": "Type"},
+                        {"apiName": "CreatedDate"}
+                    ]
                 }
             ],
-        "settings": {"showSelfRelations": true}
+        // when no groups are present, the render will show all entities from above
+        "groups": [
+            {
+                "name": "Base",
+                "entities": ["Account", "Contact"]
+            },
+            {
+                "name": "Social",
+                "entities": ["ContactFeed"]
+            }
+        ],
+        "settings": {
+            "showSelfRelations": true,
+            "obscureEntities": ["ContactFeed"]
+        }
     };
 
 exports.account_contact_feed_case =
