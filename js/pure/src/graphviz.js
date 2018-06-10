@@ -10,20 +10,17 @@ var gv = {
     "   edge  []; \n\n" +
 
     "{{#groups}}" +
-
     "   {{#entities}}" +
-
-    "{{id}} [label=<<TABLE BORDER='0' CELLBORDER='1' CELLSPACING='0' COLOR='{{color}}'>\n" +
+    "   {{id}} [label=<<TABLE BORDER='0' CELLBORDER='1' CELLSPACING='0' COLOR='{{color}}'>\n" +
     "     <TR><TD PORT='{{id}}' BGCOLOR='lightgray'><FONT COLOR='{{color}}'>{{name}}</FONT></TD></TR>\n" +
-    "  {{#fields}}" +
-    "   <TR>\n" +
-    "       <TD PORT='{{id}}' BGCOLOR='white'><FONT COLOR='{{color}}'>{{name}}</FONT></TD>\n" +
-    "     </TR>\n" +
-    "{{/fields}}" +
+    "       {{#fields}}" +
+    "           <TR>\n" +
+    "               <TD PORT='{{id}}' BGCOLOR='white'><FONT COLOR='{{color}}'>{{name}}</FONT>" +
+    "               </TD>\n" +
+    "           </TR>\n" +
+    "       {{/fields}}" +
     "     </TABLE>>];\n" +
-
     "   {{/entities}}" +
-
     "{{/groups}}" +
     "\n\n" +
 

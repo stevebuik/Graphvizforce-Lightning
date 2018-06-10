@@ -4,7 +4,7 @@ var views = require('../test/diagramViewSamples.js');
 var fs = require('fs');
 var Validator = require('jsonschema').Validator;
 
-var renderAndValidate = function (sampleName, variation, opts) {
+var renderAndValidate = function (sampleName, variation, opts) {// get the persistence and render the view shape
     var translated = gvfp.graphviz.diagramAsMustacheView(samples[sampleName], opts);
     fs.mkdir("./generated");
     fs.writeFileSync("./generated/" + sampleName + "-" + variation + ".gv", gvfp.graphviz.diagramAsText(translated));
@@ -104,6 +104,19 @@ describe("persisted samples are translated into valid view data", function () {
         })
     });
 
+    describe("Custom objects with master detail relationship", function () {
+        var rendered = renderAndValidate("master_detail_relationships", "with-basic", {showSelfRelations: false});
+        it("valid translation", function () {
+            expect(rendered.validation.errors).toEqual([]);
+        })
+        it("relationships would use solid line if it is master detail relation", function () {
+            expect(rendered.translated.relationships[1])
+                .toEqual({ from: 'MasterObject__c',
+                    to: 'DetailObject__c',
+                    field: 'DetailObject__c',
+                    style: 'solid' });
+        })
+    });
 })
 
 describe("view data validation", function () {
@@ -114,6 +127,7 @@ describe("view data validation", function () {
             expect(validationResult.errors).toEqual([]);
         })
 })
+
 
 // use the files generated below for instant feedback when changing the template. Graphviz will auto-refresh.
 describe("rendering view samples to graphviz artifacts", function () {
