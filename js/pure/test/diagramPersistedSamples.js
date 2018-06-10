@@ -3,7 +3,7 @@
 // they're also translated to SOQL
 // to create/update them, just create a diagram in the Lightning client and then copy the JSON from the custom object record
 
-exports.account_contact_feed_case2 =
+exports.account_contact_feed2 =
     {
         "name": "Customer Support",
         "id": "a000l000009yeCLAAY",

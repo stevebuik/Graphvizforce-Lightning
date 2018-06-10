@@ -22,9 +22,9 @@ var renderAndValidate = function (sample, variation) {
 
 describe("persisted diagram samples (lean v2) are translated and rendered ok", function () {
 
-    var sample = samples["account_contact_feed_case2"];
+    var sample = samples["account_contact_feed2"];
     describe("contact, account, feed ", function () {
-        var result = renderAndValidate(sample, "account_contact_feed_case2__options-active");
+        var result = renderAndValidate(sample, "account_contact_feed2__options-active");
         it("input data was valid", function () {
             expect(result.inputValidation.errors).toEqual([]);
         });
@@ -69,7 +69,7 @@ describe("persisted diagram samples (lean v2) are translated and rendered ok", f
 
         sample.groups = [];
 
-        var result = renderAndValidate(sample, "account_contact_feed_case2__without-groups");
+        var result = renderAndValidate(sample, "account_contact_feed2__without-groups");
         it("input data was valid", function () {
             expect(result.inputValidation.errors).toEqual([]);
         });
@@ -85,7 +85,7 @@ describe("persisted diagram samples (lean v2) are translated and rendered ok", f
 
         sample.settings = {};
 
-        var result = renderAndValidate(sample, "account_contact_feed_case2__with-settings-inactive");
+        var result = renderAndValidate(sample, "account_contact_feed2__with-settings-inactive");
         it("input data was valid", function () {
             expect(result.inputValidation.errors).toEqual([]);
         });
