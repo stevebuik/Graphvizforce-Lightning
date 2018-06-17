@@ -9,7 +9,7 @@
             // record is loaded (render other component which needs record data value)
             // Save the record:
             var content = component.get('v.content');
-            component.set("v.simpleRecord.Content__c", JSON.stringify(content));
+            component.set("v.simpleRecord.gvf2__Content__c", JSON.stringify(content));
             var operation = component.get('v.operation');
             if(operation == 'UPDATE'){
                 helper.saveRecord(component);
@@ -43,7 +43,7 @@
             component.find("diagramRecordUpdater").reloadRecord();
         }
         else{
-            component.set("v.simpleRecord.Content__c", JSON.stringify(diagramObject));
+            component.set("v.simpleRecord.gvf2__Content__c", JSON.stringify(diagramObject));
             helper.saveRecord(component);
         }
     },
@@ -57,7 +57,7 @@
         // Prepare a new record from template
         $A.util.toggleClass(component.find("mySpinner"), "slds-hide");
         component.find("diagramRecordCreator").getNewRecord(
-            "Graphviz_Diagram__c", // sObject type (objectApiName)
+            "gvf2__Graphviz_Diagram__c", // sObject type (objectApiName)
             null,      // recordTypeId
             false,     // skip cache?
             $A.getCallback(function() {
@@ -69,7 +69,7 @@
                     return;
                 }
                 console.log("Record template initialized: " + rec.sobjectType);
-                component.set("v.simpleNewDiagram.Content__c", JSON.stringify(diagramObject));
+                component.set("v.simpleNewDiagram.gvf2__Content__c", JSON.stringify(diagramObject));
                 helper.createRecord(component, diagramObject, isClone);
             })
         );

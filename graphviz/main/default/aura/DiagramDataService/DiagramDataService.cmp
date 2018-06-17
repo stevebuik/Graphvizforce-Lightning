@@ -33,7 +33,7 @@
 
     <force:recordData aura:id="diagramRecordCreator"
                       layoutType="FULL"
-                      fields="Id,Content__c"
+                      fields="Id,gvf2__Content__c"
                       targetRecord="{!v.newDiagram}"
                       targetFields="{!v.simpleNewDiagram}"
                       targetError="{!v.newDiagramError}"/>
@@ -41,7 +41,7 @@
     <force:recordData aura:id="diagramRecordUpdater"
                       layoutType="FULL"
                       mode="EDIT"
-                      fields="Id,Content__c"
+                      fields="Id,gvf2__Content__c"
                       recordId="{!v.recordId}"
                       targetRecord="{!v.record}"
                       targetFields="{!v.simpleRecord}"

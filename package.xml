@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>GraphVizForce</members>
+        <members>GraphvizForce_App</members>
         <name>CustomApplication</name>
     </types>
     <types>
         <members>ActionEvent</members>
         <members>AppHeader</members>
         <members>AttributePanel</members>
+        <members>AutoBuildProgress</members>
+        <members>AutoBuildSelector</members>
+        <members>AutoBuildStart</members>
+        <members>AutoBuildUpdate</members>
         <members>DiagramCard</members>
         <members>DiagramConfigurator</members>
         <members>DiagramDataService</members>
@@ -15,28 +19,58 @@
         <members>DiagramViewer</members>
         <members>DiagramViewerTests</members>
         <members>ERDContainer</members>
+        <members>ERDLightningOut</members>
         <members>GroupPanel</members>
         <members>Modal</members>
         <members>ObjectPanel</members>
         <members>Panel</members>
         <members>Pill</members>
+        <members>SOQLFromChangeEvent</members>
+        <members>SOQLRenderer</members>
+        <members>SOQLRenderTests</members>
         <members>SourcePanel</members>
         <members>TargetPanel</members>
+        <members>TestApp</members>
         <members>UserGuideEvent</members>
+        <members>lts_jasmineRunner</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
+        <members>AutoBuild</members>
+        <members>AutoBuildApex</members>
+        <members>AutoBuildApexTests</members>
+        <members>AutoBuildDiagram</members>
+        <members>AutoBuildTrigger</members>
+        <members>AutoBuildTriggerTests</members>
+        <members>BuilderSource</members>
+        <members>BuilderSourceType</members>
         <members>GraphVizForceController</members>
         <members>GraphvizForceControllerTest</members>
+        <members>ToolingAPI</members>
+        <members>ToolingAPIMocks</members>
+        <members>ToolingAPITest</members>
+        <members>UmlService</members>
         <name>ApexClass</name>
     </types>
     <types>
+        <members>AutoBuildBridge</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
         <members>Graphviz_Diagram__c-Graphviz Diagram Layout</members>
+        <members>Graphviz_AutoBuild__mdt-Graphviz AutoBuild Layout</members>
         <name>Layout</name>
     </types>
     <types>
         <members>Graphviz_Diagram__c</members>
+        <members>Graphviz_AutoBuild__mdt</members>
+        <members>GraphvizConfig__c</members>
         <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Graphviz_AutoBuild.All_Apex</members>
+        <members>Graphviz_AutoBuild.Apex_Triggers</members>
+        <name>CustomMetadata</name>
     </types>
     <types>
         <members>Graphvizforce</members>
@@ -46,15 +80,16 @@
         <members>GVF2TestsJasmine</members>
         <members>GraphvizForceUtils</members>
         <members>LightningUtils</members>
+        <members>pure</members>
         <members>VizJS</members>
         <name>StaticResource</name>
     </types>
     <types>
-        <members>GraphVizForce</members>
+        <members>Graphviz_Diagrams</members>
         <name>CustomTab</name>
     </types>
     <types>
-        <members>GraphVizForce_UtilityBar</members>
+        <members>GraphvizForce_App_UtilityBar</members>
         <name>FlexiPage</name>
     </types>
     <version>41.0</version>

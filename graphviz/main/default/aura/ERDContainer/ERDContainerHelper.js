@@ -51,7 +51,7 @@
             $A.util.toggleClass(component.find("mySpinner"), "slds-hide");
             var diagrams = [];
             returnValue.forEach(function (item){
-                var diagram = JSON.parse(item.Content__c);
+                var diagram = JSON.parse(item.gvf2__Content__c);
                 diagram.recordId = item.Id;
                 diagrams.push(diagram);
             });
