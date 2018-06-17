@@ -5,6 +5,7 @@
       "default": true
     }
   ],
+  "namespace": "gvf2",
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "41.0"
 }
