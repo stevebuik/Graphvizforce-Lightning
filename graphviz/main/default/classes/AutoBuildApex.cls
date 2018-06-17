@@ -3,8 +3,8 @@ public without sharing class AutoBuildApex implements AutoBuild.AutoBuilder {
     // a set of class names that are not used as field/object sources in normal operation
     private final Set<String> excluded = new Set<String>{
             'AutoBuild', 'AutoBuildApex', 'AutoBuildApexTests', 'AutoBuildDiagram', 'AutoBuildTrigger',
-            'AutoBuildTriggerTests', 'BuilderSource', 'GraphVizForceController', 'GraphvizForceControllerTest',
-            'ToolingAPI', 'ToolingAPITest', 'ToolingAPIMocks', 'UmlService',
+            'AutoBuildTriggerTests', 'BuilderSource', 'BuilderSourceType', 'GraphVizForceController',
+            'GraphvizForceControllerTest', 'ToolingAPI', 'ToolingAPITest', 'ToolingAPIMocks', 'UmlService',
             'egServerSideActionController', 'egServerSideActionControllerTest'
     };
 
