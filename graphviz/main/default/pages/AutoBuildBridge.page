@@ -13,11 +13,16 @@
 
     <script>
         $Lightning.use("c:ERDLightningOut", function () {
+            console.log("ERD Out created");
             $Lightning.createComponent("c:ERDContainer",
                     {},
                     "erd",
-                    function (cmp) {
-                        // nothing to do, component will start itself
+                    function (cmp, status, errorMessage) {
+                        console.log("ERD Container create status: " + status);
+                        if (!$A.util.isEmpty(errorMessage)) {
+                            console.log("ERD Container failed");
+                            console.log(errorMessage);
+                        }
                     });
         });
     </script>
