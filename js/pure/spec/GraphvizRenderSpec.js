@@ -102,6 +102,19 @@ describe("persisted diagram samples (lean v2) are translated and rendered ok", f
         });
     })
 
+    describe("Custom objects with master detail relationship", function () {
+        var rendered = renderAndValidate("master_detail_relationships", "with-basic", {showSelfRelations: false});
+        it("valid translation", function () {
+            expect(rendered.validation.errors).toEqual([]);
+        })
+        it("relationships would use solid line if it is master detail relation", function () {
+            expect(rendered.translated.relationships[1])
+                .toEqual({ from: 'MasterObject__c',
+                    to: 'DetailObject__c',
+                    field: 'DetailObject__c',
+                    style: 'solid' });
+        })
+    });
 })
 
 ////// CANONICAL VIEW MODEL ///////

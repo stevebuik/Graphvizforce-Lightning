@@ -32,7 +32,7 @@
                 console.log("User is offline, device doesn't support drafts.");
             } else if (saveResult.state === "ERROR") {
                 // handle the error state
-                window.alert('Problem saving contact, error: ' + JSON.stringify(saveResult.error));
+                window.alert('Problem saving record, error: ' + JSON.stringify(saveResult.error));
             } else {
                 console.log('Unknown problem, state: ' + saveResult.state + ', error: ' + JSON.stringify(saveResult.error));
             }

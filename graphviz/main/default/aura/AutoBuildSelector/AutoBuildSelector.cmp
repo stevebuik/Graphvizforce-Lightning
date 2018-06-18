@@ -3,7 +3,7 @@
 
     <aura:attribute name="sources"
                     description="All the types of sources available for generation"
-                    type="AutoBuild.BuilderSourceType[]"
+                    type="BuilderSourceType[]"
                     access="private"/>
 
     <ltng:require scripts="{!join(',', $Resource.LightningUtils, $Resource.GraphvizForceUtils)}"
