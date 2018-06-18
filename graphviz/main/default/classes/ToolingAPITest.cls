@@ -32,8 +32,10 @@ private class ToolingAPITest {
     static testmethod void testQueryCustomObjects() {
         Test.setMock(HttpCalloutMock.class, new ToolingAPIMock(testObjectResponse, 200));
         ToolingAPI toolingAPI = new ToolingAPI();
+        Test.startTest();
         List<ToolingAPI.CustomObject> result = (List<ToolingAPI.CustomObject>)
                 toolingAPI.query('Select Id, DeveloperName, NamespacePrefix From CustomObject Where DeveloperName = \'Test\'').records;
+        Test.stopTest();
         System.assertEquals(result.size(), 1);
         System.assertEquals(result[0].DeveloperName, 'Test');
     }
@@ -41,16 +43,20 @@ private class ToolingAPITest {
     static testmethod void testQueryCustomFields() {
         Test.setMock(HttpCalloutMock.class, new ToolingAPIMock(testFieldResponse, 200));
         ToolingAPI toolingAPI = new ToolingAPI();
+        Test.startTest();
         List<ToolingAPI.CustomField> result = (List<ToolingAPI.CustomField>)
                 toolingAPI.query('Select Id, DeveloperName, NamespacePrefix, TableEnumOrId From CustomField Where TableEnumOrId = \'01IG00000021cXoMAI\'').records;
+        Test.stopTest();
         System.assertEquals(result.size(), 1);
         System.assertEquals(result[0].DeveloperName, 'A_Number');
     }
 
     static testmethod void testQueryApexClassMember() {
         Test.setMock(HttpCalloutMock.class, new ToolingAPIMock(testApexClassMemberQueryResponse, 200));
+        Test.startTest();
         ToolingAPI.QueryResult result =
                 (new ToolingAPI()).query('Select Id From ApexClassMember');
+        Test.stopTest();
         System.assertNotEquals(null, result);
     }
 
@@ -58,18 +64,21 @@ private class ToolingAPITest {
         boolean exceptionEncountered = false;
         Test.setMock(HttpCalloutMock.class, new ToolingAPIMock(testErrorResponse, 400));
         ToolingAPI toolingAPI = new ToolingAPI();
+        Test.startTest();
         try {
             List<ToolingAPI.CustomField> result = (List<ToolingAPI.CustomField>)
                     toolingAPI.query('Select RandomField From ApexClassMember').records;
         } catch (ToolingAPI.ToolingAPIException e) {
             exceptionEncountered = true;
         }
+        Test.stopTest();
         System.assert(exceptionEncountered, 'Expected exception');
     }
 
     // all tests named XXXXXCoverage are hacks to extend coverage. Assertions not used since the code/methods aren't used by GraphvizForce.
 
     static testMethod void sobjectCRUDCoverage() {
+        Test.startTest();
         Test.setMock(HttpCalloutMock.class, new ToolingAPIMock('{}', 201));
         new ToolingAPI().createSObject(new ToolingAPI.ApexClass());
         Test.setMock(HttpCalloutMock.class, new ToolingAPIMock('{}', 204));
@@ -80,14 +89,17 @@ private class ToolingAPITest {
         new ToolingAPI().retrieveSObject(ToolingAPI.SObjectType.ApexClass, NULL);
         Test.setMock(HttpCalloutMock.class, new ToolingAPIMock('{}', 200));
         new ToolingAPI().retrieveApexLog(NULL);
+        Test.stopTest();
     }
 
     static testmethod void testObjectCoverage() {
+        Test.startTest();
         Test.setMock(HttpCalloutMock.class, new ToolingAPIMock('', 200));
         new ToolingAPI().describeGlobal();
         new ToolingAPI().describeSObject(null);
         new ToolingAPI().executeAnonymousEncoded('');
         new ToolingAPI().executeAnonymousUnencoded('');
+        Test.stopTest();
     }
 
     static testmethod void testJSONSerializationCoverage() {
