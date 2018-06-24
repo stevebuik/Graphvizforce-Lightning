@@ -13,7 +13,6 @@
     <aura:attribute name="searchTerm" type="String" default=""/>
     <aura:attribute name="displayAllObjects" type="Boolean" default="false"/>
     <aura:attribute name="isShowDiagramConfigurator" type="Boolean" default="true"/>
-    <aura:attribute name="selectedDiagramSObject" type="gvf2__Graphviz_Diagram__c"/>
     <aura:attribute name="isAutoBuildActive" type="Boolean" default="false"
                     description="Used to suppress diagram saves since they are performed by the Apex in an auto-build."/>
 
@@ -37,7 +36,7 @@
     <!-- Markup -->
     <div style="background:white;">
 
-        <c:DiagramDataService aura:id="diagramDataService" onDiagramCreated="{!c.onDiagramCreated}"/>
+        <!--<c:DiagramDataService aura:id="diagramDataService" onDiagramCreated="{!c.onDiagramCreated}"/>-->
 
         <!-- TODO Display Lightning Data Service save confirmations -->
         <!-- TODO Display Lightning Data Service errors -->

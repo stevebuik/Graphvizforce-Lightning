@@ -144,7 +144,14 @@
                return;
            }
         });
-        component.find('diagramDataService').updateDiagramRecord(selectedDiagram);
+
+        // Update diagram via apex controller
+        Core.AuraUtils.execute(component, 'saveDiagram', {'content':JSON.stringify(selectedDiagram), 'recordId':selectedDiagram.recordId}, function (returnValue){
+        var result = JSON.parse(returnValue);
+            if(result.serviceStatus.status != 'success'){
+                window.alert('Error: Faield to save diagram.');
+            }
+        });
     },
 
     onCloneDiagram : function(component, event, helper) {
@@ -169,9 +176,20 @@
             diagrams.push(newDiagram);
             diagrams.sort(GraphvizForce.DiagramHelper.compare);
             component.set('v.diagrams', diagrams);
-            //component.set('v.selectedDiagram', newDiagram);
+
             helper.initialiseObjects(component, event, helper);
-            component.find('diagramDataService').createDiagramRecord(newDiagram, true);
+            //component.find('diagramDataService').createDiagramRecord(newDiagram, true);
+
+            // Clone diagram via apex controller
+            Core.AuraUtils.execute(component, 'saveDiagram', {'content':JSON.stringify(newDiagram)}, function (returnValue){
+            var resultWrapper = JSON.parse(returnValue);
+                if(resultWrapper.serviceStatus.status != 'success'){
+                    window.alert('Error: Faield to save diagram.');
+                }
+                else{
+                    helper.onDiagramCreated(component, event, helper, resultWrapper.result, true);
+                }
+            });
         }
     },
 
@@ -196,7 +214,41 @@
             diagrams.push(newDiagramObject);
             diagrams.sort(GraphvizForce.DiagramHelper.compare);
             component.set('v.diagrams', diagrams);
-            component.find('diagramDataService').createDiagramRecord(newDiagramObject, false);
+            //component.find('diagramDataService').createDiagramRecord(newDiagramObject, false);
+            // Clone diagram via apex controller
+            console.log('@@@@ newDiagramObject:', newDiagramObject);
+            Core.AuraUtils.execute(component, 'saveDiagram', {'content':JSON.stringify(newDiagramObject)}, function (returnValue){
+                console.log('@@@@ returnValue:', returnValue);
+                var resultWrapper = JSON.parse(returnValue);
+                console.log('@@@@ resultWrapper:', resultWrapper);
+                if(resultWrapper.serviceStatus.status != 'success'){
+                    window.alert('Error: Faield to save diagram.');
+                }
+                else{
+                    helper.onDiagramCreated(component, event, helper, resultWrapper.result, false);
+                }
+            });
+        }
+    },
+
+    onDiagramCreated : function(component, event, helper, scope, isClone){
+        console.log('@@@@ scope', scope);
+        var newRecord = JSON.parse(scope.gvf2__Content__c);
+        newRecord.recordId = scope.Id;
+        var diagrams = component.get('v.diagrams');
+        var diagramName = newRecord.label;
+        diagrams.forEach(function (diagram, index){
+           if(diagram.value === newRecord.value){
+               diagrams[index] = newRecord;
+               component.set('v.diagrams', diagrams);
+               return;
+           }
+        });
+        component.set('v.selectedDiagram', newRecord);
+
+        if(isClone){
+            component.find('diagramConfigurator').find('sourcePanel').find('objectPanel').set('v.searchTerm', '');
+            helper.initialiseObjects(component, event, helper);
         }
     },
 })

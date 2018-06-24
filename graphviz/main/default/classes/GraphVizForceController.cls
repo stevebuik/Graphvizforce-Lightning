@@ -6,6 +6,27 @@
 public without sharing class GraphVizForceController {
 
     @AuraEnabled
+    public static String saveDiagram(String content, Id recordId){
+        Graphviz_Diagram__c diagram = new Graphviz_Diagram__c(Content__c = content);
+        if(recordId != null){
+            diagram.Id = recordId;
+        }
+        upsert diagram;
+        LightningUtility.ResultWrapper resultWrapper = new LightningUtility.ResultWrapper();
+        resultWrapper.result = diagram;
+        return JSON.serialize(resultWrapper);
+    }
+
+    @AuraEnabled
+    public static String deleteDiagram(Id recordId){
+        Graphviz_Diagram__c diagram = new Graphviz_Diagram__c(Id = recordId);
+        delete diagram;
+        LightningUtility.ResultWrapper resultWrapper = new LightningUtility.ResultWrapper();
+        resultWrapper.result = true;
+        return JSON.serialize(resultWrapper);
+    }
+
+    @AuraEnabled
     public static Map<String, String> getConfig() {
         Map<String, String> result = new Map<String, String>();
         for (GraphvizConfig__c config : [select Name__c, Value__c from GraphvizConfig__c]) {
