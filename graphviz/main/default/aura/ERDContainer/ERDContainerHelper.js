@@ -178,7 +178,6 @@
             component.set('v.diagrams', diagrams);
 
             helper.initialiseObjects(component, event, helper);
-            //component.find('diagramDataService').createDiagramRecord(newDiagram, true);
 
             // Clone diagram via apex controller
             Core.AuraUtils.execute(component, 'saveDiagram', {'content':JSON.stringify(newDiagram)}, function (returnValue){
@@ -214,7 +213,7 @@
             diagrams.push(newDiagramObject);
             diagrams.sort(GraphvizForce.DiagramHelper.compare);
             component.set('v.diagrams', diagrams);
-            //component.find('diagramDataService').createDiagramRecord(newDiagramObject, false);
+
             // Clone diagram via apex controller
             console.log('@@@@ newDiagramObject:', newDiagramObject);
             Core.AuraUtils.execute(component, 'saveDiagram', {'content':JSON.stringify(newDiagramObject)}, function (returnValue){

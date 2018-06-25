@@ -36,8 +36,6 @@
     <!-- Markup -->
     <div style="background:white;">
 
-        <!--<gvf2:DiagramDataService aura:id="diagramDataService" onDiagramCreated="{!c.onDiagramCreated}"/>-->
-
         <!-- TODO Display Lightning Data Service save confirmations -->
         <!-- TODO Display Lightning Data Service errors -->
 
