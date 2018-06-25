@@ -6,10 +6,10 @@
     <aura:attribute name="showHelp2" type="Boolean" default="false" />
     <aura:attribute name="displayAllObjects" type="Boolean" />
 
-    <aura:registerEvent name="onAddObject" type="c:ActionEvent" />
+    <aura:registerEvent name="onAddObject" type="gvf2:ActionEvent" />
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-    <aura:handler event="c:UserGuideEvent" action="{!c.handleUserGuideEvent}"/>
+    <aura:handler event="gvf2:UserGuideEvent" action="{!c.handleUserGuideEvent}"/>
 
 
     <div>
@@ -47,7 +47,7 @@
         <ul class="flexList" role="listbox" aria-label="Selected Options:" aria-orientation="horizontal">
             <aura:iteration items="{!v.objects}" var="object">
                 <li role="presentation" class="{! join(' ', 'slds-p-around_xx-small', object.visible ? '' : 'slds-hide')}">
-                    <c:Pill value="{!object}" iconName="add" draggable="true" onIconClicked="{!c.onAddObject}" />
+                    <gvf2:Pill value="{!object}" iconName="add" draggable="true" onIconClicked="{!c.onAddObject}" />
                 </li>
             </aura:iteration>
         </ul>

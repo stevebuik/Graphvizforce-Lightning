@@ -9,7 +9,7 @@
     <ltng:require scripts="{!join(',', $Resource.LightningUtils, $Resource.GraphvizForceUtils)}"
                   afterScriptsLoaded="{!c.doInit}"/>
 
-    <aura:registerEvent name="startEvent" type="c:AutoBuildStart"/>
+    <aura:registerEvent name="startEvent" type="gvf2:AutoBuildStart"/>
 
     <lightning:select aura:id="select"
                       label="Auto-add fields from:"

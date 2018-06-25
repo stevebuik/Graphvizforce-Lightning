@@ -3,11 +3,11 @@
     <aura:attribute name="objects" type="Object[]" />
     <aura:attribute name="displayAllObjects" type="Boolean" />
 
-    <c:Panel title="Objects">
+    <gvf2:Panel title="Objects">
         <aura:set attribute="icon">
         	<lightning:icon iconName="standard:product_item_transaction" size="medium"/>
         </aura:set>
-        <c:ObjectPanel aura:id="objectPanel" objects="{!v.objects}" displayAllObjects="{!v.displayAllObjects}" />
-    </c:Panel>
+        <gvf2:ObjectPanel aura:id="objectPanel" objects="{!v.objects}" displayAllObjects="{!v.displayAllObjects}" />
+    </gvf2:Panel>
     
 </aura:component>

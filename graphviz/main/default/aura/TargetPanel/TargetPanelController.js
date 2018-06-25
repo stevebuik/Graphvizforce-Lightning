@@ -2,13 +2,13 @@
 	onPillLabelClicked : function(component, event, helper) {
 		component.getEvent('onObjectClicked').setParams(event.getParams()).fire();
         component.set('v.showHelp3', false);
-        if(window.showUserGuide) $A.get("e.c:UserGuideEvent").setParams({scope:'step4'}).fire();
+        if(window.showUserGuide) $A.get("e.gvf2:UserGuideEvent").setParams({scope:'step4'}).fire();
 	},
     
     onBackToGroups : function(component, event, helper) {
         component.set('v.currentState', 'GROUPS');
         if(window.showUserGuide){
-            $A.get("e.c:UserGuideEvent").setParams({scope:'step6'}).fire();
+            $A.get("e.gvf2:UserGuideEvent").setParams({scope:'step6'}).fire();
             window.showUserGuide = false;
             localStorage.setItem('userGuideCompleted', true);
         }

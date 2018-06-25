@@ -131,7 +131,7 @@
         component.set('v.objects', objects);
         component.set('v.selectedDiagram', selectedDiagram);
 
-        if(window.showUserGuide) $A.get("e.c:UserGuideEvent").setParams({scope:'step3'}).fire();
+        if(window.showUserGuide) $A.get("e.gvf2:UserGuideEvent").setParams({scope:'step3'}).fire();
     },
 
     onSaveDiagram : function(component, event, helper) {
