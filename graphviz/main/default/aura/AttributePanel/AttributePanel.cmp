@@ -8,9 +8,9 @@
     <aura:attribute name="showHelp4" type="Boolean" default="false" />
     
     <aura:handler name="change" value="{!v.object}" action="{!c.handleObjectChange}" />
-    <aura:handler event="c:UserGuideEvent" action="{!c.handleUserGuideEvent}"/>
+    <aura:handler event="gvf2:UserGuideEvent" action="{!c.handleUserGuideEvent}"/>
     
-    <aura:registerEvent name="onObjectAttributesUpdated" type="c:ActionEvent" />
+    <aura:registerEvent name="onObjectAttributesUpdated" type="gvf2:ActionEvent" />
 
     <aura:if isTrue="{! v.showHelp4}">
         <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-theme_success" role="tooltip" id="help" style="position:absolute;margin-top:70px;">
@@ -20,30 +20,30 @@
 
     <div class="slds-grid">
         <div class="slds-size-1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-right_x-small" style="width:50%;">
-            <c:Panel title="Available">
+            <gvf2:Panel title="Available">
                 <lightning:input type="search" label="Search" name="search" value="{!v.availableSearchTerm}" onchange="{!c.onSearchAvailable}" />
                 <br />
                 <ul style="max-height:100vh;overflow:scroll;">
                     <aura:iteration items="{!v.availableAttributes}" var="field">
                         <li class="{! join(' ', 'slds-p-bottom_xxx-small', field.visible ? '' : 'slds-hide')}">
-                            <c:Pill value="{!field}" iconName="chevronright" fullWidth="true" onIconClicked="{!c.onAddClicked}" onLabelClicked="{!c.onAttributeClicked}" />
+                            <gvf2:Pill value="{!field}" iconName="chevronright" fullWidth="true" onIconClicked="{!c.onAddClicked}" onLabelClicked="{!c.onAttributeClicked}" />
                         </li>
                     </aura:iteration>
                 </ul>
-            </c:Panel>
+            </gvf2:Panel>
         </div>
         <div class="slds-size-1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2" style="width:50%;">
-            <c:Panel title="Selected">
+            <gvf2:Panel title="Selected">
                 <lightning:input type="search" label="Search" name="search" value="{!v.selectedSearchTerm}" onchange="{!c.onSearchSelected}" />
                 <br />
                 <ul style="max-height:100vh;overflow:scroll;">
                     <aura:iteration items="{!v.selectedAttributes}" var="field">
                         <li class="{! join(' ', 'slds-p-bottom_xxx-small', field.visible ? '' : 'slds-hide')}">
-                            <c:Pill value="{!field}" iconName="chevronleft" iconPosition="left" fullWidth="true" onIconClicked="{!c.onRemoveClicked}" onLabelClicked="{!c.onAttributeClicked}" />
+                            <gvf2:Pill value="{!field}" iconName="chevronleft" iconPosition="left" fullWidth="true" onIconClicked="{!c.onRemoveClicked}" onLabelClicked="{!c.onAttributeClicked}" />
                         </li>
                     </aura:iteration>
                 </ul>
-            </c:Panel>
+            </gvf2:Panel>
         </div>
     </div>
 </aura:component>

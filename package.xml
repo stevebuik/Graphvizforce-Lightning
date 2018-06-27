@@ -46,6 +46,7 @@
         <members>BuilderSourceType</members>
         <members>GraphVizForceController</members>
         <members>GraphvizForceControllerTest</members>
+        <members>LightningUtility</members>
         <members>ToolingAPI</members>
         <members>ToolingAPIMocks</members>
         <members>ToolingAPITest</members>

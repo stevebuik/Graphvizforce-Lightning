@@ -14,10 +14,10 @@
     <aura:attribute name="showSelfRelations" type="Boolean" default="false"
                     description="When true, diagram will show heirarchical/self relationships"/>
 
-    <!--<aura:handler event="c:UserGuideEvent" action="{!c.handleUserGuideEvent}"/>-->
-    <aura:registerEvent name="onTogglePreview" type="c:ActionEvent" />
+    <!--<aura:handler event="gvf2:UserGuideEvent" action="{!c.handleUserGuideEvent}"/>-->
+    <aura:registerEvent name="onTogglePreview" type="gvf2:ActionEvent" />
 
-    <aura:handler name="fromChange" event="c:SOQLFromChangeEvent" action="{!c.onFromChanged}"/>
+    <aura:handler name="fromChange" event="gvf2:SOQLFromChangeEvent" action="{!c.onFromChanged}"/>
 
     <aura:handler name="change" value="{!v.selectedDiagram}" action="{!c.onDiagramChanged}"/>
 
@@ -38,9 +38,9 @@
                     </div>
                 </div>
                 <div class="slds-float_left">
-                    <c:DiagramViewer aura:id="diagramViewer" graphvizContent="{!v.graphvizContent}" onDiagramRendered="{!c.onDiagramRendered}" />
+                    <gvf2:DiagramViewer aura:id="diagramViewer" graphvizContent="{!v.graphvizContent}" onDiagramRendered="{!c.onDiagramRendered}" />
                     <hr class="diagramBottom"/>
-                    <c:SOQLRenderer aura:id="soql" diagram="{!v.selectedDiagram}"/>
+                    <gvf2:SOQLRenderer aura:id="soql" diagram="{!v.selectedDiagram}"/>
                 </div>
             </div>
         </lightning:tab>

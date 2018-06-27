@@ -35,38 +35,24 @@
         helper.handleAddDiagram(component, event, helper);
     },
 
-    onDiagramCreated : function(component, event, helper){
-        var scope = event.getParam('scope');
-        var newRecord = scope.diagramObject;
-        var isClone = scope.isClone;
-        var diagrams = component.get('v.diagrams');
-        var diagramName = newRecord.label;
-        diagrams.forEach(function (diagram, index){
-           if(diagram.value === newRecord.value){
-               diagrams[index] = newRecord;
-               component.set('v.diagrams', diagrams);
-               return;
-           }
-        });
-        component.set('v.selectedDiagram', newRecord);
-
-        if(isClone){
-            component.find('diagramConfigurator').find('sourcePanel').find('objectPanel').set('v.searchTerm', '');
-            helper.initialiseObjects(component, event, helper);
-        }
-    },
-
     onRemoveDiagram : function(component, event, helper){
-       var diagrams = component.get('v.diagrams');
-       var diagramToRemove = event.getParam('scope');
-       diagrams.forEach(function (diagram, index) {
-           if(diagram.value === diagramToRemove.value){
-               diagrams.splice(index, 1);
-               component.set('v.diagrams', diagrams);
-               return;
-           }
-       });
-       component.find('diagramDataService').deleteDiagramRecord(diagramToRemove);
+        var diagrams = component.get('v.diagrams');
+        var diagramToRemove = event.getParam('scope');
+        diagrams.forEach(function (diagram, index) {
+            if(diagram.value === diagramToRemove.value){
+                diagrams.splice(index, 1);
+                component.set('v.diagrams', diagrams);
+                return;
+            }
+        });
+
+        // Delete diagram via apex controller
+        Core.AuraUtils.execute(component, 'deleteDiagram', {'recordId':diagramToRemove.recordId}, function (returnValue){
+        var result = JSON.parse(returnValue);
+            if(result.serviceStatus.status != 'success'){
+                window.alert('Error: Faield to delete diagram.');
+            }
+        });
     },
 
     onDragObjectToGroup : function(component, event, helper){

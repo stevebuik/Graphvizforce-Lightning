@@ -17,7 +17,7 @@
         });
         component.set('v.objects', objects);
         if(objectFound && window.showUserGuide){
-            $A.get("e.c:UserGuideEvent").setParams({scope:'step2'}).fire();
+            $A.get("e.gvf2:UserGuideEvent").setParams({scope:'step2'}).fire();
         }
     },
 

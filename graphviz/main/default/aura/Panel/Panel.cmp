@@ -13,8 +13,8 @@
     <aura:attribute name="collapsed" type="Boolean" default="false" />
     <aura:attribute name="isEditMode" type="Boolean" default="false" />
 
-    <aura:registerEvent name="onRemovePanel" type="c:ActionEvent"/>
-    <aura:registerEvent name="onEditPanelTitle" type="c:ActionEvent"/>
+    <aura:registerEvent name="onRemovePanel" type="gvf2:ActionEvent"/>
+    <aura:registerEvent name="onEditPanelTitle" type="gvf2:ActionEvent"/>
 
     <div class="slds-box slds-box_x-small">
         <div class="slds-grid slds-grid_vertical-align-center">

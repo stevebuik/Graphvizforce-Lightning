@@ -12,9 +12,9 @@
     <div id="erd"></div>
 
     <script>
-        $Lightning.use("c:ERDLightningOut", function () {
+        $Lightning.use("gvf2:ERDLightningOut", function () {
             console.log("ERD Out created");
-            $Lightning.createComponent("c:ERDContainer",
+            $Lightning.createComponent("gvf2:ERDContainer",
                     {},
                     "erd",
                     function (cmp, status, errorMessage) {
