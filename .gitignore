@@ -10,3 +10,5 @@ build.properties
 
 # Metadata API Package
 mdapipkg/
+/js/pure/node_modules
+/js/pure/generated
