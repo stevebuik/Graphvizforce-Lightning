@@ -57,3 +57,6 @@ These documents can be seen in [the ADR dir](https://github.com/stevebuik/Graphv
 
 We manage our roadmap and defects as [Github issues](https://github.com/stevebuik/Graphvizforce-Lightning/issues)
 
+## Licence
+
+Graphvizforce is free and unencumbered public domain software. For more information, see http://unlicense.org/ or the accompanying UNLICENSE file.
