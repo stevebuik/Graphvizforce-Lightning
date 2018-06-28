@@ -9,7 +9,17 @@ Then you should install the SFDX CLI and
 
 Login to the dev hub org using this command: (a new browser window will open)
 
+Note : keep the hub org browser window open, it's needed in the next step.
+
 `sfdx force:auth:web:login --setdefaultdevhubusername --setalias my-hub-org`
+
+Link the packaging DE org:
+
+Contact us to get access to the packaging org so that you can add a *Namespace Registry* to your hub org.
+
+Then [follow these instructions](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_reg_namespace.htm) to link to the packaging DE org.
+
+You no longer need to keep the hub org open in the browser once linked.
 
 Now you are ready to create a new scratch org:
 
