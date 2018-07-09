@@ -53,6 +53,64 @@ exports.account_contact_feed2 =
         }
     };
 
+exports.master_detail_relationship =
+    {
+        "name": "Master Detail Sample",
+        "id": "a000l000009yeCLAAY",
+        "entities":
+            [
+                // all references (even fields) to SFDC meta-data are stored as objects
+                // so that they can have useful keys i.e. extra settings added later
+
+                // not in alpha order, to test sorting of view model output
+                {
+                    "apiName": "Contact",
+                    "fields": [
+                        {"apiName": "LastName"},
+                        {"apiName": "FirstName"},
+                        {"apiName": "AccountId"} // auto-added by reference, but only one should be visible
+                    ]
+                },
+                {
+                    "apiName": "Account",
+                    "fields": [
+                        {"apiName": "Name"},
+                        {"apiName": "Type"}
+                    ]
+                },
+                {
+                    "apiName": "MasterObject__c",
+                    "fields": [
+                        {"apiName": "Name"},
+                        {"apiName": "CreatedDate"}
+                    ]
+                },
+                {
+                    "apiName": "DetailObject__c",
+                    "fields": [
+                        {"apiName": "Name"},
+                        {"apiName": "MasterParent__c"},
+                        {"apiName": "CreatedDate"}
+                    ]
+                },
+            ],
+        // when no groups are present, the render will show all entities from above
+        "groups": [
+            {
+                "name": "Base",
+                "entities": ["Account", "Contact"]
+            },
+            {
+                "name": "Master Detail",
+                "entities": ["MasterObject__c", "DetailObject__c"]
+            }
+        ],
+        "settings": {
+            "showSelfRelations": true,
+            "obscureEntities": ["MasterObject__c"]
+        }
+    };
+
 exports.account_contact_feed_case =
     {
         "visible": true,

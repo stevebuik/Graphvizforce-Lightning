@@ -87368,6 +87368,76 @@ var wrappers =
         }],
         "childRelationships": null,
         "apiName": "Graphviz_AutoBuild__mdt"
-    }];
+    },
+    {
+        "label": "Master Object",
+        "isCustom": true,
+        "fields": [{
+            "type": "ID",
+            "referenceFields": null,
+            "label": "Record ID",
+            "isMDOrCascadeDelete": false,
+            "isCustom": false,
+            "apiName": "Id"
+        }, {
+            "type": "STRING",
+            "referenceFields": null,
+            "label": "Name",
+            "isMDOrCascadeDelete": false,
+            "isCustom": false,
+            "apiName": "Name"
+        }, {
+            "type": "DATETIME",
+            "referenceFields": null,
+            "label": "Created Date",
+            "isMDOrCascadeDelete": false,
+            "isCustom": false,
+            "apiName": "CreatedDate"
+        }],
+        "childRelationships": [{
+            "relationshipName": "DetialObjects",
+            "childAPIName": "DetailObject__c"
+        }],
+        "apiName": "MasterObject__c"
+    },
+    {
+        "label": "Detail Object",
+        "isCustom": true,
+        "fields": [{
+            "type": "ID",
+            "referenceFields": null,
+            "label": "Record ID",
+            "isMDOrCascadeDelete": false,
+            "isCustom": false,
+            "apiName": "Id"
+        }, {
+            "type": "STRING",
+            "referenceFields": null,
+            "label": "Name",
+            "isMDOrCascadeDelete": false,
+            "isCustom": false,
+            "apiName": "Name"
+        }, {
+            "type": "DATETIME",
+            "referenceFields": null,
+            "label": "Created Date",
+            "isMDOrCascadeDelete": false,
+            "isCustom": false,
+            "apiName": "CreatedDate"
+        }, {
+            "type": "REFERENCE",
+            "referenceFields": [{
+                "relationshipName": "DetialObjects",
+                "referenceFieldAPIName": "MasterParent__c",
+                "parentLabel": "MasterParent",
+                "parentAPIName": "MasterObject__c"
+            }],
+            "label": "Master Parent",
+            "isMDOrCascadeDelete": true,
+            "isCustom": true,
+            "apiName": "MasterParent__c"
+        }],
+        "apiName": "DetailObject__c"
+    } ];
 
 module.exports = {wrappers: wrappers};
