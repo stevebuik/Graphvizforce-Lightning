@@ -101,17 +101,26 @@ describe("persisted diagram samples (lean v2) are translated and rendered ok", f
             expect(result.translated.relationships.length).toEqual(2);
         });
     })
+})
 
-    describe("Custom objects with master detail relationship", function () {
-        var rendered = renderAndValidate("master_detail_relationships", "with-basic", {showSelfRelations: false});
-        it("valid translation", function () {
-            expect(rendered.validation.errors).toEqual([]);
-        })
+describe("master detail relationships are translated and rendered ok", function () {
+
+    var sample = samples["master_detail_relationship"];
+    describe("Custom objects with master detail relationship are translated and rendered ok", function () {
+        var rendered = renderAndValidate(sample, "master_detail_relationship__with-basic");
+        // Manually add the M-D relationship to the render result for testing purpose (because not every org has master detail custom relationship)
+        rendered.translated.relationships.push({
+                                     from: 'DetailObject__c',
+                                     to: 'MasterObject__c',
+                                     field: 'MasterParent__c',
+                                     style: "solid"
+                                 });
+
         it("relationships would use solid line if it is master detail relation", function () {
-            expect(rendered.translated.relationships[1])
-                .toEqual({ from: 'MasterObject__c',
-                    to: 'DetailObject__c',
-                    field: 'DetailObject__c',
+            expect(rendered.translated.relationships[rendered.translated.relationships.length - 1])
+                .toEqual({ from: 'DetailObject__c',
+                    to: 'MasterObject__c',
+                    field: 'MasterParent__c',
                     style: 'solid' });
         })
     });

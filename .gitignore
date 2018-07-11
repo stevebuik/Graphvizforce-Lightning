@@ -10,5 +10,8 @@ build.properties
 
 # Metadata API Package
 mdapipkg/
+
+# node
 /js/pure/node_modules
 /js/pure/generated
+/js/pure/package-lock.json
