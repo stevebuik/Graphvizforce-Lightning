@@ -369,7 +369,7 @@ var gv = {
 
     diagramAsText: function (view) {
         return Mustache.render(gv.template, view);
-    }
+    },
 
 }
 

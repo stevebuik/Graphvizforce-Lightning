@@ -14,14 +14,6 @@
     },
 
     /** List View Functions **/
-    onSearchDiagrams : function(component, event, helper) {
-        var diagrams = component.get('v.diagrams');
-        var term = component.get('v.searchTerm').toLowerCase();
-        diagrams.forEach(function(diagram){
-            diagram.visible = (term === '' || diagram.label.toLowerCase().indexOf(term) !== -1);
-        });
-        component.set('v.diagrams', diagrams);
-    },
 
     gotoDiagramDetail : function(component, event, helper){
         component.set('v.currentState', 'DETAIL');

@@ -2,6 +2,7 @@
                 access="global">
     <aura:attribute name="currentState" type="String" default="LIST" description="Options: LIST, DETAIL"/>
     <aura:attribute name="allObjects" type="Object[]"/>
+    <aura:attribute name="wrappers" type="Object[]" />
     <aura:attribute name="objects" type="Object[]"/>
     <aura:attribute name="diagrams" type="Object[]"/>
     <aura:attribute name="selectedDiagram" type="Object"/>
@@ -10,7 +11,6 @@
     <aura:attribute name="showAddGroup" type="Boolean" default="false"/>
     <aura:attribute name="newDiagramName" type="String" default=""/>
     <aura:attribute name="cloneDiagramName" type="String" default=""/>
-    <aura:attribute name="searchTerm" type="String" default=""/>
     <aura:attribute name="displayAllObjects" type="Boolean" default="false"/>
     <aura:attribute name="isShowDiagramConfigurator" type="Boolean" default="true"/>
     <aura:attribute name="isAutoBuildActive" type="Boolean" default="false"
@@ -30,7 +30,9 @@
     <aura:handler name="startEvent" event="gvf2:AutoBuildStart" action="{!c.onAutoBuildStart}"/>
     <aura:handler name="updateEvent" event="gvf2:AutoBuildUpdate" action="{!c.onAutoBuildUpdate}"/>
 
-    <ltng:require scripts="{!join(',', $Resource.LightningUtils, $Resource.GraphvizForceUtils)}"
+    <ltng:require scripts="{!join(',', $Resource.LightningUtils,
+                                        $Resource.GraphvizForceUtils,
+                                        $Resource.pure)}"
                   afterScriptsLoaded="{!c.doInit}"/>
 
     <!-- Markup -->
@@ -44,9 +46,6 @@
                 <lightning:icon iconName="standard:apps_admin" size="medium"/>
             </aura:set>
             <aura:set attribute="middleSection">
-                <aura:if isTrue="{!v.currentState == 'LIST'}">
-                    <lightning:input type="search" name="inputSearchDiagram" label="Search Diagram Name" value="{!v.searchTerm}" onchange="{!c.onSearchDiagrams}" />
-                </aura:if>
                 <aura:if isTrue="{!v.currentState == 'DETAIL'}">
                     <h2>
                         <lightning:button class="slds-button slds-button_neutral" label="Back" onclick="{!c.onBackToList}" />&nbsp;&nbsp;&nbsp;&nbsp;
@@ -78,12 +77,10 @@
             <div class="{! join(' ', 'flexContainer', v.currentState == 'LIST' ? '' : 'slds-hide')}">
                 <ul class="flexList">
                     <aura:iteration items="{!v.diagrams}" var="diagram">
-                        <aura:if isTrue="{!diagram.visible}">
-                            <li class="slds-p-around_small">
-                                <gvf2:DiagramCard diagram="{!diagram}" onViewDiagram="{!c.gotoDiagramDetail}"
-                                               onRemoveDiagram="{!c.onRemoveDiagram}"/>
-                            </li>
-                        </aura:if>
+                        <li class="slds-p-around_small">
+                            <gvf2:DiagramCard diagram="{!diagram}" onViewDiagram="{!c.gotoDiagramDetail}"
+                                           onRemoveDiagram="{!c.onRemoveDiagram}"/>
+                        </li>
                     </aura:iteration>
 
                     <li class="slds-p-around_small">
