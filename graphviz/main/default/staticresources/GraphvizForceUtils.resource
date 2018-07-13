@@ -9,6 +9,13 @@ window.GraphvizForce;
                     return 1;
                 return 0;
             },
+
+            isDiagramValidToPersist: function(diagram){
+                var v = new pure.validator();
+                var inputValidation = v.validate(diagram, pure.schemas.persisted);
+                return inputValidation.errors.length == 0;
+            },
+
         };
     })();
     GraphvizForce.DiagramHelper = DiagramHelper;
