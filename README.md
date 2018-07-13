@@ -57,6 +57,14 @@ These documents can be seen in [the ADR dir](https://github.com/stevebuik/Graphv
 
 We manage our roadmap and defects as [Github issues](https://github.com/stevebuik/Graphvizforce-Lightning/issues)
 
+## Acknowledgements
+
+Thanks [Jason Guan](https://www.linkedin.com/in/jason-guan-3463a939/) for working on v1 and initiating the v2.
+
+Thanks [Andrew Fawcett](https://www.linkedin.com/in/andyfawcett/) for the [UML Canvas](https://github.com/afawcett/apex-umlcanvas) project. We used [2 classes](https://github.com/stevebuik/Graphvizforce-Lightning/blob/master/graphviz/main/default/classes/ToolingAPI.cls) from that project to create the *Auto-Build* feature.
+
+And thank you if you are using this tool. We volunteer our time for the satisfaction of knowing that people use the tools that we make.
+
 ## Licence
 
 Graphvizforce is free and unencumbered public domain software. For more information, see http://unlicense.org/ or the accompanying UNLICENSE file.
