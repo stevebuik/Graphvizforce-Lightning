@@ -16,6 +16,9 @@ window.GraphvizForce;
                 return inputValidation.errors.length == 0;
             },
 
+            convertObjectToPersist: function(object){
+                return null;
+            },
         };
     })();
     GraphvizForce.DiagramHelper = DiagramHelper;

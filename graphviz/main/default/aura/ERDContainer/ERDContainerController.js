@@ -39,7 +39,7 @@
         });
 
         // Delete diagram via apex controller
-        Core.AuraUtils.execute(component, 'deleteDiagram', {'recordId':diagramToRemove.recordId}, function (returnValue){
+        Core.AuraUtils.execute(component, 'deleteDiagram', {'recordId':diagramToRemove.id}, function (returnValue){
         var result = JSON.parse(returnValue);
             if(result.serviceStatus.status != 'success'){
                 window.alert('Error: Faield to delete diagram.');
