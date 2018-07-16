@@ -15,7 +15,7 @@
             <header class="slds-media slds-media_center slds-has-flexi-truncate">
                 <div class="slds-media__body">
                     <h2>
-                        <span class="slds-text-heading_small">{!v.diagram.name}</span>
+                        <span class="slds-text-heading_small">{!v.diagram.label}</span>
                     </h2>
                 </div>
             </header>

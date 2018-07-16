@@ -46,7 +46,7 @@ var persisted =
                 "required": []
             }
         },
-        "required": ["name", "entities", "groups", "settings"]
+        "required": ["name", "id", "entities", "groups", "settings"]
     };
 
 // this schema was manually built

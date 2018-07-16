@@ -7,7 +7,6 @@
         Core.AuraUtils.execute(component, 'loadSchema', null, function (returnValue){
             var result;
             if(returnValue != null) result = JSON.parse(returnValue);
-            component.set('v.wrappers', result);
             helper.inspectSchema(component, event, helper, result);
             // action is complete
             helper.loadDiagrams(component, event, helper);
@@ -174,6 +173,10 @@
         }
         else{
             var newDiagram = {label:diagramName, value:diagramName, visible:true, groups:selectedDiagram.groups};
+            diagrams.push(newDiagram);
+            diagrams.sort(GraphvizForce.DiagramHelper.compare);
+            component.set('v.diagrams', diagrams);
+
             helper.initialiseObjects(component, event, helper);
 
             // Clone diagram via apex controller
@@ -192,7 +195,7 @@
     handleAddDiagram : function(component, event, helper) {
         var diagrams = component.get('v.diagrams');
         var newDiagramName = component.get('v.newDiagramName');
-        var groups = [{name:'ContainerGroup', entities:[]}];
+        var groups = [{label:'ContainerGroup', value:'ContainerGroup', entities:[]}];
 
         var exists = false;
         diagrams.forEach(function (diagram){
@@ -206,46 +209,41 @@
             window.alert('This diagram name "'+ newDiagramName +'" already exists.');
         }
         else{
-            var newDiagramObject = {name:newDiagramName, entities:[], groups:groups, settings:{}};
+            var newDiagramObject = {label:newDiagramName, value:newDiagramName, visible:true, groups:groups};
+            diagrams.push(newDiagramObject);
+            diagrams.sort(GraphvizForce.DiagramHelper.compare);
+            component.set('v.diagrams', diagrams);
 
-            // Validate new diagram object before persisting
-            if(!GraphvizForce.DiagramHelper.isDiagramValidToPersist(newDiagramObject)){
-                window.alert('Error: diagram is not valid.');
-            }
-            else{
-                // Calling apex controller to save the diagram
-                Core.AuraUtils.execute(component, 'saveDiagram', {'content':JSON.stringify(newDiagramObject)}, function (returnValue){
-                    var resultWrapper = JSON.parse(returnValue);
-                    if(resultWrapper.serviceStatus.status != 'success'){
-                        window.alert('Error: Faield to save diagram.');
-                    }
-                    else{
-                        // Set the record id and then save it again
-                        var savedRecord = JSON.parse(resultWrapper.result.gvf2__Content__c);
-                        savedRecord.id = resultWrapper.result.Id;
-                        Core.AuraUtils.execute(component, 'saveDiagram', {'content':JSON.stringify(savedRecord)}, function (returnValue){
-                            if(resultWrapper.serviceStatus.status != 'success'){
-                                window.alert('Error: Faield to save diagram.');
-                            }
-                            else{
-                                helper.onDiagramCreated(component, event, helper, savedRecord, false);
-                            }
-                        });
-                    }
-                });
-            }
+            // Clone diagram via apex controller
+            console.log('@@@@ newDiagramObject:', newDiagramObject);
+            Core.AuraUtils.execute(component, 'saveDiagram', {'content':JSON.stringify(newDiagramObject)}, function (returnValue){
+                console.log('@@@@ returnValue:', returnValue);
+                var resultWrapper = JSON.parse(returnValue);
+                console.log('@@@@ resultWrapper:', resultWrapper);
+                if(resultWrapper.serviceStatus.status != 'success'){
+                    window.alert('Error: Faield to save diagram.');
+                }
+                else{
+                    helper.onDiagramCreated(component, event, helper, resultWrapper.result, false);
+                }
+            });
         }
     },
 
-    /*
-    TODO: Fix issue - Creating a new diagram causes saving multiple records to Graphviz_Diagram__c object
-    */
-    onDiagramCreated : function(component, event, helper, savedRecord, isClone){
+    onDiagramCreated : function(component, event, helper, scope, isClone){
+        console.log('@@@@ scope', scope);
+        var newRecord = JSON.parse(scope.gvf2__Content__c);
+        newRecord.recordId = scope.Id;
         var diagrams = component.get('v.diagrams');
-        diagrams.push(savedRecord);
-        diagrams.sort(GraphvizForce.DiagramHelper.compare);
-        component.set('v.diagrams', diagrams);
-        component.set('v.selectedDiagram', savedRecord);
+        var diagramName = newRecord.label;
+        diagrams.forEach(function (diagram, index){
+           if(diagram.value === newRecord.value){
+               diagrams[index] = newRecord;
+               component.set('v.diagrams', diagrams);
+               return;
+           }
+        });
+        component.set('v.selectedDiagram', newRecord);
 
         if(isClone){
             component.find('diagramConfigurator').find('sourcePanel').find('objectPanel').set('v.searchTerm', '');
