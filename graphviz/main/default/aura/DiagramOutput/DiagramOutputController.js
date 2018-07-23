@@ -17,10 +17,16 @@
         helper.render(component);
     },
 
-    // change handler on attribute
-    onDiagramChanged: function (component, event, helper) {
+    // App event DiagramUpdatedEvent handler
+    onDiagramUpdated: function (component, event, helper) {
+        console.log('onDiagramUpdated');
         helper.render(component);
     },
+
+    // change handler on attribute
+    /*onDiagramChanged: function (component, event, helper) {
+        helper.render(component);
+    },*/
 
     // component event handler
     onFromChanged: function (component, event, helper) {
@@ -41,14 +47,14 @@
     },
 
     handleDownloadGraphviz: function (component, event, helper) {
-        var selectedDiagram = component.get('v.selectedDiagram');
+        var diagram = component.get('v.diagram');
         var content = component.get('v.graphvizContent');
-        helper.saveToFile(selectedDiagram.label + '.gv', content);
+        helper.saveToFile(diagram.label + '.gv', content);
     },
 
     handleDownloadSVG: function (component, event, helper) {
-        var selectedDiagram = component.get('v.selectedDiagram');
+        var diagram = component.get('v.diagram');
         var content = component.get('v.svgContent');
-        helper.saveToFile(selectedDiagram.label + '.svg', content);
+        helper.saveToFile(diagram.label + '.svg', content);
     },
 })

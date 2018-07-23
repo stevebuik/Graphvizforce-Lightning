@@ -1,86 +1,101 @@
 <aura:component >
     
     <!--<aura:attribute name="groups" type="Object[]" />-->
-    <aura:attribute name="group" type="Object" />
-    <aura:attribute name="newGroupName" type="String" />
-    <aura:attribute name="currentState" type="String" default="GROUPS" description="Options: GROUPS, ATTRIBUTES" />
+    <!--<aura:attribute name="group" type="Object" />-->
+    <!--<aura:attribute name="newGroupName" type="String" />-->
+    <!--<aura:attribute name="currentState" type="String" default="GROUPS" description="Options: GROUPS, ATTRIBUTES" />-->
     <aura:attribute name="selectedObject" type="Object" />
-    <aura:attribute name="showHelp3" type="Boolean" default="false" />
-    <aura:attribute name="showHelp5" type="Boolean" default="false" />
+    <aura:attribute name="selectedObjectAPIName" type="String" />
+    <aura:attribute name="selectedEntities" type="Object[]" />
+    <aura:attribute name="diagram" type="Object" />
+    <!--<aura:attribute name="showHelp3" type="Boolean" default="false" />
+    <aura:attribute name="showHelp5" type="Boolean" default="false" />-->
     
     <aura:registerEvent name="onObjectClicked" type="gvf2:ActionEvent" />
     <aura:registerEvent name="onRemoveObject" type="gvf2:ActionEvent" />
-    <aura:registerEvent name="onAddGroup" type="gvf2:ActionEvent" />
-    <aura:registerEvent name="onDragObjectToGroup" type="gvf2:ActionEvent" />
-    <aura:registerEvent name="UserGuideEvent" type="gvf2:UserGuideEvent"/>
+    <!--<aura:registerEvent name="onAddGroup" type="gvf2:ActionEvent" />
+    <aura:registerEvent name="onDragObjectToGroup" type="gvf2:ActionEvent" />-->
+    <!--<aura:registerEvent name="UserGuideEvent" type="gvf2:UserGuideEvent"/>-->
     
-    <aura:handler name="onIconClicked" event="gvf2:ActionEvent" action="{!c.onRemoveObject}" />
-    <aura:handler name="onLabelClicked" event="gvf2:ActionEvent" action="{!c.onPillLabelClicked}" />
-    <aura:handler event="gvf2:UserGuideEvent" action="{!c.handleUserGuideEvent}"/>
+    <!--<aura:handler name="onIconClicked" event="gvf2:ActionEvent" action="{!c.onRemoveObject}" />
+    <aura:handler name="onLabelClicked" event="gvf2:ActionEvent" action="{!c.onPillLabelClicked}" />-->
+    <!--<aura:handler event="gvf2:UserGuideEvent" action="{!c.handleUserGuideEvent}"/>-->
 
-    <gvf2:Panel title="{! v.currentState == 'GROUPS' ? 'Added Objects' : 'Attributes for ' + v.selectedObject.label}">
+    <aura:handler name="change" value="{!v.diagram}" action="{!c.onUpdateTargetPanel}" />
+
+    <gvf2:Panel title="Configure Diagram">
         <aura:set attribute="icon">
-            <aura:if isTrue="{! v.currentState == 'GROUPS'}">
-            	<lightning:icon iconName="standard:product_item" size="medium"/>
-                <aura:set attribute="else">
-                	<lightning:buttonIcon iconName="utility:left" alternativeText="Back" iconClass="slds-button_icon-x-small" onclick="{!c.onBackToGroups}" />
-                </aura:set>
-            </aura:if>
+            <lightning:icon iconName="standard:product_item" size="medium"/>
         </aura:set>
 
-        <aura:if isTrue="{! v.showHelp5}">
+        <!--<aura:if isTrue="{! v.showHelp5}">
             <div class="slds-popover slds-popover_tooltip slds-nubbin_top-left slds-theme_success" role="tooltip" id="help">
                 <div class="slds-popover__body">Press back button to go to groups</div>
             </div>
-        </aura:if>
+        </aura:if>-->
 
-        <aura:if isTrue="{! v.currentState == 'GROUPS'}">
-            <div id="groups">
-                <!--
-                <div class="slds-grid slds-grid_vertical-align-end">
-                    <div class="slds-col slds-p-right_small" style="width:100%;">
-                        <lightning:input type="text" label="Add New Group" name="newGroup" value="{!v.newGroupName}" />
-                    </div>
-                    <div class="slds-col slds-col_bump-left">
-                        <lightning:buttonIcon iconName="utility:add" alternativeText="Add" iconClass="slds-button_icon-x-small" disabled="{! empty(v.newGroupName)}" onclick="{!c.onAddGroup}" />
-                    </div>
+        <!--Groups Section-->
+        <div id="groups">
+            <!--
+            <div class="slds-grid slds-grid_vertical-align-end">
+                <div class="slds-col slds-p-right_small" style="width:100%;">
+                    <lightning:input type="text" label="Add New Group" name="newGroup" value="{!v.newGroupName}" />
                 </div>
-                <br />
-                -->
-
-                <aura:if isTrue="{! v.showHelp3}">
-                    <div>
-                        <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-theme_success" role="tooltip" id="help" style="position:absolute;margin-top:20px;">
-                            <div class="slds-popover__body">Click on an object below to add fields</div>
-                        </div>
-                    </div>
-                </aura:if>
-
-                <div class="flexContainer dropTarget" ondragenter="{!c.onDragEnter}" ondragleave="{!c.onDragLeave}" ondragover="{!c.onDragOver}" ondrop="{!c.onDrop}" style="max-height:100vh;overflow:scroll;">
-                    <h3>Add objects from left hand side</h3><br />
-                    <!--
-                    <aura:iteration items="{!v.groups}" var="group">
-                        <div data-drop-effect="all" class="dropTarget" data-group="{!group.value}" ondragenter="{!c.onDragEnter}" ondragleave="{!c.onDragLeave}" ondragover="{!c.onDragOver}" ondrop="{!c.onDrop}">
-                            <gvf2:GroupPanel group="{!group}" />
-                        </div>
-                        <br />
-                    </aura:iteration>
-                    -->
-                    <ul class="flexList" role="listbox" aria-orientation="horizontal">
-                        <aura:iteration items="{!v.group.entities}" var="object">
-                            <li role="presentation" class="slds-p-around_xx-small">
-                                <gvf2:Pill value="{!object}" iconName="close" draggable="true" />
-                            </li>
-                        </aura:iteration>
-                    </ul>
+                <div class="slds-col slds-col_bump-left">
+                    <lightning:buttonIcon iconName="utility:add" alternativeText="Add" iconClass="slds-button_icon-x-small" disabled="{! empty(v.newGroupName)}" onclick="{!c.onAddGroup}" />
                 </div>
             </div>
-            <aura:set attribute="else">
-                <div id="attributes">
-                    <gvf2:AttributePanel object="{!v.selectedObject}" />
+            <br />
+            -->
+
+            <!--<aura:if isTrue="{! v.showHelp3}">
+                <div>
+                    <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-theme_success" role="tooltip" id="help" style="position:absolute;margin-top:20px;">
+                        <div class="slds-popover__body">Click on an object below to add fields</div>
+                    </div>
                 </div>
-            </aura:set>
-        </aura:if>
+            </aura:if>-->
+
+            <h3>Added Objects</h3><br />
+            <div class="flexContainer dropTarget" ondragenter="{!c.onDragEnter}" ondragleave="{!c.onDragLeave}" ondragover="{!c.onDragOver}" ondrop="{!c.onDrop}" style="max-height:50vh;overflow:scroll;">
+
+                <!--
+                <aura:iteration items="{!v.groups}" var="group">
+                    <div data-drop-effect="all" class="dropTarget" data-group="{!group.value}" ondragenter="{!c.onDragEnter}" ondragleave="{!c.onDragLeave}" ondragover="{!c.onDragOver}" ondrop="{!c.onDrop}">
+                        <gvf2:GroupPanel group="{!group}" />
+                    </div>
+                    <br />
+                </aura:iteration>
+                -->
+                <ul class="flexList" role="listbox" aria-orientation="horizontal">
+                    <aura:iteration items="{!v.selectedEntities}" var="object">
+                        <li role="presentation" class="slds-p-around_xx-small" title="{! 'API Name: ' + v.object.apiName}">
+                            <lightning:input type="checkbox" label="{!v.object.name}" onchange="{!c.onDeselectObject}" checked="true" />
+                        </li>
+                    </aura:iteration>
+                </ul>
+            </div>
+        </div>
+
+        <!--Attributes Section-->
+        <div id="attributes">
+            <lightning:select name="inputObject" label="Select Fields for" value="{!v.selectedObjectAPIName}" disabled="{!v.selectedObject == null}">
+                <option value="">-- Object --</option>
+                <aura:iteration items="{!v.selectedEntities}" var="opt">
+                    <option value="{!opt.apiName}">{!opt.label + ' : ' + opt.apiName}</option>
+                </aura:iteration>
+            </lightning:select>
+            <br />
+            <div class="flexContainer" style="max-height:50vh;overflow:scroll;">
+                <ul class="flexList" role="listbox" aria-orientation="horizontal">
+                    <!--<aura:iteration items="{!v.group.entities}" var="object">
+                        <li role="presentation" class="slds-p-around_xx-small">
+                            <gvf2:Pill value="{!object}" iconName="close" draggable="true" />
+                        </li>
+                    </aura:iteration>-->
+                </ul>
+            </div>
+        </div>
 
     </gvf2:Panel>
 

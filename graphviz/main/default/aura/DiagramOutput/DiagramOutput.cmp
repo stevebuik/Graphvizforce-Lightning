@@ -4,8 +4,8 @@
 
 <aura:component description="DiagramOutput">
 
-    <aura:attribute name="allObjects" type="Object[]" />
-    <aura:attribute name="selectedDiagram" type="Object" />
+    <!--<aura:attribute name="allObjects" type="Object[]" />-->
+    <aura:attribute name="diagram" type="Object" />
     <aura:attribute name="isExpanded" type="Boolean" default="false" />
     <aura:attribute name="graphvizContent" type="String" />
     <aura:attribute name="svgContent" type="String" />
@@ -19,7 +19,10 @@
 
     <aura:handler name="fromChange" event="gvf2:SOQLFromChangeEvent" action="{!c.onFromChanged}"/>
 
-    <aura:handler name="change" value="{!v.selectedDiagram}" action="{!c.onDiagramChanged}"/>
+    <!--<aura:handler name="change" value="{!v.diagram}" action="{!c.onDiagramChanged}"/>-->
+    <aura:handler event="gvf2:DiagramUpdatedEvent" action="{!c.onDiagramUpdated}" />
+
+    <ltng:require scripts="{!join(',', $Resource.GraphvizForceUtils, $Resource.pure)}"/>
 
     <lightning:tabset>
         <lightning:tab label="Diagram">
@@ -40,7 +43,7 @@
                 <div class="slds-float_left">
                     <gvf2:DiagramViewer aura:id="diagramViewer" graphvizContent="{!v.graphvizContent}" onDiagramRendered="{!c.onDiagramRendered}" />
                     <hr class="diagramBottom"/>
-                    <gvf2:SOQLRenderer aura:id="soql" diagram="{!v.selectedDiagram}"/>
+                    <gvf2:SOQLRenderer aura:id="soql" diagram="{!v.diagram}"/>
                 </div>
             </div>
         </lightning:tab>

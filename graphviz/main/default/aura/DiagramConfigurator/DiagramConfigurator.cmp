@@ -1,16 +1,35 @@
 <aura:component >
 
-    <aura:attribute name="objects" type="Object[]" />
+    <!--<aura:attribute name="allObjects" type="Object[]" />-->
     <aura:attribute name="diagram" type="Object" />
     <aura:attribute name="selectedObject" type="Object" />
-    <aura:attribute name="displayAllObjects" type="Boolean" />
+    <!--<aura:attribute name="displayAllObjects" type="Boolean" />-->
+
+    <aura:handler name="onGoToDetails" event="gvf2:ActionEvent" action="{!c.onSelectObject}"/>
+    <!--Lightning Bug: app event not being handled by direct children components-->
+    <!--<aura:handler event="gvf2:DiagramUpdatedEvent" action="{!c.onDiagramUpdated}" />-->
+
+    <!--
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size-1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2 slds-p-around_xx-small">
+            <gvf2:SourcePanel aura:id="sourcePanel" diagram="{!v.diagram}" />
+        </div>
+        <div class="slds-col slds-size-1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2 slds-p-around_xx-small">
+            <gvf2:TargetPanel aura:id="targetPanel" diagram="{!v.diagram}" />
+        </div>
+    </div>
+    -->
 
     <div class="slds-grid slds-wrap">
         <div class="slds-col slds-size-1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2 slds-p-around_xx-small">
-            <gvf2:SourcePanel aura:id="sourcePanel" objects="{!v.objects}" displayAllObjects="{!v.displayAllObjects}" />
+            <gvf2:Panel title="Objects">
+                <gvf2:ObjectPanel aura:id="objectPanel" />
+            </gvf2:Panel>
         </div>
         <div class="slds-col slds-size-1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2 slds-p-around_xx-small">
-            <gvf2:TargetPanel aura:id="targetPanel" group="{!v.diagram.groups[0]}" selectedObject="{!v.selectedObject}" />
+            <gvf2:Panel title="{! 'Fields: ' + v.selectedObject.label}">
+                <gvf2:AttributePanel object="{!v.selectedObject}" />
+            </gvf2:Panel>
         </div>
     </div>
 </aura:component>

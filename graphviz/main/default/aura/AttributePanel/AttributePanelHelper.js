@@ -1,5 +1,5 @@
 ({
-    handleFilterAvailable : function(component, event, helper) {
+    /*handleFilterAvailable : function(component, event, helper) {
         var attributes = component.get('v.availableAttributes');
         var term = component.get('v.availableSearchTerm');
         if(!$A.util.isEmpty(term)){
@@ -25,5 +25,5 @@
             
             component.set('v.selectedAttributes', attributes);
         }
-    }
+    }*/
 })

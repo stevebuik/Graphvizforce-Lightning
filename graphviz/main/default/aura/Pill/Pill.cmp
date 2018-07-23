@@ -4,24 +4,30 @@
 
 <aura:component >
     <aura:attribute name="draggable" type="Boolean" default="false" />
-    <aura:attribute name="fullWidth" type="Boolean" default="false" />
-    <aura:attribute name="iconPosition" type="String" default="right" />
-    <aura:attribute name="iconName" type="String" default="close" description="options: utility icon names, e.g. close, add, left, right" />
+    <!--<aura:attribute name="fullWidth" type="Boolean" default="false" />
+    <aura:attribute name="iconName" type="String" default="close" description="options: utility icon names, e.g. close, add, left, right" />-->
     <aura:attribute name="value" type="Object" />
 
-    <aura:registerEvent name="onIconClicked" type="gvf2:ActionEvent" />
-    <aura:registerEvent name="onLabelClicked" type="gvf2:ActionEvent" />
+    <!--<aura:registerEvent name="onIconClicked" type="gvf2:ActionEvent" />
+    <aura:registerEvent name="onLabelClicked" type="gvf2:ActionEvent" />-->
+    <!--<aura:registerEvent name="onCheckboxChanged" type="gvf2:ActionEvent" />-->
+    <aura:registerEvent name="onDiagramMutate" type="gvf2:DiagramMutateEvent" />
+    <aura:registerEvent name="onGoToDetails" type="gvf2:ActionEvent" />
 
+    <div title="{! 'API Name: ' + v.value.apiName}">
+        <lightning:input type="checkbox" label="{!v.value.label}" onchange="{!c.onSelectionChange}" checked="{!v.value.selected}" class="slds-float_left" />
+        <lightning:button variant="base" label="&#9654;" title="Item Details" onclick="{! c.onGoToDetails}" class="slds-float_left slds-line-height_reset"/>
+    </div>
+
+    <!--
     <span class="slds-pill" role="option" tabindex="0" aria-selected="true" style="{!v.fullWidth ? 'width:100%;' : ''}" draggable="{!v.draggable}" ondragstart="{!c.onDragStart}">
-        <span class="{! join(' ', 'slds-icon_container slds-pill__remove', v.iconPosition == 'left' ? '' : 'slds-hide')}">
-            <lightning:buttonIcon iconName="{! 'utility:' + v.iconName}" alternativeText="Action" size="small" variant="bare" onclick="{!c.onIconClicked}"/>
-        </span>
-        <span class="slds-pill__label slds-p-horizontal_xx-small slds-truncate" title="{!v.value.label}">
+        <span class="slds-pill__label slds-p-horizontal_xx-small slds-truncate" title="{!v.value.label + ' (' + v.value.apiName + ')'}">
             <button class="slds-button slds-truncate" onclick="{!c.onLabelClicked}">{!v.value.label}</button>
         </span>
-        <span class="{! join(' ', 'slds-icon_container slds-pill__remove', v.iconPosition == 'right' ? '' : 'slds-hide')}">
+        <span class="slds-icon_container slds-pill__remove">
             <lightning:buttonIcon iconName="{! 'utility:' + v.iconName}" alternativeText="Action" size="small" variant="bare" onclick="{!c.onIconClicked}"/>
         </span>
     </span>
+    -->
 
 </aura:component>

@@ -1,34 +1,38 @@
 <aura:component controller="GraphVizForceController" implements="flexipage:availableForAllPageTypes, force:appHostable"
                 access="global">
-    <aura:attribute name="currentState" type="String" default="LIST" description="Options: LIST, DETAIL"/>
-    <aura:attribute name="allObjects" type="Object[]"/>
-    <aura:attribute name="wrappers" type="Object[]" />
-    <aura:attribute name="objects" type="Object[]"/>
-    <aura:attribute name="diagrams" type="Object[]"/>
-    <aura:attribute name="selectedDiagram" type="Object"/>
-    <aura:attribute name="objectToAdd" type="Object"/>
-    <aura:attribute name="selectedObject" type="Object"/>
-    <aura:attribute name="showAddGroup" type="Boolean" default="false"/>
-    <aura:attribute name="newDiagramName" type="String" default=""/>
-    <aura:attribute name="cloneDiagramName" type="String" default=""/>
-    <aura:attribute name="displayAllObjects" type="Boolean" default="false"/>
-    <aura:attribute name="isShowDiagramConfigurator" type="Boolean" default="true"/>
-    <aura:attribute name="isAutoBuildActive" type="Boolean" default="false"
-                    description="Used to suppress diagram saves since they are performed by the Apex in an auto-build."/>
+    <aura:attribute name="currentState" type="String" default="LIST" description="The state of the current view, options: LIST, DETAIL"/>
+    <!--<aura:attribute name="allObjects" type="Object[]" description="the entire object list of the schema loaded from apex controller"/>-->
+    <aura:attribute name="diagrams" type="Object[]" description="the diagram list displaying diagram cards"/>
+    <aura:attribute name="selectedDiagram" type="Object" description="the current selected diagram on detail view"/>
+    <!--<aura:attribute name="objectToAdd" type="Object" description="the object to be added to diagram"/>-->
+    <!--<aura:attribute name="selectedObject" type="Object" description="the current selected object to add/remove fields"/>-->
+    <aura:attribute name="showAddGroup" type="Boolean" default="false" description="boolean to toggle the add object to group modal"/>
+    <aura:attribute name="newDiagramName" type="String" default="" description="diagram name of the new diagram"/>
+    <aura:attribute name="cloneDiagramName" type="String" default="" description="diagram name of the new clone diagram"/>
+    <!--<aura:attribute name="displayAllObjects" type="Boolean" default="false" description="boolean to toggle displaying all objects"/>-->
+    <aura:attribute name="isShowDiagramConfigurator" type="Boolean" default="true" description="boolean to toggle the diagram configurator view"/>
+    <aura:attribute name="isAutoBuildActive" type="Boolean" default="true" description="Used to suppress diagram saves since they are performed by the Apex in an auto-build."/>
 
     <!-- handlers -->
     <!--<aura:handler name="onAddGroup" event="gvf2:ActionEvent" action="{!c.onAddGroup}" />-->
     <!--<aura:handler name="onRemoveGroup" event="gvf2:ActionEvent" action="{!c.onRemoveGroup}" />-->
-    <aura:handler name="onAddObject" event="gvf2:ActionEvent" action="{!c.onAddObject}"/>
-    <aura:handler name="onObjectAttributesUpdated" event="gvf2:ActionEvent" action="{!c.onObjectAttributesUpdated}"/>
-    <aura:handler name="onDragObjectToGroup" event="gvf2:ActionEvent" action="{!c.onDragObjectToGroup}"/>
+    <!--<aura:handler name="onAddObject" event="gvf2:ActionEvent" action="{!c.onAddObject}"/>-->
+    <!--<aura:handler name="onObjectAttributesUpdated" event="gvf2:ActionEvent" action="{!c.onObjectAttributesUpdated}"/>-->
+    <!--<aura:handler name="onDragObjectToGroup" event="gvf2:ActionEvent" action="{!c.onDragObjectToGroup}"/>-->
     <aura:handler name="onEditGroupName" event="gvf2:ActionEvent" action="{!c.onEditGroupName}"/>
-    <aura:handler name="onRemoveObject" event="gvf2:ActionEvent" action="{!c.onTargetPanelRemoveObject}"/>
+    <aura:handler name="onEditGroupName" event="gvf2:ActionEvent" action="{!c.onEditGroupName}"/>
+    <!--<aura:handler name="onRemoveObject" event="gvf2:ActionEvent" action="{!c.onTargetPanelRemoveObject}"/>-->
     <aura:handler name="onObjectClicked" event="gvf2:ActionEvent" action="{!c.onObjectClicked}"/>
     <aura:handler name="onTogglePreview" event="gvf2:ActionEvent" action="{!c.onTogglePreview}"/>
-    <aura:handler name="change" value="{!v.selectedDiagram}" action="{!c.onDiagramChanged}"/>
+    <!--<aura:handler name="change" value="{!v.selectedDiagram}" action="{!c.onDiagramChanged}"/>-->
     <aura:handler name="startEvent" event="gvf2:AutoBuildStart" action="{!c.onAutoBuildStart}"/>
     <aura:handler name="updateEvent" event="gvf2:AutoBuildUpdate" action="{!c.onAutoBuildUpdate}"/>
+    <aura:handler name="startEvent" event="gvf2:AutoBuildStart" action="{!c.onAutoBuildStart}"/>
+
+    <!--DiagramMutateEvent can be fired from any child components to manipulate the current diagram
+    Examples: ObjectPanel, AttributePanel, DiagramOutput, SOQLRenderer, AutoBuild
+    -->
+    <aura:handler name="onDiagramMutate" event="gvf2:DiagramMutateEvent" action="{!c.onDiagramMutate}"/>
 
     <ltng:require scripts="{!join(',', $Resource.LightningUtils,
                                         $Resource.GraphvizForceUtils,
@@ -49,7 +53,7 @@
                 <aura:if isTrue="{!v.currentState == 'DETAIL'}">
                     <h2>
                         <lightning:button class="slds-button slds-button_neutral" label="Back" onclick="{!c.onBackToList}" />&nbsp;&nbsp;&nbsp;&nbsp;
-                        {!v.selectedDiagram.label}
+                        {!v.selectedDiagram.name}
                     </h2>
                 </aura:if>
             </aura:set>
@@ -78,7 +82,7 @@
                 <ul class="flexList">
                     <aura:iteration items="{!v.diagrams}" var="diagram">
                         <li class="slds-p-around_small">
-                            <gvf2:DiagramCard diagram="{!diagram}" onViewDiagram="{!c.gotoDiagramDetail}"
+                            <gvf2:DiagramCard diagram="{!diagram}" onViewDiagram="{!c.onSelectDiagram}"
                                            onRemoveDiagram="{!c.onRemoveDiagram}"/>
                         </li>
                     </aura:iteration>
@@ -112,16 +116,13 @@
             </div>
 
             <div class="{! join(' ', 'slds-grid slds-wrap', v.currentState == 'DETAIL' ? '' : 'slds-hide')}">
-                <div class="{!join(' ', 'slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2', v.isShowDiagramConfigurator ? '' : 'slds-hide')}">
-                    <gvf2:DiagramConfigurator aura:id="diagramConfigurator" objects="{!v.objects}"
-                                           selectedObject="{!v.selectedObject}" diagram="{!v.selectedDiagram}"
-                                           displayAllObjects="{!v.displayAllObjects}"/>
+                <div class="{!join(' ', 'slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-3', v.isShowDiagramConfigurator ? '' : 'slds-hide')}">
+                    <gvf2:DiagramConfigurator aura:id="diagramConfigurator" diagram="{!v.selectedDiagram}" />
                 </div>
 
-                <div class="{!join(' ', 'slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-p-around_xx-small', v.isShowDiagramConfigurator ? 'slds-large-size_1-of-2' : 'slds-large-size_1-of-1')}">
+                <div class="{!join(' ', 'slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-p-around_xx-small', v.isShowDiagramConfigurator ? 'slds-large-size_2-of-3' : 'slds-large-size_1-of-1')}">
                     <gvf2:AutoBuildProgress aura:id="autoBuildProgress"/>
-                    <gvf2:DiagramOutput aura:id="diagramOutput" selectedDiagram="{!v.selectedDiagram}"
-                                     allObjects="{!v.allObjects}"/>
+                    <gvf2:DiagramOutput aura:id="diagramOutput" diagram="{!v.selectedDiagram}" />
                 </div>
             </div>
         </div>

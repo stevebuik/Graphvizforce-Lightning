@@ -13,14 +13,32 @@
 
     },
 
-    /** List View Functions **/
+    onDiagramMutate : function(component, event, helper){
+        console.log('@@@@ onDiagramMutate');
+        var entitiesToAdd = event.getParam('entitiesToAdd');
+        var entitiesToRemove = event.getParam('entitiesToRemove');
+        var fieldsMap = event.getParam('fieldsMap');
+        helper.handleDiagramMutate(component, helper, entitiesToAdd, entitiesToRemove, fieldsMap);
+    },
 
-    gotoDiagramDetail : function(component, event, helper){
-        component.set('v.currentState', 'DETAIL');
-        component.find('diagramConfigurator').find('sourcePanel').find('objectPanel').set('v.searchTerm', '');
+    /** List View Functions **/
+    onSelectDiagram : function(component, event, helper){
+        // Reset UI elements
+        component.find('diagramConfigurator').find('objectPanel').set('v.searchTerm', '');
+        component.find('diagramConfigurator').set('v.selectedObject', null);
+
         var diagram = event.getParam('scope');
+        //helper.initialiseObjects(diagram);
+        //component.set('v.selectedDiagram', diagram);
+        //helper.initialiseObjects(component, event, helper);
         component.set('v.selectedDiagram', diagram);
-        helper.initialiseObjects(component, event, helper);
+
+        helper.handleSelectionMapUpdate(diagram);
+
+        // Dispatch DiagramUpdatedEvent to subscribers
+        $A.get("e.gvf2:DiagramUpdatedEvent").setParams({type:'SELECTION'}).fire();
+
+        component.set('v.currentState', 'DETAIL');
     },
 
     onAddNewDiagram : function(component, event, helper){
@@ -31,7 +49,7 @@
         var diagrams = component.get('v.diagrams');
         var diagramToRemove = event.getParam('scope');
         diagrams.forEach(function (diagram, index) {
-            if(diagram.value === diagramToRemove.value){
+            if(diagram.name === diagramToRemove.name){
                 diagrams.splice(index, 1);
                 component.set('v.diagrams', diagrams);
                 return;
@@ -136,11 +154,12 @@
         helper.addObjectToGroup(component, helper, objectToAdd, groupValue);
     },
 
-    onDiagramChanged: function (component, event, helper) {
+    /*onDiagramChanged: function (component, event, helper) {
+        helper.handleDiagramChange(component, event, helper);
         if (!component.get("v.isAutoBuildActive")) {
             helper.onSaveDiagram(component, event, helper);
         }
-    },
+    },*/
 
     onCloneDiagram : function(component, event, helper) {
         helper.onCloneDiagram(component, event, helper);
@@ -160,6 +179,6 @@
         component.set("v.isAutoBuildActive", true); // suppress the diagram save above
         component.set('v.selectedDiagram', event.getParams().diagram);
         component.set("v.isAutoBuildActive", false);
-        helper.initialiseObjects(component, event, helper);
+        //DEPRECATED helper.initialiseObjects(component, event, helper);
     },
 })

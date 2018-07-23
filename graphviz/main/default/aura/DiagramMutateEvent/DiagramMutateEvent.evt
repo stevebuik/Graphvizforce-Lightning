@@ -1,0 +1,15 @@
+<!--
+ - Created by guan on 20/7/18.
+ -->
+
+<aura:event type="COMPONENT" description="DiagramMutateEvent">
+    <!-- Entity List Example:
+    [{"label":"Account History","apiName":"AccountHistory"}, {"label":"Account Feed","apiName":"AccountFeed"}]
+    -->
+    <aura:attribute name="entitiesToAdd" type="Object[]" description="List of object-field mappings to be added to current diagram" />
+    <aura:attribute name="entitiesToRemove" type="Object[]" description="List of object-field mappings to be removed from current diagram" />
+    <!-- Object-fields Map Example:
+    {"AccountFeed":[{"apiName":"Id"}, {"apiName":"Type"}, {"apiName":"InsertedById"}]}
+    -->
+    <aura:attribute name="fieldsMap" type="Map" description="Object-Fields mappings to manipulate current diagram, it contains the object-fields mappings required for manipulation, not required to contain all entities in diagram" />
+</aura:event>

@@ -1,32 +1,41 @@
 <aura:component >
 
     <aura:attribute name="object" type="Object" />
-    <aura:attribute name="selectedAttributes" type="Object[]" access="private" />
-    <aura:attribute name="availableAttributes" type="Object[]" access="private" />
+    <aura:attribute name="attributes" type="Object[]" access="private" />
+    <aura:attribute name="value" type="List" access="private" />
+    <!--<aura:attribute name="availableAttributes" type="Object[]" access="private" />
     <aura:attribute name="availableSearchTerm" type="String" access="private" />
     <aura:attribute name="selectedSearchTerm" type="String" access="private" />
-    <aura:attribute name="showHelp4" type="Boolean" default="false" />
-    
-    <aura:handler name="change" value="{!v.object}" action="{!c.handleObjectChange}" />
-    <aura:handler event="gvf2:UserGuideEvent" action="{!c.handleUserGuideEvent}"/>
-    
-    <aura:registerEvent name="onObjectAttributesUpdated" type="gvf2:ActionEvent" />
+    <aura:attribute name="showHelp4" type="Boolean" default="false" />-->
 
-    <aura:if isTrue="{! v.showHelp4}">
+    <!--<aura:registerEvent name="onObjectAttributesUpdated" type="gvf2:ActionEvent" />-->
+    <aura:registerEvent name="onDiagramMutate" type="gvf2:DiagramMutateEvent" />
+
+    <aura:handler name="change" value="{!v.object}" action="{!c.onUpdateAttributes}" />
+    <!--<aura:handler event="gvf2:UserGuideEvent" action="{!c.handleUserGuideEvent}"/>-->
+    <aura:handler event="gvf2:DiagramUpdatedEvent" action="{!c.onDiagramUpdated}" />
+
+    <lightning:checkboxGroup name="Fields Checkbox Group"
+                             options="{! v.attributes }"
+                             value="{!v.value}"
+                             disabled="{! not(v.object.selected)}"
+                             onchange="{! c.handleChange }"/>
+
+    <!--<aura:if isTrue="{! v.showHelp4}">
         <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-theme_success" role="tooltip" id="help" style="position:absolute;margin-top:70px;">
             <div class="slds-popover__body">Press arrows below to add/remove attributes</div>
         </div>
-    </aura:if>
+    </aura:if>-->
 
-    <div class="slds-grid">
+    <!--<div class="slds-grid">
         <div class="slds-size-1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-right_x-small" style="width:50%;">
             <gvf2:Panel title="Available">
                 <lightning:input type="search" label="Search" name="search" value="{!v.availableSearchTerm}" onchange="{!c.onSearchAvailable}" />
                 <br />
-                <ul style="max-height:100vh;overflow:scroll;">
+                <ul style="max-height:50vh;overflow:scroll;">
                     <aura:iteration items="{!v.availableAttributes}" var="field">
                         <li class="{! join(' ', 'slds-p-bottom_xxx-small', field.visible ? '' : 'slds-hide')}">
-                            <gvf2:Pill value="{!field}" iconName="chevronright" fullWidth="true" onIconClicked="{!c.onAddClicked}" onLabelClicked="{!c.onAttributeClicked}" />
+                            <gvf2:Pill value="{!field}" iconName="add" fullWidth="true" onIconClicked="{!c.onAddClicked}" onLabelClicked="{!c.onAttributeClicked}" />
                         </li>
                     </aura:iteration>
                 </ul>
@@ -36,14 +45,14 @@
             <gvf2:Panel title="Selected">
                 <lightning:input type="search" label="Search" name="search" value="{!v.selectedSearchTerm}" onchange="{!c.onSearchSelected}" />
                 <br />
-                <ul style="max-height:100vh;overflow:scroll;">
+                <ul style="max-height:50vh;overflow:scroll;">
                     <aura:iteration items="{!v.selectedAttributes}" var="field">
                         <li class="{! join(' ', 'slds-p-bottom_xxx-small', field.visible ? '' : 'slds-hide')}">
-                            <gvf2:Pill value="{!field}" iconName="chevronleft" iconPosition="left" fullWidth="true" onIconClicked="{!c.onRemoveClicked}" onLabelClicked="{!c.onAttributeClicked}" />
+                            <gvf2:Pill value="{!field}" iconName="close" fullWidth="true" onIconClicked="{!c.onRemoveClicked}" onLabelClicked="{!c.onAttributeClicked}" />
                         </li>
                     </aura:iteration>
                 </ul>
             </gvf2:Panel>
         </div>
-    </div>
+    </div>-->
 </aura:component>
