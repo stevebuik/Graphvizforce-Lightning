@@ -4,10 +4,10 @@
 
 <aura:component description="DiagramOutput">
 
-    <aura:attribute name="diagram" type="Object" />
-    <aura:attribute name="isExpanded" type="Boolean" default="false" />
-    <aura:attribute name="graphvizContent" type="String" />
-    <aura:attribute name="svgContent" type="String" />
+    <aura:attribute name="diagram" type="Object" description="Diagram object" />
+    <aura:attribute name="isExpanded" type="Boolean" default="false" description="Indicates current state of the view: expanded or collapsed" />
+    <aura:attribute name="graphvizContent" type="String" description="Graphviz content value for diagram rendering" />
+    <aura:attribute name="svgContent" type="String" description="SVG content value for download" />
     <aura:attribute name="obscuredEntities" type="List" default="[]"
                     description="Entities in the diagram which are not part of the SOQL query"/>
     <aura:attribute name="showSelfRelations" type="Boolean" default="false"
@@ -16,7 +16,6 @@
     <aura:registerEvent name="onTogglePreview" type="gvf2:ActionEvent" />
 
     <aura:handler name="fromChange" event="gvf2:SOQLFromChangeEvent" action="{!c.onFromChanged}"/>
-
     <aura:handler event="gvf2:DiagramUpdatedEvent" action="{!c.onDiagramUpdated}" />
 
     <ltng:require scripts="{!join(',', $Resource.GraphvizForceUtils, $Resource.pure)}"/>

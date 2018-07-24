@@ -2,6 +2,9 @@
  * Created by guan on 15/2/18.
  */
 ({
+    /**
+    * Process copy content action
+    */
     copyContent: function (component, helper, type) {
         var text = type == 'graphvizContent' ? component.get('v.graphvizContent') : component.get('v.svgContent');
         if (text == null) return;
@@ -13,6 +16,9 @@
         }
     },
 
+    /**
+    * Process save to local file action
+    */
     saveToFile: function (label, content) {
         var element = document.createElement('a');
         element.setAttribute('href', 'data:svg/plain;charset=utf-8,' + encodeURIComponent(content));
@@ -23,6 +29,9 @@
         document.body.removeChild(element);
     },
 
+    /**
+    * Process diagram rendering
+    */
     render: function (component) {
         var diagram = component.get("v.diagram");
         if (diagram) {
@@ -43,5 +52,5 @@
                 component.set('v.graphvizContent', graphvizContent);
             }
         }
-    }
+    },
 })

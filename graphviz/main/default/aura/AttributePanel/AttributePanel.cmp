@@ -1,8 +1,8 @@
 <aura:component >
 
-    <aura:attribute name="object" type="Object" />
-    <aura:attribute name="attributes" type="Object[]" access="private" />
-    <aura:attribute name="value" type="List" access="private" />
+    <aura:attribute name="object" type="Object" description="Current object user interacting with" />
+    <aura:attribute name="attributes" type="Object[]" access="private" description="List of fields for the current object" />
+    <aura:attribute name="value" type="List" access="private" description="List of selected fields, in API Names (lightning:checkboxGroup behaviour)" />
 
     <aura:registerEvent name="onDiagramMutate" type="gvf2:DiagramMutateEvent" />
 
@@ -13,5 +13,5 @@
                              options="{! v.attributes }"
                              value="{!v.value}"
                              disabled="{! not(v.object.selected)}"
-                             onchange="{! c.handleChange }"/>
+                             onchange="{! c.handleChange }" />
 </aura:component>

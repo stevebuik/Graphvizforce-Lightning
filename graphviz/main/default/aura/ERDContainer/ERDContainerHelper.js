@@ -5,6 +5,9 @@
     /***********************
     Initialisation Functions
     ************************/
+    /**
+    * Makes server call to load full schema
+    */
     loadSchema : function(component, event, helper){
 
         Core.AuraUtils.execute(component, 'loadSchema', null, function (returnValue){
@@ -18,6 +21,9 @@
         });
     },
 
+    /**
+    * Inspect the full schema and stores the all object list
+    */
     inspectSchema : function(component, event, helper){
         var allObjects = [];
         GraphvizForce.fullSchema.forEach(function (item){
@@ -45,6 +51,9 @@
         console.log('@@@@ load schema completed');
     },
 
+    /**
+    * Makes server call to load the diagrams belong to current user
+    */
     loadDiagrams : function(component, event, helper){
 
         Core.AuraUtils.execute(component, 'loadDiagrams', null, function (returnValue){
@@ -64,10 +73,10 @@
     /***********************
     UI Functions
     ************************/
-    /*
-    @description When user select a diagram and view diagram details
-    Update selected diagram
-    Update selected map
+    /**
+    * When user select a diagram and view diagram details
+    * Update selected diagram
+    * Update selected map
     */
     handleSelectionMapUpdate : function(diagram){
         var selectionMap = {};
@@ -85,6 +94,9 @@
         console.log('@@@@ selectionMap:', selectionMap);
     },
 
+    /**
+    * Process diagram mutation functionality
+    */
     handleDiagramMutate : function(component, helper, entitiesToAdd, entitiesToRemove, fieldsMap){
         // Mutate diagram
         var selectedDiagram = helper.getMutatedDiagram(component.get('v.selectedDiagram'), entitiesToAdd, entitiesToRemove, fieldsMap);
@@ -103,6 +115,10 @@
         $A.get("e.gvf2:DiagramUpdatedEvent").setParams({type:'MUTATION'}).fire();
     },
 
+    /**
+    * Takes the DiagramMutateEvent and its attributes to calculate a mutated diagram
+    * @returns mutated diagram
+    */
     getMutatedDiagram : function(diagram, entitiesToAdd, entitiesToRemove, fieldsMap){
         var entities = diagram.entities;
         var entityAPINames = [];
@@ -140,6 +156,9 @@
         return diagram;
     },
 
+    /**
+    * Update the diagram list with mutated diagram
+    */
     propagateDiagramList: function(diagrams, selectedDiagram){
         diagrams.forEach(function (diagram, index){
            if(diagram.name === selectedDiagram.name){
@@ -154,6 +173,9 @@
     /***********************
     CRUD Functions
     ************************/
+    /**
+    * Transform the diagram data and saves back to server
+    */
     handlePersistDiagramData : function(component, diagram){
 
         // Convert to well-formed json object
@@ -183,6 +205,9 @@
         }
     },
 
+    /**
+    * Process clone diagram action
+    */
     handleCloneDiagram : function(component, event, helper) {
 
         var diagrams = component.get('v.diagrams');
@@ -235,6 +260,9 @@
         }
     },
 
+    /**
+    * Process add new diagram action
+    */
     handleAddDiagram : function(component, event, helper) {
         var diagrams = component.get('v.diagrams');
         var newDiagramName = component.get('v.newDiagramName');
@@ -284,6 +312,9 @@
         }
     },
 
+    /**
+    * Process delete diagram action
+    */
     handleRemoveDiagram : function(component, recordId){
         Core.AuraUtils.execute(component, 'deleteDiagram', {'recordId':recordId}, function (returnValue){
             var result = JSON.parse(returnValue);
@@ -296,6 +327,9 @@
         });
     },
 
+    /**
+    * UI Function to update view after diagram is created/cloned
+    */
     onDiagramCreated : function(component, event, helper, savedRecord, isClone){
         var diagrams = component.get('v.diagrams');
         diagrams.push(savedRecord);

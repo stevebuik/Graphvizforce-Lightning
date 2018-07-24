@@ -2,13 +2,13 @@
  - Created by guan on 28/11/17.
  -->
 
-<aura:component description="AppHeader">
+<aura:component description="AppHeader: Top horizontal bar of the app">
 
-    <aura:attribute name="title" type="String" />
-    <aura:attribute name="subTitle" type="String" />
-    <aura:attribute name="icon" type="Aura.Component[]" />
-    <aura:attribute name="middleSection" type="Aura.Component[]" />
-    <aura:attribute name="rightSection" type="Aura.Component[]" />
+    <aura:attribute name="title" type="String" description="Title of the app on the left" />
+    <aura:attribute name="subTitle" type="String" description="Sub-title of the app on the left" />
+    <aura:attribute name="icon" type="Aura.Component[]" description="Icon of the app on the left" />
+    <aura:attribute name="middleSection" type="Aura.Component[]" description="Middle section of the top bar, usually the record label or the search input" />
+    <aura:attribute name="rightSection" type="Aura.Component[]" description="Right section of the top bar, usually user account control section" />
 
     <div class="slds-page-header">
         <div class="slds-media">

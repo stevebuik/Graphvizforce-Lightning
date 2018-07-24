@@ -1,7 +1,7 @@
 <aura:component >
 
-    <aura:attribute name="filteredObjects" type="Object[]" />
-    <aura:attribute name="searchTerm" type="String" />
+    <aura:attribute name="filteredObjects" type="Object[]" description="The filtered object list to be displayed, all filtering criteria and user preferences are already applied." />
+    <aura:attribute name="searchTerm" type="String" description="" />
     <aura:attribute name="currentState" type="String" default="SEARCH" description="Options: SEARCH, ALL, SELECTED" />
 
     <aura:handler name="change" value="{!v.searchTerm}" action="{!c.onUpdateSearchTerm}" />

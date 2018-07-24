@@ -2,6 +2,9 @@
  * Created by guan on 9/12/17.
  */
 ({
+    /**
+    * Calculates the filtered object list and update UI attribute
+    */
     handleObjectListUpdate : function(component, event, helper){
         var filteredObjects = [];
         var currentState = component.get('v.currentState');

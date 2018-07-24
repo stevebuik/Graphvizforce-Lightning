@@ -2,51 +2,78 @@
  * Created by guan on 15/2/18.
  */
 ({
+    /**
+    * Update initialised variable to indicate required static resources are loaded and ready
+    */
     doInit: function (component, event, helper) {
         component.set('v.initialised', true);
     },
 
+    /**
+    * Handler when user toggle the current state of view
+    */
     onToggleState: function (component, event, helper) {
         var isExpanded = !component.get('v.isExpanded');
         component.set('v.isExpanded', isExpanded);
         component.getEvent('onTogglePreview').setParams({scope: isExpanded}).fire();
     },
 
+    /**
+    * Handler when user toggle self relationship
+    */
     onToggleSelf: function (component, event, helper) {
         component.set("v.showSelfRelations", !component.get("v.showSelfRelations"));
         helper.render(component);
     },
 
-    // App event DiagramUpdatedEvent handler
+    /**
+    * App event DiagramUpdatedEvent handler: when diagram data is updated, re-render the graphviz diagram
+    */
     onDiagramUpdated: function (component, event, helper) {
-        console.log('onDiagramUpdated');
         helper.render(component);
     },
 
-    // component event handler
+    /**
+    *
+    */
     onFromChanged: function (component, event, helper) {
         component.set("v.obscuredEntities", event.getParam('obscuredEntities'));
         helper.render(component);
     },
 
+    /**
+    * Set SVG content for user download after diagram is rendered
+    */
     onDiagramRendered: function (component, event, helper) {
         component.set('v.svgContent', event.getParam('scope'));
     },
 
+    /**
+    * Handler when user press copy graphviz
+    */
     handleCopyGraphviz: function (component, event, helper) {
         helper.copyContent(component, helper, 'graphvizContent');
     },
 
+    /**
+    * Handler when user press copy svg
+    */
     handleCopySVG: function (component, event, helper) {
         helper.copyContent(component, helper, 'svgContent');
     },
 
+    /**
+    * Handler when user press download graphviz
+    */
     handleDownloadGraphviz: function (component, event, helper) {
         var diagram = component.get('v.diagram');
         var content = component.get('v.graphvizContent');
         helper.saveToFile(diagram.label + '.gv', content);
     },
 
+    /**
+    * Handler when user press download SVG
+    */
     handleDownloadSVG: function (component, event, helper) {
         var diagram = component.get('v.diagram');
         var content = component.get('v.svgContent');

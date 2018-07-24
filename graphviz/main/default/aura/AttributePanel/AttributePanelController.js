@@ -1,11 +1,16 @@
 ({
-    // App event DiagramUpdatedEvent (type:Selection) handler
+    /**
+    * App event DiagramUpdatedEvent (type:Selection) handler: Clear attribute list when current diagram selection is changed
+    */
     onDiagramUpdated : function(component, event, helper){
         if(event.getParam('type') == 'SELECTION'){
             component.set('v.attributes', null);
         }
     },
 
+    /**
+    * Populate attribute list when current object is changed
+    */
     onUpdateAttributes : function(component, event, helper){
 
         var object = component.get('v.object');
@@ -37,8 +42,9 @@
         component.set('v.value', values);
     },
 
-    /*
-    TODO: When first field added / all fields removed, the object should be added / removed from the selection map. This will allow the attribute panel to be enabled all the time.
+    /**
+    * Fire DiagramMutateEvent when user interact with the attribute list
+    * TODO: When first field added / all fields removed, the object should be added / removed from the selection map. This will allow the attribute panel to be enabled all the time.
     */
     handleChange : function(component, event, helper){
         var value = component.get('v.value');

@@ -3,8 +3,8 @@
  -->
 
 <aura:component >
-    <aura:attribute name="draggable" type="Boolean" default="false" />
-    <aura:attribute name="value" type="Object" />
+    <aura:attribute name="draggable" type="Boolean" default="false" description="Indicates pill is draggable" />
+    <aura:attribute name="value" type="Object" description="The data of the pill" />
 
     <aura:registerEvent name="onDiagramMutate" type="gvf2:DiagramMutateEvent" />
     <aura:registerEvent name="onGoToDetails" type="gvf2:ActionEvent" />

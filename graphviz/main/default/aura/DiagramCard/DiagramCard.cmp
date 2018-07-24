@@ -1,10 +1,10 @@
 <!--
  - Created by guan on 29/11/17.
  -->
-<aura:component description="DiagramCard">
+<aura:component description="DiagramCard: A box style component represents a diagram">
 
-    <aura:attribute name="diagram" type="Object" />
-    <aura:attribute name="showRemoveConfirm" type="Boolean" default="false" />
+    <aura:attribute name="diagram" type="Object" description="Diagram data" />
+    <aura:attribute name="showRemoveConfirm" type="Boolean" default="false" description="Indicates the toggle state of the delete diagram confirmation modal" />
 
     <aura:registerEvent name="onViewDiagram" type="gvf2:ActionEvent"/>
     <aura:registerEvent name="onRemoveDiagram" type="gvf2:ActionEvent"/>

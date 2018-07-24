@@ -1,11 +1,11 @@
 <aura:component controller="GraphVizForceController" implements="flexipage:availableForAllPageTypes, force:appHostable"
                 access="global">
     <aura:attribute name="currentState" type="String" default="LIST" description="The state of the current view, options: LIST, DETAIL"/>
-    <aura:attribute name="diagrams" type="Object[]" description="the diagram list displaying diagram cards"/>
-    <aura:attribute name="selectedDiagram" type="Object" description="the current selected diagram on detail view"/>
-    <aura:attribute name="newDiagramName" type="String" default="" description="diagram name of the new diagram"/>
-    <aura:attribute name="cloneDiagramName" type="String" default="" description="diagram name of the new clone diagram"/>
-    <aura:attribute name="isShowDiagramConfigurator" type="Boolean" default="true" description="boolean to toggle the diagram configurator view"/>
+    <aura:attribute name="diagrams" type="Object[]" description="The diagram list displaying diagram cards"/>
+    <aura:attribute name="selectedDiagram" type="Object" description="The current selected diagram on detail view"/>
+    <aura:attribute name="newDiagramName" type="String" default="" description="Diagram name of the new diagram"/>
+    <aura:attribute name="cloneDiagramName" type="String" default="" description="Diagram name of the new clone diagram"/>
+    <aura:attribute name="isShowDiagramConfigurator" type="Boolean" default="true" description="Boolean to toggle the diagram configurator view"/>
     <aura:attribute name="isAutoBuildActive" type="Boolean" default="true" description="Used to suppress diagram saves since they are performed by the Apex in an auto-build."/>
 
     <!-- handlers -->

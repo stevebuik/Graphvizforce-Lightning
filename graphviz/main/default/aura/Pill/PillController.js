@@ -2,8 +2,10 @@
  * Created by guan on 23/3/18.
  */
 ({
+    /**
+    * Handler when user changes the checkbox selection
+    */
     onSelectionChange : function(component, event, helper) {
-        console.log('@@@@ onSelectionChange');
         var value = component.get('v.value');
         if(value.selected){
             // Create well-formed entity object and fire mutate event
@@ -17,6 +19,9 @@
         }
 	},
 
+    /**
+    * Handler when user press arrow button to go to detail view
+    */
 	onGoToDetails : function(component, event, helper) {
 	    var value = component.get('v.value');
         component.getEvent('onGoToDetails').setParams({scope:value}).fire();

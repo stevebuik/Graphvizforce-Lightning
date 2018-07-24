@@ -1,7 +1,8 @@
 <aura:component >
 
-    <aura:attribute name="diagram" type="Object" />
-    <aura:attribute name="selectedObject" type="Object" />
+    <aura:attribute name="diagram" type="Object" description="Diagram data" />
+    <aura:attribute name="selectedObject" type="Object" description="Current object selection, defined by user pressing arrow button next to the object label" />
+
     <aura:handler name="onGoToDetails" event="gvf2:ActionEvent" action="{!c.onSelectObject}"/>
 
     <div class="slds-grid slds-wrap">
