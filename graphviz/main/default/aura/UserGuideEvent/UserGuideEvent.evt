@@ -1,7 +1,0 @@
-<!--
- - Created by guan on 27/11/17.
- -->
-
-<aura:event type="APPLICATION" description="UserGuideEvent">
-    <aura:attribute name="scope" type="String"/>
-</aura:event>

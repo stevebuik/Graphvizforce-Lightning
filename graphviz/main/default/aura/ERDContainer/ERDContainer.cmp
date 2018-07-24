@@ -1,30 +1,19 @@
 <aura:component controller="GraphVizForceController" implements="flexipage:availableForAllPageTypes, force:appHostable"
                 access="global">
     <aura:attribute name="currentState" type="String" default="LIST" description="The state of the current view, options: LIST, DETAIL"/>
-    <!--<aura:attribute name="allObjects" type="Object[]" description="the entire object list of the schema loaded from apex controller"/>-->
     <aura:attribute name="diagrams" type="Object[]" description="the diagram list displaying diagram cards"/>
     <aura:attribute name="selectedDiagram" type="Object" description="the current selected diagram on detail view"/>
-    <!--<aura:attribute name="objectToAdd" type="Object" description="the object to be added to diagram"/>-->
-    <!--<aura:attribute name="selectedObject" type="Object" description="the current selected object to add/remove fields"/>-->
     <aura:attribute name="showAddGroup" type="Boolean" default="false" description="boolean to toggle the add object to group modal"/>
     <aura:attribute name="newDiagramName" type="String" default="" description="diagram name of the new diagram"/>
     <aura:attribute name="cloneDiagramName" type="String" default="" description="diagram name of the new clone diagram"/>
-    <!--<aura:attribute name="displayAllObjects" type="Boolean" default="false" description="boolean to toggle displaying all objects"/>-->
     <aura:attribute name="isShowDiagramConfigurator" type="Boolean" default="true" description="boolean to toggle the diagram configurator view"/>
     <aura:attribute name="isAutoBuildActive" type="Boolean" default="true" description="Used to suppress diagram saves since they are performed by the Apex in an auto-build."/>
 
     <!-- handlers -->
-    <!--<aura:handler name="onAddGroup" event="gvf2:ActionEvent" action="{!c.onAddGroup}" />-->
-    <!--<aura:handler name="onRemoveGroup" event="gvf2:ActionEvent" action="{!c.onRemoveGroup}" />-->
-    <!--<aura:handler name="onAddObject" event="gvf2:ActionEvent" action="{!c.onAddObject}"/>-->
-    <!--<aura:handler name="onObjectAttributesUpdated" event="gvf2:ActionEvent" action="{!c.onObjectAttributesUpdated}"/>-->
-    <!--<aura:handler name="onDragObjectToGroup" event="gvf2:ActionEvent" action="{!c.onDragObjectToGroup}"/>-->
     <aura:handler name="onEditGroupName" event="gvf2:ActionEvent" action="{!c.onEditGroupName}"/>
     <aura:handler name="onEditGroupName" event="gvf2:ActionEvent" action="{!c.onEditGroupName}"/>
-    <!--<aura:handler name="onRemoveObject" event="gvf2:ActionEvent" action="{!c.onTargetPanelRemoveObject}"/>-->
     <aura:handler name="onObjectClicked" event="gvf2:ActionEvent" action="{!c.onObjectClicked}"/>
     <aura:handler name="onTogglePreview" event="gvf2:ActionEvent" action="{!c.onTogglePreview}"/>
-    <!--<aura:handler name="change" value="{!v.selectedDiagram}" action="{!c.onDiagramChanged}"/>-->
     <aura:handler name="startEvent" event="gvf2:AutoBuildStart" action="{!c.onAutoBuildStart}"/>
     <aura:handler name="updateEvent" event="gvf2:AutoBuildUpdate" action="{!c.onAutoBuildUpdate}"/>
     <aura:handler name="startEvent" event="gvf2:AutoBuildStart" action="{!c.onAutoBuildStart}"/>

@@ -1,64 +1,27 @@
 <aura:component >
-    
-    <!--<aura:attribute name="allObjects" type="Object[]" />-->
+
     <aura:attribute name="filteredObjects" type="Object[]" />
-    <!--<aura:attribute name="selectedEntities" type="Object[]" />-->
     <aura:attribute name="searchTerm" type="String" />
-    <!--<aura:attribute name="showHelp1" type="Boolean" default="false" />
-    <aura:attribute name="showHelp2" type="Boolean" default="false" />-->
-    <!--<aura:attribute name="displayAllObjects" type="Boolean" default="false" />-->
     <aura:attribute name="currentState" type="String" default="SEARCH" description="Options: SEARCH, ALL, SELECTED" />
 
-    <!--<aura:registerEvent name="onAddObject" type="gvf2:ActionEvent" />-->
-
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-    <!--<aura:handler event="gvf2:UserGuideEvent" action="{!c.handleUserGuideEvent}"/>-->
-    <!--<aura:handler name="change" value="{!v.allObjects}" action="{!c.onUpdateObjectPanel}" />-->
     <aura:handler name="change" value="{!v.searchTerm}" action="{!c.onUpdateSearchTerm}" />
-    <!--<aura:handler name="change" value="{!v.displayAllObjects}" action="{!c.onToggleDisplayAll}" />-->
-    <!--<aura:handler name="change" value="{!v.selectedEntities}" action="{!c.onUpdateObjectPanel}" />-->
     <aura:handler event="gvf2:DiagramUpdatedEvent" action="{!c.onDiagramUpdated}" />
 
-    <!--<div>
-        <div class="slds-float&#45;&#45;right">
-            <label class="slds-checkbox_toggle slds-grid">
-                <span class="slds-form-element__label slds-m-bottom_none">Display All Objects</span>
-                <input type="checkbox" name="checkbox" aria-describedby="toggle-desc" value="on" onchange="{!c.onToggleDisplayAll}" />
-                <span id="toggle-desc" class="slds-checkbox_faux_container" aria-live="assertive">
-                    <span class="slds-checkbox_faux"></span>
-                    <span class="slds-checkbox_on">Enabled</span>
-                    <span class="slds-checkbox_off">Disabled</span>
-                </span>
-            </label>
-        </div>
-        <br class="slds-clear" />
-    </div>-->
     <lightning:buttonGroup>
         <lightning:button label="Search" variant="{!v.currentState == 'SEARCH' ? 'brand' : 'neutral'}" onclick="{!c.onSearchState}" />
         <lightning:button label="All" variant="{!v.currentState == 'ALL' ? 'brand' : 'neutral'}" onclick="{!c.onAllState}" />
         <lightning:button label="Selected" variant="{!v.currentState == 'SELECTED' ? 'brand' : 'neutral'}" onclick="{!c.onSelectedState}" />
     </lightning:buttonGroup>
     <br />
+
     <aura:if isTrue="{!v.currentState != 'SELECTED'}">
         <br />
         <div aria-describedby="help">
             <lightning:input type="search" label="Search Object Name" name="search" value="{!v.searchTerm}" />
         </div>
     </aura:if>
-
-    <!--<aura:if isTrue="{!v.showHelp1}">
-        <div class="slds-popover slds-popover_tooltip slds-nubbin_top-right slds-theme_success" role="tooltip" id="help" style="position:relative;margin-top:10px;">
-            <div class="slds-popover__body">Type object name to search for objects</div>
-        </div>
-    </aura:if>
-
-    <aura:if isTrue="{!v.showHelp2}">
-        <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-theme_success" role="tooltip" id="help" style="position:relative;margin-top:10px;">
-            <div class="slds-popover__body">Drag an object below and drop into a group on the right</div>
-        </div>
-    </aura:if>-->
-
     <br />
+
     <div style="max-height:100vh;overflow:scroll;">
         <ul class="flexList" role="listbox" aria-label="Selected Options:" aria-orientation="horizontal">
             <aura:iteration items="{!v.filteredObjects}" var="object">

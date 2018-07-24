@@ -23,11 +23,6 @@
         helper.render(component);
     },
 
-    // change handler on attribute
-    /*onDiagramChanged: function (component, event, helper) {
-        helper.render(component);
-    },*/
-
     // component event handler
     onFromChanged: function (component, event, helper) {
         component.set("v.obscuredEntities", event.getParam('obscuredEntities'));

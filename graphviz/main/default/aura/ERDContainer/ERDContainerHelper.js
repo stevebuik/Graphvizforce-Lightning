@@ -61,9 +61,9 @@
         });
     },
 
-    /*
+    /***********************
     UI Functions
-    */
+    ************************/
 
     /*
     @description When user select a diagram and view diagram details
@@ -140,12 +140,6 @@
         return diagram;
     },
 
-    /*getMutatedDiagramList : function(component, diagram){
-        component.set('v.selectedDiagram', diagram);
-        var diagrams = component.get('v.diagrams');
-        component.set('v.diagrams', helper.propagateDiagramList(diagrams, diagram));
-    },*/
-
     handlePersistDiagramData : function(component, diagram){
 
         // Convert to well-formed json object
@@ -175,25 +169,6 @@
         }
     },
 
-
-
-
-
-
-    /*
-    Old Functions
-    */
-    //DEPRECATED
-    initialiseObjects : function(){
-        // Update allObjects by selected diagram
-        // Update selectedDiagram by allObjects
-        GraphvizForce.allObjects.forEach(function (obj) {
-            if(GraphvizForce.selectionMap[obj.apiName] != null){
-                obj.selected = true;
-            }
-        });
-    },
-
     handleDiagramChange : function(component, event, helper){
         var selectionMap = {};
         var selectedDiagram = component.get('v.selectedDiagram');
@@ -215,9 +190,6 @@
         var groupRemoved = false;
         var groupAdded = false;
         var i;
-
-        console.log('@@@@ objectToAdd:', objectToAdd.label);
-        console.log('@@@@ selectedDiagram:', selectedDiagram);
 
         // Add object to entities list
         selectedDiagram.entities.push(objectToAdd);
@@ -247,31 +219,7 @@
 
         selectedDiagram.groups = groups;
         component.set('v.selectedDiagram', selectedDiagram);
-        console.log('@@@@ added > selectedDiagram:', JSON.stringify(selectedDiagram));
-
-        if(window.showUserGuide) $A.get("e.gvf2:UserGuideEvent").setParams({scope:'step3'}).fire();
     },
-
-    /*onSaveDiagram : function(component, event, helper) {
-        var diagrams = component.get('v.diagrams');
-        var selectedDiagram = component.get('v.selectedDiagram');
-        component.set('v.diagrams', helper.propagateDiagramList(diagrams, selectedDiagram));
-
-        // Validate new diagram object before persisting
-        if(!GraphvizForce.DiagramHelper.isDiagramValidToPersist(selectedDiagram)){
-            //window.alert('Error: diagram is not valid.');
-            console.log('############### diagram is not valid');
-        }
-        else{
-            // Update diagram via apex controller
-            Core.AuraUtils.execute(component, 'saveDiagram', {'content':JSON.stringify(selectedDiagram), 'recordId':selectedDiagram.id}, function (returnValue){
-                var result = JSON.parse(returnValue);
-                if(result.serviceStatus.status != 'success'){
-                    window.alert('Error: Faield to save diagram.');
-                }
-            });
-        }
-    },*/
 
     onCloneDiagram : function(component, event, helper) {
 
@@ -383,7 +331,6 @@
 
         if(isClone){
             component.find('diagramConfigurator').find('objectPanel').set('v.searchTerm', '');
-            //helper.initialiseObjects(component, event, helper);
         }
     },
 

@@ -4,7 +4,6 @@
 
 <aura:component description="DiagramOutput">
 
-    <!--<aura:attribute name="allObjects" type="Object[]" />-->
     <aura:attribute name="diagram" type="Object" />
     <aura:attribute name="isExpanded" type="Boolean" default="false" />
     <aura:attribute name="graphvizContent" type="String" />
@@ -14,12 +13,10 @@
     <aura:attribute name="showSelfRelations" type="Boolean" default="false"
                     description="When true, diagram will show heirarchical/self relationships"/>
 
-    <!--<aura:handler event="gvf2:UserGuideEvent" action="{!c.handleUserGuideEvent}"/>-->
     <aura:registerEvent name="onTogglePreview" type="gvf2:ActionEvent" />
 
     <aura:handler name="fromChange" event="gvf2:SOQLFromChangeEvent" action="{!c.onFromChanged}"/>
 
-    <!--<aura:handler name="change" value="{!v.diagram}" action="{!c.onDiagramChanged}"/>-->
     <aura:handler event="gvf2:DiagramUpdatedEvent" action="{!c.onDiagramUpdated}" />
 
     <ltng:require scripts="{!join(',', $Resource.GraphvizForceUtils, $Resource.pure)}"/>

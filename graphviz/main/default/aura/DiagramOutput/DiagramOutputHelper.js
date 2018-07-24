@@ -4,7 +4,6 @@
 ({
     copyContent: function (component, helper, type) {
         var text = type == 'graphvizContent' ? component.get('v.graphvizContent') : component.get('v.svgContent');
-        console.log('@@@@ text:', text);
         if (text == null) return;
 
         var success = Core.AuraUtils.copyToClipboard(text);
@@ -25,9 +24,7 @@
     },
 
     render: function (component) {
-        console.log('@@@@ render');
         var diagram = component.get("v.diagram");
-        console.log('@@@@ diagram', JSON.stringify(diagram));
         if (diagram) {
             // Get settings from the tool bar
             var opts = {

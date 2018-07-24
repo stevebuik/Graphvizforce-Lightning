@@ -7,13 +7,6 @@
     },
 
     onRemoveDiagram : function(component, event, helper){
-        /*
-        var r = confirm("Do you want to delete this diagram?");
-        if (r var === true) {
-            component.getEvent('onRemoveDiagram').setParams({scope:component.get('v.diagram')}).fire();
-        }
-        */
-
         component.set('v.showRemoveConfirm', true);
     },
 

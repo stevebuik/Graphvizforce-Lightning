@@ -3,18 +3,12 @@
  */
 ({
     doInit : function(component, event, helper){
-
-        // Get cookies and setup user guide
-        // var userGuideCompleted = localStorage.getItem('userGuideCompleted');
-        // window.showUserGuide = !userGuideCompleted;
         // Disable user guide
         window.showUserGuide = false;
         helper.loadSchema(component, event, helper);
-
     },
 
     onDiagramMutate : function(component, event, helper){
-        console.log('@@@@ onDiagramMutate');
         var entitiesToAdd = event.getParam('entitiesToAdd');
         var entitiesToRemove = event.getParam('entitiesToRemove');
         var fieldsMap = event.getParam('fieldsMap');
@@ -28,9 +22,6 @@
         component.find('diagramConfigurator').set('v.selectedObject', null);
 
         var diagram = event.getParam('scope');
-        //helper.initialiseObjects(diagram);
-        //component.set('v.selectedDiagram', diagram);
-        //helper.initialiseObjects(component, event, helper);
         component.set('v.selectedDiagram', diagram);
 
         helper.handleSelectionMapUpdate(diagram);
@@ -71,9 +62,6 @@
         var scope = event.getParam('scope');
         var objectToAdd = JSON.parse(scope.object);
         var groupValue = 'ContainerGroup';
-        console.log('@@@@ onDragObjectToGroup');
-        console.log(objectToAdd);
-        console.log(groupValue);
         helper.addObjectToGroup(component, helper, objectToAdd, groupValue);
     },
 
@@ -144,7 +132,7 @@
 
     onObjectClicked : function(component, event, helper) {
         var obj = event.getParam('scope');
-        component.find('diagramConfigurator').find('targetPanel').set('v.currentState', 'ATTRIBUTES');
+        //component.find('diagramConfigurator').find('targetPanel').set('v.currentState', 'ATTRIBUTES');
         component.set('v.selectedObject', obj);
     },
 
@@ -153,13 +141,6 @@
         var groupValue = 'ContainerGroup';
         helper.addObjectToGroup(component, helper, objectToAdd, groupValue);
     },
-
-    /*onDiagramChanged: function (component, event, helper) {
-        helper.handleDiagramChange(component, event, helper);
-        if (!component.get("v.isAutoBuildActive")) {
-            helper.onSaveDiagram(component, event, helper);
-        }
-    },*/
 
     onCloneDiagram : function(component, event, helper) {
         helper.onCloneDiagram(component, event, helper);
@@ -179,6 +160,5 @@
         component.set("v.isAutoBuildActive", true); // suppress the diagram save above
         component.set('v.selectedDiagram', event.getParams().diagram);
         component.set("v.isAutoBuildActive", false);
-        //DEPRECATED helper.initialiseObjects(component, event, helper);
     },
 })

@@ -1,24 +1,8 @@
 <aura:component >
 
-    <!--<aura:attribute name="allObjects" type="Object[]" />-->
     <aura:attribute name="diagram" type="Object" />
     <aura:attribute name="selectedObject" type="Object" />
-    <!--<aura:attribute name="displayAllObjects" type="Boolean" />-->
-
     <aura:handler name="onGoToDetails" event="gvf2:ActionEvent" action="{!c.onSelectObject}"/>
-    <!--Lightning Bug: app event not being handled by direct children components-->
-    <!--<aura:handler event="gvf2:DiagramUpdatedEvent" action="{!c.onDiagramUpdated}" />-->
-
-    <!--
-    <div class="slds-grid slds-wrap">
-        <div class="slds-col slds-size-1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2 slds-p-around_xx-small">
-            <gvf2:SourcePanel aura:id="sourcePanel" diagram="{!v.diagram}" />
-        </div>
-        <div class="slds-col slds-size-1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2 slds-p-around_xx-small">
-            <gvf2:TargetPanel aura:id="targetPanel" diagram="{!v.diagram}" />
-        </div>
-    </div>
-    -->
 
     <div class="slds-grid slds-wrap">
         <div class="slds-col slds-size-1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2 slds-p-around_xx-small">

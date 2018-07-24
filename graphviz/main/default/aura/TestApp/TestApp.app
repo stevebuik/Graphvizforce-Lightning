@@ -6,6 +6,6 @@
     <ltng:require scripts="{!join(',', $Resource.pure)}"
                   afterScriptsLoaded="{!c.doInit}"/>
 
-    <gvf2:DiagramOutput aura:id="diagram" selectedDiagram="{!v.diagram}"/>
+    <gvf2:DiagramOutput aura:id="diagram" diagram="{!v.diagram}"/>
 
 </aura:application>

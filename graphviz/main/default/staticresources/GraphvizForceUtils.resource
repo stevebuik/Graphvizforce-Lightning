@@ -42,6 +42,12 @@ window.GraphvizForce;
             convertObjectToPersist: function(object){
                 return null;
             },
+
+            renderSVGMarkup: function(content, format){
+                var format = 'svg';
+                var erdMarkup = Viz(content, format);
+                return erdMarkup;
+            }
         };
     })();
     GraphvizForce.DiagramHelper = DiagramHelper;

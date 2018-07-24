@@ -3,5 +3,9 @@
  -->
 
 <aura:event type="APPLICATION" description="DiagramUpdatedEvent: Event to notify subscribing components about diagram selection change or current diagram mutation">
+    <!--
+    MUTATION: Current diagram has been modified
+    SELECTION: Current diagram selection has been changed to another
+    -->
     <aura:attribute name="type" type="String" default="MUTATION" description="Options: MUTATION, SELECTION" />
 </aura:event>
