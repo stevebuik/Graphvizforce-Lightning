@@ -3,21 +3,16 @@
     <aura:attribute name="currentState" type="String" default="LIST" description="The state of the current view, options: LIST, DETAIL"/>
     <aura:attribute name="diagrams" type="Object[]" description="the diagram list displaying diagram cards"/>
     <aura:attribute name="selectedDiagram" type="Object" description="the current selected diagram on detail view"/>
-    <aura:attribute name="showAddGroup" type="Boolean" default="false" description="boolean to toggle the add object to group modal"/>
     <aura:attribute name="newDiagramName" type="String" default="" description="diagram name of the new diagram"/>
     <aura:attribute name="cloneDiagramName" type="String" default="" description="diagram name of the new clone diagram"/>
     <aura:attribute name="isShowDiagramConfigurator" type="Boolean" default="true" description="boolean to toggle the diagram configurator view"/>
     <aura:attribute name="isAutoBuildActive" type="Boolean" default="true" description="Used to suppress diagram saves since they are performed by the Apex in an auto-build."/>
 
     <!-- handlers -->
-    <aura:handler name="onEditGroupName" event="gvf2:ActionEvent" action="{!c.onEditGroupName}"/>
-    <aura:handler name="onEditGroupName" event="gvf2:ActionEvent" action="{!c.onEditGroupName}"/>
-    <aura:handler name="onObjectClicked" event="gvf2:ActionEvent" action="{!c.onObjectClicked}"/>
     <aura:handler name="onTogglePreview" event="gvf2:ActionEvent" action="{!c.onTogglePreview}"/>
     <aura:handler name="startEvent" event="gvf2:AutoBuildStart" action="{!c.onAutoBuildStart}"/>
     <aura:handler name="updateEvent" event="gvf2:AutoBuildUpdate" action="{!c.onAutoBuildUpdate}"/>
     <aura:handler name="startEvent" event="gvf2:AutoBuildStart" action="{!c.onAutoBuildStart}"/>
-
     <!--DiagramMutateEvent can be fired from any child components to manipulate the current diagram
     Examples: ObjectPanel, AttributePanel, DiagramOutput, SOQLRenderer, AutoBuild
     -->
@@ -115,20 +110,6 @@
                 </div>
             </div>
         </div>
-
-        <gvf2:Modal heading="Add to a Group" show="{!v.showAddGroup}">
-            <div class="slds-scrollable" style="max-height:320px;">
-                <ul class="slds-listbox slds-listbox_horizontal" role="listbox" aria-label="Selected Options:"
-                    aria-orientation="horizontal">
-                    <aura:iteration items="{!v.selectedDiagram.groups}" var="group">
-                        <li class="slds-p-around_xx-small">
-                            <lightning:button class="slds-button slds-button_neutral" label="{!group.label}"
-                                              value="{!group.value}" onclick="{!c.onAddObjectToGroupClicked}"/>
-                        </li>
-                    </aura:iteration>
-                </ul>
-            </div>
-        </gvf2:Modal>
 
     </div>
 

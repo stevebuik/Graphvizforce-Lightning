@@ -2,9 +2,9 @@
  * Created by guan on 30/11/17.
  */
 ({
-    /*
+    /***********************
     Initialisation Functions
-    */
+    ************************/
     loadSchema : function(component, event, helper){
 
         Core.AuraUtils.execute(component, 'loadSchema', null, function (returnValue){
@@ -64,7 +64,6 @@
     /***********************
     UI Functions
     ************************/
-
     /*
     @description When user select a diagram and view diagram details
     Update selected diagram
@@ -108,7 +107,7 @@
         var entities = diagram.entities;
         var entityAPINames = [];
 
-        // Process entity (object) manipulation
+        // Step 1: Process entity (object) manipulation
         if(entitiesToAdd != null){
             entities = diagram.entities.concat(entitiesToAdd);
         }
@@ -121,9 +120,8 @@
                 return !apiNames.includes(entity.apiName);
             });
         }
-        console.log('@@@@ new entities:', JSON.stringify(entities));
 
-        // Process field manipulation and prepare entityAPINames
+        // Step 2: Process field manipulation and prepare entityAPINames
         entities.forEach(function(entity){
             entityAPINames.push(entity.apiName);
             if(fieldsMap != null){
@@ -133,13 +131,29 @@
         });
         console.log('@@@@ new entities after processed fields:', JSON.stringify(entities));
 
+        // Step 3: Finalise mutation on the diagram
         // Update entities list of diagram (object and field selection)
         diagram.entities = entities;
         // Also update groups accordingly
         diagram.groups[0].entities = entityAPINames;
+
         return diagram;
     },
 
+    propagateDiagramList: function(diagrams, selectedDiagram){
+        diagrams.forEach(function (diagram, index){
+           if(diagram.name === selectedDiagram.name){
+               diagrams[index] = selectedDiagram;
+               return;
+           }
+        });
+        diagrams.sort(GraphvizForce.DiagramHelper.compareName);
+        return diagrams;
+    },
+
+    /***********************
+    CRUD Functions
+    ************************/
     handlePersistDiagramData : function(component, diagram){
 
         // Convert to well-formed json object
@@ -169,59 +183,7 @@
         }
     },
 
-    handleDiagramChange : function(component, event, helper){
-        var selectionMap = {};
-        var selectedDiagram = component.get('v.selectedDiagram');
-        selectedDiagram.entities.forEach(function(selectedEntity){
-            var selectedFields = {};
-            selectedEntity.fields.forEach(function(selectedField){
-                selectedFields[selectedField.apiName] = true;
-            });
-            selectionMap[selectedEntity.apiName] = selectedFields;
-        });
-        GraphvizForce.selectionMap = selectionMap;
-
-    },
-
-    addObjectToGroup : function(component, helper, objectToAdd, groupName){
-        var allObjects = component.get('v.allObjects');
-        var selectedDiagram = component.get('v.selectedDiagram');
-        var groups = selectedDiagram.groups;
-        var groupRemoved = false;
-        var groupAdded = false;
-        var i;
-
-        // Add object to entities list
-        selectedDiagram.entities.push(objectToAdd);
-
-        // Add object to group AND Remove object from current group if exists
-        for(i=0;i<groups.length;i++){
-            if(groupRemoved && groupAdded) break;
-
-            var group = groups[i];
-
-            group.entities.forEach(function (entity, index) {
-                if(entity.apiName === objectToAdd.value){
-                    if(index !== -1){
-                        group.entities.splice(index, 1);
-                        groupRemoved = true;
-                    }
-                }
-            });
-
-            if(group.name === groupName){
-                group.entities.push(objectToAdd);
-                group.entities.sort(GraphvizForce.DiagramHelper.compare);
-                groupAdded = true;
-            }
-
-        }
-
-        selectedDiagram.groups = groups;
-        component.set('v.selectedDiagram', selectedDiagram);
-    },
-
-    onCloneDiagram : function(component, event, helper) {
+    handleCloneDiagram : function(component, event, helper) {
 
         var diagrams = component.get('v.diagrams');
         var selectedDiagram = component.get('v.selectedDiagram');
@@ -322,6 +284,18 @@
         }
     },
 
+    handleRemoveDiagram : function(component, recordId){
+        Core.AuraUtils.execute(component, 'deleteDiagram', {'recordId':recordId}, function (returnValue){
+            var result = JSON.parse(returnValue);
+            if(result.serviceStatus.status != 'success'){
+                window.alert('Error: Faield to delete diagram.');
+            }
+            else{
+                console.log('SUCCESS: Diagram deleted!');
+            }
+        });
+    },
+
     onDiagramCreated : function(component, event, helper, savedRecord, isClone){
         var diagrams = component.get('v.diagrams');
         diagrams.push(savedRecord);
@@ -332,16 +306,5 @@
         if(isClone){
             component.find('diagramConfigurator').find('objectPanel').set('v.searchTerm', '');
         }
-    },
-
-    propagateDiagramList: function(diagrams, selectedDiagram){
-        diagrams.forEach(function (diagram, index){
-           if(diagram.name === selectedDiagram.name){
-               diagrams[index] = selectedDiagram;
-               return;
-           }
-        });
-        diagrams.sort(GraphvizForce.DiagramHelper.compareName);
-        return diagrams;
     },
 })
