@@ -178,10 +178,11 @@
     */
     handlePersistDiagramData : function(component, diagram){
 
-        // Convert to well-formed json object
+        // Convert to well-formed json object, remove UI attributes
         var diagramToPersist = JSON.parse(JSON.stringify(diagram));
         diagramToPersist.entities.forEach(function(entity){
             delete entity.selected;
+            delete entity.label;
         });
 
         // Validate new diagram object before persisting
