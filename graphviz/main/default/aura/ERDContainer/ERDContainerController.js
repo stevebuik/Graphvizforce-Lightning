@@ -29,8 +29,7 @@
 
         var diagram = event.getParam('scope');
         component.set('v.selectedDiagram', diagram);
-
-        helper.handleSelectionMapUpdate(diagram);
+        component.set('v.selectionMap', helper.getUpdatedSelectionMap(diagram));
 
         // Dispatch DiagramUpdatedEvent to subscribers
         $A.get("e.gvf2:DiagramUpdatedEvent").setParams({type:'SELECTION'}).fire();

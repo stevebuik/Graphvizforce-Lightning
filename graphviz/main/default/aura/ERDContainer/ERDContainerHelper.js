@@ -74,7 +74,7 @@
     * Update selected diagram
     * Update selected map
     */
-    handleSelectionMapUpdate : function(diagram){
+    getUpdatedSelectionMap : function(diagram){
         var selectionMap = {};
         diagram.entities.forEach(function(entity){
             var selectedFieldsMap = {};
@@ -85,7 +85,7 @@
             }
             selectionMap[entity.apiName] = selectedFieldsMap;
         });
-        component.set('v.selectionMap', selectionMap);
+        return selectionMap;
     },
 
     /**
@@ -100,7 +100,7 @@
         component.set('v.diagrams', helper.propagateDiagramList(component.get('v.diagrams'), selectedDiagram));
 
         // Reflect mutated diagram to Selection Map
-        helper.handleSelectionMapUpdate(selectedDiagram);
+        component.set('v.selectionMap', helper.getUpdatedSelectionMap(selectedDiagram));
 
         // Persist the diagram to server
         if(component.get("v.isAutoBuildActive")) helper.handlePersistDiagramData(component, selectedDiagram);
