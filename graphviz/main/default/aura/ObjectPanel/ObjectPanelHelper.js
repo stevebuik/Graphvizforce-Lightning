@@ -12,7 +12,7 @@
             var searchTermExist = term !== undefined && term !== '';
             var searchMatch = (searchTermExist && (object.label.toLowerCase().indexOf(term.toLowerCase()) !== -1 || object.apiName.toLowerCase().indexOf(term.toLowerCase()) !== -1));
             var isSelected = (selectionMap[object.apiName] != null);
-            if((currentState == 'ALL' && (!searchTermExist || searchMatch)) || (currentState == 'SEARCH' && searchMatch) || (currentState == 'SELECTED' && isSelected)){
+            if((currentState == 'ALL' && (!searchTermExist || searchMatch)) || (currentState == 'SEARCH' && searchMatch) || (currentState == 'SELECTED' && isSelected && (!searchTermExist || searchMatch))){
                 var uiObject = {label:object.label, apiName:object.apiName, selected:isSelected};
                 filteredObjects.push(uiObject);
             }

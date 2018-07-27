@@ -4,6 +4,7 @@
     */
     onSearchState : function(component, event, helper) {
         component.set('v.currentState', 'SEARCH');
+        component.find("inputSearch").focus();
         helper.handleObjectListUpdate(component, event, helper);
     },
 
@@ -13,6 +14,7 @@
     onAllState : function(component, event, helper) {
         component.set('v.currentState', 'ALL');
         component.set('v.searchTerm', '');
+        component.find("inputSearch").focus();
         helper.handleObjectListUpdate(component, event, helper);
     },
 
@@ -22,6 +24,7 @@
     onSelectedState : function(component, event, helper) {
         component.set('v.currentState', 'SELECTED');
         component.set('v.searchTerm', '');
+        component.find("inputSearch").focus();
         helper.handleObjectListUpdate(component, event, helper);
     },
 
@@ -44,7 +47,11 @@
     */
     onDiagramUpdated : function(component, event, helper){
         if(event.getParam('type') == 'SELECTION'){
-            component.set('v.currentState', 'SEARCH');
+            component.set('v.searchTerm', '');
+            var diagram = component.get('v.diagram');
+            var isSelectedObjects = !$A.util.isEmpty(diagram.entities);
+            component.set('v.currentState', isSelectedObjects ? 'SELECTED' : 'SEARCH');
+            component.find("inputSearch").focus();
             helper.handleObjectListUpdate(component, event, helper);
         }
     },

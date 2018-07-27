@@ -6,6 +6,7 @@
         // Disable user guide
         window.showUserGuide = false;
         helper.loadSchema(component, event, helper);
+        helper.loadDiagrams(component, event, helper);
     },
 
     /**
@@ -16,6 +17,13 @@
         var entitiesToRemove = event.getParam('entitiesToRemove');
         var fieldsMap = event.getParam('fieldsMap');
         helper.handleDiagramMutate(component, helper, entitiesToAdd, entitiesToRemove, fieldsMap);
+    },
+
+    /**
+    * Handler when user clicks on reload schema button
+    */
+    onReloadSchema : function(component, event, helper){
+        helper.loadSchema(component, event, helper);
     },
 
     /** List View Functions **/
@@ -42,6 +50,7 @@
     */
     onAddNewDiagram : function(component, event, helper){
         helper.handleAddDiagram(component, event, helper);
+        component.set('v.newDiagramName', '');
     },
 
     /**
@@ -74,6 +83,7 @@
     */
     onCloneDiagram : function(component, event, helper) {
         helper.handleCloneDiagram(component, event, helper);
+        component.set('v.cloneDiagramName', '');
     },
 
     /**

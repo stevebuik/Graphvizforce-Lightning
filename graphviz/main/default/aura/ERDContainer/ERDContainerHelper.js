@@ -6,7 +6,7 @@
     * Makes server call to load full schema
     */
     loadSchema : function(component, event, helper){
-
+        $A.util.toggleClass(component.find("mySpinner"), "slds-hide");
         Core.AuraUtils.execute(component, 'loadSchema', null, function (returnValue){
             var result;
             if(returnValue != null) result = JSON.parse(returnValue);
@@ -14,7 +14,8 @@
             component.set("v.describes", result);
             helper.inspectSchema(component, event, helper);
             // action is complete
-            helper.loadDiagrams(component, event, helper);
+            component.set("v.schemaReady", true);
+            if(component.get('v.diagramsReady')) $A.util.toggleClass(component.find("mySpinner"), "slds-hide");
         });
     },
 
@@ -54,7 +55,6 @@
     loadDiagrams : function(component, event, helper){
 
         Core.AuraUtils.execute(component, 'loadDiagrams', null, function (returnValue){
-            $A.util.toggleClass(component.find("mySpinner"), "slds-hide");
             var diagrams = [];
             returnValue.forEach(function (item){
                 var diagram = JSON.parse(item.gvf2__Content__c);
@@ -63,6 +63,9 @@
             });
             diagrams.sort(GraphvizForce.DiagramHelper.compareName);
             component.set('v.diagrams', diagrams);
+
+            component.set("v.diagramsReady", true);
+            if(component.get('v.schemaReady')) $A.util.toggleClass(component.find("mySpinner"), "slds-hide");
         });
     },
 

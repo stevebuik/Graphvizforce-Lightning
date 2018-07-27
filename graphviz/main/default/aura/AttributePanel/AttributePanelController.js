@@ -35,7 +35,7 @@
         fields.forEach(function(field){
             var isSelected = fieldSelectionMap != null && fieldSelectionMap[field.apiName];
             if(isSelected) values.push(field.apiName);
-            attributes.push({label:field.label + ' [' + field.apiName + ']', value:field.apiName});
+            attributes.push({label:field.label});
         });
 
         // Update attribute list and reset selection

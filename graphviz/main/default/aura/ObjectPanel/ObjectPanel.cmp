@@ -1,5 +1,6 @@
 <aura:component >
 
+    <aura:attribute name="diagram" type="Object" description="Diagram data" />
     <aura:attribute name="allObjects" type="Object[]" description="The entire object list of the org"/>
     <aura:attribute name="filteredObjects" type="Object[]" description="The filtered object list to be displayed, all filtering criteria and user preferences are already applied." />
     <aura:attribute name="selectionMap" type="Map" description="The map of objects and fields selection reflecting the diagram"/>
@@ -17,12 +18,10 @@
     </lightning:buttonGroup>
     <br />
 
-    <aura:if isTrue="{!v.currentState != 'SELECTED'}">
-        <br />
-        <div aria-describedby="help">
-            <lightning:input type="search" label="Search Object Name" name="search" value="{!v.searchTerm}" />
-        </div>
-    </aura:if>
+    <br />
+    <div aria-describedby="help">
+    <lightning:input aura:id="inputSearch" type="search" label="Search Object Name" name="search" value="{!v.searchTerm}" />
+    </div>
     <br />
 
     <div style="max-height:100vh;overflow:scroll;">

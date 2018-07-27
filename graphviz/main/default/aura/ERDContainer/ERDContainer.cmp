@@ -1,5 +1,7 @@
 <aura:component controller="GraphVizForceController" implements="flexipage:availableForAllPageTypes, force:appHostable"
                 access="global">
+    <aura:attribute name="schemaReady" type="Boolean" description="Indicates schema is loaded"/>
+    <aura:attribute name="diagramsReady" type="Boolean" description="Indicates diagrams are loaded"/>
     <aura:attribute name="currentState" type="String" default="LIST" description="The state of the current view, options: LIST, DETAIL"/>
     <aura:attribute name="diagrams" type="Object[]" description="The diagram list displaying diagram cards"/>
     <aura:attribute name="describes" type="Object" default="[]" description="The schema describe wrappers from Apex"/>
@@ -32,10 +34,7 @@
         <!-- TODO Display Lightning Data Service save confirmations -->
         <!-- TODO Display Lightning Data Service errors -->
 
-        <gvf2:AppHeader title="GraphVizForce" subTitle="Schema Diagrams made easy!">
-            <aura:set attribute="icon">
-                <lightning:icon iconName="standard:apps_admin" size="medium"/>
-            </aura:set>
+        <gvf2:AppHeader title="GraphVizForce">
             <aura:set attribute="middleSection">
                 <aura:if isTrue="{!v.currentState == 'DETAIL'}">
                     <h2>
@@ -45,12 +44,17 @@
                 </aura:if>
             </aura:set>
             <aura:set attribute="rightSection">
+                <div class="slds-grid slds-grid_vertical-align-end">
+                    <lightning:button class="slds-button slds-button_neutral slds-m-right_small" label="Reload Schema" onclick="{!c.onReloadSchema}" />
                 <aura:if isTrue="{!v.currentState == 'LIST'}">
-                    <div class="slds-grid slds-grid_vertical-align-end">
-                    </div>
+
+                        <lightning:input type="text" placeholder="Add New Diagram" name="newDiagramName"
+                                         class="slds-p-right_small" value="{!v.newDiagramName}"/>
+                        <lightning:button class="slds-button slds-button_neutral" label="New"
+                                          disabled="{!v.newDiagramName.length == 0}" onclick="{!c.onAddNewDiagram}"/>
+
                 </aura:if>
                 <aura:if isTrue="{!v.currentState == 'DETAIL'}">
-                    <div class="slds-grid slds-grid_vertical-align-end">
                         <span style="margin-right: 4rem;">
                             <gvf2:AutoBuildSelector/>
                         </span>
@@ -58,9 +62,8 @@
                                          class="slds-p-right_small" value="{!v.cloneDiagramName}"/>
                         <lightning:button class="slds-button slds-button_neutral" label="Clone"
                                           disabled="{!v.cloneDiagramName.length == 0}" onclick="{!c.onCloneDiagram}"/>
-                    </div>
                 </aura:if>
-
+                </div>
             </aura:set>
         </gvf2:AppHeader>
 
@@ -74,7 +77,7 @@
                         </li>
                     </aura:iteration>
 
-                    <li class="slds-p-around_small">
+                    <!--<li class="slds-p-around_small">
                         <article class="slds-card" style="width:250px;max-height:250px;">
                             <div class="slds-card__header slds-grid">
                                 <header class="slds-media slds-media_center slds-has-flexi-truncate">
@@ -98,7 +101,7 @@
                                 </div>
                             </footer>
                         </article>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
 
@@ -116,6 +119,6 @@
 
     </div>
 
-    <lightning:spinner variant="brand" size="large" aura:id="mySpinner"/>
+    <lightning:spinner variant="brand" size="large" aura:id="mySpinner" class="slds-hide"/>
 
 </aura:component>
