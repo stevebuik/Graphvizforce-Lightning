@@ -1,7 +1,3 @@
-<!--
- - Created by guan on 15/2/18.
- -->
-
 <aura:component description="DiagramOutput">
 
     <aura:attribute name="diagram" type="Object" description="Diagram object" />

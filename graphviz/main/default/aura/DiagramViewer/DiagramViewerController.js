@@ -1,6 +1,3 @@
-/**
- * Created by guan on 27/11/17.
- */
 ({
     /**
     * Set initialised when static resources are loaded

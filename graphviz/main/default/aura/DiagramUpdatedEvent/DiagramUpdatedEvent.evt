@@ -1,7 +1,3 @@
-<!--
- - Created by guan on 20/7/18.
- -->
-
 <aura:event type="APPLICATION" description="DiagramUpdatedEvent: Event to notify subscribing components about diagram selection change or current diagram mutation">
     <!--
     MUTATION: Current diagram has been modified

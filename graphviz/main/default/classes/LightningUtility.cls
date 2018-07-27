@@ -1,7 +1,3 @@
-/**
- * Created by guan on 20/6/18.
- */
-
 public class LightningUtility {
 
 

@@ -1,7 +1,3 @@
-<!--
- - Created by guan on 23/3/18.
- -->
-
 <aura:event type="COMPONENT" description="UI Event to carry action information when user interaction takes place">
     <aura:attribute name="scope" type="Object" />
 </aura:event>

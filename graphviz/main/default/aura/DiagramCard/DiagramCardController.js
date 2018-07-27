@@ -1,6 +1,3 @@
-/**
- * Created by guan on 29/11/17.
- */
 ({
     /**
     * Fires event when user select a diagram and go to detail view

@@ -1,7 +1,3 @@
-/**
- * Created by guan on 17/6/18.
- */
-
 public Class BuilderSourceType{
     @AuraEnabled
     public String sourceType;

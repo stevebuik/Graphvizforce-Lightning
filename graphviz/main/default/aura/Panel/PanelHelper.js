@@ -1,6 +1,3 @@
-/**
- * Created by guan on 9/12/17.
- */
 ({
     /**
     * Fires component event when user changes the title, to be handled outside of the panel

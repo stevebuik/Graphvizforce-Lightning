@@ -1,6 +1,3 @@
-/**
- * Created by guan on 15/2/18.
- */
 ({
     /**
     * Update initialised variable to indicate required static resources are loaded and ready

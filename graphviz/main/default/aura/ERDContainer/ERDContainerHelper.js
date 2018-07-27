@@ -1,6 +1,3 @@
-/**
- * Created by guan on 30/11/17.
- */
 ({
     /***********************
     Initialisation Functions

@@ -1,6 +1,3 @@
-<!--
- - Created by guan on 29/11/17.
- -->
 <aura:component description="DiagramCard: A box style component represents a diagram">
 
     <aura:attribute name="diagram" type="Object" description="Diagram data" />

@@ -1,7 +1,3 @@
-<!--
- - Created by guan on 20/7/18.
- -->
-
 <aura:event type="COMPONENT" description="DiagramMutateEvent: Event to fire when current diagram needs to reflect the changes from UI or from Auto Build">
     <!-- Entity List Example:
     [{"label":"Account History","apiName":"AccountHistory"}, {"label":"Account Feed","apiName":"AccountFeed"}]

@@ -1,6 +1,3 @@
-/**
- * Created by guan on 23/3/18.
- */
 ({
     /**
     * Handler when user toggle collapse state

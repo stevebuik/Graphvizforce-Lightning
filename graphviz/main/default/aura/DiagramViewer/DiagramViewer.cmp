@@ -1,7 +1,3 @@
-<!--
- - Created by guan on 27/11/17.
- -->
-
 <aura:component description="DiagramViewer: The Graphviz diagram displaying component">
 
     <aura:attribute name="initialised" type="Boolean" default="false" description="Indicates required static resources are loaded" />

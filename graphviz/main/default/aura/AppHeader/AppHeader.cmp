@@ -1,7 +1,3 @@
-<!--
- - Created by guan on 28/11/17.
- -->
-
 <aura:component description="AppHeader: Top horizontal bar of the app">
 
     <aura:attribute name="title" type="String" description="Title of the app on the left" />

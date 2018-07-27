@@ -1,6 +1,3 @@
-/**
- * Created by guan on 15/2/18.
- */
 ({
     /**
     * Process copy content action

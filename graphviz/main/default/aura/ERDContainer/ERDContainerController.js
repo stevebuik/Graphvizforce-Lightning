@@ -1,6 +1,3 @@
-/**
- * Created by guan on 27/11/17.
- */
 ({
     /**
     * App/Container initialisation entry point, fires first server call to fetch full schema

@@ -1,7 +1,3 @@
-<!--
- - Created by guan on 23/3/18.
- -->
-
 <aura:component description="Generic component to display a popup modal at the center of the screen">
 
     <aura:attribute name="heading" type="String" description="Heading title of the modal" />

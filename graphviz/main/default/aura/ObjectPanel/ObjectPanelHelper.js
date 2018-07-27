@@ -1,6 +1,3 @@
-/**
- * Created by guan on 9/12/17.
- */
 ({
     /**
     * Calculates the filtered object list and update UI attribute

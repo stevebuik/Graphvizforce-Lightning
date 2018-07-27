@@ -1,8 +1,3 @@
-/**
- * Created by guan on 11/12/17.
- * @description Apex controller for Lighting out app GraphVizForce
- */
-
 public without sharing class GraphVizForceController {
 
     @AuraEnabled
