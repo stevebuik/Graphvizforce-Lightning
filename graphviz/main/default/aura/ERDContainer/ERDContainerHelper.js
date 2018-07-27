@@ -66,7 +66,6 @@
             });
             diagrams.sort(GraphvizForce.DiagramHelper.compareName);
             component.set('v.diagrams', diagrams);
-            console.log('@@@@ load diagrams completed');
         });
     },
 
@@ -143,7 +142,6 @@
                 if(fields != null) entity.fields = fields;
             }
         });
-        console.log('@@@@ new entities after processed fields:', JSON.stringify(entities));
 
         // Step 3: Finalise mutation on the diagram
         // Update entities list of diagram (object and field selection)
@@ -185,11 +183,9 @@
 
         // Validate new diagram object before persisting
         if(!GraphvizForce.DiagramHelper.isDiagramValidToPersist(diagramToPersist)){
-            //window.alert('Error: diagram is not valid.');
-            console.log('############### diagram is not valid');
+            window.alert('Error: diagram is not valid.');
         }
         else{
-            console.log('########### diagram to save:', JSON.stringify(diagramToPersist));
             // Calling apex controller to save the diagram
             Core.AuraUtils.execute(component, 'saveDiagram', {'content':JSON.stringify(diagramToPersist), 'recordId':diagramToPersist.id}, function (returnValue){
                 var resultWrapper = JSON.parse(returnValue);
@@ -197,8 +193,7 @@
                     window.alert('Error: Faield to save diagram.');
                 }
                 else{
-                    // Set the record id and then save it again
-                    console.log('Success: Diagram saved!');
+                    // TODO: Add logger function
                 }
             });
         }
@@ -230,8 +225,7 @@
 
             // Validate new diagram object before persisting
             if(!GraphvizForce.DiagramHelper.isDiagramValidToPersist(newDiagramObject)){
-                //window.alert('Error: diagram is not valid.');
-                console.log('############### diagram is not valid');
+                window.alert('Error: diagram is not valid.');
             }
             else{
                 // Calling apex controller to save the diagram
@@ -283,8 +277,7 @@
 
             // Validate new diagram object before persisting
             if(!GraphvizForce.DiagramHelper.isDiagramValidToPersist(newDiagramObject)){
-                //window.alert('Error: diagram is not valid.');
-                console.log('############### diagram is not valid');
+                window.alert('Error: diagram is not valid.');
             }
             else{
                 // Calling apex controller to save the diagram
@@ -321,7 +314,7 @@
                 window.alert('Error: Faield to delete diagram.');
             }
             else{
-                console.log('SUCCESS: Diagram deleted!');
+                // TODO: Add logger function
             }
         });
     },
