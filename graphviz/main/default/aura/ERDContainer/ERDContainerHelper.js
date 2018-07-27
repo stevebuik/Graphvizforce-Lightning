@@ -13,10 +13,8 @@
         Core.AuraUtils.execute(component, 'loadSchema', null, function (returnValue){
             var result;
             if(returnValue != null) result = JSON.parse(returnValue);
-            // Store the entire schema (wrappers) to GraphvizForce.fullSchema
-            GraphvizForce.fullSchema = result; // TODO stop using js globals for Lightning data/state. use v.describes instead
+            // Store the entire schema (wrappers)
             component.set("v.describes", result);
-
             helper.inspectSchema(component, event, helper);
             // action is complete
             helper.loadDiagrams(component, event, helper);
@@ -28,7 +26,8 @@
     */
     inspectSchema : function(component, event, helper){
         var allObjects = [];
-        GraphvizForce.fullSchema.forEach(function (item){
+        var describes = component.get('v.describes');
+        describes.forEach(function (item){
             var object = {
                 label: item.label,
                 apiName: item.apiName,
@@ -49,8 +48,7 @@
         });
 
         allObjects.sort(GraphvizForce.DiagramHelper.compare);
-        GraphvizForce.allObjects = allObjects;
-        console.log('@@@@ load schema completed');
+        component.set('v.allObjects', allObjects);
     },
 
     /**
@@ -82,7 +80,6 @@
     */
     handleSelectionMapUpdate : function(diagram){
         var selectionMap = {};
-        console.log('@@@@ diagram:', JSON.stringify(diagram));
         diagram.entities.forEach(function(entity){
             var selectedFieldsMap = {};
             if(!$A.util.isEmpty(entity.fields)){
@@ -92,8 +89,7 @@
             }
             selectionMap[entity.apiName] = selectedFieldsMap;
         });
-        GraphvizForce.selectionMap = selectionMap;
-        console.log('@@@@ selectionMap:', selectionMap);
+        component.set('v.selectionMap', selectionMap);
     },
 
     /**

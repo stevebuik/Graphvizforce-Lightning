@@ -6,13 +6,15 @@
     * Calculates the filtered object list and update UI attribute
     */
     handleObjectListUpdate : function(component, event, helper){
+        var allObjects = component.get('v.allObjects');
+        var selectionMap = component.get('v.selectionMap');
         var filteredObjects = [];
         var currentState = component.get('v.currentState');
         var term = component.get('v.searchTerm');
-        GraphvizForce.allObjects.forEach(function(object){
+        allObjects.forEach(function(object){
             var searchTermExist = term !== undefined && term !== '';
             var searchMatch = (searchTermExist && (object.label.toLowerCase().indexOf(term.toLowerCase()) !== -1 || object.apiName.toLowerCase().indexOf(term.toLowerCase()) !== -1));
-            var isSelected = (GraphvizForce.selectionMap[object.apiName] != null);
+            var isSelected = (selectionMap[object.apiName] != null);
             if((currentState == 'ALL' && (!searchTermExist || searchMatch)) || (currentState == 'SEARCH' && searchMatch) || (currentState == 'SELECTED' && isSelected)){
                 var uiObject = {label:object.label, apiName:object.apiName, selected:isSelected};
                 filteredObjects.push(uiObject);

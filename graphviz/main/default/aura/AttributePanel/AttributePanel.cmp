@@ -1,5 +1,7 @@
 <aura:component >
 
+    <aura:attribute name="allObjects" type="Object[]" description="The entire object list of the org"/>
+    <aura:attribute name="selectionMap" type="Map" description="The map of objects and fields selection reflecting the diagram"/>
     <aura:attribute name="object" type="Object" description="Current object user interacting with" />
     <aura:attribute name="attributes" type="Object[]" access="private" description="List of fields for the current object" />
     <aura:attribute name="value" type="List" access="private" description="List of selected fields, in API Names (lightning:checkboxGroup behaviour)" />

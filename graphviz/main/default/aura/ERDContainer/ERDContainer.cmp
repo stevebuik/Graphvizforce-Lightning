@@ -3,6 +3,8 @@
     <aura:attribute name="currentState" type="String" default="LIST" description="The state of the current view, options: LIST, DETAIL"/>
     <aura:attribute name="diagrams" type="Object[]" description="The diagram list displaying diagram cards"/>
     <aura:attribute name="describes" type="Object" description="The schema describe wrappers from Apex"/>
+    <aura:attribute name="allObjects" type="Object[]" description="The entire object list of the org"/>
+    <aura:attribute name="selectionMap" type="Map" description="The map of objects and fields selection reflecting the diagram"/>
     <aura:attribute name="selectedDiagram" type="Object" description="The current selected diagram on detail view"/>
     <aura:attribute name="newDiagramName" type="String" default="" description="Diagram name of the new diagram"/>
     <aura:attribute name="cloneDiagramName" type="String" default="" description="Diagram name of the new clone diagram"/>
@@ -102,7 +104,7 @@
 
             <div class="{! join(' ', 'slds-grid slds-wrap', v.currentState == 'DETAIL' ? '' : 'slds-hide')}">
                 <div class="{!join(' ', 'slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-3', v.isShowDiagramConfigurator ? '' : 'slds-hide')}">
-                    <gvf2:DiagramConfigurator aura:id="diagramConfigurator" diagram="{!v.selectedDiagram}" />
+                    <gvf2:DiagramConfigurator aura:id="diagramConfigurator" allObjects="{!v.allObjects}" selectionMap="{!v.selectionMap}" diagram="{!v.selectedDiagram}" />
                 </div>
 
                 <div class="{!join(' ', 'slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-p-around_xx-small', v.isShowDiagramConfigurator ? 'slds-large-size_2-of-3' : 'slds-large-size_1-of-1')}">

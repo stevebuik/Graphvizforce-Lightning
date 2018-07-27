@@ -29,13 +29,14 @@
     * Calculate filtered object list with debounce behaviour when user type in search box
     */
     onUpdateSearchTerm : function(component, event, helper){
-        if(GraphvizForce.searchObjectDebounce == null){
-            GraphvizForce.searchObjectDebounce = Core.SystemUtils.debounce(function() {
+        var searchObjectDebounce = component.get('v.searchObjectDebounce');
+        if(searchObjectDebounce == null){
+            searchObjectDebounce = Core.SystemUtils.debounce(function() {
                 // All the taxing stuff you do
                 helper.handleObjectListUpdate(component, event, helper);
             }, 1000);
         }
-        GraphvizForce.searchObjectDebounce();
+        searchObjectDebounce();
     },
 
     /**

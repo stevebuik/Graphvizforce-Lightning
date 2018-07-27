@@ -13,6 +13,8 @@
     */
     onUpdateAttributes : function(component, event, helper){
 
+        var allObjects = component.get('v.allObjects');
+        var selectionMap = component.get('v.selectionMap');
         var object = component.get('v.object');
         if(object == null){
             component.set('v.attributes', null);
@@ -22,8 +24,8 @@
         var fields = [];
         var attributes = [];
         var values = [];
-        var fieldSelectionMap = GraphvizForce.selectionMap[object.apiName];
-        GraphvizForce.allObjects.forEach(function(obj){
+        var fieldSelectionMap = selectionMap[object.apiName];
+        allObjects.forEach(function(obj){
             if(obj.apiName === object.apiName){
                 fields = obj.fields;
                 return;

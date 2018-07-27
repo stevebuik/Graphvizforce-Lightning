@@ -33,6 +33,7 @@
     * Process diagram rendering
     */
     render: function (component) {
+        var describes = component.get('v.describes');
         var diagram = component.get("v.diagram");
         if (diagram) {
             // Get settings from the tool bar
@@ -45,7 +46,7 @@
             // Validate diagram and output
             var translated;
             if(GraphvizForce.DiagramHelper.isDiagramValidToPersist(diagram)){
-                translated = pure.graphviz.diagramAsView(diagram, GraphvizForce.fullSchema);
+                translated = pure.graphviz.diagramAsView(diagram, describes);
             }
             if(GraphvizForce.DiagramHelper.isTranslatedValidToOutput(translated)){
                 var graphvizContent = pure.graphviz.diagramAsText(translated);
