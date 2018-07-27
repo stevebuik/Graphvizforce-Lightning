@@ -5,6 +5,7 @@
 <aura:component description="DiagramOutput">
 
     <aura:attribute name="diagram" type="Object" description="Diagram object" />
+    <aura:attribute name="describes" type="Object" description="The schema describe wrappers from Apex"/>
     <aura:attribute name="isExpanded" type="Boolean" default="false" description="Indicates current state of the view: expanded or collapsed" />
     <aura:attribute name="graphvizContent" type="String" description="Graphviz content value for diagram rendering" />
     <aura:attribute name="svgContent" type="String" description="SVG content value for download" />
@@ -39,7 +40,7 @@
                 <div class="slds-float_left">
                     <gvf2:DiagramViewer aura:id="diagramViewer" graphvizContent="{!v.graphvizContent}" onDiagramRendered="{!c.onDiagramRendered}" />
                     <hr class="diagramBottom"/>
-                    <gvf2:SOQLRenderer aura:id="soql" diagram="{!v.diagram}"/>
+                    <gvf2:SOQLRenderer aura:id="soql" diagram="{!v.diagram}" describes="{!v.describes}"/>
                 </div>
             </div>
         </lightning:tab>

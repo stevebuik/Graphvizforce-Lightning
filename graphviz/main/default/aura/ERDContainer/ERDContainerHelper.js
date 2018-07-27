@@ -14,7 +14,9 @@
             var result;
             if(returnValue != null) result = JSON.parse(returnValue);
             // Store the entire schema (wrappers) to GraphvizForce.fullSchema
-            GraphvizForce.fullSchema = result;
+            GraphvizForce.fullSchema = result; // TODO stop using js globals for Lightning data/state. use v.describes instead
+            component.set("v.describes", result);
+
             helper.inspectSchema(component, event, helper);
             // action is complete
             helper.loadDiagrams(component, event, helper);
