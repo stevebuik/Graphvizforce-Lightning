@@ -11,8 +11,9 @@
     <aura:handler name="change" value="{!v.object}" action="{!c.onUpdateAttributes}" />
     <aura:handler event="gvf2:DiagramUpdatedEvent" action="{!c.onDiagramUpdated}" />
 
-    <div style="max-height:100vh;overflow:scroll;" class="attributeList">
+    <div style="max-height:100vh;overflow:scroll;">
         <lightning:checkboxGroup name="Fields Checkbox Group"
+                                 class="slds-truncate"
                                  options="{! v.attributes }"
                                  value="{!v.value}"
                                  disabled="{! not(v.object.selected)}"

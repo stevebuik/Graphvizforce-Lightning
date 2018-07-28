@@ -34,7 +34,7 @@
         <!-- TODO Display Lightning Data Service save confirmations -->
         <!-- TODO Display Lightning Data Service errors -->
 
-        <gvf2:AppHeader title="GraphVizForce">
+        <gvf2:AppHeader title="GraphvizForce">
             <aura:set attribute="middleSection">
                 <aura:if isTrue="{!v.currentState == 'DETAIL'}">
                     <h2>
@@ -45,23 +45,25 @@
             </aura:set>
             <aura:set attribute="rightSection">
                 <div class="slds-grid slds-grid_vertical-align-end">
+                <aura:if isTrue="{!not(empty(v.diagrams))}">
                     <lightning:button class="slds-button slds-button_neutral slds-m-right_small" label="Reload Schema" onclick="{!c.onReloadSchema}" />
+                </aura:if>
                 <aura:if isTrue="{!v.currentState == 'LIST'}">
 
-                        <lightning:input type="text" placeholder="Add New Diagram" name="newDiagramName"
-                                         class="slds-p-right_small" value="{!v.newDiagramName}"/>
-                        <lightning:button class="slds-button slds-button_neutral" label="New"
-                                          disabled="{!v.newDiagramName.length == 0}" onclick="{!c.onAddNewDiagram}"/>
+                    <lightning:input type="text" placeholder="Add New Diagram" name="newDiagramName"
+                                     class="slds-p-right_small" value="{!v.newDiagramName}"/>
+                    <lightning:button class="slds-button slds-button_neutral" label="New"
+                                      disabled="{!v.newDiagramName.length == 0}" onclick="{!c.onAddNewDiagram}"/>
 
                 </aura:if>
                 <aura:if isTrue="{!v.currentState == 'DETAIL'}">
-                        <span style="margin-right: 4rem;">
-                            <gvf2:AutoBuildSelector/>
-                        </span>
-                        <lightning:input type="text" placeholder="Save As New Diagram" name="cloneDiagramName"
-                                         class="slds-p-right_small" value="{!v.cloneDiagramName}"/>
-                        <lightning:button class="slds-button slds-button_neutral" label="Clone"
-                                          disabled="{!v.cloneDiagramName.length == 0}" onclick="{!c.onCloneDiagram}"/>
+                    <span style="margin-right: 4rem;">
+                        <gvf2:AutoBuildSelector/>
+                    </span>
+                    <lightning:input type="text" placeholder="Save As New Diagram" name="cloneDiagramName"
+                                     class="slds-p-right_small" value="{!v.cloneDiagramName}"/>
+                    <lightning:button class="slds-button slds-button_neutral" label="Clone"
+                                      disabled="{!v.cloneDiagramName.length == 0}" onclick="{!c.onCloneDiagram}"/>
                 </aura:if>
                 </div>
             </aura:set>
@@ -77,39 +79,19 @@
                         </li>
                     </aura:iteration>
 
-                    <!--<li class="slds-p-around_small">
-                        <article class="slds-card" style="width:250px;max-height:250px;">
-                            <div class="slds-card__header slds-grid">
-                                <header class="slds-media slds-media_center slds-has-flexi-truncate">
-                                    <div class="slds-media__body">
-                                        <h2>
-                                            <span class="slds-text-heading_small">New Diagram</span>
-                                        </h2>
-                                    </div>
-                                </header>
-                            </div>
-                            <div class="slds-card__body slds-card__body_inner">
-                                <lightning:input type="text" label="New Diagram Name" name="newDiagramName"
-                                                 class="slds-p-right_small" value="{!v.newDiagramName}"/>
-                            </div>
-                            <footer class="slds-card__footer">
-                                <div class="slds-button-group" role="group">
-                                    <button class="slds-button slds-button_neutral"
-                                            disabled="{!v.newDiagramName.length == 0}" onclick="{!c.onAddNewDiagram}">
-                                        Add Diagram
-                                    </button>
-                                </div>
-                            </footer>
-                        </article>
-                    </li>-->
+                    <aura:if isTrue="{!empty(v.diagrams)}">
+                        <span class="slds-text-heading_label">Create a new diagram at top right.</span>
+                    </aura:if>
                 </ul>
             </div>
 
             <div class="{! join(' ', 'slds-grid slds-wrap', v.currentState == 'DETAIL' ? '' : 'slds-hide')}">
-                <div class="{!join(' ', 'slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-3', v.isShowDiagramConfigurator ? '' : 'slds-hide')}">
-                    <gvf2:DiagramConfigurator aura:id="diagramConfigurator" allObjects="{!v.allObjects}" selectionMap="{!v.selectionMap}" diagram="{!v.selectedDiagram}" />
-                </div>
 
+                <aura:if isTrue="{!v.isShowDiagramConfigurator}">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-3">
+                        <gvf2:DiagramConfigurator aura:id="diagramConfigurator" allObjects="{!v.allObjects}" selectionMap="{!v.selectionMap}" diagram="{!v.selectedDiagram}" />
+                    </div>
+                </aura:if>
                 <div class="{!join(' ', 'slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-p-around_xx-small', v.isShowDiagramConfigurator ? 'slds-large-size_2-of-3' : 'slds-large-size_1-of-1')}">
                     <gvf2:AutoBuildProgress aura:id="autoBuildProgress"/>
                     <gvf2:DiagramOutput aura:id="diagramOutput" diagram="{!v.selectedDiagram}" describes="{!v.describes}"/>

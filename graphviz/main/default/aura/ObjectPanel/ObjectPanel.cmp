@@ -25,13 +25,11 @@
     <br />
 
     <div style="max-height:100vh;overflow:scroll;">
-        <ul class="flexList" role="listbox" aria-label="Selected Options:" aria-orientation="horizontal">
-            <aura:iteration items="{!v.filteredObjects}" var="object">
-                <li role="presentation" class="slds-p-around_xx-small">
-                    <gvf2:Pill value="{!object}" draggable="true" />
-                </li>
-            </aura:iteration>
-        </ul>
+        <aura:iteration items="{!v.filteredObjects}" var="object">
+            <div class="lineItem">
+                <gvf2:Pill value="{!object}" />
+            </div>
+        </aura:iteration>
     </div>
 
 </aura:component>

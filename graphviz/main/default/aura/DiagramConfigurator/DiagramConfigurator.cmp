@@ -8,12 +8,12 @@
     <aura:handler name="onGoToDetails" event="gvf2:ActionEvent" action="{!c.onSelectObject}"/>
 
     <div class="slds-grid slds-wrap">
-        <div class="slds-col slds-size-1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2 slds-p-around_xx-small">
+        <div class="slds-col slds-size-1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-around_xx-small">
             <gvf2:Panel title="Objects">
                 <gvf2:ObjectPanel aura:id="objectPanel" allObjects="{!v.allObjects}" selectionMap="{!v.selectionMap}" diagram="{!v.diagram}" />
             </gvf2:Panel>
         </div>
-        <div class="slds-col slds-size-1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2 slds-p-around_xx-small">
+        <div class="slds-col slds-size-1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-around_xx-small">
             <gvf2:Panel title="{! 'Fields: ' + v.selectedObject.label}">
                 <gvf2:AttributePanel object="{!v.selectedObject}" allObjects="{!v.allObjects}" selectionMap="{!v.selectionMap}" />
             </gvf2:Panel>

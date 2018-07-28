@@ -5,9 +5,9 @@
     <aura:registerEvent name="onDiagramMutate" type="gvf2:DiagramMutateEvent" />
     <aura:registerEvent name="onGoToDetails" type="gvf2:ActionEvent" />
 
-    <div title="{! 'API Name: ' + v.value.apiName}">
-        <lightning:input type="checkbox" label="{!v.value.label}" onchange="{!c.onSelectionChange}" checked="{!v.value.selected}" class="slds-float_left" />
-        <lightning:button variant="base" label="&#9654;" title="Item Details" onclick="{! c.onGoToDetails}" class="slds-float_left slds-line-height_reset"/>
+    <div title="{! 'API Name: ' + v.value.apiName}" class="slds-clearfix">
+        <lightning:input type="checkbox" label="{!v.value.label}" onchange="{!c.onSelectionChange}" checked="{!v.value.selected}" class="slds-float_left slds-truncate" />
+        <lightning:button variant="base" label="&nbsp;&#9654;" title="Item Details" onclick="{! c.onGoToDetails}" class="slds-float_right slds-line-height_reset"/>
     </div>
 
 </aura:component>

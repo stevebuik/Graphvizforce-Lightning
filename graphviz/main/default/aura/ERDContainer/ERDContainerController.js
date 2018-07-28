@@ -5,6 +5,7 @@
     doInit : function(component, event, helper){
         // Disable user guide
         window.showUserGuide = false;
+        $A.util.toggleClass(component.find("mySpinner"), "slds-hide");
         helper.loadSchema(component, event, helper);
         helper.loadDiagrams(component, event, helper);
     },
@@ -23,6 +24,7 @@
     * Handler when user clicks on reload schema button
     */
     onReloadSchema : function(component, event, helper){
+        $A.util.toggleClass(component.find("mySpinner"), "slds-hide");
         helper.loadSchema(component, event, helper);
     },
 

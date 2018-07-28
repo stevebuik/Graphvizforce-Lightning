@@ -6,7 +6,6 @@
     * Makes server call to load full schema
     */
     loadSchema : function(component, event, helper){
-        $A.util.toggleClass(component.find("mySpinner"), "slds-hide");
         Core.AuraUtils.execute(component, 'loadSchema', null, function (returnValue){
             var result;
             if(returnValue != null) result = JSON.parse(returnValue);
