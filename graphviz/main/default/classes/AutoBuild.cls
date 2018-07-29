@@ -18,21 +18,21 @@ public with sharing class AutoBuild {
     }
 
     @AuraEnabled
-    public static BuilderUpdate startSource(String sourceType, Id diagramId, String source) {
+    public static BuilderUpdate startSource(String sourceType, String source) {
         try {
             BuilderSource builderSource = (BuilderSource) JSON.deserialize(source, BuilderSource.class);
-            return getBuilder(sourceType).startSource(diagramId, builderSource);
+            return getBuilder(sourceType).startSource(builderSource);
         } catch (UmlService.UmlServiceException se) {
             throw handleToolingAPIException(se);
         }
     }
 
     @AuraEnabled
-    public static BuilderUpdate pollSource(String sourceType, Id diagramId, String source, String prevUpdate) {
+    public static BuilderUpdate pollSource(String sourceType, String source, String prevUpdate) {
         try {
             BuilderSource builderSource = (BuilderSource) JSON.deserialize(source, BuilderSource.class);
             BuilderUpdate builderUpdate = (BuilderUpdate) JSON.deserialize(prevUpdate, BuilderUpdate.class);
-            return getBuilder(sourceType).pollSource(diagramId, builderSource, builderUpdate);
+            return getBuilder(sourceType).pollSource(builderSource, builderUpdate);
         } catch (UmlService.UmlServiceException se) {
             throw handleToolingAPIException(se);
         }
@@ -67,24 +67,56 @@ public with sharing class AutoBuild {
 
     public interface AutoBuilder {
         List<BuilderSource> getSources();
-        BuilderUpdate startSource(Id diagramId, BuilderSource source);
-        BuilderUpdate pollSource(Id diagramId, BuilderSource source, BuilderUpdate prevUpdate);
+        BuilderUpdate startSource(BuilderSource source);
+        BuilderUpdate pollSource(BuilderSource source, BuilderUpdate prevUpdate);
     }
 
     public Class BuilderUpdate {
+
         @AuraEnabled
         public String status;
+
         @AuraEnabled
         public String payload;
+
         @AuraEnabled
-        public String diagramJSON;
+        public List<Map<String, String>> entitiesToAdd = new List<Map<String, String>>();
+
+        @AuraEnabled
+        public Map<String, List<Map<String, String>>> fieldsMap = new Map<String, List<Map<String, String>>>();
+
         public BuilderUpdate() {
         }
-        public BuilderUpdate(String status, String payload, String diagramJSON) {
+        public BuilderUpdate(String status, String payload) {
             this.status = status;
             this.payload = payload;
-            this.diagramJSON = diagramJSON;
         }
+    }
+
+    // data returned to auto-builder impl classes when they need to compare results against the data model
+    public Class DescribeData {
+        public Map<String, String> objectLabelsByAPIName = new Map<String, String>();
+        public Map<String, Map<String, String>> fieldTuplesByAPIName = new Map<String, Map<String, String>>();
+    }
+
+    public static DescribeData getDataModelDescribe() {
+        DescribeData result = new DescribeData();
+
+        for (Schema.SObjectType sObjType : Schema.getGlobalDescribe().values()) {
+            DescribeSObjectResult describe = sObjType.getDescribe();
+            // store object names/labels
+            result.objectLabelsByAPIName.put(describe.name, describe.label);
+            // store fields
+            Map<String, Schema.SObjectField> fields = describe.fields.getMap();
+            Map<String, String> fieldLabelsByAPIName = new Map<String, String>();
+            for (String field : fields.keySet()) {
+                fieldLabelsByAPIName.put(
+                        fields.get(field).getDescribe().name,
+                        fields.get(field).getDescribe().label);
+            }
+            result.fieldTuplesByAPIName.put(describe.name, fieldLabelsByAPIName);
+        }
+        return result;
     }
 
 }

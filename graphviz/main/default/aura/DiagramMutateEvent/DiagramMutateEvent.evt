@@ -2,10 +2,13 @@
     <!-- Entity List Example:
     [{"label":"Account History","apiName":"AccountHistory"}, {"label":"Account Feed","apiName":"AccountFeed"}]
     -->
-    <aura:attribute name="entitiesToAdd" type="Object[]" description="List of object-field mappings to be added to current diagram" />
-    <aura:attribute name="entitiesToRemove" type="Object[]" description="List of object-field mappings to be removed from current diagram" />
+    <aura:attribute name="entitiesToAdd" type="Object[]"
+                    description="List of object-field mappings to be added to current diagram" />
+    <aura:attribute name="entitiesToRemove" type="Object[]"
+                    description="List of object-field mappings to be removed from current diagram" />
     <!-- Object-fields Map Example:
     {"Account":[{"apiName":"Id"}, {"apiName":"Name"}], "AccountFeed":[{"apiName":"Id"}, {"apiName":"Type"}, {"apiName":"InsertedById"}]}
     -->
-    <aura:attribute name="fieldsMap" type="Map" description="Object-Fields mappings to manipulate current diagram, it contains ONLY the object-fields mappings required for manipulation, NOT required to contain all entities in diagram" />
+    <aura:attribute name="fieldsMap" type="Map"
+                    description="Object-Fields mappings to manipulate current diagram, it contains ONLY the object-fields mappings required for manipulation, NOT required to contain all entities in diagram" />
 </aura:event>

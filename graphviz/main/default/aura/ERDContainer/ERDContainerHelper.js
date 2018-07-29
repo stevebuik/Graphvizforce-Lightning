@@ -105,7 +105,7 @@
         component.set('v.selectionMap', helper.getUpdatedSelectionMap(selectedDiagram));
 
         // Persist the diagram to server
-        if(component.get("v.isAutoBuildActive")) helper.handlePersistDiagramData(component, selectedDiagram);
+        helper.handlePersistDiagramData(component, selectedDiagram);
 
         // Dispatch DiagramUpdatedEvent to subscribers
         $A.get("e.gvf2:DiagramUpdatedEvent").setParams({type:'MUTATION'}).fire();

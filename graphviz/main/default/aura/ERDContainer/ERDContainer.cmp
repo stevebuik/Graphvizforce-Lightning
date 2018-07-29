@@ -11,12 +11,9 @@
     <aura:attribute name="newDiagramName" type="String" default="" description="Diagram name of the new diagram"/>
     <aura:attribute name="cloneDiagramName" type="String" default="" description="Diagram name of the new clone diagram"/>
     <aura:attribute name="isShowDiagramConfigurator" type="Boolean" default="true" description="Boolean to toggle the diagram configurator view"/>
-    <aura:attribute name="isAutoBuildActive" type="Boolean" default="true" description="Used to suppress diagram saves since they are performed by the Apex in an auto-build."/>
 
     <!-- handlers -->
     <aura:handler name="onTogglePreview" event="gvf2:ActionEvent" action="{!c.onTogglePreview}"/>
-    <aura:handler name="startEvent" event="gvf2:AutoBuildStart" action="{!c.onAutoBuildStart}"/>
-    <aura:handler name="updateEvent" event="gvf2:AutoBuildUpdate" action="{!c.onAutoBuildUpdate}"/>
     <aura:handler name="startEvent" event="gvf2:AutoBuildStart" action="{!c.onAutoBuildStart}"/>
     <!--DiagramMutateEvent can be fired from any child components to manipulate the current diagram
     Examples: ObjectPanel, AttributePanel, DiagramOutput, SOQLRenderer, AutoBuild

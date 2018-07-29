@@ -104,14 +104,6 @@
         progress.set("v.diagramId", component.get("v.selectedDiagram").recordId);
         progress.set("v.sourceType", event.getParam("type"));
         progress.start();
-    },
+    }
 
-    /**
-    * Handler when auto build is completed
-    */
-    onAutoBuildUpdate: function (component, event, helper) {
-        component.set("v.isAutoBuildActive", true); // suppress the diagram save above
-        component.set('v.selectedDiagram', event.getParams().diagram);
-        component.set("v.isAutoBuildActive", false);
-    },
 })

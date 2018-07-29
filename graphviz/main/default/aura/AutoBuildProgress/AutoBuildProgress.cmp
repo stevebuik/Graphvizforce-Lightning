@@ -15,7 +15,7 @@
     <aura:attribute type="String" name="sourceType" access="public"
                     description="The type of builder/plugin being used to find objects/fields"/>
 
-    <aura:registerEvent name="updateEvent" type="gvf2:AutoBuildUpdate"/>
+    <aura:registerEvent name="onDiagramMutate" type="gvf2:DiagramMutateEvent" />
 
     <aura:method name="start" action="{!c.start}"/>
 
