@@ -60,7 +60,7 @@
                                 <lightning:select aura:id="fromSelect" name="from-select" label="" value="{!v.from}">
                                     <option value="">-- Object --</option>
                                     <aura:iteration items="{!v.entityOptions}" var="opt">
-                                        <option value="{!opt.value}">{!opt.label}</option>
+                                        <option value="{!opt.value}" selected="{!opt.selected}">{!opt.label}</option>
                                     </aura:iteration>
                                 </lightning:select>
                             </div>
