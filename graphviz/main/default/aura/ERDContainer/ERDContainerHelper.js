@@ -95,7 +95,8 @@
     */
     handleDiagramMutate : function(component, helper, entitiesToAdd, entitiesToRemove, fieldsMap){
         // Mutate diagram
-        var selectedDiagram = helper.getMutatedDiagram(component.get('v.selectedDiagram'), entitiesToAdd, entitiesToRemove, fieldsMap);
+        var selectionMap = component.get('v.selectionMap');
+        var selectedDiagram = helper.getMutatedDiagram(component.get('v.selectedDiagram'), entitiesToAdd, entitiesToRemove, fieldsMap, selectionMap);
 
         // Update diagram list with mutated data
         component.set('v.selectedDiagram', selectedDiagram);
@@ -115,13 +116,19 @@
     * Takes the DiagramMutateEvent and its attributes to calculate a mutated diagram
     * @returns mutated diagram
     */
-    getMutatedDiagram : function(diagram, entitiesToAdd, entitiesToRemove, fieldsMap){
+    getMutatedDiagram : function(diagram, entitiesToAdd, entitiesToRemove, fieldsMap, selectionMap){
         var entities = diagram.entities;
         var entityAPINames = [];
 
         // Step 1: Process entity (object) manipulation
         if(entitiesToAdd != null){
-            entities = diagram.entities.concat(entitiesToAdd);
+            var entitiesNotExist = [];
+            entitiesToAdd.forEach(function(entityToAdd){
+                if(selectionMap[entityToAdd.apiName] == null){
+                    entitiesNotExist.push(entityToAdd);
+                }
+            });
+            if(entitiesNotExist.length > 0) entities = diagram.entities.concat(entitiesNotExist);
         }
         else if(entitiesToRemove != null){
             var apiNames = [];
