@@ -63,16 +63,13 @@ public class AutoBuildApexTests {
 
         Test.setMock(HttpCalloutMock.class, new ToolingAPIMocks(startSourceHTTPResponses));
 
-        Id diagramId = [Select Id from Graphviz_Diagram__c][0].Id;
         Test.startTest();
 
         // start compiling the first source (AutoBuild.class) by calling the start method, exactly as done by the Lightning client
-        AutoBuild.BuilderUpdate builderUpdate1 = AutoBuild.startSource(APEX_BUILDER_KEY, diagramId, JSON.serialize(findSource(sources, 'AutoBuild')));
+        AutoBuild.BuilderUpdate builderUpdate1 = AutoBuild.startSource(APEX_BUILDER_KEY, JSON.serialize(findSource(sources, 'AutoBuild')));
 
         System.assertEquals(AutoBuild.STATUS_WORKING, builderUpdate1.status,
                 'start for Apex returns working while tooling api is compiling');
-        System.assertEquals(NULL, builderUpdate1.diagramJSON,
-                'no diagram returned when still working');
 
         Map<ToolingAPIMocks.RestRequest, ToolingAPIMocks.RestResponse> pollSourceHTTPResponses = new Map<ToolingAPIMocks.RestRequest, ToolingAPIMocks.RestResponse>();
 
@@ -97,12 +94,8 @@ public class AutoBuildApexTests {
         // now poll the source to see if the tooling api is done
         AutoBuild.BuilderUpdate builderUpdate2 = AutoBuild.pollSource(
                 APEX_BUILDER_KEY,
-                diagramId,
                 JSON.serialize(sources.get(0)),
                 JSON.serialize(builderUpdate1));
-
-        AutoBuildDiagram.Diagram diagram = (AutoBuildDiagram.Diagram) JSON.deserialize(builderUpdate2.diagramJSON, AutoBuildDiagram.Diagram.class);
-        System.assertEquals(0, diagram.groups.get(0).entities.size(), 'No entity references found in AutoBuild');
 
         Test.stopTest();
 
@@ -148,18 +141,15 @@ public class AutoBuildApexTests {
 
         Test.setMock(HttpCalloutMock.class, new ToolingAPIMocks(startSourceHTTPResponses));
 
-        Id diagramId = [Select Id from Graphviz_Diagram__c][0].Id;
         Test.startTest();
 
         List<BuilderSource> sources = AutoBuild.getSources(APEX_BUILDER_KEY);
 
         // start compiling the a source by calling the start method, exactly as done by the Lightning client
-        AutoBuild.BuilderUpdate builderUpdate1 = AutoBuild.startSource(APEX_BUILDER_KEY, diagramId, JSON.serialize(findSource(sources, 'AutoBuildApex')));
+        AutoBuild.BuilderUpdate builderUpdate1 = AutoBuild.startSource(APEX_BUILDER_KEY, JSON.serialize(findSource(sources, 'AutoBuildApex')));
 
         System.assertEquals(AutoBuild.STATUS_WORKING, builderUpdate1.status,
                 'start for Apex returns working while tooling api is compiling');
-        System.assertEquals(NULL, builderUpdate1.diagramJSON,
-                'no diagram returned when still working');
 
         Map<ToolingAPIMocks.RestRequest, ToolingAPIMocks.RestResponse> pollSourceHTTPResponses = new Map<ToolingAPIMocks.RestRequest, ToolingAPIMocks.RestResponse>();
 
@@ -184,13 +174,17 @@ public class AutoBuildApexTests {
         // now poll the source to see if the tooling api is done
         AutoBuild.BuilderUpdate builderUpdate2 = AutoBuild.pollSource(
                 APEX_BUILDER_KEY,
-                diagramId,
                 JSON.serialize(sources.get(0)),
                 JSON.serialize(builderUpdate1));
 
-        AutoBuildDiagram.Diagram diagram = (AutoBuildDiagram.Diagram) JSON.deserialize(builderUpdate2.diagramJSON, AutoBuildDiagram.Diagram.class);
-        System.assertEquals(1, diagram.groups.get(0).entities.size(), ' entity reference found in AutoBuildApex');
-        System.assertEquals('Apex Class', diagram.groups.get(0).entities.get(0).label);
+        System.assertEquals(1, builderUpdate2.entitiesToAdd.size(), 'Found a single entity');
+        System.assertEquals(new Map<String, String>{
+                'apiName' => 'ApexClass',
+                'label' => 'Apex Class'
+        }, builderUpdate2.entitiesToAdd.get(0),
+                'Found the Apex Class entity');
+        System.assertEquals(2, builderUpdate2.fieldsMap.get('ApexClass').size(), 'Found 2 Apex Class field references');
+        System.debug(builderUpdate2.fieldsMap.get('ApexClass'));
 
         Test.stopTest();
 
@@ -218,13 +212,12 @@ public class AutoBuildApexTests {
 
         Test.setMock(HttpCalloutMock.class, new ToolingAPIMocks(startSourceHTTPResponses));
 
-        Id diagramId = [Select Id from Graphviz_Diagram__c][0].Id;
         Test.startTest();
 
         List<BuilderSource> sources = AutoBuild.getSources(APEX_BUILDER_KEY);
 
         try {
-            AutoBuild.BuilderUpdate builderUpdate1 = AutoBuild.startSource(APEX_BUILDER_KEY, diagramId, JSON.serialize(findSource(sources, 'AutoBuild')));
+            AutoBuild.BuilderUpdate builderUpdate1 = AutoBuild.startSource(APEX_BUILDER_KEY, JSON.serialize(findSource(sources, 'AutoBuild')));
             System.assert(false, 'startSource should fail');
         } catch (AuraHandledException e) {
             System.assert(true, 'Got the exception expected');
@@ -244,20 +237,19 @@ public class AutoBuildApexTests {
 
         Test.setMock(HttpCalloutMock.class, new ToolingAPIMocks(startSourceHTTPResponses));
 
-        Id diagramId = [Select Id from Graphviz_Diagram__c][0].Id;
         Test.startTest();
 
         List<BuilderSource> sources = AutoBuild.getSources(APEX_BUILDER_KEY);
 
         try {
-            AutoBuild.BuilderUpdate builderUpdate1 = AutoBuild.startSource(APEX_BUILDER_KEY, diagramId, JSON.serialize(findSource(sources, 'AutoBuild')));
+            AutoBuild.BuilderUpdate builderUpdate1 = AutoBuild.startSource(APEX_BUILDER_KEY, JSON.serialize(findSource(sources, 'AutoBuild')));
             System.assert(false, 'startSource should fail');
         } catch (AuraHandledException e) {
             System.assert(true, 'Sent an exception to the Lightning client');
         }
 
         // cheating to add a little coverage headroom
-        AutoBuild.BuilderUpdate builderUpdate = new AutoBuild.BuilderUpdate(AutoBuild.STATUS_WORKING, NULL, NULL);
+        AutoBuild.BuilderUpdate builderUpdate = new AutoBuild.BuilderUpdate(AutoBuild.STATUS_WORKING, NULL);
     }
 
     private static BuilderSource findSource(List<BuilderSource> sources, String sourceName) {
@@ -270,28 +262,11 @@ public class AutoBuildApexTests {
     }
 
     @TestSetup
-    public static void createDiagram() {
+    public static void prepareForTests() {
 
-        GraphvizConfig__c config = new GraphvizConfig__c(Name__c='development mode', Value__c='TRUE');
+        GraphvizConfig__c config = new GraphvizConfig__c(Name__c = 'development mode', Value__c = 'TRUE');
         insert config;
 
-        AutoBuildDiagram.Diagram diagram = new AutoBuildDiagram.Diagram();
-        diagram.label = 'Test Diagram';
-        diagram.value = diagram.label;
-        diagram.visible = true;
-
-        // diagrams have a single group
-        diagram.groups = new List<AutoBuildDiagram.DiagramGroup>();
-        AutoBuildDiagram.DiagramGroup diagramGroup = new AutoBuildDiagram.DiagramGroup();
-        diagramGroup.label = 'ContainerGroup';
-        diagramGroup.value = diagramGroup.label;
-        diagramGroup.entities = new List<AutoBuildDiagram.DiagramEntity>();
-        diagram.groups.add(diagramGroup);
-
-        Graphviz_Diagram__c diagramRecord = new Graphviz_Diagram__c(
-                Content__c = JSON.serialize(diagram)
-        );
-        insert diagramRecord;
     }
 
 }

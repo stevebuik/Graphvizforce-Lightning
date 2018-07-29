@@ -11,11 +11,11 @@
         <members>AutoBuildProgress</members>
         <members>AutoBuildSelector</members>
         <members>AutoBuildStart</members>
-        <members>AutoBuildUpdate</members>
         <members>DiagramCard</members>
         <members>DiagramConfigurator</members>
-        <members>DiagramDataService</members>
+        <members>DiagramMutateEvent</members>
         <members>DiagramOutput</members>
+        <members>DiagramUpdatedEvent</members>
         <members>DiagramViewer</members>
         <members>DiagramViewerTests</members>
         <members>ERDContainer</members>
@@ -28,10 +28,7 @@
         <members>SOQLFromChangeEvent</members>
         <members>SOQLRenderer</members>
         <members>SOQLRenderTests</members>
-        <members>SourcePanel</members>
-        <members>TargetPanel</members>
         <members>TestApp</members>
-        <members>UserGuideEvent</members>
         <members>lts_jasmineRunner</members>
         <name>AuraDefinitionBundle</name>
     </types>
@@ -39,7 +36,6 @@
         <members>AutoBuild</members>
         <members>AutoBuildApex</members>
         <members>AutoBuildApexTests</members>
-        <members>AutoBuildDiagram</members>
         <members>AutoBuildTrigger</members>
         <members>AutoBuildTriggerTests</members>
         <members>BuilderSource</members>

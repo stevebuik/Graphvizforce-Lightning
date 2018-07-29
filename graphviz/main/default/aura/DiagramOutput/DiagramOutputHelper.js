@@ -1,10 +1,9 @@
-/**
- * Created by guan on 15/2/18.
- */
 ({
+    /**
+    * Process copy content action
+    */
     copyContent: function (component, helper, type) {
         var text = type == 'graphvizContent' ? component.get('v.graphvizContent') : component.get('v.svgContent');
-        console.log('@@@@ text:', text);
         if (text == null) return;
 
         var success = Core.AuraUtils.copyToClipboard(text);
@@ -14,6 +13,9 @@
         }
     },
 
+    /**
+    * Process save to local file action
+    */
     saveToFile: function (label, content) {
         var element = document.createElement('a');
         element.setAttribute('href', 'data:svg/plain;charset=utf-8,' + encodeURIComponent(content));
@@ -24,16 +26,29 @@
         document.body.removeChild(element);
     },
 
+    /**
+    * Process diagram rendering
+    */
     render: function (component) {
-        var diagram = component.get("v.selectedDiagram");
+        var describes = component.get('v.describes');
+        var diagram = component.get("v.diagram");
         if (diagram) {
+            // Get settings from the tool bar
             var opts = {
                 showSelfRelations: component.get("v.showSelfRelations"),
                 obscureEntities: component.get("v.obscuredEntities"),
             };
-            var translated = window.pure.graphviz.diagramAsMustacheView(diagram, opts);
-            var graphvizContent = window.pure.graphviz.diagramAsText(translated);
-            component.set('v.graphvizContent', graphvizContent);
+            diagram.settings = opts;
+
+            // Validate diagram and output
+            var translated;
+            if(GraphvizForce.DiagramHelper.isDiagramValidToPersist(diagram)){
+                translated = pure.graphviz.diagramAsView(diagram, describes);
+            }
+            if(GraphvizForce.DiagramHelper.isTranslatedValidToOutput(translated)){
+                var graphvizContent = pure.graphviz.diagramAsText(translated);
+                component.set('v.graphvizContent', graphvizContent);
+            }
         }
-    }
+    },
 })

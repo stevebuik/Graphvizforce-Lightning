@@ -13,8 +13,8 @@
             component.set("v.prompt", "Choose a SOQL FROM object:")
         } else {
             component.set("v.prompt", "FROM")
-            var rendered = window.pure.soql.diagramAsSelects(component.get("v.diagram"), newFrom);
-            var soql = window.pure.soql.diagramSelectsAsSOQL(rendered.selectLists, newFrom, false);
+            var rendered = window.pure.soql.v2.diagramAsSelects(component.get("v.diagram"), component.get("v.describes"), newFrom);
+            var soql = window.pure.soql.v2.diagramSelectsAsSOQL(rendered.selectLists, newFrom, false);
             component.set("v.soql", soql);
             component.set("v.selectLists", rendered.selectLists);
 
@@ -44,12 +44,12 @@
     diagramChange: function (component, event, helper) {
         if ($A.util.isEmpty(component.get("v.from"))) {
             // load entities from diagram but don't generate SOQL
-            var entities = window.pure.soql.entities(event.getParam("value"));
+            var entities = window.pure.soql.v2.entities(event.getParam("value"));
             helper.updateEntities(component, entities);
         } else {
-            var rendered = window.pure.soql.diagramAsSelects(event.getParam("value"), component.get("v.from"));
+            var rendered = window.pure.soql.v2.diagramAsSelects(event.getParam("value"), component.get("v.describes"), component.get("v.from"));
             helper.updateEntities(component, rendered.entities);
-            var soql = window.pure.soql.diagramSelectsAsSOQL(rendered.selectLists, event.getParam("value"), false);
+            var soql = window.pure.soql.v2.diagramSelectsAsSOQL(rendered.selectLists, component.get("v.from"), false);
             component.set("v.soql", soql);
             component.set("v.selectLists", rendered.selectLists);
         }

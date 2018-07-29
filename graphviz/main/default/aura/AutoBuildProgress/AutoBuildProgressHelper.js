@@ -3,7 +3,6 @@
         component.set("v.currentSource", source.source);
         Core.AuraUtils.execute(component, 'startSource', {
                 sourceType: component.get("v.sourceType"),
-                diagramId: component.get("v.diagramId"),
                 source: JSON.stringify(source) // workaround SFDC bug that fails to deserialize custom classes
             },
             this.pollSource(component, source));
@@ -11,10 +10,9 @@
     pollSource: function (component, source) {
         var self = this;
         return $A.getCallback(function (builderUpdate) {
-            if ($A.util.isEmpty(builderUpdate.diagramJSON)) {
+            if (builderUpdate.status == 'working') {
                 Core.AuraUtils.execute(component, 'pollSource', {
                         sourceType: component.get("v.sourceType"),
-                        diagramId: component.get("v.diagramId"),
                         // workaround SFDC bug that fails to deserialize custom classes
                         source: JSON.stringify(source),
                         prevUpdate: JSON.stringify(builderUpdate)
@@ -26,10 +24,14 @@
             } else {
                 // continue processing the source list
                 self.nextSource(component);
-                // notify of progress
-                var updateEvent = component.getEvent("updateEvent");
-                updateEvent.setParams({diagram: JSON.parse(builderUpdate.diagramJSON)});
-                updateEvent.fire();
+
+                // fire the diagram mutation event to allow the ERD to update UI and persist
+                var updateDiagramEvent = component.getEvent("onDiagramMutate");
+                updateDiagramEvent.setParams({
+                    entitiesToAdd: builderUpdate.entitiesToAdd,
+                    fieldsMap: builderUpdate.fieldsMap
+                });
+                updateDiagramEvent.fire();
             }
         });
     },

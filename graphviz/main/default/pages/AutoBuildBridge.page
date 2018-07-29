@@ -13,15 +13,12 @@
 
     <script>
         $Lightning.use("gvf2:ERDLightningOut", function () {
-            console.log("ERD Out created");
             $Lightning.createComponent("gvf2:ERDContainer",
                     {},
                     "erd",
                     function (cmp, status, errorMessage) {
-                        console.log("ERD Container create status: " + status);
                         if (!$A.util.isEmpty(errorMessage)) {
-                            console.log("ERD Container failed");
-                            console.log(errorMessage);
+                            // TODO: Add logger function
                         }
                     });
         });

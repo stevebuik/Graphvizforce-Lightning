@@ -1,56 +1,35 @@
 <aura:component >
-    
-    <aura:attribute name="objects" type="Object[]" />
-    <aura:attribute name="searchTerm" type="String" />
-    <aura:attribute name="showHelp1" type="Boolean" default="false" />
-    <aura:attribute name="showHelp2" type="Boolean" default="false" />
-    <aura:attribute name="displayAllObjects" type="Boolean" />
 
-    <aura:registerEvent name="onAddObject" type="gvf2:ActionEvent" />
+    <aura:attribute name="diagram" type="Object" description="Diagram data" />
+    <aura:attribute name="allObjects" type="Object[]" description="The entire object list of the org"/>
+    <aura:attribute name="filteredObjects" type="Object[]" description="The filtered object list to be displayed, all filtering criteria and user preferences are already applied." />
+    <aura:attribute name="selectionMap" type="Map" description="The map of objects and fields selection reflecting the diagram"/>
+    <aura:attribute name="searchTerm" type="String" description="" />
+    <aura:attribute name="currentState" type="String" default="SEARCH" description="Options: SEARCH, ALL, SELECTED" />
+    <aura:attribute name="searchObjectDebounce" type="Object" description="Debounce function for search input"/>
 
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-    <aura:handler event="gvf2:UserGuideEvent" action="{!c.handleUserGuideEvent}"/>
+    <aura:handler name="change" value="{!v.searchTerm}" action="{!c.onUpdateSearchTerm}" />
+    <aura:handler event="gvf2:DiagramUpdatedEvent" action="{!c.onDiagramUpdated}" />
 
-
-    <div>
-        <div class="slds-float--right">
-            <label class="slds-checkbox_toggle slds-grid">
-                <span class="slds-form-element__label slds-m-bottom_none">Display All Objects</span>
-                <input type="checkbox" name="checkbox" aria-describedby="toggle-desc" value="on" onchange="{!c.onToggleAllObjects}" />
-                <span id="toggle-desc" class="slds-checkbox_faux_container" aria-live="assertive">
-                    <span class="slds-checkbox_faux"></span>
-                    <span class="slds-checkbox_on">Enabled</span>
-                    <span class="slds-checkbox_off">Disabled</span>
-                </span>
-            </label>
-        </div>
-        <br class="slds-clear" />
-    </div>
-    <div aria-describedby="help">
-        <lightning:input type="search" label="Search Object Name" name="search" value="{!v.searchTerm}" onchange="{!c.onSearchObject}" />
-    </div>
-
-    <aura:if isTrue="{!v.showHelp1}">
-        <div class="slds-popover slds-popover_tooltip slds-nubbin_top-right slds-theme_success" role="tooltip" id="help" style="position:relative;margin-top:10px;">
-            <div class="slds-popover__body">Type object name to search for objects</div>
-        </div>
-    </aura:if>
-
-    <aura:if isTrue="{!v.showHelp2}">
-        <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-theme_success" role="tooltip" id="help" style="position:relative;margin-top:10px;">
-            <div class="slds-popover__body">Drag an object below and drop into a group on the right</div>
-        </div>
-    </aura:if>
+    <lightning:buttonGroup>
+        <lightning:button label="Search" variant="{!v.currentState == 'SEARCH' ? 'brand' : 'neutral'}" onclick="{!c.onSearchState}" />
+        <lightning:button label="All" variant="{!v.currentState == 'ALL' ? 'brand' : 'neutral'}" onclick="{!c.onAllState}" />
+        <lightning:button label="Selected" variant="{!v.currentState == 'SELECTED' ? 'brand' : 'neutral'}" onclick="{!c.onSelectedState}" />
+    </lightning:buttonGroup>
+    <br />
 
     <br />
+    <div aria-describedby="help">
+    <lightning:input aura:id="inputSearch" type="search" label="Search Object Name" name="search" value="{!v.searchTerm}" />
+    </div>
+    <br />
+
     <div style="max-height:100vh;overflow:scroll;">
-        <ul class="flexList" role="listbox" aria-label="Selected Options:" aria-orientation="horizontal">
-            <aura:iteration items="{!v.objects}" var="object">
-                <li role="presentation" class="{! join(' ', 'slds-p-around_xx-small', object.visible ? '' : 'slds-hide')}">
-                    <gvf2:Pill value="{!object}" iconName="add" draggable="true" onIconClicked="{!c.onAddObject}" />
-                </li>
-            </aura:iteration>
-        </ul>
+        <aura:iteration items="{!v.filteredObjects}" var="object">
+            <div class="lineItem">
+                <gvf2:Pill value="{!object}" />
+            </div>
+        </aura:iteration>
     </div>
 
 </aura:component>

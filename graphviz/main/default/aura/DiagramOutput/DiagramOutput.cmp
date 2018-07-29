@@ -1,25 +1,21 @@
-<!--
- - Created by guan on 15/2/18.
- -->
-
 <aura:component description="DiagramOutput">
 
-    <aura:attribute name="allObjects" type="Object[]" />
-    <aura:attribute name="selectedDiagram" type="Object" />
-    <aura:attribute name="isExpanded" type="Boolean" default="false" />
-    <aura:attribute name="graphvizContent" type="String" />
-    <aura:attribute name="svgContent" type="String" />
+    <aura:attribute name="diagram" type="Object" description="Diagram object" />
+    <aura:attribute name="describes" type="Object" description="The schema describe wrappers from Apex"/>
+    <aura:attribute name="isExpanded" type="Boolean" default="false" description="Indicates current state of the view: expanded or collapsed" />
+    <aura:attribute name="graphvizContent" type="String" description="Graphviz content value for diagram rendering" />
+    <aura:attribute name="svgContent" type="String" description="SVG content value for download" />
     <aura:attribute name="obscuredEntities" type="List" default="[]"
                     description="Entities in the diagram which are not part of the SOQL query"/>
     <aura:attribute name="showSelfRelations" type="Boolean" default="false"
                     description="When true, diagram will show heirarchical/self relationships"/>
 
-    <!--<aura:handler event="gvf2:UserGuideEvent" action="{!c.handleUserGuideEvent}"/>-->
     <aura:registerEvent name="onTogglePreview" type="gvf2:ActionEvent" />
 
     <aura:handler name="fromChange" event="gvf2:SOQLFromChangeEvent" action="{!c.onFromChanged}"/>
+    <aura:handler event="gvf2:DiagramUpdatedEvent" action="{!c.onDiagramUpdated}" />
 
-    <aura:handler name="change" value="{!v.selectedDiagram}" action="{!c.onDiagramChanged}"/>
+    <ltng:require scripts="{!join(',', $Resource.GraphvizForceUtils, $Resource.pure)}"/>
 
     <lightning:tabset>
         <lightning:tab label="Diagram">
@@ -40,7 +36,7 @@
                 <div class="slds-float_left">
                     <gvf2:DiagramViewer aura:id="diagramViewer" graphvizContent="{!v.graphvizContent}" onDiagramRendered="{!c.onDiagramRendered}" />
                     <hr class="diagramBottom"/>
-                    <gvf2:SOQLRenderer aura:id="soql" diagram="{!v.selectedDiagram}"/>
+                    <gvf2:SOQLRenderer aura:id="soql" diagram="{!v.diagram}" describes="{!v.describes}"/>
                 </div>
             </div>
         </lightning:tab>

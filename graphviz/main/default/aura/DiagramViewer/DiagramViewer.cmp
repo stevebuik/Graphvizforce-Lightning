@@ -1,18 +1,14 @@
-<!--
- - Created by guan on 27/11/17.
- -->
+<aura:component description="DiagramViewer: The Graphviz diagram displaying component">
 
-<aura:component description="DiagramViewer">
+    <aura:attribute name="initialised" type="Boolean" default="false" description="Indicates required static resources are loaded" />
+    <aura:attribute name="graphvizContent" type="Object" description="The Graphviz content of the diagram" />
 
-    <aura:attribute name="initialised" type="Boolean" default="false" />
-    <aura:attribute name="graphvizContent" type="Object" />
-
-    <aura:method name="onContentChange" action="{!c.onContentChange}" />
+    <aura:method name="onContentChange" action="{!c.onContentChange}" access="public" description="Method to call when diagram is changed and content is ready to be rendered" />
 
     <aura:registerEvent name="onDiagramRendered" type="gvf2:ActionEvent"/>
     <aura:handler name="change" value="{!v.graphvizContent}" action="{!c.onContentChange}" />
 
-    <ltng:require scripts="{! $Resource.VizJS}"
+    <ltng:require scripts="{! join(',', $Resource.GraphvizForceUtils, $Resource.VizJS)}"
                   afterScriptsLoaded="{!c.doInit}"/>
 
     <div id="graph" style="text-align: center; width:100%;max-width:100%;"></div>

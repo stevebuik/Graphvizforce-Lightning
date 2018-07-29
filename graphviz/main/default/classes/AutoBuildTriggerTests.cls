@@ -18,7 +18,6 @@ public class AutoBuildTriggerTests {
 
         Test.setMock(HttpCalloutMock.class, new ToolingAPIMocks(getSourcesHTTPResponses));
 
-        Id diagramId = [Select Id from Graphviz_Diagram__c][0].Id;
         Test.startTest();
 
         List<BuilderSource> sources = AutoBuild.getSources(TRIGGER_BUILDER_KEY);
@@ -69,12 +68,10 @@ public class AutoBuildTriggerTests {
         Test.setMock(HttpCalloutMock.class, new ToolingAPIMocks(startSourceHTTPResponses));
 
         // start compiling the a source by calling the start method, exactly as done by the Lightning client
-        AutoBuild.BuilderUpdate builderUpdate1 = AutoBuild.startSource(TRIGGER_BUILDER_KEY, diagramId, JSON.serialize(findSource(sources, 'AccountNoopTrigger')));
+        AutoBuild.BuilderUpdate builderUpdate1 = AutoBuild.startSource(TRIGGER_BUILDER_KEY, JSON.serialize(findSource(sources, 'AccountNoopTrigger')));
 
         System.assertEquals(AutoBuild.STATUS_WORKING, builderUpdate1.status,
                 'start for Apex returns working while tooling api is compiling');
-        System.assertEquals(NULL, builderUpdate1.diagramJSON,
-                'no diagram returned when still working');
 
         // now call pollSource
 
@@ -101,15 +98,12 @@ public class AutoBuildTriggerTests {
         // now poll the source to see if the tooling api is done
         AutoBuild.BuilderUpdate builderUpdate2 = AutoBuild.pollSource(
                 TRIGGER_BUILDER_KEY,
-                diagramId,
                 JSON.serialize(sources.get(0)),
                 JSON.serialize(builderUpdate1));
 
-        AutoBuildDiagram.Diagram diagram = (AutoBuildDiagram.Diagram) JSON.deserialize(builderUpdate2.diagramJSON, AutoBuildDiagram.Diagram.class);
-        System.debug(diagram.groups.get(0));
-        System.assertEquals(2, diagram.groups.get(0).entities.size(), 'both entity references found in trigger');
-        System.assertEquals('Account', diagram.groups.get(0).entities.get(0).label);
-        System.assertEquals('Contact', diagram.groups.get(0).entities.get(1).label);
+        System.assertEquals(2, builderUpdate2.entitiesToAdd.size(), 'both entities found');
+        System.assertEquals('Account', builderUpdate2.entitiesToAdd.get(0).get('apiName'));
+        System.assertEquals('Contact', builderUpdate2.entitiesToAdd.get(1).get('apiName'));
 
         Test.stopTest();
 
@@ -128,7 +122,6 @@ public class AutoBuildTriggerTests {
 
         Test.setMock(HttpCalloutMock.class, new ToolingAPIMocks(startSourceHTTPResponses));
 
-        Id diagramId = [Select Id from Graphviz_Diagram__c][0].Id;
         Test.startTest();
 
         // trigger builder uses Tooling API for getSources call so will fail on this call when setting is missing
@@ -147,28 +140,6 @@ public class AutoBuildTriggerTests {
             }
         }
         throw new UnsupportedOperationException('Source not found: ' + sourceName);
-    }
-
-    @TestSetup
-    public static void createDiagram() {
-
-        AutoBuildDiagram.Diagram diagram = new AutoBuildDiagram.Diagram();
-        diagram.label = 'Test Diagram';
-        diagram.value = diagram.label;
-        diagram.visible = true;
-
-        // diagrams have a single group
-        diagram.groups = new List<AutoBuildDiagram.DiagramGroup>();
-        AutoBuildDiagram.DiagramGroup diagramGroup = new AutoBuildDiagram.DiagramGroup();
-        diagramGroup.label = 'ContainerGroup';
-        diagramGroup.value = diagramGroup.label;
-        diagramGroup.entities = new List<AutoBuildDiagram.DiagramEntity>();
-        diagram.groups.add(diagramGroup);
-
-        Graphviz_Diagram__c diagramRecord = new Graphviz_Diagram__c(
-                Content__c = JSON.serialize(diagram)
-        );
-        insert diagramRecord;
     }
 
 }

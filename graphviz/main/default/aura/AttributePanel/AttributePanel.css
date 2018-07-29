@@ -1,0 +1,15 @@
+.THIS .slds-checkbox{
+    padding: 4px;
+}
+
+.THIS .slds-checkbox .slds-form-element__label{
+    font-size:14px;
+}
+
+.THIS .slds-checkbox:nth-of-type(even){
+    background: #ffffff;
+}
+
+.THIS .slds-checkbox:nth-of-type(odd){
+    background: #eeeeee;
+}

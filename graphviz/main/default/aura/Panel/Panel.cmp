@@ -1,17 +1,13 @@
-<!--
- - Created by guan on 23/3/18.
- -->
-
 <aura:component >
-    <aura:attribute name="title" type="String" />
-    <aura:attribute name="newTitle" type="String" />
-    <aura:attribute name="titleClass" type="String" default="slds-text-heading_small" />
-    <aura:attribute name="icon" type="Aura.Component[]" />
-    <aura:attribute name="removable" type="Boolean" default="false" />
-    <aura:attribute name="editable" type="Boolean" default="false" />
-    <aura:attribute name="collapsible" type="Boolean" default="false" />
-    <aura:attribute name="collapsed" type="Boolean" default="false" />
-    <aura:attribute name="isEditMode" type="Boolean" default="false" />
+    <aura:attribute name="title" type="String" description="Title of the panel" />
+    <aura:attribute name="newTitle" type="String" description="New title of the panel when user edit the title" />
+    <aura:attribute name="titleClass" type="String" default="slds-text-heading_small" description="Controls the css style of the title label" />
+    <aura:attribute name="icon" type="Aura.Component[]" description="Top left icon next to the title" />
+    <aura:attribute name="removable" type="Boolean" default="false" description="Indicates showing delete button" />
+    <aura:attribute name="editable" type="Boolean" default="false" description="Indicates title editable" />
+    <aura:attribute name="collapsible" type="Boolean" default="false" description="Indicates panel is collapsible" />
+    <aura:attribute name="collapsed" type="Boolean" default="false" description="Indicates panel current state is collapsed or expanded" />
+    <aura:attribute name="isEditMode" type="Boolean" default="false" description="Indicates panel is currently in edit mode" />
 
     <aura:registerEvent name="onRemovePanel" type="gvf2:ActionEvent"/>
     <aura:registerEvent name="onEditPanelTitle" type="gvf2:ActionEvent"/>

@@ -1,3 +1,0 @@
-<aura:event type="APPLICATION" description="Notifies a progress update during an automated diagram population">
-    <aura:attribute type="Object" name="diagram"/>
-</aura:event>

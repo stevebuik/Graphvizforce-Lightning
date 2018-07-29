@@ -1,16 +1,22 @@
 <aura:component >
 
-    <aura:attribute name="objects" type="Object[]" />
-    <aura:attribute name="diagram" type="Object" />
-    <aura:attribute name="selectedObject" type="Object" />
-    <aura:attribute name="displayAllObjects" type="Boolean" />
+    <aura:attribute name="diagram" type="Object" description="Diagram data" />
+    <aura:attribute name="allObjects" type="Object[]" description="The entire object list of the org"/>
+    <aura:attribute name="selectionMap" type="Map" description="The map of objects and fields selection reflecting the diagram"/>
+    <aura:attribute name="selectedObject" type="Object" description="Current object selection, defined by user pressing arrow button next to the object label" />
+
+    <aura:handler name="onGoToDetails" event="gvf2:ActionEvent" action="{!c.onSelectObject}"/>
 
     <div class="slds-grid slds-wrap">
-        <div class="slds-col slds-size-1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2 slds-p-around_xx-small">
-            <gvf2:SourcePanel aura:id="sourcePanel" objects="{!v.objects}" displayAllObjects="{!v.displayAllObjects}" />
+        <div class="slds-col slds-size-1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-around_xx-small">
+            <gvf2:Panel title="Objects">
+                <gvf2:ObjectPanel aura:id="objectPanel" allObjects="{!v.allObjects}" selectionMap="{!v.selectionMap}" diagram="{!v.diagram}" />
+            </gvf2:Panel>
         </div>
-        <div class="slds-col slds-size-1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2 slds-p-around_xx-small">
-            <gvf2:TargetPanel aura:id="targetPanel" group="{!v.diagram.groups[0]}" selectedObject="{!v.selectedObject}" />
+        <div class="slds-col slds-size-1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-p-around_xx-small">
+            <gvf2:Panel title="{! 'Fields: ' + v.selectedObject.label}">
+                <gvf2:AttributePanel object="{!v.selectedObject}" allObjects="{!v.allObjects}" selectionMap="{!v.selectionMap}" />
+            </gvf2:Panel>
         </div>
     </div>
 </aura:component>

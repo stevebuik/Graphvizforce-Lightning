@@ -1,13 +1,9 @@
-<!--
- - Created by guan on 23/3/18.
- -->
+<aura:component description="Generic component to display a popup modal at the center of the screen">
 
-<aura:component >
-
-    <aura:attribute name="heading" type="String" />
-    <aura:attribute name="showCancel" type="Boolean" default="true" />
-    <aura:attribute name="buttons" type="Aura.Component[]" />
-    <aura:attribute name="show" type="Boolean" default="false" />
+    <aura:attribute name="heading" type="String" description="Heading title of the modal" />
+    <aura:attribute name="showCancel" type="Boolean" default="true" description="Indicates the appearance of the cancel button" />
+    <aura:attribute name="buttons" type="Aura.Component[]" description="Buttons section to be displayed at the body of the modal" />
+    <aura:attribute name="show" type="Boolean" default="false" description="Indicates the appearance of the modal" />
 
     <div class="{!join(' ', 'demo-only', v.show ? 'slds-show' : 'slds-hide')}" style="height: 640px;">
         <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">

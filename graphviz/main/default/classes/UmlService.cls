@@ -248,13 +248,15 @@ public class UmlService
         // Query ContainerAsyncRequest and return to client
         ToolingApi toolingAPI = new ToolingApi();
 
-        ToolingAPI.ContainerAsyncRequest asyncRequest = ((List<ToolingAPI.ContainerAsyncRequest>)
-                toolingAPI.query(
-                        'SELECT Id, State, MetadataContainerId, CompilerErrors ' +
-                                'FROM ContainerAsyncRequest ' +
-                                'WHERE Id = \'' + asyncRequestId + '\'').records)[0];
-
-        return asyncRequest;
+        List<ToolingAPI.ContainerAsyncRequest> requests = (List<ToolingAPI.ContainerAsyncRequest>) toolingAPI.query(
+                'SELECT Id, State, MetadataContainerId, CompilerErrors ' +
+                        'FROM ContainerAsyncRequest ' +
+                        'WHERE Id = \'' + asyncRequestId + '\'').records;
+        if (requests == NULL) {
+            return NULL;
+        } else {
+            return requests.get(0);
+        }
     }
 
     public static ToolingApi.SymbolTable symbolTable(String asyncRequestId, String className)

@@ -1,34 +1,58 @@
 ({
-    doInit : function(component, event, helper) {
-        component.set('v.showHelp1', window.showUserGuide);
+    /**
+    * Sets current state and calculate filtered object list when current state is SEARCH
+    */
+    onSearchState : function(component, event, helper) {
+        component.set('v.currentState', 'SEARCH');
+        component.find("inputSearch").focus();
+        helper.handleObjectListUpdate(component, event, helper);
     },
 
-    onAddObject : function(component, event, helper) {
-        component.getEvent('onAddObject').setParams(event.getParams()).fire();
+    /**
+    * Sets current state and calculate filtered object list when current state is ALL
+    */
+    onAllState : function(component, event, helper) {
+        component.set('v.currentState', 'ALL');
+        component.set('v.searchTerm', '');
+        component.find("inputSearch").focus();
+        helper.handleObjectListUpdate(component, event, helper);
     },
-    
-    onSearchObject : function(component, event, helper) {
-        var objects = component.get('v.objects');
-        var term = component.get('v.searchTerm').toLowerCase();
-        var objectFound = false;
-        objects.forEach(function(object){
-            objectFound = (term === '' ? component.get('v.displayAllObjects') : object.label.toLowerCase().indexOf(term) !== -1);
-            object.visible = objectFound;
-        });
-        component.set('v.objects', objects);
-        if(objectFound && window.showUserGuide){
-            $A.get("e.gvf2:UserGuideEvent").setParams({scope:'step2'}).fire();
+
+    /**
+    * Sets current state and calculate filtered object list when current state is SELECTED
+    */
+    onSelectedState : function(component, event, helper) {
+        component.set('v.currentState', 'SELECTED');
+        component.set('v.searchTerm', '');
+        component.find("inputSearch").focus();
+        helper.handleObjectListUpdate(component, event, helper);
+    },
+
+    /**
+    * Calculate filtered object list with debounce behaviour when user type in search box
+    */
+    onUpdateSearchTerm : function(component, event, helper){
+        var searchObjectDebounce = component.get('v.searchObjectDebounce');
+        if(searchObjectDebounce == null){
+            searchObjectDebounce = Core.SystemUtils.debounce(function() {
+                // All the taxing stuff you do
+                helper.handleObjectListUpdate(component, event, helper);
+            }, 1000);
+        }
+        searchObjectDebounce();
+    },
+
+    /**
+    * App event DiagramUpdatedEvent (type:SELECTION) handler
+    */
+    onDiagramUpdated : function(component, event, helper){
+        if(event.getParam('type') == 'SELECTION'){
+            component.set('v.searchTerm', '');
+            var diagram = component.get('v.diagram');
+            var isSelectedObjects = !$A.util.isEmpty(diagram.entities);
+            component.set('v.currentState', isSelectedObjects ? 'SELECTED' : 'SEARCH');
+            component.find("inputSearch").focus();
+            helper.handleObjectListUpdate(component, event, helper);
         }
     },
-
-    handleUserGuideEvent : function(component, event, helper){
-        var step = event.getParam('scope');
-        component.set('v.showHelp1', step === 'step1' && window.showUserGuide);
-        component.set('v.showHelp2', step === 'step2' && window.showUserGuide);
-    },
-
-    onToggleAllObjects : function(component, event, helper){
-        helper.handleToggleObjects(component, event, helper);
-    },
-    
 })

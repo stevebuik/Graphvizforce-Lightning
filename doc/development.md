@@ -127,3 +127,13 @@ Now you can refresh the Test app or the full app to see your new code in action.
 ## Description of Files and Directories
 
 This project uses SFDX for all stages.
+
+## Packaging for Managed Package
+
+1. Add all components into `./package.xml`
+2. In terminal, run `sfdx force:mdapi:retrieve -r ./mdapipkg -k ./package.xml`
+3. Extract `./mdapipkg/unpackaged.zip` to directory './mdapipkg/unpackaged'
+4. Create your own build.properties and add target DE org credentials.
+5. In terminal, run `ant deployUnpackaged`
+6. Test the application in the target DE org
+7. Create a managed package in the target DE org (Ensure permission set is included)

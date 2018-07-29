@@ -1,19 +1,21 @@
-/**
- * Created by guan on 27/11/17.
- */
 ({
+    /**
+    * Set initialised when static resources are loaded
+    */
     doInit : function(component, event, helper){
         component.set('v.initialised', true);
     },
 
+    /**
+    * Render and set the diagram markup
+    */
     onContentChange : function(component, event, helper){
-        if(component.get('v.initialised')){
-            var erdMarkup = helper.renderSVGMarkup(component.get('v.graphvizContent'));
+        var graphvizContent = component.get('v.graphvizContent');
+        if(component.get('v.initialised') && !$A.util.isEmpty(graphvizContent)){
+            var erdMarkup = GraphvizForce.DiagramHelper.renderSVGMarkup(graphvizContent, 'svg');
             document.getElementById("graph").innerHTML = erdMarkup;
             component.getEvent('onDiagramRendered').setParams({scope:erdMarkup}).fire();
-            return erdMarkup;
         }
-        return null;
     },
 
 })

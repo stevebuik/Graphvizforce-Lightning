@@ -1,6 +1,6 @@
 <aura:component >
-    <aura:attribute name="group" type="Object" />
-    <aura:attribute name="showRemoveConfirm" type="Boolean" default="false" />
+    <aura:attribute name="group" type="Object" description="Group data" />
+    <aura:attribute name="showRemoveConfirm" type="Boolean" default="false" description="Indicates the state of the remove confirmation modal" />
     
     <aura:registerEvent name="onRemoveGroup" type="gvf2:ActionEvent" />
     <aura:registerEvent name="onEditGroupName" type="gvf2:ActionEvent"/>
@@ -10,7 +10,7 @@
             <ul class="flexList" role="listbox" aria-label="Selected Options:" aria-orientation="horizontal">
                 <aura:iteration items="{!v.group.entities}" var="object">
                     <li role="presentation" class="slds-p-around_xx-small">
-                        <gvf2:Pill value="{!object}" iconName="close" draggable="true" />
+                        <gvf2:Pill value="{!object}" draggable="true" />
                     </li>
                 </aura:iteration>
             </ul>

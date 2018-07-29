@@ -1,36 +1,28 @@
 <aura:component controller="GraphVizForceController" implements="flexipage:availableForAllPageTypes, force:appHostable"
                 access="global">
-    <aura:attribute name="currentState" type="String" default="LIST" description="Options: LIST, DETAIL"/>
-    <aura:attribute name="allObjects" type="Object[]"/>
-    <aura:attribute name="objects" type="Object[]"/>
-    <aura:attribute name="diagrams" type="Object[]"/>
-    <aura:attribute name="selectedDiagram" type="Object"/>
-    <aura:attribute name="objectToAdd" type="Object"/>
-    <aura:attribute name="selectedObject" type="Object"/>
-    <aura:attribute name="showAddGroup" type="Boolean" default="false"/>
-    <aura:attribute name="newDiagramName" type="String" default=""/>
-    <aura:attribute name="cloneDiagramName" type="String" default=""/>
-    <aura:attribute name="searchTerm" type="String" default=""/>
-    <aura:attribute name="displayAllObjects" type="Boolean" default="false"/>
-    <aura:attribute name="isShowDiagramConfigurator" type="Boolean" default="true"/>
-    <aura:attribute name="isAutoBuildActive" type="Boolean" default="false"
-                    description="Used to suppress diagram saves since they are performed by the Apex in an auto-build."/>
+    <aura:attribute name="schemaReady" type="Boolean" description="Indicates schema is loaded"/>
+    <aura:attribute name="diagramsReady" type="Boolean" description="Indicates diagrams are loaded"/>
+    <aura:attribute name="currentState" type="String" default="LIST" description="The state of the current view, options: LIST, DETAIL"/>
+    <aura:attribute name="diagrams" type="Object[]" description="The diagram list displaying diagram cards"/>
+    <aura:attribute name="describes" type="Object" default="[]" description="The schema describe wrappers from Apex"/>
+    <aura:attribute name="allObjects" type="Object[]" default="[]" description="The entire object list of the org"/>
+    <aura:attribute name="selectionMap" type="Map" default="{}" description="The map of objects and fields selection reflecting the diagram"/>
+    <aura:attribute name="selectedDiagram" type="Object" description="The current selected diagram on detail view"/>
+    <aura:attribute name="newDiagramName" type="String" default="" description="Diagram name of the new diagram"/>
+    <aura:attribute name="cloneDiagramName" type="String" default="" description="Diagram name of the new clone diagram"/>
+    <aura:attribute name="isShowDiagramConfigurator" type="Boolean" default="true" description="Boolean to toggle the diagram configurator view"/>
 
     <!-- handlers -->
-    <!--<aura:handler name="onAddGroup" event="gvf2:ActionEvent" action="{!c.onAddGroup}" />-->
-    <!--<aura:handler name="onRemoveGroup" event="gvf2:ActionEvent" action="{!c.onRemoveGroup}" />-->
-    <aura:handler name="onAddObject" event="gvf2:ActionEvent" action="{!c.onAddObject}"/>
-    <aura:handler name="onObjectAttributesUpdated" event="gvf2:ActionEvent" action="{!c.onObjectAttributesUpdated}"/>
-    <aura:handler name="onDragObjectToGroup" event="gvf2:ActionEvent" action="{!c.onDragObjectToGroup}"/>
-    <aura:handler name="onEditGroupName" event="gvf2:ActionEvent" action="{!c.onEditGroupName}"/>
-    <aura:handler name="onRemoveObject" event="gvf2:ActionEvent" action="{!c.onTargetPanelRemoveObject}"/>
-    <aura:handler name="onObjectClicked" event="gvf2:ActionEvent" action="{!c.onObjectClicked}"/>
     <aura:handler name="onTogglePreview" event="gvf2:ActionEvent" action="{!c.onTogglePreview}"/>
-    <aura:handler name="change" value="{!v.selectedDiagram}" action="{!c.onDiagramChanged}"/>
     <aura:handler name="startEvent" event="gvf2:AutoBuildStart" action="{!c.onAutoBuildStart}"/>
-    <aura:handler name="updateEvent" event="gvf2:AutoBuildUpdate" action="{!c.onAutoBuildUpdate}"/>
+    <!--DiagramMutateEvent can be fired from any child components to manipulate the current diagram
+    Examples: ObjectPanel, AttributePanel, DiagramOutput, SOQLRenderer, AutoBuild
+    -->
+    <aura:handler name="onDiagramMutate" event="gvf2:DiagramMutateEvent" action="{!c.onDiagramMutate}"/>
 
-    <ltng:require scripts="{!join(',', $Resource.LightningUtils, $Resource.GraphvizForceUtils)}"
+    <ltng:require scripts="{!join(',', $Resource.LightningUtils,
+                                        $Resource.GraphvizForceUtils,
+                                        $Resource.pure)}"
                   afterScriptsLoaded="{!c.doInit}"/>
 
     <!-- Markup -->
@@ -39,38 +31,38 @@
         <!-- TODO Display Lightning Data Service save confirmations -->
         <!-- TODO Display Lightning Data Service errors -->
 
-        <gvf2:AppHeader title="GraphVizForce" subTitle="Schema Diagrams made easy!">
-            <aura:set attribute="icon">
-                <lightning:icon iconName="standard:apps_admin" size="medium"/>
-            </aura:set>
+        <gvf2:AppHeader title="GraphvizForce">
             <aura:set attribute="middleSection">
-                <aura:if isTrue="{!v.currentState == 'LIST'}">
-                    <lightning:input type="search" name="inputSearchDiagram" label="Search Diagram Name" value="{!v.searchTerm}" onchange="{!c.onSearchDiagrams}" />
-                </aura:if>
                 <aura:if isTrue="{!v.currentState == 'DETAIL'}">
                     <h2>
                         <lightning:button class="slds-button slds-button_neutral" label="Back" onclick="{!c.onBackToList}" />&nbsp;&nbsp;&nbsp;&nbsp;
-                        {!v.selectedDiagram.label}
+                        {!v.selectedDiagram.name}
                     </h2>
                 </aura:if>
             </aura:set>
             <aura:set attribute="rightSection">
+                <div class="slds-grid slds-grid_vertical-align-end">
+                <aura:if isTrue="{!not(empty(v.diagrams))}">
+                    <lightning:button class="slds-button slds-button_neutral slds-m-right_small" label="Reload Schema" onclick="{!c.onReloadSchema}" />
+                </aura:if>
                 <aura:if isTrue="{!v.currentState == 'LIST'}">
-                    <div class="slds-grid slds-grid_vertical-align-end">
-                    </div>
+
+                    <lightning:input type="text" placeholder="Add New Diagram" name="newDiagramName"
+                                     class="slds-p-right_small" value="{!v.newDiagramName}"/>
+                    <lightning:button class="slds-button slds-button_neutral" label="New"
+                                      disabled="{!v.newDiagramName.length == 0}" onclick="{!c.onAddNewDiagram}"/>
+
                 </aura:if>
                 <aura:if isTrue="{!v.currentState == 'DETAIL'}">
-                    <div class="slds-grid slds-grid_vertical-align-end">
-                        <span style="margin-right: 4rem;">
-                            <gvf2:AutoBuildSelector/>
-                        </span>
-                        <lightning:input type="text" placeholder="Save As New Diagram" name="cloneDiagramName"
-                                         class="slds-p-right_small" value="{!v.cloneDiagramName}"/>
-                        <lightning:button class="slds-button slds-button_neutral" label="Clone"
-                                          disabled="{!v.cloneDiagramName.length == 0}" onclick="{!c.onCloneDiagram}"/>
-                    </div>
+                    <span style="margin-right: 4rem;">
+                        <gvf2:AutoBuildSelector/>
+                    </span>
+                    <lightning:input type="text" placeholder="Save As New Diagram" name="cloneDiagramName"
+                                     class="slds-p-right_small" value="{!v.cloneDiagramName}"/>
+                    <lightning:button class="slds-button slds-button_neutral" label="Clone"
+                                      disabled="{!v.cloneDiagramName.length == 0}" onclick="{!c.onCloneDiagram}"/>
                 </aura:if>
-
+                </div>
             </aura:set>
         </gvf2:AppHeader>
 
@@ -78,73 +70,34 @@
             <div class="{! join(' ', 'flexContainer', v.currentState == 'LIST' ? '' : 'slds-hide')}">
                 <ul class="flexList">
                     <aura:iteration items="{!v.diagrams}" var="diagram">
-                        <aura:if isTrue="{!diagram.visible}">
-                            <li class="slds-p-around_small">
-                                <gvf2:DiagramCard diagram="{!diagram}" onViewDiagram="{!c.gotoDiagramDetail}"
-                                               onRemoveDiagram="{!c.onRemoveDiagram}"/>
-                            </li>
-                        </aura:if>
+                        <li class="slds-p-around_small">
+                            <gvf2:DiagramCard diagram="{!diagram}" onViewDiagram="{!c.onSelectDiagram}"
+                                           onRemoveDiagram="{!c.onRemoveDiagram}"/>
+                        </li>
                     </aura:iteration>
 
-                    <li class="slds-p-around_small">
-                        <article class="slds-card" style="width:250px;max-height:250px;">
-                            <div class="slds-card__header slds-grid">
-                                <header class="slds-media slds-media_center slds-has-flexi-truncate">
-                                    <div class="slds-media__body">
-                                        <h2>
-                                            <span class="slds-text-heading_small">New Diagram</span>
-                                        </h2>
-                                    </div>
-                                </header>
-                            </div>
-                            <div class="slds-card__body slds-card__body_inner">
-                                <lightning:input type="text" label="New Diagram Name" name="newDiagramName"
-                                                 class="slds-p-right_small" value="{!v.newDiagramName}"/>
-                            </div>
-                            <footer class="slds-card__footer">
-                                <div class="slds-button-group" role="group">
-                                    <button class="slds-button slds-button_neutral"
-                                            disabled="{!v.newDiagramName.length == 0}" onclick="{!c.onAddNewDiagram}">
-                                        Add Diagram
-                                    </button>
-                                </div>
-                            </footer>
-                        </article>
-                    </li>
+                    <aura:if isTrue="{!empty(v.diagrams)}">
+                        <span class="slds-text-heading_label">Create a new diagram at top right.</span>
+                    </aura:if>
                 </ul>
             </div>
 
             <div class="{! join(' ', 'slds-grid slds-wrap', v.currentState == 'DETAIL' ? '' : 'slds-hide')}">
-                <div class="{!join(' ', 'slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-2', v.isShowDiagramConfigurator ? '' : 'slds-hide')}">
-                    <gvf2:DiagramConfigurator aura:id="diagramConfigurator" objects="{!v.objects}"
-                                           selectedObject="{!v.selectedObject}" diagram="{!v.selectedDiagram}"
-                                           displayAllObjects="{!v.displayAllObjects}"/>
-                </div>
 
-                <div class="{!join(' ', 'slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-p-around_xx-small', v.isShowDiagramConfigurator ? 'slds-large-size_1-of-2' : 'slds-large-size_1-of-1')}">
+                <aura:if isTrue="{!v.isShowDiagramConfigurator}">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-3">
+                        <gvf2:DiagramConfigurator aura:id="diagramConfigurator" allObjects="{!v.allObjects}" selectionMap="{!v.selectionMap}" diagram="{!v.selectedDiagram}" />
+                    </div>
+                </aura:if>
+                <div class="{!join(' ', 'slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-p-around_xx-small', v.isShowDiagramConfigurator ? 'slds-large-size_2-of-3' : 'slds-large-size_1-of-1')}">
                     <gvf2:AutoBuildProgress aura:id="autoBuildProgress"/>
-                    <gvf2:DiagramOutput aura:id="diagramOutput" selectedDiagram="{!v.selectedDiagram}"
-                                     allObjects="{!v.allObjects}"/>
+                    <gvf2:DiagramOutput aura:id="diagramOutput" diagram="{!v.selectedDiagram}" describes="{!v.describes}"/>
                 </div>
             </div>
         </div>
 
-        <gvf2:Modal heading="Add to a Group" show="{!v.showAddGroup}">
-            <div class="slds-scrollable" style="max-height:320px;">
-                <ul class="slds-listbox slds-listbox_horizontal" role="listbox" aria-label="Selected Options:"
-                    aria-orientation="horizontal">
-                    <aura:iteration items="{!v.selectedDiagram.groups}" var="group">
-                        <li class="slds-p-around_xx-small">
-                            <lightning:button class="slds-button slds-button_neutral" label="{!group.label}"
-                                              value="{!group.value}" onclick="{!c.onAddObjectToGroupClicked}"/>
-                        </li>
-                    </aura:iteration>
-                </ul>
-            </div>
-        </gvf2:Modal>
-
     </div>
 
-    <lightning:spinner variant="brand" size="large" aura:id="mySpinner"/>
+    <lightning:spinner variant="brand" size="large" aura:id="mySpinner" class="slds-hide"/>
 
 </aura:component>
