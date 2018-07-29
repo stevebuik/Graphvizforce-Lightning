@@ -21,7 +21,7 @@
         </div>
         <div class="slds-card__body slds-card__body_inner">
             <br />
-            {!v.diagram.entities.length} Objects
+            {!v.diagram.entities.length} Object(s)
             <br />
         </div>
         <footer class="slds-card__footer">
