@@ -29,7 +29,8 @@
                 var updateDiagramEvent = component.getEvent("onDiagramMutate");
                 updateDiagramEvent.setParams({
                     entitiesToAdd: builderUpdate.entitiesToAdd,
-                    fieldsMap: builderUpdate.fieldsMap
+                    fieldsMap: builderUpdate.fieldsMap,
+                    fieldsMode: 'MERGE'
                 });
                 updateDiagramEvent.fire();
             }

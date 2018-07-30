@@ -93,10 +93,10 @@
     /**
     * Process diagram mutation functionality
     */
-    handleDiagramMutate : function(component, helper, entitiesToAdd, entitiesToRemove, fieldsMap){
+    handleDiagramMutate : function(component, helper, entitiesToAdd, entitiesToRemove, fieldsMap, fieldsMode){
         // Mutate diagram
         var selectionMap = component.get('v.selectionMap');
-        var selectedDiagram = helper.getMutatedDiagram(component.get('v.selectedDiagram'), entitiesToAdd, entitiesToRemove, fieldsMap, selectionMap);
+        var selectedDiagram = helper.getMutatedDiagram(component.get('v.selectedDiagram'), entitiesToAdd, entitiesToRemove, fieldsMap, fieldsMode, selectionMap);
 
         // Update diagram list with mutated data
         component.set('v.selectedDiagram', selectedDiagram);
@@ -116,7 +116,7 @@
     * Takes the DiagramMutateEvent and its attributes to calculate a mutated diagram
     * @returns mutated diagram
     */
-    getMutatedDiagram : function(diagram, entitiesToAdd, entitiesToRemove, fieldsMap, selectionMap){
+    getMutatedDiagram : function(diagram, entitiesToAdd, entitiesToRemove, fieldsMap, fieldsMode, selectionMap){
         var entities = diagram.entities;
         var entityAPINames = [];
 
@@ -140,12 +140,25 @@
             });
         }
 
-        // Step 2: Process field manipulation and prepare entityAPINames
+        // Step 2: Process field manipulation and prepare entityAPINames for diagram groups
         entities.forEach(function(entity){
             entityAPINames.push(entity.apiName);
+            // If fieldsMap is not empty, process fields mutation
             if(fieldsMap != null){
                 var fields = fieldsMap[entity.apiName];
-                if(fields != null) entity.fields = fields;
+                if(fields != null){
+                    if(fieldsMode == 'OVERWRITE'){
+                        entity.fields = fields;
+                    }
+                    else if(fieldsMode == 'MERGE'){
+                        var existingFieldsMap = selectionMap[entity.apiName];
+                        fields.forEach(function(field){
+                            if(!existingFieldsMap[field.apiName]){
+                                entity.fields.push(field);
+                            }
+                        });
+                    }
+                }
             }
         });
 

@@ -11,4 +11,10 @@
     -->
     <aura:attribute name="fieldsMap" type="Map"
                     description="Object-Fields mappings to manipulate current diagram, it contains ONLY the object-fields mappings required for manipulation, NOT required to contain all entities in diagram" />
+    <!--
+    fieldsMode: fields mutation mode is required to differentiate UI and Auto Builder mutations
+    OVERWRITE: Mode used in Diagram Configurator UI - UI can have some fields added and others removed at the same time, overwrite with Map is more sophisticated than Add/Remove 2 x maps
+    MERGE: Mode used in Auto Builder - Auto Builder needs to retain existing fields, merge fields allows adding more fields without mutating existing fields
+    -->
+    <aura:attribute name="fieldsMode" type="String" default="OVERWRITE" description="Mutation mode for fieldsMap: OVERWRITE, MERGE" />
 </aura:event>

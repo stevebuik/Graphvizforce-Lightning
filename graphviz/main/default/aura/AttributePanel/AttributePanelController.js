@@ -57,6 +57,6 @@
             fields.push({apiName:fieldAPIName});
         });
         fieldsMap[object.apiName] = fields;
-        component.getEvent('onDiagramMutate').setParams({fieldsMap:fieldsMap}).fire();
+        component.getEvent('onDiagramMutate').setParams({fieldsMap:fieldsMap, fieldsMode:'OVERWRITE'}).fire();
     },
 })

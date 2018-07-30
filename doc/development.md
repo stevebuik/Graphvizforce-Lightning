@@ -130,9 +130,6 @@ This project uses SFDX for all stages.
 
 ## Packaging for Managed Package
 
-Managed Package version 2.0-beta installation link:
-`https://login.salesforce.com/packaging/installPackage.apexp?p0=04t7F000005Mool`
-
 1. Add all components into `./package.xml`
 2. In terminal, run `sfdx force:mdapi:retrieve -r ./mdapipkg -k ./package.xml`
 3. Extract `./mdapipkg/unpackaged.zip` to directory './mdapipkg/unpackaged'
