@@ -20,6 +20,7 @@ public without sharing class AutoBuildApex implements AutoBuild.AutoBuilder {
                     SELECT Id, Name
                     FROM ApexClass
                     WHERE Name <> :excluded
+                    AND BodyCrc <> -1
                     ORDER BY NAME
             ]) {
                 for (ApexClass clazz : classes) {
@@ -30,6 +31,7 @@ public without sharing class AutoBuildApex implements AutoBuild.AutoBuilder {
             for (List<ApexClass> classes : [
                     SELECT Id, Name
                     FROM ApexClass
+                    WHERE BodyCrc <> -1
                     ORDER BY NAME
             ]) {
                 for (ApexClass clazz : classes) {

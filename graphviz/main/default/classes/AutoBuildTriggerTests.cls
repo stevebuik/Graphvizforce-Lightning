@@ -12,7 +12,7 @@ public class AutoBuildTriggerTests {
         getSourcesHTTPResponses.put(
                 new ToolingAPIMocks.RestRequest('GET', '/services/data/v29.0/tooling/query/',
                         new Map<String, String>{
-                                'q' => 'select Id, Name from ApexTrigger'
+                                'q' => 'select Id, Name from ApexTrigger where BodyCrc <> -1'
                         }),
                 new ToolingAPIMocks.RestResponse(ToolingAPIMocks.HTTP_OK, '{"size":1,"totalSize":1,"done":true,"queryLocator":null,"entityTypeName":"ApexTrigger","records":[{"attributes":{"type":"ApexTrigger","url":"/services/data/v29.0/tooling/sobjects/ApexTrigger/01q0l0000009IuGAAU"},"Id":"01q0l0000009IuGAAU","Name":"AccountNoopTrigger"}]}'));
 
@@ -116,7 +116,7 @@ public class AutoBuildTriggerTests {
         startSourceHTTPResponses.put(
                 new ToolingAPIMocks.RestRequest('GET', '/services/data/v29.0/tooling/query/',
                         new Map<String, String>{
-                                'q' => 'select Id, Name from ApexTrigger'
+                                'q' => 'select Id, Name from ApexTrigger where BodyCrc <> -1'
                         }),
                 new ToolingAPIMocks.RestResponse(new ToolingAPI.ToolingAPIAuthorizationException('No setting')));
 

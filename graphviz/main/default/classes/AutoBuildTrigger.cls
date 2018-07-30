@@ -5,7 +5,7 @@ public without sharing class AutoBuildTrigger implements AutoBuild.AutoBuilder {
 
         try {
             // need to use Tooling API since Apex doesn't expose ApexTrigger in SOQL
-            ToolingAPI.QueryResult queryResult = new ToolingAPI().query('select Id, Name from ApexTrigger');
+            ToolingAPI.QueryResult queryResult = new ToolingAPI().query('select Id, Name from ApexTrigger where BodyCrc <> -1');
             if (queryResult.records != NULL && !queryResult.records.isEmpty()) {
                 addTriggers(results, queryResult.records);
             }
