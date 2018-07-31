@@ -15,27 +15,31 @@ public without sharing class AutoBuildApex implements AutoBuild.AutoBuilder {
         Map<String, String> config = GraphVizForceController.getConfig();
         System.debug('Config:' + config);
 
+        Double managedSize = -1;
+
         if (config.get('development mode') == NULL) {
             for (List<ApexClass> classes : [
-                    SELECT Id, Name
+                    SELECT Id, Name, BodyCrc
                     FROM ApexClass
                     WHERE Name <> :excluded
-                    AND BodyCrc <> -1
                     ORDER BY NAME
             ]) {
                 for (ApexClass clazz : classes) {
-                    results.add(new BuilderSource(clazz.Name, clazz.Id));
+                    if (clazz.BodyCrc != managedSize) {
+                        results.add(new BuilderSource(clazz.Name, clazz.Id));
+                    }
                 }
             }
         } else {
             for (List<ApexClass> classes : [
-                    SELECT Id, Name
+                    SELECT Id, Name,BodyCrc
                     FROM ApexClass
-                    WHERE BodyCrc <> -1
                     ORDER BY NAME
             ]) {
                 for (ApexClass clazz : classes) {
-                    results.add(new BuilderSource(clazz.Name, clazz.Id));
+                    if (clazz.BodyCrc != managedSize) {
+                        results.add(new BuilderSource(clazz.Name, clazz.Id));
+                    }
                 }
             }
         }
