@@ -151,9 +151,11 @@
                         entity.fields = fields;
                     }
                     else if(fieldsMode == 'MERGE'){
+                        // Initialise fields list if empty
+                        if(entity.fields == null) entity.fields = [];
                         var existingFieldsMap = selectionMap[entity.apiName];
                         fields.forEach(function(field){
-                            if(!existingFieldsMap[field.apiName]){
+                            if(existingFieldsMap == null || !existingFieldsMap[field.apiName]){
                                 entity.fields.push(field);
                             }
                         });
