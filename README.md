@@ -1,16 +1,18 @@
 # Graphvizforce for Lightning
 
-A Salesforce Entity Relationship diagramming tool built as a Lightning Component.
+A Salesforce Entity Relationship diagramming and visual SOQL builder.
 
-Replaces and improves [Graphvizforce for Visualforce](http://stevebuik.github.io/GraphVizForce)
+Replaces [Graphvizforce for Visualforce](http://stevebuik.github.io/GraphVizForce)
 
-Status: **In Development**. We will announce on social media when v1 is ready for user testing.
+Status: BETA release. Stable but needs minor features and bug fixes.
 
-It's an alpha version because we finalised the storage format yet. This means that diagrams will need to be recreated after an upgrade.
-Despite that, it's still stable and valuable to use in the current state.
-We'll stop with breaking changes in the beta release which will be soon as we are working on the storage format now.
+Distributed as a *managed* package but we will convert to an *unlocked* package as soon as they are available.
 
-Currently we are distributing using a *managed* package but will convert to an *unlocked* package as soon as they are available.
+# Installation
+
+Install into a Production or DE Org using [tiny.cc/gvf2p](tiny.cc/gvf2p)
+
+Install into a Sandbox Org using [tiny.cc/gvf2p](tiny.cc/gvf2t)
 
 ## Features
 
