@@ -12,7 +12,7 @@ Distributed as a *managed* package but we will convert to an *unlocked* package 
 
 Install into a Production or DE Org using [tiny.cc/gvf2p](https://tiny.cc/gvf2p)
 
-Install into a Sandbox Org using [tiny.cc/gvf2p](https://tiny.cc/gvf2t)
+Install into a Sandbox Org using [tiny.cc/gvf2t](https://tiny.cc/gvf2t)
 
 ## Features
 
