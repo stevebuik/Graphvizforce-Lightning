@@ -211,10 +211,8 @@
             Core.AuraUtils.execute(component, 'saveDiagram', {'content':JSON.stringify(diagramToPersist), 'recordId':diagramToPersist.id}, function (returnValue){
                 var resultWrapper = JSON.parse(returnValue);
                 if(resultWrapper.serviceStatus.status != 'success'){
-                    window.alert('Error: Faield to save diagram.');
-                }
-                else{
-                    // TODO: Add logger function
+                    console.log(resultWrapper);
+                    window.alert('Error: Failed to save diagram.');
                 }
             });
         }
@@ -313,7 +311,8 @@
                         savedRecord.id = resultWrapper.result.Id;
                         Core.AuraUtils.execute(component, 'saveDiagram', {'content':JSON.stringify(savedRecord), 'recordId':savedRecord.id}, function (returnValue){
                             if(resultWrapper.serviceStatus.status != 'success'){
-                                window.alert('Error: Faield to save diagram.');
+                                console.log(resultWrapper);
+                                window.alert('Error: Failed to save diagram.');
                             }
                             else{
                                 helper.onDiagramCreated(component, event, helper, savedRecord, false);

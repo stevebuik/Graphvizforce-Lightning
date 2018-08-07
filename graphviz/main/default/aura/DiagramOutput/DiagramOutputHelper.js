@@ -44,10 +44,14 @@
             var translated;
             if(GraphvizForce.DiagramHelper.isDiagramValidToPersist(diagram)){
                 translated = pure.graphviz.diagramAsView(diagram, describes);
+            } else {
+                window.alert('Diagram is not valid to save');
             }
             if(GraphvizForce.DiagramHelper.isTranslatedValidToOutput(translated)){
                 var graphvizContent = pure.graphviz.diagramAsText(translated);
                 component.set('v.graphvizContent', graphvizContent);
+            } else {
+                window.alert('Diagram output is not valid');
             }
         }
     },
