@@ -24,7 +24,7 @@
     </div>
     <br />
 
-    <div style="max-height:100vh;overflow:scroll;">
+    <div style="max-height:70vh;overflow:scroll;">
         <aura:iteration items="{!v.filteredObjects}" var="object">
             <div class="lineItem">
                 <gvf2:Pill value="{!object}" />

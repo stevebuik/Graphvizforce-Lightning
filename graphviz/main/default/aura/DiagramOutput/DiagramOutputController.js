@@ -24,6 +24,13 @@
     },
 
     /**
+    * Handler when user reset zoom level
+    */
+    onResetZoom : function(component, event, helper){
+        component.find('diagramViewer').resetZoom();
+    },
+
+    /**
     * App event DiagramUpdatedEvent handler: when diagram data is updated, re-render the graphviz diagram
     */
     onDiagramUpdated: function (component, event, helper) {
