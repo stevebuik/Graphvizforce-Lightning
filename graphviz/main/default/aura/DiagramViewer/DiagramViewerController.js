@@ -17,7 +17,7 @@
             var erdMarkup = GraphvizForce.DiagramHelper.renderSVGMarkup(graphvizContent, 'svg');
             document.getElementById("graph").innerHTML = erdMarkup;
             */
-
+            document.getElementById("graph").innerHTML = "";
             var erdMarkup = d3.select("#graph")
                                 .graphviz()
                                 .fade(false)
@@ -31,13 +31,5 @@
             component.set('v.graphviz', erdMarkup);
             component.getEvent('onDiagramRendered').setParams({scope:erdMarkup}).fire();
         }
-    },
-
-    /**
-    * Reset Zoom Level (transition is not available for zooming as on date of building)
-    */
-    resetZoom : function(component, event, helper){
-        var graphviz = component.get('v.graphviz');
-        graphviz.resetZoom();
     },
 })

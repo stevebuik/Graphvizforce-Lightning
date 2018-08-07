@@ -5,7 +5,10 @@
     <aura:attribute name="graphviz" type="Object" description="The rendered graphpviz dom" />
 
     <aura:method name="onContentChange" action="{!c.onContentChange}" access="public" description="Method to call when diagram is changed and content is ready to be rendered" />
-    <aura:method name="resetZoom" action="{!c.resetZoom}" access="public" description="Method to call when user reset zoom level" />
+    <!-- d3-graphviz resetZoom only works on static svg, once diagram is rerendered, resetZoom will not work
+        Solution: remove innerHTML within graph div, and rerender the diagram without using resetZoom
+     -->
+    <aura:method name="resetZoom" action="{!c.onContentChange}" access="public" description="Method to call when user reset zoom level" />
 
     <aura:registerEvent name="onDiagramRendered" type="gvf2:ActionEvent"/>
     <aura:handler name="change" value="{!v.graphvizContent}" action="{!c.onContentChange}" />
