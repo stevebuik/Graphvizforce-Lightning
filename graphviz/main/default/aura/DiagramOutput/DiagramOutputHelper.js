@@ -37,6 +37,7 @@
             var opts = {
                 showSelfRelations: component.get("v.showSelfRelations"),
                 obscureEntities: component.get("v.obscuredEntities"),
+                from: component.get("v.fromEntity"),
             };
             diagram.settings = opts;
 

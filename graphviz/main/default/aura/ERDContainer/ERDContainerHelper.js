@@ -93,30 +93,33 @@
     /**
     * Process diagram mutation functionality
     */
-    handleDiagramMutate : function(component, helper, entitiesToAdd, entitiesToRemove, fieldsMap, fieldsMode){
-        // Mutate diagram
-        var selectionMap = component.get('v.selectionMap');
-        var selectedDiagram = helper.getMutatedDiagram(component.get('v.selectedDiagram'), entitiesToAdd, entitiesToRemove, fieldsMap, fieldsMode, selectionMap);
+    handleDiagramMutate : function(component, helper, entitiesToAdd, entitiesToRemove, fieldsMap, fieldsMode, from){
+        var diagram = component.get('v.selectedDiagram');
+        if (!$A.util.isEmpty(diagram)) { // protect against events firing during initial list/load time
+            // Mutate diagram
+            var selectionMap = component.get('v.selectionMap');
+            var selectedDiagram = helper.getMutatedDiagram(diagram, entitiesToAdd, entitiesToRemove, fieldsMap, fieldsMode, selectionMap, from);
 
-        // Update diagram list with mutated data
-        component.set('v.selectedDiagram', selectedDiagram);
-        component.set('v.diagrams', helper.propagateDiagramList(component.get('v.diagrams'), selectedDiagram));
+            // Update diagram list with mutated data
+            component.set('v.selectedDiagram', selectedDiagram);
+            component.set('v.diagrams', helper.propagateDiagramList(component.get('v.diagrams'), selectedDiagram));
 
-        // Reflect mutated diagram to Selection Map
-        component.set('v.selectionMap', helper.getUpdatedSelectionMap(selectedDiagram));
+            // Reflect mutated diagram to Selection Map
+            component.set('v.selectionMap', helper.getUpdatedSelectionMap(selectedDiagram));
 
-        // Persist the diagram to server
-        helper.handlePersistDiagramData(component, selectedDiagram);
+            // Persist the diagram to server
+            helper.handlePersistDiagramData(component, selectedDiagram);
 
-        // Dispatch DiagramUpdatedEvent to subscribers
-        $A.get("e.gvf2:DiagramUpdatedEvent").setParams({type:'MUTATION'}).fire();
+            // Dispatch DiagramUpdatedEvent to subscribers
+            $A.get("e.gvf2:DiagramUpdatedEvent").setParams({type:'MUTATION'}).fire();
+        }
     },
 
     /**
     * Takes the DiagramMutateEvent and its attributes to calculate a mutated diagram
     * @returns mutated diagram
     */
-    getMutatedDiagram : function(diagram, entitiesToAdd, entitiesToRemove, fieldsMap, fieldsMode, selectionMap){
+    getMutatedDiagram : function(diagram, entitiesToAdd, entitiesToRemove, fieldsMap, fieldsMode, selectionMap, from){
         var entities = diagram.entities;
         var entityAPINames = [];
 
@@ -169,6 +172,9 @@
         diagram.entities = entities;
         // Also update groups accordingly
         diagram.groups[0].entities = entityAPINames;
+
+        // Step 4: apply persisted toolbar settings
+        diagram.settings.from = from;
 
         return diagram;
     },

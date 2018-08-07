@@ -18,7 +18,8 @@
         var entitiesToRemove = event.getParam('entitiesToRemove');
         var fieldsMap = event.getParam('fieldsMap');
         var fieldsMode = event.getParam('fieldsMode');
-        helper.handleDiagramMutate(component, helper, entitiesToAdd, entitiesToRemove, fieldsMap, fieldsMode);
+        var from = event.getParam('from');
+        helper.handleDiagramMutate(component, helper, entitiesToAdd, entitiesToRemove, fieldsMap, fieldsMode, from);
     },
 
     /**

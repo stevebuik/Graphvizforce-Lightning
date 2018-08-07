@@ -19,10 +19,11 @@
                 <lightning:buttonIcon iconName="utility:delete" variant="border" alternativeText="Remove" iconClass="slds-button_icon-x-small" onclick="{!c.onRemoveDiagram}" />
             </div>
         </div>
-        <div class="slds-card__body slds-card__body_inner">
-            <br />
-            {!v.diagram.entities.length} Object(s)
-            <br />
+        <div class="slds-card__body slds-card__body_inner description">
+            <div>{!v.diagram.entities.length} Object(s)</div>
+            <aura:if isTrue="{!v.diagram.settings.from}">
+                <div>SOQL: {!v.diagram.settings.from}</div>
+            </aura:if>
         </div>
         <footer class="slds-card__footer">
             <div class="slds-button-group" role="group">

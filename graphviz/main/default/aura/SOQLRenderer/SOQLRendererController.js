@@ -10,8 +10,10 @@
 
         // update the UI, generating new SOQL if required
         if ($A.util.isEmpty(component.get("v.from"))) {
-            component.set("v.prompt", "Choose a SOQL FROM object:")
+            component.set("v.prompt", "Choose a SOQL FROM object:");
+            component.set("v.fromStyle", "");
         } else {
+            component.set("v.fromStyle", "border: solid 2px "+window.pure.graphviz.entityFrom+";padding:2px;border-radius:7px;");
             component.set("v.prompt", "FROM")
             var rendered = window.pure.soql.v2.diagramAsSelects(component.get("v.diagram"), component.get("v.describes"), newFrom);
             var soql = window.pure.soql.v2.diagramSelectsAsSOQL(rendered.selectLists, newFrom, false);
@@ -42,12 +44,14 @@
             .fire();
     },
     diagramChange: function (component, event, helper) {
+        var newDiagram = event.getParam("value");
+        component.set("v.from", newDiagram.settings.from);
         if ($A.util.isEmpty(component.get("v.from"))) {
             // load entities from diagram but don't generate SOQL
             var entities = window.pure.soql.v2.entities(event.getParam("value"));
             helper.updateEntities(component, entities);
         } else {
-            var rendered = window.pure.soql.v2.diagramAsSelects(event.getParam("value"), component.get("v.describes"), component.get("v.from"));
+            var rendered = window.pure.soql.v2.diagramAsSelects(newDiagram, component.get("v.describes"), component.get("v.from"));
             helper.updateEntities(component, rendered.entities);
             var soql = window.pure.soql.v2.diagramSelectsAsSOQL(rendered.selectLists, component.get("v.from"), false);
             component.set("v.soql", soql);

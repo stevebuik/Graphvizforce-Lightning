@@ -17,4 +17,7 @@
     MERGE: Mode used in Auto Builder - Auto Builder needs to retain existing fields, merge fields allows adding more fields without mutating existing fields
     -->
     <aura:attribute name="fieldsMode" type="String" default="OVERWRITE" description="Mutation mode for fieldsMap: OVERWRITE, MERGE" />
+
+    <aura:attribute name="from" type="String" required="false"
+                    description="The SOQL from entity. If empty, the FROM entity is not changing" />
 </aura:event>

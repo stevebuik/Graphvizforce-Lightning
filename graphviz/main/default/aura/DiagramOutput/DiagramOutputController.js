@@ -35,7 +35,16 @@
     */
     onFromChanged: function (component, event, helper) {
         component.set("v.obscuredEntities", event.getParam('obscuredEntities'));
-        helper.render(component);
+        component.set("v.fromEntity", event.getParam('from'));
+        // the mutate event below will be handled by this component, causing the render (onDiagramUpdated above)
+        // but will also cause the diagram to be persisted by the ERDContainer
+        component.getEvent('onDiagramMutate').setParams({
+            entities: [],
+            entitiesToRemove: [],
+            fieldsMap: {},
+            fieldsMode: 'MERGE',
+            from: event.getParam('from')
+        }).fire();
     },
 
     /**

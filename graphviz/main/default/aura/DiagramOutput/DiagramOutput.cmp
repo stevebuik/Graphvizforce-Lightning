@@ -5,12 +5,16 @@
     <aura:attribute name="isExpanded" type="Boolean" default="false" description="Indicates current state of the view: expanded or collapsed" />
     <aura:attribute name="graphvizContent" type="String" description="Graphviz content value for diagram rendering" />
     <aura:attribute name="svgContent" type="String" description="SVG content value for download" />
+    <!--diagram settings attributes-->
     <aura:attribute name="obscuredEntities" type="List" default="[]"
                     description="Entities in the diagram which are not part of the SOQL query"/>
     <aura:attribute name="showSelfRelations" type="Boolean" default="false"
                     description="When true, diagram will show heirarchical/self relationships"/>
+    <aura:attribute name="fromEntity" type="String"
+                    description="The SOQL from entity. Changes the colour of the entity in the diagram."/>
 
     <aura:registerEvent name="onTogglePreview" type="gvf2:ActionEvent" />
+    <aura:registerEvent name="onDiagramMutate" type="gvf2:DiagramMutateEvent" />
 
     <aura:handler name="fromChange" event="gvf2:SOQLFromChangeEvent" action="{!c.onFromChanged}"/>
     <aura:handler event="gvf2:DiagramUpdatedEvent" action="{!c.onDiagramUpdated}" />

@@ -1294,7 +1294,12 @@ var persisted = {
         "settings": {
             "type": "object",
             "properties": {
-                "showSelfRelations": { "type": "boolean" }
+                "showSelfRelations": { "type": "boolean" },
+                "obscureEntities": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                },
+                "from": { "type": "string" }
             },
             "required": []
         }
@@ -4032,10 +4037,22 @@ var gv = {
 
                 var isNotObscured = obscured[entity.apiName] === undefined;
 
+                var color;
+                if (isNotObscured) {
+                    var isFromEntity = diagram.settings.from == entity.apiName;
+                    if (isFromEntity) {
+                        color = gv.entityFrom;
+                    } else {
+                        color = gv.entityFocused;
+                    }
+                } else {
+                    color = gv.entityObscured;
+                }
+
                 var viewEntity = {
                     "name": entityDescribe.label,
                     "id": entity.apiName,
-                    "color": isNotObscured ? gv.entityFocused : gv.entityObscured,
+                    "color": color,
                     "fields": []
                 };
                 viewEntitiesByAPIName[entity.apiName] = viewEntity;
@@ -4298,6 +4315,7 @@ var gv = {
 
     entityFocused: "#000000",
     entityObscured: "#AAAAAA",
+    entityFrom: "#0a9905",
 
     compareNames: function compareNames(a, b) {
         if (a.name < b.name) return -1;
