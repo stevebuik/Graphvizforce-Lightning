@@ -6,5 +6,6 @@ var schemas = require('../src/schemas.js');
 module.exports = {
     soql: soql,
     graphviz: graphviz,
-    validator: Validator
+    validator: Validator,
+    schemas: schemas
 };
