@@ -41,7 +41,12 @@ var persisted =
             "settings": {
                 "type": "object",
                 "properties": {
-                    "showSelfRelations": {"type": "boolean"}
+                    "showSelfRelations": {"type": "boolean"},
+                    "obscureEntities": {
+                        "type": "array",
+                        "items": {"type": "string"}
+                    },
+                    "from": {"type": "string"}
                 },
                 "required": []
             }

@@ -49,7 +49,8 @@ exports.account_contact_feed2 =
         ],
         "settings": {
             "showSelfRelations": true,
-            "obscureEntities": ["ContactFeed"]
+            "obscureEntities": ["ContactFeed"],
+            "from": "Account"
         }
     };
 
