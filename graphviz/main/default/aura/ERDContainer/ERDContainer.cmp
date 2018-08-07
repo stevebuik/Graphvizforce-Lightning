@@ -28,9 +28,6 @@
     <!-- Markup -->
     <div style="background:white;">
 
-        <!-- TODO Display Lightning Data Service save confirmations -->
-        <!-- TODO Display Lightning Data Service errors -->
-
         <gvf2:AppHeader title="GraphvizForce">
             <aura:set attribute="middleSection">
                 <aura:if isTrue="{!v.currentState == 'DETAIL'}">
@@ -47,8 +44,8 @@
                 </aura:if>
                 <aura:if isTrue="{!v.currentState == 'LIST'}">
 
-                    <lightning:input type="text" placeholder="Add New Diagram" name="newDiagramName"
-                                     class="slds-p-right_small" value="{!v.newDiagramName}"/>
+                    <lightning:input type="text" placeholder="Add New Diagram" name="newDiagramName" label="x"
+                                     class="slds-p-right_small label-hidden" value="{!v.newDiagramName}"/>
                     <lightning:button class="slds-button slds-button_neutral" label="New"
                                       disabled="{!v.newDiagramName.length == 0}" onclick="{!c.onAddNewDiagram}"/>
 
@@ -57,8 +54,8 @@
                     <span style="margin-right: 4rem;">
                         <gvf2:AutoBuildSelector/>
                     </span>
-                    <lightning:input type="text" placeholder="Save As New Diagram" name="cloneDiagramName"
-                                     class="slds-p-right_small" value="{!v.cloneDiagramName}"/>
+                    <lightning:input type="text" placeholder="Save As New Diagram" name="cloneDiagramName" label="x"
+                                     class="slds-p-right_small label-hidden" value="{!v.cloneDiagramName}"/>
                     <lightning:button class="slds-button slds-button_neutral" label="Clone"
                                       disabled="{!v.cloneDiagramName.length == 0}" onclick="{!c.onCloneDiagram}"/>
                 </aura:if>
