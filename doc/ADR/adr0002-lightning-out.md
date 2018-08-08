@@ -28,3 +28,6 @@ The initial load time of the page is much slower due to Lightning Out bootstrapp
 This is not too bad for the user since they can stay on the page and avoid the initialisation delay.
 If auto-build is not required, the user can create a *Lightning Component* tab and avoid VF/Lightning Out. This loads much faster.
 
+Events are not recorded by the Lightning Inspector Chrome plugin. The workaround is to use the TestApp.app to run the app,
+which will record events but will stop the auto-build feature from working.
+In future, moving the auto-build into a lightning:component will isolate these effects and speed up initial page load.
