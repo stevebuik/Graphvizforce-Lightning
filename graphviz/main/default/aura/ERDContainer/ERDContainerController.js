@@ -25,18 +25,10 @@
         var selectedDiagram = component.get('v.selectedDiagram');
         if (!$A.util.isEmpty(selectedDiagram)) { // protect against events firing during initial list/load time
 
-            // apply the settings changes
-            var from = event.getParam('from');
-            if (!$A.util.isUndefined(from)) {
-                selectedDiagram.settings.from = from;
-            }
+            // TODO why is this required when other settings are persisted without code here
             var showUserRefs = event.getParam('showStandardUserRelations');
             if (!$A.util.isUndefined(showUserRefs)) {
                 selectedDiagram.settings.showStandardUserRelationships = showUserRefs;
-            }
-            var showSelfRefs = event.getParam('showSelfRelations');
-            if (!$A.util.isUndefined(showSelfRefs)) {
-                selectedDiagram.settings.showSelfRelations = showSelfRefs;
             }
 
             // update diagram data

@@ -44,6 +44,15 @@
         }
     },
 
+    onToggleAPINames: function (component, event, helper) {
+        var diagram = component.get("v.diagram");
+        var oldValue = diagram.settings.showAPINames;
+        var newValue = $A.util.isUndefined(oldValue) ? true : !oldValue;
+        diagram.settings.showAPINames = newValue;
+        component.set("v.diagram", diagram);
+        component.getEvent('onSettingsChange').setParams({showAPINames: newValue}).fire();
+    },
+
     /**
      * Handler when user reset zoom level
      */

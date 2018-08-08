@@ -37,7 +37,7 @@
                             </aura:if>
                         </div>
                         <div>
-                            <lightning:buttonIcon iconName="utility:sync" alternativeText="Reset Zoom"
+                            <lightning:buttonIcon iconName="utility:undo" alternativeText="Reset Zoom"
                                                   iconClass="slds-button_icon-x-small" onclick="{!c.onResetZoom}"/>
                         </div>
                         <!--sticky/persisted buttons below here-->
@@ -50,6 +50,11 @@
                             <lightning:buttonIcon class="sticky" iconName="utility:replace"
                                                   alternativeText="Show Standard User Relationships"
                                                   iconClass="slds-button_icon-x-small" onclick="{!c.onToggleStdUser}"/>
+                        </div>
+                        <div>
+                            <lightning:buttonIcon class="sticky" iconName="utility:type_tool"
+                                                  alternativeText="Show API Names"
+                                                  iconClass="slds-button_icon-x-small" onclick="{!c.onToggleAPINames}"/>
                         </div>
                     </div>
                     <gvf2:DiagramViewer aura:id="diagramViewer" graphvizContent="{!v.graphvizContent}"

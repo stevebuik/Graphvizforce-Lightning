@@ -9,5 +9,7 @@
                     description="Toggle value to show user relationships."/>
     <aura:attribute name="showSelfRelations" type="Boolean" required="false"
                     description="Toggle value to show self relationships."/>
+    <aura:attribute name="showAPINames" type="Boolean" required="false"
+                    description="Toggle value to show API Names."/>
 
 </aura:event>
