@@ -29,7 +29,7 @@
     <aura:handler name="change" value="{!v.diagram}" action="{!c.diagramChange}"/>
     <aura:handler name="change" value="{!v.from}" action="{!c.fromChange}"/>
 
-    <aura:registerEvent name="fromChange" type="gvf2:SOQLFromChangeEvent"/>
+    <aura:registerEvent name="onSettingsChange" type="gvf2:DiagramSettingsChangeEvent"/>
 
     <lightning:layout multipleRows="true">
 

@@ -25,7 +25,7 @@
         <members>ObjectPanel</members>
         <members>Panel</members>
         <members>Pill</members>
-        <members>SOQLFromChangeEvent</members>
+        <members>DiagramSettingsChangeEvent</members>
         <members>SOQLRenderer</members>
         <members>SOQLRenderTests</members>
         <members>TestApp</members>

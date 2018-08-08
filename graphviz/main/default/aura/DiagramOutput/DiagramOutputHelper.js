@@ -26,6 +26,16 @@
         document.body.removeChild(element);
     },
 
+    isUserObjectPresent: function(component) {
+        var diagram = component.get("v.diagram");
+        for (var i=0; i < diagram.entities.length; i++) {
+            if (diagram.entities[i].apiName == "User") {
+                return true;
+            }
+        }
+        return false;
+    },
+
     /**
     * Process diagram rendering
     */
@@ -33,13 +43,6 @@
         var describes = component.get('v.describes');
         var diagram = component.get("v.diagram");
         if (diagram) {
-            // Get settings from the tool bar
-            var opts = {
-                showSelfRelations: component.get("v.showSelfRelations"),
-                obscureEntities: component.get("v.obscuredEntities"),
-                from: component.get("v.fromEntity"),
-            };
-            diagram.settings = opts;
 
             // Validate diagram and output
             var translated;

@@ -19,6 +19,7 @@
     Examples: ObjectPanel, AttributePanel, DiagramOutput, SOQLRenderer, AutoBuild
     -->
     <aura:handler name="onDiagramMutate" event="gvf2:DiagramMutateEvent" action="{!c.onDiagramMutate}"/>
+    <aura:handler name="onSettingsChange" event="gvf2:DiagramSettingsChangeEvent" action="{!c.onSettingsChange}"/>
 
     <ltng:require scripts="{!join(',', $Resource.LightningUtils,
                                         $Resource.GraphvizForceUtils,

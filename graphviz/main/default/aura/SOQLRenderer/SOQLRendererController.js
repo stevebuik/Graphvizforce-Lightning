@@ -13,7 +13,7 @@
             component.set("v.prompt", "Choose a SOQL FROM object:");
             component.set("v.fromStyle", "");
         } else {
-            component.set("v.fromStyle", "border: solid 2px "+window.pure.graphviz.entityFrom+";padding:2px;border-radius:7px;");
+            component.set("v.fromStyle", "border: solid 2px " + window.pure.graphviz.entityFrom + ";padding:3px;border-radius:7px;");
             component.set("v.prompt", "FROM")
             var rendered = window.pure.soql.v2.diagramAsSelects(component.get("v.diagram"), component.get("v.describes"), newFrom);
             var soql = window.pure.soql.v2.diagramSelectsAsSOQL(rendered.selectLists, newFrom, false);
@@ -36,12 +36,11 @@
         }
 
         // now fire the component event to notify parent components
-        component.getEvent('fromChange')
+        component.getEvent('onSettingsChange')
             .setParams({
                 from: newFrom,
                 obscuredEntities: obscuredList
-            })
-            .fire();
+            }).fire();
     },
     diagramChange: function (component, event, helper) {
         var newDiagram = event.getParam("value");

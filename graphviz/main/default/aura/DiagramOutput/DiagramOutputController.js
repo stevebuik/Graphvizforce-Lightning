@@ -7,7 +7,7 @@
     },
 
     /**
-    * Handler when user toggle the current state of view
+    * Handler when user toggles the current state of view
     */
     onToggleState: function (component, event, helper) {
         var isExpanded = !component.get('v.isExpanded');
@@ -16,16 +16,37 @@
     },
 
     /**
-    * Handler when user toggle self relationship
+    * Handler when user toggles self relationships
     */
     onToggleSelf: function (component, event, helper) {
-        component.set("v.showSelfRelations", !component.get("v.showSelfRelations"));
-        helper.render(component);
+        var diagram = component.get("v.diagram");
+        var oldValue = diagram.settings.showSelfRelations;
+        var newValue = $A.util.isUndefined(oldValue) ? true : !oldValue;
+        diagram.settings.showSelfRelations = newValue;
+        component.set("v.diagram", diagram);
+        component.getEvent('onSettingsChange').setParams({showSelfRelations: newValue}).fire();
     },
 
     /**
-    * Handler when user reset zoom level
-    */
+     * App event DiagramUpdatedEvent handler: when diagram data is updated, re-render the graphviz diagram
+     * Handler when user toggles user relationship fields
+     */
+    onToggleStdUser: function (component, event, helper) {
+        var diagram = component.get("v.diagram");
+        var oldValue = diagram.settings.showStandardUserRelations;
+        if (helper.isUserObjectPresent(component)) {
+            var newValue = $A.util.isUndefined(oldValue) ? true : !oldValue;
+            diagram.settings.showStandardUserRelations = newValue;
+            component.set("v.diagram", diagram);
+            component.getEvent('onSettingsChange').setParams({showStandardUserRelations: newValue}).fire();
+        } else {
+            window.alert("User relationships require the User object in the diagram!")
+        }
+    },
+
+    /**
+     * Handler when user reset zoom level
+     */
     onResetZoom : function(component, event, helper){
         component.find('diagramViewer').resetZoom();
     },
@@ -37,21 +58,15 @@
         helper.render(component);
     },
 
-    /**
-    *
-    */
-    onFromChanged: function (component, event, helper) {
-        component.set("v.obscuredEntities", event.getParam('obscuredEntities'));
-        component.set("v.fromEntity", event.getParam('from'));
-        // the mutate event below will be handled by this component, causing the render (onDiagramUpdated above)
-        // but will also cause the diagram to be persisted by the ERDContainer
-        component.getEvent('onDiagramMutate').setParams({
-            entities: [],
-            entitiesToRemove: [],
-            fieldsMap: {},
-            fieldsMode: 'MERGE',
-            from: event.getParam('from')
-        }).fire();
+    onSettingsChanged: function (component, event, helper) {
+        if (event.getSource().getLocalId() != component.getLocalId()) { // avoid infinite loop
+            var diagram = component.get("v.diagram");
+            if (!$A.util.isEmpty(diagram)) {
+                diagram.settings.obscureEntities = event.getParam('obscuredEntities');
+                diagram.settings.from = event.getParam('from');
+                helper.render(component);
+            }
+        }
     },
 
     /**

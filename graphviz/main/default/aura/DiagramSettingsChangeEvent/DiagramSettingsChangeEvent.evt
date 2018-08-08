@@ -1,0 +1,13 @@
+<aura:event type="COMPONENT"
+            description="Fired when any components causes the diagram settings to change. Reactions can re-render or persist the diagram.">
+
+    <aura:attribute name="from" type="String" required="true"
+                    description="The new FROM value. Can be empty if FROM was cleared."/>
+    <aura:attribute name="obscuredEntities" type="List" required="true"
+                    description="Any entities in the diagram which are not part of the SOQL query. Empty when FROM is cleared."/>
+    <aura:attribute name="showStandardUserRelations" type="Boolean" required="false"
+                    description="Toggle value to show user relationships."/>
+    <aura:attribute name="showSelfRelations" type="Boolean" required="false"
+                    description="Toggle value to show self relationships."/>
+
+</aura:event>

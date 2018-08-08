@@ -93,12 +93,12 @@
     /**
     * Process diagram mutation functionality
     */
-    handleDiagramMutate : function(component, helper, entitiesToAdd, entitiesToRemove, fieldsMap, fieldsMode, from){
+    handleDiagramMutate : function(component, helper, entitiesToAdd, entitiesToRemove, fieldsMap, fieldsMode){
         var diagram = component.get('v.selectedDiagram');
         if (!$A.util.isEmpty(diagram)) { // protect against events firing during initial list/load time
             // Mutate diagram
             var selectionMap = component.get('v.selectionMap');
-            var selectedDiagram = helper.getMutatedDiagram(diagram, entitiesToAdd, entitiesToRemove, fieldsMap, fieldsMode, selectionMap, from);
+            var selectedDiagram = helper.getMutatedDiagram(diagram, entitiesToAdd, entitiesToRemove, fieldsMap, fieldsMode, selectionMap);
 
             // Update diagram list with mutated data
             component.set('v.selectedDiagram', selectedDiagram);
@@ -172,9 +172,6 @@
         diagram.entities = entities;
         // Also update groups accordingly
         diagram.groups[0].entities = entityAPINames;
-
-        // Step 4: apply persisted toolbar settings
-        diagram.settings.from = from;
 
         return diagram;
     },

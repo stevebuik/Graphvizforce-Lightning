@@ -1,9 +1,0 @@
-<aura:event type="COMPONENT"
-            description="Fired when the user changes the FROM in the SOQL renderer. Allows other components to respond.">
-
-    <aura:attribute name="from" type="String" required="true"
-                    description="The new FROM value. Can be empty if FROM was cleared."/>
-    <aura:attribute name="obscuredEntities" type="List" required="true"
-                    description="Any entities in the diagram which are not part of the SOQL query. Empty when FROM is cleared."/>
-
-</aura:event>

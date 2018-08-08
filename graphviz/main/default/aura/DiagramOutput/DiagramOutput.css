@@ -10,3 +10,7 @@
     margin-top: 10px;
     background-color: #ffffff;
 }
+
+.THIS .toolbar button.sticky {
+    background-color: #cef3ff;
+}
