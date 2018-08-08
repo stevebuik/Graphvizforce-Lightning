@@ -65,6 +65,7 @@ public without sharing class GraphVizForceController {
                         if (rel.getRelationshipName() != NULL) {
                             ChildRelationshipWrapper wrapper = new ChildRelationshipWrapper();
                             wrapper.childAPIName = rel.getChildSObject().getDescribe().getName();
+                            wrapper.childFieldAPIName = rel.getField().getDescribe().getName();
                             wrapper.relationshipName = rel.getRelationshipName();
                             objWrapper.childRelationships.add(wrapper);
                         }
@@ -129,6 +130,7 @@ public without sharing class GraphVizForceController {
     public class ChildRelationshipWrapper {
         public String relationshipName;
         public String childAPIName;
+        public String childFieldAPIName;
     }
 
     public class RelationshipWrapper{

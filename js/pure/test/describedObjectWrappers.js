@@ -390,50 +390,89 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "RecordAssociatedGroups",
+            "childFieldAPIName": "RecordId",
             "childAPIName": "CollaborationGroupRecord"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "ContractContactRoles",
+            "childFieldAPIName": "ContractId",
             "childAPIName": "ContractContactRole"
-        }, {"relationshipName": "Feeds", "childAPIName": "ContractFeed"}, {
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "ContractFeed"
+        }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "ContractId",
             "childAPIName": "ContractHistory"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "Notes",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
-        }, {"relationshipName": "OpenActivities", "childAPIName": "OpenActivity"}, {
+        }, {
+            "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "OpenActivity"
+        }, {
             "relationshipName": "Opportunities",
+            "childFieldAPIName": "ContractId",
             "childAPIName": "Opportunity"
-        }, {"relationshipName": "Orders", "childAPIName": "Order"}, {
+        }, {
+            "relationshipName": "Orders",
+            "childFieldAPIName": "ContractId",
+            "childAPIName": "Order"
+        }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
         "apiName": "Contract"
     }, {
         "label": "Contract History",
@@ -650,12 +689,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ContractFeed"
@@ -777,7 +827,7 @@ var wrappers =
         }, {
             "type": "TEXTAREA",
             "referenceFields": null,
-            "label": "Internal Comments",
+            "label": "Description",
             "isMDOrCascadeDelete": false,
             "isCustom": false,
             "apiName": "Description"
@@ -1113,50 +1163,89 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "Notes",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
-        }, {"relationshipName": "OpenActivities", "childAPIName": "OpenActivity"}, {
+        }, {
+            "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "OpenActivity"
+        }, {
             "relationshipName": "Orders",
+            "childFieldAPIName": "OriginalOrderId",
             "childAPIName": "Order"
-        }, {"relationshipName": "Feeds", "childAPIName": "OrderFeed"}, {
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "OrderFeed"
+        }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "OrderId",
             "childAPIName": "OrderHistory"
-        }, {"relationshipName": "OrderItems", "childAPIName": "OrderItem"}, {
+        }, {
+            "relationshipName": "OrderItems",
+            "childFieldAPIName": "OrderId",
+            "childAPIName": "OrderItem"
+        }, {
             "relationshipName": "Shares",
+            "childFieldAPIName": "OrderId",
             "childAPIName": "OrderShare"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
-        }, {"relationshipName": "WorkOrderLineItems", "childAPIName": "WorkOrderLineItem"}],
+        }, {
+            "relationshipName": "WorkOrderLineItems",
+            "childFieldAPIName": "OrderId",
+            "childAPIName": "WorkOrderLineItem"
+        }],
         "apiName": "Order"
     }, {
         "label": "Order Share",
@@ -1455,12 +1544,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "OrderFeed"
@@ -1640,20 +1740,29 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "ChildOrderItems", "childAPIName": "OrderItem"}, {
+        }, {
+            "relationshipName": "ChildOrderItems",
+            "childFieldAPIName": "OriginalOrderItemId",
+            "childAPIName": "OrderItem"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "OrderItemFeed"
-        }, {"relationshipName": "Histories", "childAPIName": "OrderItemHistory"}],
+        }, {"relationshipName": "Histories", "childFieldAPIName": "OrderItemId", "childAPIName": "OrderItemHistory"}],
         "apiName": "OrderItem"
     }, {
         "label": "Order Product History",
@@ -1870,12 +1979,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "OrderItemFeed"
@@ -3339,14 +3459,17 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
-        }, {"relationshipName": "CustomBrands", "childAPIName": "CustomBrand"}],
+        }, {"relationshipName": "CustomBrands", "childFieldAPIName": "ParentId", "childAPIName": "CustomBrand"}],
         "apiName": "Organization"
     }, {
         "label": "Mail Merge Template",
@@ -4484,14 +4607,21 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
-        }, {"relationshipName": "ContentDocumentLinks", "childAPIName": "ContentDocumentLink"}],
+        }, {
+            "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
+            "childAPIName": "ContentDocumentLink"
+        }],
         "apiName": "EmailTemplate"
     }, {
         "label": "Document Entity Map",
@@ -5740,56 +5870,97 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
-        }, {"relationshipName": "Attachments", "childAPIName": "Attachment"}, {
+        }, {
+            "relationshipName": "Attachments",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "Attachment"
+        }, {
             "relationshipName": "ChildCampaigns",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Campaign"
-        }, {"relationshipName": "Feeds", "childAPIName": "CampaignFeed"}, {
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "CampaignFeed"
+        }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "CampaignId",
             "childAPIName": "CampaignHistory"
         }, {
             "relationshipName": "CampaignMembers",
+            "childFieldAPIName": "CampaignId",
             "childAPIName": "CampaignMember"
         }, {
             "relationshipName": "CampaignMemberStatuses",
+            "childFieldAPIName": "CampaignId",
             "childAPIName": "CampaignMemberStatus"
         }, {
             "relationshipName": "Shares",
+            "childFieldAPIName": "CampaignId",
             "childAPIName": "CampaignShare"
         }, {
             "relationshipName": "RecordAssociatedGroups",
+            "childFieldAPIName": "RecordId",
             "childAPIName": "CollaborationGroupRecord"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
+            "relationshipName": "ListEmailRecipientSources",
+            "childFieldAPIName": "SourceListId",
+            "childAPIName": "ListEmailRecipientSource"
+        }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "Opportunities",
+            "childFieldAPIName": "CampaignId",
             "childAPIName": "Opportunity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
-        }, {"relationshipName": "RelatedObjects", "childAPIName": "WorkFeedbackRequest"}],
+        }, {
+            "relationshipName": "RelatedObjects",
+            "childFieldAPIName": "RelatedObjectId",
+            "childAPIName": "WorkFeedbackRequest"
+        }],
         "apiName": "Campaign"
     }, {
         "label": "Campaign Share",
@@ -6088,12 +6259,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "CampaignFeed"
@@ -6956,113 +7138,184 @@ var wrappers =
             "isMDOrCascadeDelete": false,
             "isCustom": false,
             "apiName": "OperatingHoursId"
-        },
-            {
-                "type": "REFERENCE",
-                "referenceFields": [
-                    {
-                        "relationshipName": "gvf2__Sponsor__r",
-                        "referenceFieldAPIName": "gvf2__Sponsor__c",
-                        "parentLabel": "User",
-                        "parentAPIName": "User"
-                    }
-                ],
-                "label": "Sponsor",
-                "isMDOrCascadeDelete": false,
-                "isCustom": true,
-                "apiName": "gvf2__Sponsor__c"
-            }],
+        }],
         "childRelationships": [{
             "relationshipName": "ChildAccounts",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Account"
         }, {
             "relationshipName": "AccountCleanInfos",
+            "childFieldAPIName": "AccountId",
             "childAPIName": "AccountCleanInfo"
         }, {
             "relationshipName": "AccountContactRoles",
+            "childFieldAPIName": "AccountId",
             "childAPIName": "AccountContactRole"
-        }, {"relationshipName": "Feeds", "childAPIName": "AccountFeed"}, {
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "AccountFeed"
+        }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "AccountId",
             "childAPIName": "AccountHistory"
         }, {
             "relationshipName": "AccountPartnersFrom",
+            "childFieldAPIName": "AccountFromId",
             "childAPIName": "AccountPartner"
-        }, {"relationshipName": "AccountPartnersTo", "childAPIName": "AccountPartner"}, {
+        }, {
+            "relationshipName": "AccountPartnersTo",
+            "childFieldAPIName": "AccountToId",
+            "childAPIName": "AccountPartner"
+        }, {
             "relationshipName": "Shares",
+            "childFieldAPIName": "AccountId",
             "childAPIName": "AccountShare"
-        }, {"relationshipName": "ActivityHistories", "childAPIName": "ActivityHistory"}, {
+        }, {
+            "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "AccountId",
+            "childAPIName": "ActivityHistory"
+        }, {
             "relationshipName": "Assets",
+            "childFieldAPIName": "AccountId",
             "childAPIName": "Asset"
-        }, {"relationshipName": "ProvidedAssets", "childAPIName": "Asset"}, {
+        }, {
+            "relationshipName": "ProvidedAssets",
+            "childFieldAPIName": "AssetProvidedById",
+            "childAPIName": "Asset"
+        }, {
             "relationshipName": "ServicedAssets",
+            "childFieldAPIName": "AssetServicedById",
             "childAPIName": "Asset"
         }, {
             "relationshipName": "AssociatedLocations",
+            "childFieldAPIName": "ParentRecordId",
             "childAPIName": "AssociatedLocation"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
-        }, {"relationshipName": "Attachments", "childAPIName": "Attachment"}, {
+        }, {
+            "relationshipName": "Attachments",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "Attachment"
+        }, {
             "relationshipName": "Cases",
+            "childFieldAPIName": "AccountId",
             "childAPIName": "Case"
         }, {
             "relationshipName": "RecordAssociatedGroups",
+            "childFieldAPIName": "RecordId",
             "childAPIName": "CollaborationGroupRecord"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
-        }, {"relationshipName": "Contacts", "childAPIName": "Contact"}, {
+        }, {
+            "relationshipName": "Contacts",
+            "childFieldAPIName": "AccountId",
+            "childAPIName": "Contact"
+        }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
-        }, {"relationshipName": "Contracts", "childAPIName": "Contract"}, {
+        }, {
+            "relationshipName": "Contracts",
+            "childFieldAPIName": "AccountId",
+            "childAPIName": "Contract"
+        }, {
             "relationshipName": "DuplicateRecordItems",
+            "childFieldAPIName": "RecordId",
             "childAPIName": "DuplicateRecordItem"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "MaintenancePlans",
+            "childFieldAPIName": "AccountId",
             "childAPIName": "MaintenancePlan"
-        }, {"relationshipName": "Notes", "childAPIName": "Note"}, {
+        }, {
+            "relationshipName": "Notes",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "Note"
+        }, {
             "relationshipName": "NotesAndAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
-        }, {"relationshipName": "OpenActivities", "childAPIName": "OpenActivity"}, {
+        }, {
+            "relationshipName": "OpenActivities",
+            "childFieldAPIName": "AccountId",
+            "childAPIName": "OpenActivity"
+        }, {
             "relationshipName": "Opportunities",
+            "childFieldAPIName": "AccountId",
             "childAPIName": "Opportunity"
         }, {
             "relationshipName": "OpportunityPartnersTo",
+            "childFieldAPIName": "AccountToId",
             "childAPIName": "OpportunityPartner"
-        }, {"relationshipName": "Orders", "childAPIName": "Order"}, {
+        }, {
+            "relationshipName": "Orders",
+            "childFieldAPIName": "AccountId",
+            "childAPIName": "Order"
+        }, {
             "relationshipName": "PartnersFrom",
+            "childFieldAPIName": "AccountFromId",
             "childAPIName": "Partner"
-        }, {"relationshipName": "PartnersTo", "childAPIName": "Partner"}, {
+        }, {
+            "relationshipName": "PartnersTo",
+            "childFieldAPIName": "AccountToId",
+            "childAPIName": "Partner"
+        }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ProductRequests",
+            "childFieldAPIName": "AccountId",
             "childAPIName": "ProductRequest"
         }, {
             "relationshipName": "ProductRequestLineItems",
+            "childFieldAPIName": "AccountId",
             "childAPIName": "ProductRequestLineItem"
         }, {
             "relationshipName": "ResourcePreferences",
+            "childFieldAPIName": "RelatedRecordId",
             "childAPIName": "ResourcePreference"
         }, {
             "relationshipName": "ServiceAppointments",
+            "childFieldAPIName": "ParentRecordId",
             "childAPIName": "ServiceAppointment"
-        }, {"relationshipName": "Tasks", "childAPIName": "Task"}, {
+        }, {
+            "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Task"
+        }, {
             "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }, {
+            "relationshipName": "Users",
+            "childFieldAPIName": "AccountId",
+            "childAPIName": "User"
+        }, {
             "relationshipName": "RelatedObjects",
+            "childFieldAPIName": "RelatedObjectId",
             "childAPIName": "WorkFeedbackRequest"
-        }, {"relationshipName": "WorkOrders", "childAPIName": "WorkOrder"}],
+        }, {"relationshipName": "WorkOrders", "childFieldAPIName": "AccountId", "childAPIName": "WorkOrder"}],
         "apiName": "Account"
     }, {
         "label": "Account Share",
@@ -7382,12 +7635,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "AccountFeed"
@@ -7854,95 +8118,157 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AcceptedEventRelations",
+            "childFieldAPIName": "RelationId",
             "childAPIName": "AcceptedEventRelation"
         }, {
             "relationshipName": "AccountContactRoles",
+            "childFieldAPIName": "ContactId",
             "childAPIName": "AccountContactRole"
-        }, {"relationshipName": "ActivityHistories", "childAPIName": "ActivityHistory"}, {
+        }, {
+            "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhoId",
+            "childAPIName": "ActivityHistory"
+        }, {
             "relationshipName": "Assets",
+            "childFieldAPIName": "ContactId",
             "childAPIName": "Asset"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
-        }, {"relationshipName": "Attachments", "childAPIName": "Attachment"}, {
+        }, {
+            "relationshipName": "Attachments",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "Attachment"
+        }, {
             "relationshipName": "CampaignMembers",
+            "childFieldAPIName": "ContactId",
             "childAPIName": "CampaignMember"
-        }, {"relationshipName": "Cases", "childAPIName": "Case"}, {
+        }, {
+            "relationshipName": "Cases",
+            "childFieldAPIName": "ContactId",
+            "childAPIName": "Case"
+        }, {
             "relationshipName": "CaseContactRoles",
+            "childFieldAPIName": "ContactId",
             "childAPIName": "CaseContactRole"
         }, {
             "relationshipName": "RecordAssociatedGroups",
+            "childFieldAPIName": "RecordId",
             "childAPIName": "CollaborationGroupRecord"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
-        }, {"relationshipName": "ContactCleanInfos", "childAPIName": "ContactCleanInfo"}, {
+        }, {
+            "relationshipName": "ContactCleanInfos",
+            "childFieldAPIName": "ContactId",
+            "childAPIName": "ContactCleanInfo"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "ContactFeed"
-        }, {"relationshipName": "Histories", "childAPIName": "ContactHistory"}, {
+        }, {
+            "relationshipName": "Histories",
+            "childFieldAPIName": "ContactId",
+            "childAPIName": "ContactHistory"
+        }, {
             "relationshipName": "Shares",
+            "childFieldAPIName": "ContactId",
             "childAPIName": "ContactShare"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "ContractsSigned",
+            "childFieldAPIName": "CustomerSignedId",
             "childAPIName": "Contract"
         }, {
             "relationshipName": "ContractContactRoles",
+            "childFieldAPIName": "ContactId",
             "childAPIName": "ContractContactRole"
         }, {
             "relationshipName": "DeclinedEventRelations",
+            "childFieldAPIName": "RelationId",
             "childAPIName": "DeclinedEventRelation"
         }, {
             "relationshipName": "DuplicateRecordItems",
+            "childFieldAPIName": "RecordId",
             "childAPIName": "DuplicateRecordItem"
         }, {
             "relationshipName": "EmailMessageRelations",
+            "childFieldAPIName": "RelationId",
             "childAPIName": "EmailMessageRelation"
         }, {
             "relationshipName": "EmailStatuses",
+            "childFieldAPIName": "WhoId",
             "childAPIName": "EmailStatus"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhoId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "EventRelations",
+            "childFieldAPIName": "RelationId",
             "childAPIName": "EventRelation"
-        }, {"relationshipName": "MaintenancePlans", "childAPIName": "MaintenancePlan"}, {
+        }, {
+            "relationshipName": "MaintenancePlans",
+            "childFieldAPIName": "ContactId",
+            "childAPIName": "MaintenancePlan"
+        }, {
             "relationshipName": "Notes",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhoId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "OpportunityContactRoles",
+            "childFieldAPIName": "ContactId",
             "childAPIName": "OpportunityContactRole"
         }, {
             "relationshipName": "OutgoingEmailRelations",
+            "childFieldAPIName": "RelationId",
             "childAPIName": "OutgoingEmailRelation"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ServiceAppointments",
+            "childFieldAPIName": "ContactId",
             "childAPIName": "ServiceAppointment"
-        }, {"relationshipName": "Tasks", "childAPIName": "Task"}, {
+        }, {
+            "relationshipName": "Tasks",
+            "childFieldAPIName": "WhoId",
+            "childAPIName": "Task"
+        }, {
             "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }, {
             "relationshipName": "UndecidedEventRelations",
+            "childFieldAPIName": "RelationId",
             "childAPIName": "UndecidedEventRelation"
         }, {
             "relationshipName": "RelatedObjects",
+            "childFieldAPIName": "RelatedObjectId",
             "childAPIName": "WorkFeedbackRequest"
-        }, {"relationshipName": "WorkOrders", "childAPIName": "WorkOrder"}],
+        }, {"relationshipName": "WorkOrders", "childFieldAPIName": "ContactId", "childAPIName": "WorkOrder"}],
         "apiName": "Contact"
     }, {
         "label": "Contact Share",
@@ -8241,12 +8567,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ContactFeed"
@@ -8700,71 +9037,121 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AcceptedEventRelations",
+            "childFieldAPIName": "RelationId",
             "childAPIName": "AcceptedEventRelation"
         }, {
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhoId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
-        }, {"relationshipName": "Attachments", "childAPIName": "Attachment"}, {
+        }, {
+            "relationshipName": "Attachments",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "Attachment"
+        }, {
             "relationshipName": "CampaignMembers",
+            "childFieldAPIName": "LeadId",
             "childAPIName": "CampaignMember"
         }, {
             "relationshipName": "RecordAssociatedGroups",
+            "childFieldAPIName": "RecordId",
             "childAPIName": "CollaborationGroupRecord"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "DeclinedEventRelations",
+            "childFieldAPIName": "RelationId",
             "childAPIName": "DeclinedEventRelation"
         }, {
             "relationshipName": "DuplicateRecordItems",
+            "childFieldAPIName": "RecordId",
             "childAPIName": "DuplicateRecordItem"
         }, {
             "relationshipName": "EmailMessageRelations",
+            "childFieldAPIName": "RelationId",
             "childAPIName": "EmailMessageRelation"
         }, {
             "relationshipName": "EmailStatuses",
+            "childFieldAPIName": "WhoId",
             "childAPIName": "EmailStatus"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhoId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "EventRelations",
+            "childFieldAPIName": "RelationId",
             "childAPIName": "EventRelation"
-        }, {"relationshipName": "LeadCleanInfos", "childAPIName": "LeadCleanInfo"}, {
+        }, {
+            "relationshipName": "LeadCleanInfos",
+            "childFieldAPIName": "LeadId",
+            "childAPIName": "LeadCleanInfo"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "LeadFeed"
-        }, {"relationshipName": "Histories", "childAPIName": "LeadHistory"}, {
+        }, {
+            "relationshipName": "Histories",
+            "childFieldAPIName": "LeadId",
+            "childAPIName": "LeadHistory"
+        }, {
             "relationshipName": "Shares",
+            "childFieldAPIName": "LeadId",
             "childAPIName": "LeadShare"
-        }, {"relationshipName": "Notes", "childAPIName": "Note"}, {
+        }, {
+            "relationshipName": "Notes",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "Note"
+        }, {
             "relationshipName": "NotesAndAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhoId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "OutgoingEmailRelations",
+            "childFieldAPIName": "RelationId",
             "childAPIName": "OutgoingEmailRelation"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Tasks",
+            "childFieldAPIName": "WhoId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }, {
             "relationshipName": "UndecidedEventRelations",
+            "childFieldAPIName": "RelationId",
             "childAPIName": "UndecidedEventRelation"
-        }, {"relationshipName": "RelatedObjects", "childAPIName": "WorkFeedbackRequest"}],
+        }, {
+            "relationshipName": "RelatedObjects",
+            "childFieldAPIName": "RelatedObjectId",
+            "childAPIName": "WorkFeedbackRequest"
+        }],
         "apiName": "Lead"
     }, {
         "label": "Lead Share",
@@ -9063,12 +9450,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "LeadFeed"
@@ -9379,74 +9777,121 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AccountPartners",
+            "childFieldAPIName": "OpportunityId",
             "childAPIName": "AccountPartner"
         }, {
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "RecordAssociatedGroups",
+            "childFieldAPIName": "RecordId",
             "childAPIName": "CollaborationGroupRecord"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "Notes",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "OpportunityCompetitors",
+            "childFieldAPIName": "OpportunityId",
             "childAPIName": "OpportunityCompetitor"
         }, {
             "relationshipName": "OpportunityContactRoles",
+            "childFieldAPIName": "OpportunityId",
             "childAPIName": "OpportunityContactRole"
-        }, {"relationshipName": "Feeds", "childAPIName": "OpportunityFeed"}, {
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "OpportunityFeed"
+        }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "OpportunityId",
             "childAPIName": "OpportunityFieldHistory"
         }, {
             "relationshipName": "OpportunityHistories",
+            "childFieldAPIName": "OpportunityId",
             "childAPIName": "OpportunityHistory"
         }, {
             "relationshipName": "OpportunityLineItems",
+            "childFieldAPIName": "OpportunityId",
             "childAPIName": "OpportunityLineItem"
         }, {
             "relationshipName": "OpportunityPartnersFrom",
+            "childFieldAPIName": "OpportunityId",
             "childAPIName": "OpportunityPartner"
-        }, {"relationshipName": "Shares", "childAPIName": "OpportunityShare"}, {
+        }, {
+            "relationshipName": "Shares",
+            "childFieldAPIName": "OpportunityId",
+            "childAPIName": "OpportunityShare"
+        }, {
             "relationshipName": "Orders",
+            "childFieldAPIName": "OpportunityId",
             "childAPIName": "Order"
-        }, {"relationshipName": "Partners", "childAPIName": "Partner"}, {
+        }, {
+            "relationshipName": "Partners",
+            "childFieldAPIName": "OpportunityId",
+            "childAPIName": "Partner"
+        }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ServiceAppointments",
+            "childFieldAPIName": "ParentRecordId",
             "childAPIName": "ServiceAppointment"
-        }, {"relationshipName": "Tasks", "childAPIName": "Task"}, {
+        }, {
+            "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Task"
+        }, {
             "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
-        }, {"relationshipName": "RelatedObjects", "childAPIName": "WorkFeedbackRequest"}],
+        }, {
+            "relationshipName": "RelatedObjects",
+            "childFieldAPIName": "RelatedObjectId",
+            "childAPIName": "WorkFeedbackRequest"
+        }],
         "apiName": "Opportunity"
     }, {
         "label": "Opportunity Share",
@@ -9745,12 +10190,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "OpportunityFeed"
@@ -10756,11 +11212,6 @@ var wrappers =
             }, {
                 "relationshipName": "Parent",
                 "referenceFieldAPIName": "ParentId",
-                "parentLabel": "Graphviz Diagram",
-                "parentAPIName": "Graphviz_Diagram__c"
-            }, {
-                "relationshipName": "Parent",
-                "referenceFieldAPIName": "ParentId",
                 "parentLabel": "Lead",
                 "parentAPIName": "Lead"
             }, {
@@ -10813,6 +11264,11 @@ var wrappers =
                 "referenceFieldAPIName": "ParentId",
                 "parentLabel": "Work Order Line Item",
                 "parentAPIName": "WorkOrderLineItem"
+            }, {
+                "relationshipName": "Parent",
+                "referenceFieldAPIName": "ParentId",
+                "parentLabel": "Graphviz Diagram",
+                "parentAPIName": "gvf2__Graphviz_Diagram__c"
             }],
             "label": "Parent ID",
             "isMDOrCascadeDelete": false,
@@ -11034,7 +11490,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "SystemModstamp"
         }],
-        "childRelationships": [{"relationshipName": "Periods", "childAPIName": "Period"}],
+        "childRelationships": [{
+            "relationshipName": "Periods",
+            "childFieldAPIName": "FiscalYearSettingsId",
+            "childAPIName": "Period"
+        }],
         "apiName": "FiscalYearSettings"
     }, {
         "label": "Period",
@@ -11248,11 +11708,21 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "OpportunityLineItems",
+            "childFieldAPIName": "PricebookEntryId",
             "childAPIName": "OpportunityLineItem"
-        }, {"relationshipName": "OrderItems", "childAPIName": "OrderItem"}, {
+        }, {
+            "relationshipName": "OrderItems",
+            "childFieldAPIName": "PricebookEntryId",
+            "childAPIName": "OrderItem"
+        }, {
             "relationshipName": "ProductsConsumed",
+            "childFieldAPIName": "PricebookEntryId",
             "childAPIName": "ProductConsumed"
-        }, {"relationshipName": "WorkOrderLineItems", "childAPIName": "WorkOrderLineItem"}],
+        }, {
+            "relationshipName": "WorkOrderLineItems",
+            "childFieldAPIName": "PricebookEntryId",
+            "childAPIName": "WorkOrderLineItem"
+        }],
         "apiName": "PricebookEntry"
     }, {
         "label": "Product",
@@ -11408,62 +11878,101 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
-        }, {"relationshipName": "Assets", "childAPIName": "Asset"}, {
+        }, {
+            "relationshipName": "Assets",
+            "childFieldAPIName": "Product2Id",
+            "childAPIName": "Asset"
+        }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "Notes",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "PricebookEntries",
+            "childFieldAPIName": "Product2Id",
             "childAPIName": "PricebookEntry"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Product2Feed"
         }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "Product2Id",
             "childAPIName": "Product2History"
         }, {
             "relationshipName": "ProductsConsumed",
+            "childFieldAPIName": "Product2Id",
             "childAPIName": "ProductConsumed"
         }, {
             "relationshipName": "ProductItems",
+            "childFieldAPIName": "Product2Id",
             "childAPIName": "ProductItem"
         }, {
             "relationshipName": "ProductRequestLineItems",
+            "childFieldAPIName": "Product2Id",
             "childAPIName": "ProductRequestLineItem"
         }, {
             "relationshipName": "ProductsRequired",
+            "childFieldAPIName": "Product2Id",
             "childAPIName": "ProductRequired"
-        }, {"relationshipName": "ProductTransfers", "childAPIName": "ProductTransfer"}, {
+        }, {
+            "relationshipName": "ProductTransfers",
+            "childFieldAPIName": "Product2Id",
+            "childAPIName": "ProductTransfer"
+        }, {
             "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
-        }, {"relationshipName": "WorkOrderLineItems", "childAPIName": "WorkOrderLineItem"}],
+        }, {
+            "relationshipName": "WorkOrderLineItems",
+            "childFieldAPIName": "Product2Id",
+            "childAPIName": "WorkOrderLineItem"
+        }],
         "apiName": "Product2"
     }, {
         "label": "Product History",
@@ -11680,12 +12189,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "Product2Feed"
@@ -11974,57 +12494,107 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
-        }, {"relationshipName": "ChildAssets", "childAPIName": "Asset"}, {
+        }, {
+            "relationshipName": "ChildAssets",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "Asset"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "AssetFeed"
-        }, {"relationshipName": "Histories", "childAPIName": "AssetHistory"}, {
+        }, {
+            "relationshipName": "Histories",
+            "childFieldAPIName": "AssetId",
+            "childAPIName": "AssetHistory"
+        }, {
             "relationshipName": "PrimaryAssets",
+            "childFieldAPIName": "AssetId",
             "childAPIName": "AssetRelationship"
-        }, {"relationshipName": "RelatedAssets", "childAPIName": "AssetRelationship"}, {
+        }, {
+            "relationshipName": "RelatedAssets",
+            "childFieldAPIName": "RelatedAssetId",
+            "childAPIName": "AssetRelationship"
+        }, {
             "relationshipName": "Shares",
+            "childFieldAPIName": "AssetId",
             "childAPIName": "AssetShare"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
-        }, {"relationshipName": "Attachments", "childAPIName": "Attachment"}, {
+        }, {
+            "relationshipName": "Attachments",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "Attachment"
+        }, {
             "relationshipName": "Cases",
+            "childFieldAPIName": "AssetId",
             "childAPIName": "Case"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "MaintenanceAssets",
+            "childFieldAPIName": "AssetId",
             "childAPIName": "MaintenanceAsset"
-        }, {"relationshipName": "Notes", "childAPIName": "Note"}, {
+        }, {
+            "relationshipName": "Notes",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "Note"
+        }, {
             "relationshipName": "NotesAndAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ServiceAppointments",
+            "childFieldAPIName": "ParentRecordId",
             "childAPIName": "ServiceAppointment"
-        }, {"relationshipName": "Tasks", "childAPIName": "Task"}, {
+        }, {
+            "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Task"
+        }, {
             "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
-        }, {"relationshipName": "WorkOrders", "childAPIName": "WorkOrder"}, {
+        }, {
+            "relationshipName": "WorkOrders",
+            "childFieldAPIName": "AssetId",
+            "childAPIName": "WorkOrder"
+        }, {
             "relationshipName": "WorkOrderLineItems",
+            "childFieldAPIName": "AssetId",
             "childAPIName": "WorkOrderLineItem"
         }],
         "apiName": "Asset"
@@ -12325,12 +12895,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "AssetFeed"
@@ -12523,10 +13104,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "LastViewedDate"
         }],
-        "childRelationships": [{"relationshipName": "Cases", "childAPIName": "Case"}, {
-            "relationshipName": "WorkOrders",
-            "childAPIName": "WorkOrder"
-        }],
+        "childRelationships": [{
+            "relationshipName": "Cases",
+            "childFieldAPIName": "BusinessHoursId",
+            "childAPIName": "Case"
+        }, {"relationshipName": "WorkOrders", "childFieldAPIName": "BusinessHoursId", "childAPIName": "WorkOrder"}],
         "apiName": "BusinessHours"
     }, {
         "label": "Case",
@@ -12647,18 +13229,6 @@ var wrappers =
             "isMDOrCascadeDelete": false,
             "isCustom": false,
             "apiName": "Type"
-        }, {
-            "type": "REFERENCE",
-            "referenceFields": [{
-                "relationshipName": "RecordType",
-                "referenceFieldAPIName": "RecordTypeId",
-                "parentLabel": "Record Type",
-                "parentAPIName": "RecordType"
-            }],
-            "label": "Record Type ID",
-            "isMDOrCascadeDelete": false,
-            "isCustom": false,
-            "apiName": "RecordTypeId"
         }, {
             "type": "PICKLIST",
             "referenceFields": null,
@@ -12836,62 +13406,109 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
-        }, {"relationshipName": "Attachments", "childAPIName": "Attachment"}, {
+        }, {
+            "relationshipName": "Attachments",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "Attachment"
+        }, {
             "relationshipName": "Cases",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Case"
-        }, {"relationshipName": "CaseComments", "childAPIName": "CaseComment"}, {
+        }, {
+            "relationshipName": "CaseComments",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "CaseComment"
+        }, {
             "relationshipName": "CaseContactRoles",
+            "childFieldAPIName": "CasesId",
             "childAPIName": "CaseContactRole"
-        }, {"relationshipName": "Feeds", "childAPIName": "CaseFeed"}, {
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "CaseFeed"
+        }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "CaseId",
             "childAPIName": "CaseHistory"
-        }, {"relationshipName": "Shares", "childAPIName": "CaseShare"}, {
+        }, {
+            "relationshipName": "Shares",
+            "childFieldAPIName": "CaseId",
+            "childAPIName": "CaseShare"
+        }, {
             "relationshipName": "CaseSolutions",
+            "childFieldAPIName": "CaseId",
             "childAPIName": "CaseSolution"
         }, {
             "relationshipName": "TeamMembers",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CaseTeamMember"
         }, {
             "relationshipName": "TeamTemplateRecords",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CaseTeamTemplateRecord"
         }, {
             "relationshipName": "RecordAssociatedGroups",
+            "childFieldAPIName": "RecordId",
             "childAPIName": "CollaborationGroupRecord"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
-        }, {"relationshipName": "EmailMessages", "childAPIName": "EmailMessage"}, {
+        }, {
+            "relationshipName": "EmailMessages",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "EmailMessage"
+        }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ProductRequests",
+            "childFieldAPIName": "CaseId",
             "childAPIName": "ProductRequest"
         }, {
             "relationshipName": "ProductRequestLineItems",
+            "childFieldAPIName": "CaseId",
             "childAPIName": "ProductRequestLineItem"
-        }, {"relationshipName": "Tasks", "childAPIName": "Task"}, {
+        }, {
+            "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Task"
+        }, {
             "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
-        }, {"relationshipName": "WorkOrders", "childAPIName": "WorkOrder"}],
+        }, {"relationshipName": "WorkOrders", "childFieldAPIName": "CaseId", "childAPIName": "WorkOrder"}],
         "apiName": "Case"
     }, {
         "label": "Case Share",
@@ -13705,12 +14322,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "CaseFeed"
@@ -14034,41 +14662,69 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
-        }, {"relationshipName": "Attachments", "childAPIName": "Attachment"}, {
+        }, {
+            "relationshipName": "Attachments",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "Attachment"
+        }, {
             "relationshipName": "CaseSolutions",
+            "childFieldAPIName": "SolutionId",
             "childAPIName": "CaseSolution"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "SolutionFeed"
-        }, {"relationshipName": "Histories", "childAPIName": "SolutionHistory"}, {
+        }, {
+            "relationshipName": "Histories",
+            "childFieldAPIName": "SolutionId",
+            "childAPIName": "SolutionHistory"
+        }, {
             "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}, {
-            "relationshipName": "Votes",
-            "childAPIName": "Vote"
-        }],
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }, {"relationshipName": "Votes", "childFieldAPIName": "ParentId", "childAPIName": "Vote"}],
         "apiName": "Solution"
     }, {
         "label": "Solution History",
@@ -14285,12 +14941,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "SolutionFeed"
@@ -14990,16 +15657,6 @@ var wrappers =
             }, {
                 "relationshipName": "FirstPublishLocation",
                 "referenceFieldAPIName": "FirstPublishLocationId",
-                "parentLabel": "Graphviz Config",
-                "parentAPIName": "GraphvizConfig__c"
-            }, {
-                "relationshipName": "FirstPublishLocation",
-                "referenceFieldAPIName": "FirstPublishLocationId",
-                "parentLabel": "Graphviz Diagram",
-                "parentAPIName": "Graphviz_Diagram__c"
-            }, {
-                "relationshipName": "FirstPublishLocation",
-                "referenceFieldAPIName": "FirstPublishLocationId",
                 "parentLabel": "Lead",
                 "parentAPIName": "Lead"
             }, {
@@ -15247,6 +15904,16 @@ var wrappers =
                 "referenceFieldAPIName": "FirstPublishLocationId",
                 "parentLabel": "Work Type",
                 "parentAPIName": "WorkType"
+            }, {
+                "relationshipName": "FirstPublishLocation",
+                "referenceFieldAPIName": "FirstPublishLocationId",
+                "parentLabel": "Graphviz Config",
+                "parentAPIName": "gvf2__GraphvizConfig__c"
+            }, {
+                "relationshipName": "FirstPublishLocation",
+                "referenceFieldAPIName": "FirstPublishLocationId",
+                "parentLabel": "Graphviz Diagram",
+                "parentAPIName": "gvf2__Graphviz_Diagram__c"
             }],
             "label": "First Publish Location ID",
             "isMDOrCascadeDelete": false,
@@ -15321,7 +15988,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "IsAssetEnabled"
         }],
-        "childRelationships": [{"relationshipName": "Histories", "childAPIName": "ContentVersionHistory"}],
+        "childRelationships": [{
+            "relationshipName": "Histories",
+            "childFieldAPIName": "ContentVersionId",
+            "childAPIName": "ContentVersionHistory"
+        }],
         "apiName": "ContentVersion"
     }, {
         "label": "Content Version History",
@@ -15611,20 +16282,33 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ContentDistributions",
+            "childFieldAPIName": "ContentDocumentId",
             "childAPIName": "ContentDistribution"
-        }, {"relationshipName": "Feeds", "childAPIName": "ContentDocumentFeed"}, {
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "ContentDocumentFeed"
+        }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "ContentDocumentId",
             "childAPIName": "ContentDocumentHistory"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "ContentDocumentId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "ContentVersions",
+            "childFieldAPIName": "ContentDocumentId",
             "childAPIName": "ContentVersion"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
         "apiName": "ContentDocument"
     }, {
         "label": "Content Document History",
@@ -15841,12 +16525,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ContentDocumentFeed"
@@ -15942,16 +16637,6 @@ var wrappers =
                 "referenceFieldAPIName": "LinkedEntityId",
                 "parentLabel": "Goal",
                 "parentAPIName": "Goal"
-            }, {
-                "relationshipName": "LinkedEntity",
-                "referenceFieldAPIName": "LinkedEntityId",
-                "parentLabel": "Graphviz Config",
-                "parentAPIName": "GraphvizConfig__c"
-            }, {
-                "relationshipName": "LinkedEntity",
-                "referenceFieldAPIName": "LinkedEntityId",
-                "parentLabel": "Graphviz Diagram",
-                "parentAPIName": "Graphviz_Diagram__c"
             }, {
                 "relationshipName": "LinkedEntity",
                 "referenceFieldAPIName": "LinkedEntityId",
@@ -16202,6 +16887,16 @@ var wrappers =
                 "referenceFieldAPIName": "LinkedEntityId",
                 "parentLabel": "Work Type",
                 "parentAPIName": "WorkType"
+            }, {
+                "relationshipName": "LinkedEntity",
+                "referenceFieldAPIName": "LinkedEntityId",
+                "parentLabel": "Graphviz Config",
+                "parentAPIName": "gvf2__GraphvizConfig__c"
+            }, {
+                "relationshipName": "LinkedEntity",
+                "referenceFieldAPIName": "LinkedEntityId",
+                "parentLabel": "Graphviz Diagram",
+                "parentAPIName": "gvf2__Graphviz_Diagram__c"
             }],
             "label": "Linked Entity ID",
             "isMDOrCascadeDelete": false,
@@ -16638,17 +17333,25 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "ContentFolderLinks",
+            "childFieldAPIName": "ParentEntityId",
             "childAPIName": "ContentFolderLink"
-        }, {"relationshipName": "ContentWorkspaceMembers", "childAPIName": "ContentWorkspaceMember"}],
+        }, {
+            "relationshipName": "ContentWorkspaceMembers",
+            "childFieldAPIName": "ContentWorkspaceId",
+            "childAPIName": "ContentWorkspaceMember"
+        }],
         "apiName": "ContentWorkspace"
     }, {
         "label": "Library Document",
@@ -17107,16 +17810,6 @@ var wrappers =
             }, {
                 "relationshipName": "RelatedRecord",
                 "referenceFieldAPIName": "RelatedRecordId",
-                "parentLabel": "Graphviz Config",
-                "parentAPIName": "GraphvizConfig__c"
-            }, {
-                "relationshipName": "RelatedRecord",
-                "referenceFieldAPIName": "RelatedRecordId",
-                "parentLabel": "Graphviz Diagram",
-                "parentAPIName": "Graphviz_Diagram__c"
-            }, {
-                "relationshipName": "RelatedRecord",
-                "referenceFieldAPIName": "RelatedRecordId",
                 "parentLabel": "Lead",
                 "parentAPIName": "Lead"
             }, {
@@ -17129,6 +17822,16 @@ var wrappers =
                 "referenceFieldAPIName": "RelatedRecordId",
                 "parentLabel": "Opportunity",
                 "parentAPIName": "Opportunity"
+            }, {
+                "relationshipName": "RelatedRecord",
+                "referenceFieldAPIName": "RelatedRecordId",
+                "parentLabel": "Graphviz Config",
+                "parentAPIName": "gvf2__GraphvizConfig__c"
+            }, {
+                "relationshipName": "RelatedRecord",
+                "referenceFieldAPIName": "RelatedRecordId",
+                "parentLabel": "Graphviz Diagram",
+                "parentAPIName": "gvf2__Graphviz_Diagram__c"
             }],
             "label": "Related Record ID",
             "isMDOrCascadeDelete": false,
@@ -17249,6 +17952,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ContentDistributionViews",
+            "childFieldAPIName": "DistributionId",
             "childAPIName": "ContentDistributionView"
         }],
         "apiName": "ContentDistribution"
@@ -17435,16 +18139,6 @@ var wrappers =
                 "referenceFieldAPIName": "LinkedEntityId",
                 "parentLabel": "Goal",
                 "parentAPIName": "Goal"
-            }, {
-                "relationshipName": "LinkedEntity",
-                "referenceFieldAPIName": "LinkedEntityId",
-                "parentLabel": "Graphviz Config",
-                "parentAPIName": "GraphvizConfig__c"
-            }, {
-                "relationshipName": "LinkedEntity",
-                "referenceFieldAPIName": "LinkedEntityId",
-                "parentLabel": "Graphviz Diagram",
-                "parentAPIName": "Graphviz_Diagram__c"
             }, {
                 "relationshipName": "LinkedEntity",
                 "referenceFieldAPIName": "LinkedEntityId",
@@ -17685,6 +18379,16 @@ var wrappers =
                 "referenceFieldAPIName": "LinkedEntityId",
                 "parentLabel": "Work Type",
                 "parentAPIName": "WorkType"
+            }, {
+                "relationshipName": "LinkedEntity",
+                "referenceFieldAPIName": "LinkedEntityId",
+                "parentLabel": "Graphviz Config",
+                "parentAPIName": "gvf2__GraphvizConfig__c"
+            }, {
+                "relationshipName": "LinkedEntity",
+                "referenceFieldAPIName": "LinkedEntityId",
+                "parentLabel": "Graphviz Diagram",
+                "parentAPIName": "gvf2__Graphviz_Diagram__c"
             }],
             "label": "Parent ID",
             "isMDOrCascadeDelete": false,
@@ -17901,16 +18605,6 @@ var wrappers =
             }, {
                 "relationshipName": "Parent",
                 "referenceFieldAPIName": "ParentId",
-                "parentLabel": "Graphviz Config",
-                "parentAPIName": "GraphvizConfig__c"
-            }, {
-                "relationshipName": "Parent",
-                "referenceFieldAPIName": "ParentId",
-                "parentLabel": "Graphviz Diagram",
-                "parentAPIName": "Graphviz_Diagram__c"
-            }, {
-                "relationshipName": "Parent",
-                "referenceFieldAPIName": "ParentId",
                 "parentLabel": "Lead",
                 "parentAPIName": "Lead"
             }, {
@@ -18148,6 +18842,16 @@ var wrappers =
                 "referenceFieldAPIName": "ParentId",
                 "parentLabel": "Work Type",
                 "parentAPIName": "WorkType"
+            }, {
+                "relationshipName": "Parent",
+                "referenceFieldAPIName": "ParentId",
+                "parentLabel": "Graphviz Config",
+                "parentAPIName": "gvf2__GraphvizConfig__c"
+            }, {
+                "relationshipName": "Parent",
+                "referenceFieldAPIName": "ParentId",
+                "parentLabel": "Graphviz Diagram",
+                "parentAPIName": "gvf2__Graphviz_Diagram__c"
             }],
             "label": "Parent ID",
             "isMDOrCascadeDelete": false,
@@ -18575,11 +19279,6 @@ var wrappers =
             }, {
                 "relationshipName": "Parent",
                 "referenceFieldAPIName": "ParentId",
-                "parentLabel": "Graphviz Diagram",
-                "parentAPIName": "Graphviz_Diagram__c"
-            }, {
-                "relationshipName": "Parent",
-                "referenceFieldAPIName": "ParentId",
                 "parentLabel": "Lead",
                 "parentAPIName": "Lead"
             }, {
@@ -18622,6 +19321,11 @@ var wrappers =
                 "referenceFieldAPIName": "ParentId",
                 "parentLabel": "Work Order Line Item",
                 "parentAPIName": "WorkOrderLineItem"
+            }, {
+                "relationshipName": "Parent",
+                "referenceFieldAPIName": "ParentId",
+                "parentLabel": "Graphviz Diagram",
+                "parentAPIName": "gvf2__Graphviz_Diagram__c"
             }],
             "label": "Parent ID",
             "isMDOrCascadeDelete": false,
@@ -18762,11 +19466,6 @@ var wrappers =
             }, {
                 "relationshipName": "Parent",
                 "referenceFieldAPIName": "ParentId",
-                "parentLabel": "Graphviz Diagram",
-                "parentAPIName": "Graphviz_Diagram__c"
-            }, {
-                "relationshipName": "Parent",
-                "referenceFieldAPIName": "ParentId",
                 "parentLabel": "Lead",
                 "parentAPIName": "Lead"
             }, {
@@ -18809,6 +19508,11 @@ var wrappers =
                 "referenceFieldAPIName": "ParentId",
                 "parentLabel": "Work Order Line Item",
                 "parentAPIName": "WorkOrderLineItem"
+            }, {
+                "relationshipName": "Parent",
+                "referenceFieldAPIName": "ParentId",
+                "parentLabel": "Graphviz Diagram",
+                "parentAPIName": "gvf2__Graphviz_Diagram__c"
             }],
             "label": "Parent ID",
             "isMDOrCascadeDelete": false,
@@ -19124,16 +19828,6 @@ var wrappers =
             }, {
                 "relationshipName": "Parent",
                 "referenceFieldAPIName": "ParentId",
-                "parentLabel": "Graphviz Config",
-                "parentAPIName": "GraphvizConfig__c"
-            }, {
-                "relationshipName": "Parent",
-                "referenceFieldAPIName": "ParentId",
-                "parentLabel": "Graphviz Diagram",
-                "parentAPIName": "Graphviz_Diagram__c"
-            }, {
-                "relationshipName": "Parent",
-                "referenceFieldAPIName": "ParentId",
                 "parentLabel": "Lead",
                 "parentAPIName": "Lead"
             }, {
@@ -19366,6 +20060,16 @@ var wrappers =
                 "referenceFieldAPIName": "ParentId",
                 "parentLabel": "Work Type",
                 "parentAPIName": "WorkType"
+            }, {
+                "relationshipName": "Parent",
+                "referenceFieldAPIName": "ParentId",
+                "parentLabel": "Graphviz Config",
+                "parentAPIName": "gvf2__GraphvizConfig__c"
+            }, {
+                "relationshipName": "Parent",
+                "referenceFieldAPIName": "ParentId",
+                "parentLabel": "Graphviz Diagram",
+                "parentAPIName": "gvf2__Graphviz_Diagram__c"
             }],
             "label": "Parent ID",
             "isMDOrCascadeDelete": false,
@@ -19565,20 +20269,33 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedRevisions", "childAPIName": "FeedRevision"}, {
+        }, {
+            "relationshipName": "FeedRevisions",
+            "childFieldAPIName": "FeedEntityId",
+            "childAPIName": "FeedRevision"
+        }, {
             "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }, {
             "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
-        }, {"relationshipName": "FeedItemThanks", "childAPIName": "WorkThanks"}],
+        }, {"relationshipName": "FeedItemThanks", "childFieldAPIName": "FeedItemId", "childAPIName": "WorkThanks"}],
         "apiName": "FeedItem"
     }, {
         "label": "Feed Tracked Change",
@@ -20333,16 +21050,6 @@ var wrappers =
             }, {
                 "relationshipName": null,
                 "referenceFieldAPIName": "ParentId",
-                "parentLabel": "Graphviz Config",
-                "parentAPIName": "GraphvizConfig__c"
-            }, {
-                "relationshipName": null,
-                "referenceFieldAPIName": "ParentId",
-                "parentLabel": "Graphviz Diagram",
-                "parentAPIName": "Graphviz_Diagram__c"
-            }, {
-                "relationshipName": null,
-                "referenceFieldAPIName": "ParentId",
                 "parentLabel": "Lead",
                 "parentAPIName": "Lead"
             }, {
@@ -20575,6 +21282,16 @@ var wrappers =
                 "referenceFieldAPIName": "ParentId",
                 "parentLabel": "Work Type",
                 "parentAPIName": "WorkType"
+            }, {
+                "relationshipName": null,
+                "referenceFieldAPIName": "ParentId",
+                "parentLabel": "Graphviz Config",
+                "parentAPIName": "gvf2__GraphvizConfig__c"
+            }, {
+                "relationshipName": null,
+                "referenceFieldAPIName": "ParentId",
+                "parentLabel": "Graphviz Diagram",
+                "parentAPIName": "gvf2__Graphviz_Diagram__c"
             }],
             "label": "Parent ID",
             "isMDOrCascadeDelete": false,
@@ -20706,8 +21423,9 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedRevisions", "childAPIName": "FeedRevision"}],
+        }, {"relationshipName": "FeedRevisions", "childFieldAPIName": "FeedEntityId", "childAPIName": "FeedRevision"}],
         "apiName": "FeedComment"
     }, {
         "label": "Feed Like",
@@ -22152,7 +22870,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "IsDeleted"
         }],
-        "childRelationships": [{"relationshipName": "FeedPollVotes", "childAPIName": "FeedPollVote"}],
+        "childRelationships": [{
+            "relationshipName": "FeedPollVotes",
+            "childFieldAPIName": "ChoiceId",
+            "childAPIName": "FeedPollVote"
+        }],
         "apiName": "FeedPollChoice"
     }, {
         "label": "Feed Poll Vote",
@@ -22614,16 +23336,6 @@ var wrappers =
             }, {
                 "relationshipName": "Parent",
                 "referenceFieldAPIName": "ParentId",
-                "parentLabel": "Graphviz Config",
-                "parentAPIName": "GraphvizConfig__c"
-            }, {
-                "relationshipName": "Parent",
-                "referenceFieldAPIName": "ParentId",
-                "parentLabel": "Graphviz Diagram",
-                "parentAPIName": "Graphviz_Diagram__c"
-            }, {
-                "relationshipName": "Parent",
-                "referenceFieldAPIName": "ParentId",
                 "parentLabel": "Lead",
                 "parentAPIName": "Lead"
             }, {
@@ -22856,6 +23568,16 @@ var wrappers =
                 "referenceFieldAPIName": "ParentId",
                 "parentLabel": "Work Type",
                 "parentAPIName": "WorkType"
+            }, {
+                "relationshipName": "Parent",
+                "referenceFieldAPIName": "ParentId",
+                "parentLabel": "Graphviz Config",
+                "parentAPIName": "gvf2__GraphvizConfig__c"
+            }, {
+                "relationshipName": "Parent",
+                "referenceFieldAPIName": "ParentId",
+                "parentLabel": "Graphviz Diagram",
+                "parentAPIName": "gvf2__Graphviz_Diagram__c"
             }],
             "label": "Parent ID",
             "isMDOrCascadeDelete": false,
@@ -23117,23 +23839,37 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
-        }, {"relationshipName": "Feeds", "childAPIName": "CollaborationGroupFeed"}, {
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "CollaborationGroupFeed"
+        }, {
             "relationshipName": "GroupMembers",
+            "childFieldAPIName": "CollaborationGroupId",
             "childAPIName": "CollaborationGroupMember"
         }, {
             "relationshipName": "GroupMemberRequests",
+            "childFieldAPIName": "CollaborationGroupId",
             "childAPIName": "CollaborationGroupMemberRequest"
         }, {
             "relationshipName": "CollaborationGroupRecords",
+            "childFieldAPIName": "CollaborationGroupId",
             "childAPIName": "CollaborationGroupRecord"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
-        }, {"relationshipName": "FeedSubscriptionsForEntity", "childAPIName": "EntitySubscription"}],
+        }, {
+            "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "EntitySubscription"
+        }],
         "apiName": "CollaborationGroup"
     }, {
         "label": "Group Feed",
@@ -23278,12 +24014,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "CollaborationGroupFeed"
@@ -23749,7 +24496,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "Id"
         }],
-        "childRelationships": [{"relationshipName": "ChatterMessages", "childAPIName": "ChatterMessage"}],
+        "childRelationships": [{
+            "relationshipName": "ChatterMessages",
+            "childFieldAPIName": "ConversationId",
+            "childAPIName": "ChatterMessage"
+        }],
         "apiName": "ChatterConversation"
     }, {
         "label": "Chatter Conversation Member",
@@ -23817,17 +24568,25 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "DirectMessageFeed"
-        }, {"relationshipName": "FeedSubscriptionsForEntity", "childAPIName": "EntitySubscription"}],
+        }, {
+            "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "EntitySubscription"
+        }],
         "apiName": "DirectMessage"
     }, {
         "label": "Direct Message Feed",
@@ -23967,12 +24726,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "DirectMessageFeed"
@@ -24398,20 +25168,25 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "LinkDataSource", "childAPIName": "MetricDataLink"}, {
-            "relationshipName": "Feeds",
-            "childAPIName": "ReportFeed"
-        }],
+        }, {
+            "relationshipName": "LinkDataSource",
+            "childFieldAPIName": "DataSourceId",
+            "childAPIName": "MetricDataLink"
+        }, {"relationshipName": "Feeds", "childFieldAPIName": "ParentId", "childAPIName": "ReportFeed"}],
         "apiName": "Report"
     }, {
         "label": "Report Feed",
@@ -24556,12 +25331,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ReportFeed"
@@ -24792,20 +25578,29 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "DashboardComponents",
+            "childFieldAPIName": "DashboardId",
             "childAPIName": "DashboardComponent"
         }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "DashboardFeed"
-        }, {"relationshipName": "FeedSubscriptionsForEntity", "childAPIName": "EntitySubscription"}],
+        }, {
+            "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "EntitySubscription"
+        }],
         "apiName": "Dashboard"
     }, {
         "label": "Dashboard Feed",
@@ -24950,12 +25745,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "DashboardFeed"
@@ -25003,17 +25809,25 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "DashboardComponentFeed"
-        }, {"relationshipName": "FeedSubscriptionsForEntity", "childAPIName": "EntitySubscription"}],
+        }, {
+            "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "EntitySubscription"
+        }],
         "apiName": "DashboardComponent"
     }, {
         "label": "Dashboard Component Feed",
@@ -25158,12 +25972,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "DashboardComponentFeed"
@@ -25508,16 +26333,6 @@ var wrappers =
             }, {
                 "relationshipName": "TargetObject",
                 "referenceFieldAPIName": "TargetObjectId",
-                "parentLabel": "Graphviz Config",
-                "parentAPIName": "GraphvizConfig__c"
-            }, {
-                "relationshipName": "TargetObject",
-                "referenceFieldAPIName": "TargetObjectId",
-                "parentLabel": "Graphviz Diagram",
-                "parentAPIName": "Graphviz_Diagram__c"
-            }, {
-                "relationshipName": "TargetObject",
-                "referenceFieldAPIName": "TargetObjectId",
                 "parentLabel": "Lead",
                 "parentAPIName": "Lead"
             }, {
@@ -25558,6 +26373,11 @@ var wrappers =
             }, {
                 "relationshipName": "TargetObject",
                 "referenceFieldAPIName": "TargetObjectId",
+                "parentLabel": "Product Consumed",
+                "parentAPIName": "ProductConsumed"
+            }, {
+                "relationshipName": "TargetObject",
+                "referenceFieldAPIName": "TargetObjectId",
                 "parentLabel": "Product Item",
                 "parentAPIName": "ProductItem"
             }, {
@@ -25575,6 +26395,11 @@ var wrappers =
                 "referenceFieldAPIName": "TargetObjectId",
                 "parentLabel": "Product Request Line Item",
                 "parentAPIName": "ProductRequestLineItem"
+            }, {
+                "relationshipName": "TargetObject",
+                "referenceFieldAPIName": "TargetObjectId",
+                "parentLabel": "Product Required",
+                "parentAPIName": "ProductRequired"
             }, {
                 "relationshipName": "TargetObject",
                 "referenceFieldAPIName": "TargetObjectId",
@@ -25745,6 +26570,16 @@ var wrappers =
                 "referenceFieldAPIName": "TargetObjectId",
                 "parentLabel": "Work Type",
                 "parentAPIName": "WorkType"
+            }, {
+                "relationshipName": "TargetObject",
+                "referenceFieldAPIName": "TargetObjectId",
+                "parentLabel": "Graphviz Config",
+                "parentAPIName": "gvf2__GraphvizConfig__c"
+            }, {
+                "relationshipName": "TargetObject",
+                "referenceFieldAPIName": "TargetObjectId",
+                "parentLabel": "Graphviz Diagram",
+                "parentAPIName": "gvf2__Graphviz_Diagram__c"
             }],
             "label": "Target Object ID",
             "isMDOrCascadeDelete": false,
@@ -25864,11 +26699,21 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "StepsAndWorkitems",
+            "childFieldAPIName": "ProcessInstanceId",
             "childAPIName": "ProcessInstanceHistory"
-        }, {"relationshipName": "Nodes", "childAPIName": "ProcessInstanceNode"}, {
+        }, {
+            "relationshipName": "Nodes",
+            "childFieldAPIName": "ProcessInstanceId",
+            "childAPIName": "ProcessInstanceNode"
+        }, {
             "relationshipName": "Steps",
+            "childFieldAPIName": "ProcessInstanceId",
             "childAPIName": "ProcessInstanceStep"
-        }, {"relationshipName": "Workitems", "childAPIName": "ProcessInstanceWorkitem"}],
+        }, {
+            "relationshipName": "Workitems",
+            "childFieldAPIName": "ProcessInstanceId",
+            "childAPIName": "ProcessInstanceWorkitem"
+        }],
         "apiName": "ProcessInstance"
     }, {
         "label": "Process Instance Step",
@@ -26224,16 +27069,6 @@ var wrappers =
             }, {
                 "relationshipName": "TargetObject",
                 "referenceFieldAPIName": "TargetObjectId",
-                "parentLabel": "Graphviz Config",
-                "parentAPIName": "GraphvizConfig__c"
-            }, {
-                "relationshipName": "TargetObject",
-                "referenceFieldAPIName": "TargetObjectId",
-                "parentLabel": "Graphviz Diagram",
-                "parentAPIName": "Graphviz_Diagram__c"
-            }, {
-                "relationshipName": "TargetObject",
-                "referenceFieldAPIName": "TargetObjectId",
                 "parentLabel": "Lead",
                 "parentAPIName": "Lead"
             }, {
@@ -26274,6 +27109,11 @@ var wrappers =
             }, {
                 "relationshipName": "TargetObject",
                 "referenceFieldAPIName": "TargetObjectId",
+                "parentLabel": "Product Consumed",
+                "parentAPIName": "ProductConsumed"
+            }, {
+                "relationshipName": "TargetObject",
+                "referenceFieldAPIName": "TargetObjectId",
                 "parentLabel": "Product Item",
                 "parentAPIName": "ProductItem"
             }, {
@@ -26291,6 +27131,11 @@ var wrappers =
                 "referenceFieldAPIName": "TargetObjectId",
                 "parentLabel": "Product Request Line Item",
                 "parentAPIName": "ProductRequestLineItem"
+            }, {
+                "relationshipName": "TargetObject",
+                "referenceFieldAPIName": "TargetObjectId",
+                "parentLabel": "Product Required",
+                "parentAPIName": "ProductRequired"
             }, {
                 "relationshipName": "TargetObject",
                 "referenceFieldAPIName": "TargetObjectId",
@@ -26461,6 +27306,16 @@ var wrappers =
                 "referenceFieldAPIName": "TargetObjectId",
                 "parentLabel": "Work Type",
                 "parentAPIName": "WorkType"
+            }, {
+                "relationshipName": "TargetObject",
+                "referenceFieldAPIName": "TargetObjectId",
+                "parentLabel": "Graphviz Config",
+                "parentAPIName": "gvf2__GraphvizConfig__c"
+            }, {
+                "relationshipName": "TargetObject",
+                "referenceFieldAPIName": "TargetObjectId",
+                "parentLabel": "Graphviz Diagram",
+                "parentAPIName": "gvf2__Graphviz_Diagram__c"
             }],
             "label": "Target Object ID",
             "isMDOrCascadeDelete": false,
@@ -26702,7 +27557,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "SystemModstamp"
         }],
-        "childRelationships": [{"relationshipName": "SetupEntityAccessItems", "childAPIName": "SetupEntityAccess"}],
+        "childRelationships": [{
+            "relationshipName": "SetupEntityAccessItems",
+            "childFieldAPIName": "SetupEntityId",
+            "childAPIName": "SetupEntityAccess"
+        }],
         "apiName": "ApexClass"
     }, {
         "label": "Apex Trigger",
@@ -27096,7 +27955,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "RunTime"
         }],
-        "childRelationships": [{"relationshipName": "ApexTestResults", "childAPIName": "ApexTestResultLimits"}],
+        "childRelationships": [{
+            "relationshipName": "ApexTestResults",
+            "childFieldAPIName": "ApexTestResultId",
+            "childAPIName": "ApexTestResultLimits"
+        }],
         "apiName": "ApexTestResult"
     }, {
         "label": "Apex Job",
@@ -27222,7 +28085,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "LastProcessedOffset"
         }],
-        "childRelationships": [{"relationshipName": "AsyncApex", "childAPIName": "ApexTestRunResult"}],
+        "childRelationships": [{
+            "relationshipName": "AsyncApex",
+            "childFieldAPIName": "AsyncApexJobId",
+            "childAPIName": "ApexTestRunResult"
+        }],
         "apiName": "AsyncApexJob"
     }, {
         "label": "Apex Test Queue Item",
@@ -27454,7 +28321,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "PortalAccountOwnerId"
         }],
-        "childRelationships": [{"relationshipName": "Users", "childAPIName": "User"}],
+        "childRelationships": [{
+            "relationshipName": "Users",
+            "childFieldAPIName": "UserRoleId",
+            "childAPIName": "User"
+        }],
         "apiName": "UserRole"
     }, {
         "label": "Group",
@@ -27590,11 +28461,13 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "GroupMembers",
+            "childFieldAPIName": "GroupId",
             "childAPIName": "GroupMember"
-        }, {"relationshipName": "QueueSobjects", "childAPIName": "QueueSobject"}, {
-            "relationshipName": "DelegatedUsers",
-            "childAPIName": "User"
-        }],
+        }, {
+            "relationshipName": "QueueSobjects",
+            "childFieldAPIName": "QueueId",
+            "childAPIName": "QueueSobject"
+        }, {"relationshipName": "DelegatedUsers", "childFieldAPIName": "DelegatedApproverId", "childAPIName": "User"}],
         "apiName": "Group"
     }, {
         "label": "Group Member",
@@ -27896,7 +28769,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "SystemModstamp"
         }],
-        "childRelationships": [{"relationshipName": "SetupEntityAccessItems", "childAPIName": "SetupEntityAccess"}],
+        "childRelationships": [{
+            "relationshipName": "SetupEntityAccessItems",
+            "childFieldAPIName": "SetupEntityId",
+            "childAPIName": "SetupEntityAccess"
+        }],
         "apiName": "ApexPage"
     }, {
         "label": "Visualforce Component",
@@ -28457,7 +29334,7 @@ var wrappers =
         }, {
             "type": "BOOLEAN",
             "referenceFields": null,
-            "label": "Manage Public Templates",
+            "label": "Manage Public Classic Email Templates",
             "isMDOrCascadeDelete": false,
             "isCustom": false,
             "apiName": "PermissionsEditPublicTemplates"
@@ -29374,13 +30251,6 @@ var wrappers =
         }, {
             "type": "BOOLEAN",
             "referenceFields": null,
-            "label": "Access Chatter For SharePoint",
-            "isMDOrCascadeDelete": false,
-            "isCustom": false,
-            "apiName": "PermissionsChatterForSharePoint"
-        }, {
-            "type": "BOOLEAN",
-            "referenceFields": null,
             "label": "Upload External Data to Analytics",
             "isMDOrCascadeDelete": false,
             "isCustom": false,
@@ -29851,8 +30721,9 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "MobileSettingsAssignments",
+            "childFieldAPIName": "ProfileId",
             "childAPIName": "MobileSettingsAssignment"
-        }, {"relationshipName": "Users", "childAPIName": "User"}],
+        }, {"relationshipName": "Users", "childFieldAPIName": "ProfileId", "childAPIName": "User"}],
         "apiName": "Profile"
     }, {
         "label": "Permission Set Assignment",
@@ -30684,23 +31555,37 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "RecurringTasks", "childAPIName": "Task"}, {
+        }, {
+            "relationshipName": "RecurringTasks",
+            "childFieldAPIName": "RecurrenceActivityId",
+            "childAPIName": "Task"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "TaskFeed"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
         "apiName": "Task"
     }, {
         "label": "Task Feed",
@@ -30845,12 +31730,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "TaskFeed"
@@ -31332,35 +32228,53 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AcceptedEventRelations",
+            "childFieldAPIName": "EventId",
             "childAPIName": "AcceptedEventRelation"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "DeclinedEventRelations",
+            "childFieldAPIName": "EventId",
             "childAPIName": "DeclinedEventRelation"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "RecurringEvents", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "RecurringEvents",
+            "childFieldAPIName": "RecurrenceActivityId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EventFeed"
         }, {
             "relationshipName": "EventRelations",
+            "childFieldAPIName": "EventId",
             "childAPIName": "EventRelation"
         }, {
             "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
-        }, {"relationshipName": "UndecidedEventRelations", "childAPIName": "UndecidedEventRelation"}],
+        }, {
+            "relationshipName": "UndecidedEventRelations",
+            "childFieldAPIName": "EventId",
+            "childAPIName": "UndecidedEventRelation"
+        }],
         "apiName": "Event"
     }, {
         "label": "Event Feed",
@@ -31505,12 +32419,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "EventFeed"
@@ -32073,16 +32998,6 @@ var wrappers =
             }, {
                 "relationshipName": "What",
                 "referenceFieldAPIName": "WhatId",
-                "parentLabel": "Graphviz Config",
-                "parentAPIName": "GraphvizConfig__c"
-            }, {
-                "relationshipName": "What",
-                "referenceFieldAPIName": "WhatId",
-                "parentLabel": "Graphviz Diagram",
-                "parentAPIName": "Graphviz_Diagram__c"
-            }, {
-                "relationshipName": "What",
-                "referenceFieldAPIName": "WhatId",
                 "parentLabel": "Maintenance Asset",
                 "parentAPIName": "MaintenanceAsset"
             }, {
@@ -32195,6 +33110,16 @@ var wrappers =
                 "referenceFieldAPIName": "WhatId",
                 "parentLabel": "Work Order Line Item",
                 "parentAPIName": "WorkOrderLineItem"
+            }, {
+                "relationshipName": "What",
+                "referenceFieldAPIName": "WhatId",
+                "parentLabel": "Graphviz Config",
+                "parentAPIName": "gvf2__GraphvizConfig__c"
+            }, {
+                "relationshipName": "What",
+                "referenceFieldAPIName": "WhatId",
+                "parentLabel": "Graphviz Diagram",
+                "parentAPIName": "gvf2__Graphviz_Diagram__c"
             }],
             "label": "Related To ID",
             "isMDOrCascadeDelete": false,
@@ -33730,23 +34655,29 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "SiteDomainPaths",
+            "childFieldAPIName": "SiteId",
             "childAPIName": "DomainSite"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Feeds", "childAPIName": "SiteFeed"}, {
-            "relationshipName": "Histories",
-            "childAPIName": "SiteHistory"
-        }],
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "SiteFeed"
+        }, {"relationshipName": "Histories", "childFieldAPIName": "SiteId", "childAPIName": "SiteHistory"}],
         "apiName": "Site"
     }, {
         "label": "Site History",
@@ -33963,12 +34894,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "SiteFeed"
@@ -34049,7 +34991,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "SystemModstamp"
         }],
-        "childRelationships": [{"relationshipName": "DomainSites", "childAPIName": "DomainSite"}],
+        "childRelationships": [{
+            "relationshipName": "DomainSites",
+            "childFieldAPIName": "DomainId",
+            "childAPIName": "DomainSite"
+        }],
         "apiName": "Domain"
     }, {
         "label": "Custom URL",
@@ -34290,7 +35236,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "LastModifiedById"
         }],
-        "childRelationships": [{"relationshipName": "CustomBrandAssets", "childAPIName": "CustomBrandAsset"}],
+        "childRelationships": [{
+            "relationshipName": "CustomBrandAssets",
+            "childFieldAPIName": "CustomBrandId",
+            "childAPIName": "CustomBrandAsset"
+        }],
         "apiName": "CustomBrand"
     }, {
         "label": "Custom Brand Asset",
@@ -34514,8 +35464,13 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "InstalledMobileApps",
+            "childFieldAPIName": "ConnectedApplicationId",
             "childAPIName": "InstalledMobileApp"
-        }, {"relationshipName": "SetupEntityAccessItems", "childAPIName": "SetupEntityAccess"}],
+        }, {
+            "relationshipName": "SetupEntityAccessItems",
+            "childFieldAPIName": "SetupEntityId",
+            "childAPIName": "SetupEntityAccess"
+        }],
         "apiName": "ConnectedApplication"
     }, {
         "label": "Auth. Provider",
@@ -35077,7 +36032,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "SystemModstamp"
         }],
-        "childRelationships": [{"relationshipName": "Addresses", "childAPIName": "EmailServicesAddress"}],
+        "childRelationships": [{
+            "relationshipName": "Addresses",
+            "childFieldAPIName": "FunctionId",
+            "childAPIName": "EmailServicesAddress"
+        }],
         "apiName": "EmailServicesFunction"
     }, {
         "label": "Email Services Address",
@@ -35300,14 +36259,17 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "CustomBrands",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CustomBrand"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Feeds", "childAPIName": "TopicFeed"}],
+        }, {"relationshipName": "Feeds", "childFieldAPIName": "ParentId", "childAPIName": "TopicFeed"}],
         "apiName": "Topic"
     }, {
         "label": "Topic Feed",
@@ -35452,12 +36414,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "TopicFeed"
@@ -35530,16 +36503,6 @@ var wrappers =
                 "referenceFieldAPIName": "EntityId",
                 "parentLabel": "Feed Item",
                 "parentAPIName": "FeedItem"
-            }, {
-                "relationshipName": "Entity",
-                "referenceFieldAPIName": "EntityId",
-                "parentLabel": "Graphviz Config",
-                "parentAPIName": "GraphvizConfig__c"
-            }, {
-                "relationshipName": "Entity",
-                "referenceFieldAPIName": "EntityId",
-                "parentLabel": "Graphviz Diagram",
-                "parentAPIName": "Graphviz_Diagram__c"
             }, {
                 "relationshipName": "Entity",
                 "referenceFieldAPIName": "EntityId",
@@ -35685,6 +36648,16 @@ var wrappers =
                 "referenceFieldAPIName": "EntityId",
                 "parentLabel": "Work Order Line Item",
                 "parentAPIName": "WorkOrderLineItem"
+            }, {
+                "relationshipName": "Entity",
+                "referenceFieldAPIName": "EntityId",
+                "parentLabel": "Graphviz Config",
+                "parentAPIName": "gvf2__GraphvizConfig__c"
+            }, {
+                "relationshipName": "Entity",
+                "referenceFieldAPIName": "EntityId",
+                "parentLabel": "Graphviz Diagram",
+                "parentAPIName": "gvf2__Graphviz_Diagram__c"
             }],
             "label": "Entity ID",
             "isMDOrCascadeDelete": false,
@@ -35956,7 +36929,7 @@ var wrappers =
         }, {
             "type": "PHONE",
             "referenceFields": null,
-            "label": "Cell",
+            "label": "Mobile",
             "isMDOrCascadeDelete": false,
             "isCustom": false,
             "apiName": "MobilePhone"
@@ -36916,113 +37889,173 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AcceptedEventRelations",
+            "childFieldAPIName": "RelationId",
             "childAPIName": "AcceptedEventRelation"
         }, {
             "relationshipName": "AccountCleanInfoReviewers",
+            "childFieldAPIName": "LastStatusChangedById",
             "childAPIName": "AccountCleanInfo"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "GroupMemberships",
+            "childFieldAPIName": "MemberId",
             "childAPIName": "CollaborationGroupMember"
         }, {
             "relationshipName": "GroupMembershipRequests",
+            "childFieldAPIName": "RequesterId",
             "childAPIName": "CollaborationGroupMemberRequest"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContactCleanInfoReviewers",
+            "childFieldAPIName": "LastStatusChangedById",
             "childAPIName": "ContactCleanInfo"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "ContractsSigned",
+            "childFieldAPIName": "CompanySignedId",
             "childAPIName": "Contract"
         }, {
             "relationshipName": "DeclinedEventRelations",
+            "childFieldAPIName": "RelationId",
             "childAPIName": "DeclinedEventRelation"
         }, {
             "relationshipName": "EmailMessageRelations",
+            "childFieldAPIName": "RelationId",
             "childAPIName": "EmailMessageRelation"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "FeedSubscriptions",
+            "childFieldAPIName": "SubscriberId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "EventRelations",
+            "childFieldAPIName": "RelationId",
             "childAPIName": "EventRelation"
         }, {
             "relationshipName": "ExternalDataUserAuths",
+            "childFieldAPIName": "UserId",
             "childAPIName": "ExternalDataUserAuth"
-        }, {"relationshipName": "Goals", "childAPIName": "Goal"}, {
+        }, {
+            "relationshipName": "Goals",
+            "childFieldAPIName": "OwnerId",
+            "childAPIName": "Goal"
+        }, {
             "relationshipName": "InstalledMobileApps",
+            "childFieldAPIName": "UserId",
             "childAPIName": "InstalledMobileApp"
         }, {
             "relationshipName": "LeadCleanInfoReviewers",
+            "childFieldAPIName": "LastStatusChangedById",
             "childAPIName": "LeadCleanInfo"
         }, {
             "relationshipName": "OutgoingEmailRelations",
+            "childFieldAPIName": "RelationId",
             "childAPIName": "OutgoingEmailRelation"
         }, {
             "relationshipName": "OwnedContentDocuments",
+            "childFieldAPIName": "OwnerId",
             "childAPIName": "OwnedContentDocument"
         }, {
             "relationshipName": "PermissionSetAssignments",
+            "childFieldAPIName": "AssigneeId",
             "childAPIName": "PermissionSetAssignment"
         }, {
             "relationshipName": "PermissionSetLicenseAssignments",
+            "childFieldAPIName": "AssigneeId",
             "childAPIName": "PermissionSetLicenseAssign"
         }, {
             "relationshipName": "ReceivedByProductTransfers",
+            "childFieldAPIName": "ReceivedById",
             "childAPIName": "ProductTransfer"
         }, {
             "relationshipName": "ServiceResources",
+            "childFieldAPIName": "RelatedRecordId",
             "childAPIName": "ServiceResource"
         }, {
             "relationshipName": "SessionPermSetActivations",
+            "childFieldAPIName": "UserId",
             "childAPIName": "SessionPermSetActivation"
-        }, {"relationshipName": "DeliveredToShipments", "childAPIName": "Shipment"}, {
+        }, {
+            "relationshipName": "DeliveredToShipments",
+            "childFieldAPIName": "DeliveredToId",
+            "childAPIName": "Shipment"
+        }, {
             "relationshipName": "UserSites",
+            "childFieldAPIName": "AdminId",
             "childAPIName": "Site"
         }, {
             "relationshipName": "UndecidedEventRelations",
+            "childFieldAPIName": "RelationId",
             "childAPIName": "UndecidedEventRelation"
-        }, {"relationshipName": "DelegatedUsers", "childAPIName": "User"}, {
+        }, {
+            "relationshipName": "DelegatedUsers",
+            "childFieldAPIName": "DelegatedApproverId",
+            "childAPIName": "User"
+        }, {
             "relationshipName": "ManagedUsers",
+            "childFieldAPIName": "ManagerId",
             "childAPIName": "User"
         }, {
             "relationshipName": "UserEntityAccessRights",
+            "childFieldAPIName": "UserId",
             "childAPIName": "UserEntityAccess"
-        }, {"relationshipName": "Feeds", "childAPIName": "UserFeed"}, {
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "UserFeed"
+        }, {
             "relationshipName": "UserFieldAccessRights",
+            "childFieldAPIName": "UserId",
             "childAPIName": "UserFieldAccess"
-        }, {"relationshipName": "UserPreferences", "childAPIName": "UserPreference"}, {
+        }, {
+            "relationshipName": "UserPreferences",
+            "childFieldAPIName": "UserId",
+            "childAPIName": "UserPreference"
+        }, {
             "relationshipName": "Shares",
+            "childFieldAPIName": "UserId",
             "childAPIName": "UserShare"
-        }, {"relationshipName": "Badges", "childAPIName": "WorkBadge"}, {
+        }, {
+            "relationshipName": "Badges",
+            "childFieldAPIName": "RecipientId",
+            "childAPIName": "WorkBadge"
+        }, {
             "relationshipName": "CoachingRelationships",
+            "childFieldAPIName": "CoachId",
             "childAPIName": "WorkCoaching"
         }, {
             "relationshipName": "Mentees",
+            "childFieldAPIName": "CoachedId",
             "childAPIName": "WorkCoaching"
         }, {
             "relationshipName": "RecipientFeedbackRequests",
+            "childFieldAPIName": "RecipientId",
             "childAPIName": "WorkFeedbackRequest"
         }, {
             "relationshipName": "SubjectFeedbackRequests",
+            "childFieldAPIName": "SubjectId",
             "childAPIName": "WorkFeedbackRequest"
         }, {
             "relationshipName": "SubmitFeedbackTo",
+            "childFieldAPIName": "SubmitFeedbackToId",
             "childAPIName": "WorkFeedbackRequest"
-        }, {"relationshipName": "Rewards", "childAPIName": "WorkReward"}, {
-            "relationshipName": "GivenThanks",
-            "childAPIName": "WorkThanks"
-        }],
+        }, {
+            "relationshipName": "Rewards",
+            "childFieldAPIName": "RecipientId",
+            "childAPIName": "WorkReward"
+        }, {"relationshipName": "GivenThanks", "childFieldAPIName": "GiverId", "childAPIName": "WorkThanks"}],
         "apiName": "User"
     }, {
         "label": "User Share",
@@ -37249,12 +38282,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "UserFeed"
@@ -37493,6 +38537,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "SessionPermSetActivations",
+            "childFieldAPIName": "AuthSessionId",
             "childAPIName": "SessionPermSetActivation"
         }],
         "apiName": "AuthSession"
@@ -37603,6 +38648,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ListEmailRecipientSources",
+            "childFieldAPIName": "SourceListId",
             "childAPIName": "ListEmailRecipientSource"
         }],
         "apiName": "ListView"
@@ -37870,16 +38916,6 @@ var wrappers =
             }, {
                 "relationshipName": "RelatedTo",
                 "referenceFieldAPIName": "RelatedToId",
-                "parentLabel": "Graphviz Config",
-                "parentAPIName": "GraphvizConfig__c"
-            }, {
-                "relationshipName": "RelatedTo",
-                "referenceFieldAPIName": "RelatedToId",
-                "parentLabel": "Graphviz Diagram",
-                "parentAPIName": "Graphviz_Diagram__c"
-            }, {
-                "relationshipName": "RelatedTo",
-                "referenceFieldAPIName": "RelatedToId",
                 "parentLabel": "Maintenance Asset",
                 "parentAPIName": "MaintenanceAsset"
             }, {
@@ -37992,6 +39028,16 @@ var wrappers =
                 "referenceFieldAPIName": "RelatedToId",
                 "parentLabel": "Work Order Line Item",
                 "parentAPIName": "WorkOrderLineItem"
+            }, {
+                "relationshipName": "RelatedTo",
+                "referenceFieldAPIName": "RelatedToId",
+                "parentLabel": "Graphviz Config",
+                "parentAPIName": "gvf2__GraphvizConfig__c"
+            }, {
+                "relationshipName": "RelatedTo",
+                "referenceFieldAPIName": "RelatedToId",
+                "parentLabel": "Graphviz Diagram",
+                "parentAPIName": "gvf2__Graphviz_Diagram__c"
             }],
             "label": "Related To ID",
             "isMDOrCascadeDelete": false,
@@ -38000,23 +39046,33 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "EmailMessageRelations",
+            "childFieldAPIName": "EmailMessageId",
             "childAPIName": "EmailMessageRelation"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}],
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }],
         "apiName": "EmailMessage"
     }, {
         "label": "Email Message Relation",
@@ -39841,17 +40897,29 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Particles",
+            "childFieldAPIName": "EntityDefinitionId",
             "childAPIName": "EntityParticle"
-        }, {"relationshipName": "Fields", "childAPIName": "FieldDefinition"}, {
+        }, {
+            "relationshipName": "Fields",
+            "childFieldAPIName": "EntityDefinitionId",
+            "childAPIName": "FieldDefinition"
+        }, {
             "relationshipName": "OwnerChangeOptions",
+            "childFieldAPIName": "EntityDefinitionId",
             "childAPIName": "OwnerChangeOptionInfo"
         }, {
             "relationshipName": "RelationshipDomains",
+            "childFieldAPIName": "ParentSobjectId",
             "childAPIName": "RelationshipDomain"
         }, {
             "relationshipName": "ChildRelationships",
+            "childFieldAPIName": "ChildSobjectId",
             "childAPIName": "RelationshipInfo"
-        }, {"relationshipName": "SearchLayouts", "childAPIName": "SearchLayout"}],
+        }, {
+            "relationshipName": "SearchLayouts",
+            "childFieldAPIName": "EntityDefinitionId",
+            "childAPIName": "SearchLayout"
+        }],
         "apiName": "EntityDefinition"
     }, {
         "label": "Field Definition",
@@ -40635,7 +41703,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "IsCompound"
         }],
-        "childRelationships": [{"relationshipName": "PicklistValues", "childAPIName": "PicklistValueInfo"}],
+        "childRelationships": [{
+            "relationshipName": "PicklistValues",
+            "childFieldAPIName": "EntityParticleId",
+            "childAPIName": "PicklistValueInfo"
+        }],
         "apiName": "EntityParticle"
     }, {
         "label": "Picklist Value Info",
@@ -40774,7 +41846,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "JunctionIdListNames"
         }],
-        "childRelationships": [{"relationshipName": "RelationshipDomains", "childAPIName": "RelationshipDomain"}],
+        "childRelationships": [{
+            "relationshipName": "RelationshipDomains",
+            "childFieldAPIName": "RelationshipInfoId",
+            "childAPIName": "RelationshipDomain"
+        }],
         "apiName": "RelationshipInfo"
     }, {
         "label": "Relationship Domain",
@@ -41013,8 +42089,13 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "InstalledEntityDefinitions",
+            "childFieldAPIName": "PublisherId",
             "childAPIName": "EntityDefinition"
-        }, {"relationshipName": "InstalledFieldDefinitions", "childAPIName": "FieldDefinition"}],
+        }, {
+            "relationshipName": "InstalledFieldDefinitions",
+            "childFieldAPIName": "PublisherId",
+            "childAPIName": "FieldDefinition"
+        }],
         "apiName": "Publisher"
     }, {
         "label": "Data Type",
@@ -42099,17 +43180,25 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Contracts",
+            "childFieldAPIName": "Pricebook2Id",
             "childAPIName": "Contract"
-        }, {"relationshipName": "Opportunities", "childAPIName": "Opportunity"}, {
+        }, {
+            "relationshipName": "Opportunities",
+            "childFieldAPIName": "Pricebook2Id",
+            "childAPIName": "Opportunity"
+        }, {
             "relationshipName": "Orders",
+            "childFieldAPIName": "Pricebook2Id",
             "childAPIName": "Order"
         }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "Pricebook2Id",
             "childAPIName": "Pricebook2History"
         }, {
             "relationshipName": "PricebookEntries",
+            "childFieldAPIName": "Pricebook2Id",
             "childAPIName": "PricebookEntry"
-        }, {"relationshipName": "WorkOrders", "childAPIName": "WorkOrder"}],
+        }, {"relationshipName": "WorkOrders", "childFieldAPIName": "Pricebook2Id", "childAPIName": "WorkOrder"}],
         "apiName": "Pricebook2"
     }, {
         "label": "Price Book History",
@@ -42417,8 +43506,9 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Comments",
+            "childFieldAPIName": "IdeaId",
             "childAPIName": "IdeaComment"
-        }, {"relationshipName": "Votes", "childAPIName": "Vote"}],
+        }, {"relationshipName": "Votes", "childFieldAPIName": "ParentId", "childAPIName": "Vote"}],
         "apiName": "Idea"
     }, {
         "label": "Idea Comment",
@@ -42530,7 +43620,7 @@ var wrappers =
             "isCustom": false,
             "apiName": "UpVotes"
         }],
-        "childRelationships": [{"relationshipName": "Votes", "childAPIName": "Vote"}],
+        "childRelationships": [{"relationshipName": "Votes", "childFieldAPIName": "ParentId", "childAPIName": "Vote"}],
         "apiName": "IdeaComment"
     }, {
         "label": "Macro",
@@ -42661,7 +43751,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "StartingContext"
         }],
-        "childRelationships": [{"relationshipName": "Histories", "childAPIName": "MacroHistory"}],
+        "childRelationships": [{
+            "relationshipName": "Histories",
+            "childFieldAPIName": "MacroId",
+            "childAPIName": "MacroHistory"
+        }],
         "apiName": "Macro"
     }, {
         "label": "Macro Share",
@@ -43136,7 +44230,7 @@ var wrappers =
         }, {
             "type": "PICKLIST",
             "referenceFields": null,
-            "label": "Billing Geocode Accuracy",
+            "label": "Geocode Accuracy",
             "isMDOrCascadeDelete": false,
             "isCustom": false,
             "apiName": "GeocodeAccuracy"
@@ -43405,80 +44499,125 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
-        }, {"relationshipName": "DigitalSignatures", "childAPIName": "DigitalSignature"}, {
+        }, {
+            "relationshipName": "DigitalSignatures",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "DigitalSignature"
+        }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "Notes",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ProductsConsumed",
+            "childFieldAPIName": "WorkOrderId",
             "childAPIName": "ProductConsumed"
         }, {
             "relationshipName": "ProductRequests",
+            "childFieldAPIName": "WorkOrderId",
             "childAPIName": "ProductRequest"
         }, {
             "relationshipName": "ProductRequestLineItems",
+            "childFieldAPIName": "WorkOrderId",
             "childAPIName": "ProductRequestLineItem"
         }, {
             "relationshipName": "ProductsRequired",
+            "childFieldAPIName": "ParentRecordId",
             "childAPIName": "ProductRequired"
         }, {
             "relationshipName": "ResourcePreferences",
+            "childFieldAPIName": "RelatedRecordId",
             "childAPIName": "ResourcePreference"
         }, {
             "relationshipName": "ServiceAppointments",
+            "childFieldAPIName": "ParentRecordId",
             "childAPIName": "ServiceAppointment"
         }, {
             "relationshipName": "ServiceReports",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "ServiceReport"
-        }, {"relationshipName": "SkillRequirements", "childAPIName": "SkillRequirement"}, {
+        }, {
+            "relationshipName": "SkillRequirements",
+            "childFieldAPIName": "RelatedRecordId",
+            "childAPIName": "SkillRequirement"
+        }, {
             "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TimeSheetEntries",
+            "childFieldAPIName": "WorkOrderId",
             "childAPIName": "TimeSheetEntry"
         }, {
             "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }, {
             "relationshipName": "ChildWorkOrders",
+            "childFieldAPIName": "ParentWorkOrderId",
             "childAPIName": "WorkOrder"
-        }, {"relationshipName": "DescendantWorkOrders", "childAPIName": "WorkOrder"}, {
+        }, {
+            "relationshipName": "DescendantWorkOrders",
+            "childFieldAPIName": "RootWorkOrderId",
+            "childAPIName": "WorkOrder"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "WorkOrderFeed"
         }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "WorkOrderId",
             "childAPIName": "WorkOrderHistory"
-        }, {"relationshipName": "WorkOrderLineItems", "childAPIName": "WorkOrderLineItem"}],
+        }, {
+            "relationshipName": "WorkOrderLineItems",
+            "childFieldAPIName": "WorkOrderId",
+            "childAPIName": "WorkOrderLineItem"
+        }],
         "apiName": "WorkOrder"
     }, {
         "label": "Work Order Share",
@@ -43777,12 +44916,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "WorkOrderFeed"
@@ -44108,7 +45258,7 @@ var wrappers =
         }, {
             "type": "PICKLIST",
             "referenceFields": null,
-            "label": "Billing Geocode Accuracy",
+            "label": "Geocode Accuracy",
             "isMDOrCascadeDelete": false,
             "isCustom": false,
             "apiName": "GeocodeAccuracy"
@@ -44207,75 +45357,115 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
-        }, {"relationshipName": "DigitalSignatures", "childAPIName": "DigitalSignature"}, {
+        }, {
+            "relationshipName": "DigitalSignatures",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "DigitalSignature"
+        }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "Notes",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ProductsConsumed",
+            "childFieldAPIName": "WorkOrderLineItemId",
             "childAPIName": "ProductConsumed"
         }, {
             "relationshipName": "ProductRequests",
+            "childFieldAPIName": "WorkOrderLineItemId",
             "childAPIName": "ProductRequest"
         }, {
             "relationshipName": "ProductRequestLineItems",
+            "childFieldAPIName": "WorkOrderLineItemId",
             "childAPIName": "ProductRequestLineItem"
         }, {
             "relationshipName": "ProductsRequired",
+            "childFieldAPIName": "ParentRecordId",
             "childAPIName": "ProductRequired"
         }, {
             "relationshipName": "ServiceAppointments",
+            "childFieldAPIName": "ParentRecordId",
             "childAPIName": "ServiceAppointment"
         }, {
             "relationshipName": "ServiceReports",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "ServiceReport"
-        }, {"relationshipName": "SkillRequirements", "childAPIName": "SkillRequirement"}, {
+        }, {
+            "relationshipName": "SkillRequirements",
+            "childFieldAPIName": "RelatedRecordId",
+            "childAPIName": "SkillRequirement"
+        }, {
             "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TimeSheetEntries",
+            "childFieldAPIName": "WorkOrderLineItemId",
             "childAPIName": "TimeSheetEntry"
         }, {
             "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }, {
             "relationshipName": "ChildWorkOrderLineItems",
+            "childFieldAPIName": "ParentWorkOrderLineItemId",
             "childAPIName": "WorkOrderLineItem"
         }, {
             "relationshipName": "DescendantWorkOrderLineItems",
+            "childFieldAPIName": "RootWorkOrderLineItemId",
             "childAPIName": "WorkOrderLineItem"
-        }, {"relationshipName": "Feeds", "childAPIName": "WorkOrderLineItemFeed"}, {
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "WorkOrderLineItemFeed"
+        }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "WorkOrderLineItemId",
             "childAPIName": "WorkOrderLineItemHistory"
         }],
         "apiName": "WorkOrderLineItem"
@@ -44494,12 +45684,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "WorkOrderLineItemFeed"
@@ -44730,7 +45931,7 @@ var wrappers =
         }, {
             "type": "PICKLIST",
             "referenceFields": null,
-            "label": "Billing Geocode Accuracy",
+            "label": "Geocode Accuracy",
             "isMDOrCascadeDelete": false,
             "isCustom": false,
             "apiName": "GeocodeAccuracy"
@@ -44882,41 +46083,73 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "ServiceResources",
+            "childFieldAPIName": "ServiceAppointmentId",
             "childAPIName": "AssignedResource"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
-        }, {"relationshipName": "DigitalSignatures", "childAPIName": "DigitalSignature"}, {
+        }, {
+            "relationshipName": "DigitalSignatures",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "DigitalSignature"
+        }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "ServiceAppointmentFeed"
         }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "ServiceAppointmentId",
             "childAPIName": "ServiceAppointmentHistory"
-        }, {"relationshipName": "ServiceReports", "childAPIName": "ServiceReport"}, {
+        }, {
+            "relationshipName": "ServiceReports",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "ServiceReport"
+        }, {
             "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
         "apiName": "ServiceAppointment"
     }, {
         "label": "Service Appointment Share",
@@ -45215,12 +46448,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ServiceAppointmentFeed"
@@ -45388,41 +46632,57 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "MaintenanceAssets",
+            "childFieldAPIName": "WorkTypeId",
             "childAPIName": "MaintenanceAsset"
         }, {
             "relationshipName": "MaintenancePlans",
+            "childFieldAPIName": "WorkTypeId",
             "childAPIName": "MaintenancePlan"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ProductsRequired",
+            "childFieldAPIName": "ParentRecordId",
             "childAPIName": "ProductRequired"
         }, {
             "relationshipName": "SkillRequirements",
+            "childFieldAPIName": "RelatedRecordId",
             "childAPIName": "SkillRequirement"
-        }, {"relationshipName": "WorkOrders", "childAPIName": "WorkOrder"}, {
+        }, {
+            "relationshipName": "WorkOrders",
+            "childFieldAPIName": "WorkTypeId",
+            "childAPIName": "WorkOrder"
+        }, {
             "relationshipName": "WorkOrderLineItems",
+            "childFieldAPIName": "WorkTypeId",
             "childAPIName": "WorkOrderLineItem"
-        }, {"relationshipName": "Feeds", "childAPIName": "WorkTypeFeed"}, {
-            "relationshipName": "Histories",
-            "childAPIName": "WorkTypeHistory"
-        }],
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "WorkTypeFeed"
+        }, {"relationshipName": "Histories", "childFieldAPIName": "WorkTypeId", "childAPIName": "WorkTypeHistory"}],
         "apiName": "WorkType"
     }, {
         "label": "Work Type Share",
@@ -45721,12 +46981,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "WorkTypeFeed"
@@ -45925,59 +47196,93 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "ServiceAppointments",
+            "childFieldAPIName": "ServiceResourceId",
             "childAPIName": "AssignedResource"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ResourceAbsences",
+            "childFieldAPIName": "ResourceId",
             "childAPIName": "ResourceAbsence"
         }, {
             "relationshipName": "ResourcePreferences",
+            "childFieldAPIName": "ServiceResourceId",
             "childAPIName": "ResourcePreference"
         }, {
             "relationshipName": "ServiceCrewMembers",
+            "childFieldAPIName": "ServiceResourceId",
             "childAPIName": "ServiceCrewMember"
         }, {
             "relationshipName": "ServiceResourceCapacities",
+            "childFieldAPIName": "ServiceResourceId",
             "childAPIName": "ServiceResourceCapacity"
-        }, {"relationshipName": "Feeds", "childAPIName": "ServiceResourceFeed"}, {
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "ServiceResourceFeed"
+        }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "ServiceResourceId",
             "childAPIName": "ServiceResourceHistory"
         }, {
             "relationshipName": "ServiceResourceSkills",
+            "childFieldAPIName": "ServiceResourceId",
             "childAPIName": "ServiceResourceSkill"
         }, {
             "relationshipName": "ServiceTerritories",
+            "childFieldAPIName": "ServiceResourceId",
             "childAPIName": "ServiceTerritoryMember"
-        }, {"relationshipName": "Tasks", "childAPIName": "Task"}, {
+        }, {
+            "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Task"
+        }, {
             "relationshipName": "TimeSheets",
+            "childFieldAPIName": "ServiceResourceId",
             "childAPIName": "TimeSheet"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
         "apiName": "ServiceResource"
     }, {
         "label": "Service Resource Share",
@@ -46276,12 +47581,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ServiceResourceFeed"
@@ -46480,7 +47796,7 @@ var wrappers =
         }, {
             "type": "PICKLIST",
             "referenceFields": null,
-            "label": "Billing Geocode Accuracy",
+            "label": "Geocode Accuracy",
             "isMDOrCascadeDelete": false,
             "isCustom": false,
             "apiName": "GeocodeAccuracy"
@@ -46501,45 +47817,67 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ServiceAppointments",
+            "childFieldAPIName": "ServiceTerritoryId",
             "childAPIName": "ServiceAppointment"
         }, {
             "relationshipName": "ChildServiceTerritories",
+            "childFieldAPIName": "ParentTerritoryId",
             "childAPIName": "ServiceTerritory"
         }, {
             "relationshipName": "DescendantTerritories",
+            "childFieldAPIName": "TopLevelTerritoryId",
             "childAPIName": "ServiceTerritory"
-        }, {"relationshipName": "Feeds", "childAPIName": "ServiceTerritoryFeed"}, {
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "ServiceTerritoryFeed"
+        }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "ServiceTerritoryId",
             "childAPIName": "ServiceTerritoryHistory"
         }, {
             "relationshipName": "Locations",
+            "childFieldAPIName": "ServiceTerritoryId",
             "childAPIName": "ServiceTerritoryLocation"
         }, {
             "relationshipName": "ServiceResources",
+            "childFieldAPIName": "ServiceTerritoryId",
             "childAPIName": "ServiceTerritoryMember"
         }, {
             "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
-        }, {"relationshipName": "WorkOrders", "childAPIName": "WorkOrder"}, {
+        }, {
+            "relationshipName": "WorkOrders",
+            "childFieldAPIName": "ServiceTerritoryId",
+            "childAPIName": "WorkOrder"
+        }, {
             "relationshipName": "WorkOrderLineItems",
+            "childFieldAPIName": "ServiceTerritoryId",
             "childAPIName": "WorkOrderLineItem"
         }],
         "apiName": "ServiceTerritory"
@@ -46840,12 +48178,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ServiceTerritoryFeed"
@@ -47029,7 +48378,7 @@ var wrappers =
         }, {
             "type": "PICKLIST",
             "referenceFields": null,
-            "label": "Billing Geocode Accuracy",
+            "label": "Geocode Accuracy",
             "isMDOrCascadeDelete": false,
             "isCustom": false,
             "apiName": "GeocodeAccuracy"
@@ -47055,26 +48404,41 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "ServiceTerritoryMemberFeed"
         }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "ServiceTerritoryMemberId",
             "childAPIName": "ServiceTerritoryMemberHistory"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
         "apiName": "ServiceTerritoryMember"
     }, {
         "label": "Service Territory Member History",
@@ -47291,12 +48655,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ServiceTerritoryMemberFeed"
@@ -47431,26 +48806,41 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "ServiceResourceSkillFeed"
         }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "ServiceResourceSkillId",
             "childAPIName": "ServiceResourceSkillHistory"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
         "apiName": "ServiceResourceSkill"
     }, {
         "label": "Service Resource Skill History",
@@ -47667,12 +49057,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ServiceResourceSkillFeed"
@@ -47803,23 +49204,37 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "SkillRequirementFeed"
-        }, {"relationshipName": "Histories", "childAPIName": "SkillRequirementHistory"}],
+        }, {
+            "relationshipName": "Histories",
+            "childFieldAPIName": "SkillRequirementId",
+            "childAPIName": "SkillRequirementHistory"
+        }],
         "apiName": "SkillRequirement"
     }, {
         "label": "Skill Requirement History",
@@ -48036,12 +49451,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "SkillRequirementFeed"
@@ -48167,23 +49593,33 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "AssignedResourceFeed"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}],
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }],
         "apiName": "AssignedResource"
     }, {
         "label": "Assigned Resource Feed",
@@ -48328,12 +49764,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "AssignedResourceFeed"
@@ -48437,26 +49884,33 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Accounts",
+            "childFieldAPIName": "OperatingHoursId",
             "childAPIName": "Account"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "OperatingHoursFeed"
         }, {
             "relationshipName": "ServiceTerritories",
+            "childFieldAPIName": "OperatingHoursId",
             "childAPIName": "ServiceTerritory"
-        }, {"relationshipName": "TimeSlots", "childAPIName": "TimeSlot"}],
+        }, {"relationshipName": "TimeSlots", "childFieldAPIName": "OperatingHoursId", "childAPIName": "TimeSlot"}],
         "apiName": "OperatingHours"
     }, {
         "label": "Operating Hours Feed",
@@ -48601,12 +50055,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "OperatingHoursFeed"
@@ -48799,35 +50264,61 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "ResourceAbsenceFeed"
-        }, {"relationshipName": "Histories", "childAPIName": "ResourceAbsenceHistory"}, {
+        }, {
+            "relationshipName": "Histories",
+            "childFieldAPIName": "ResourceAbsenceId",
+            "childAPIName": "ResourceAbsenceHistory"
+        }, {
             "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
         "apiName": "ResourceAbsence"
     }, {
         "label": "Resource Absence History",
@@ -49044,12 +50535,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ResourceAbsenceFeed"
@@ -49179,8 +50681,13 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}],
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }],
         "apiName": "TimeSlot"
     }, {
         "label": "Resource Capacity",
@@ -49315,26 +50822,41 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "ServiceResourceCapacityFeed"
         }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "ServiceResourceCapacityId",
             "childAPIName": "ServiceResourceCapacityHistory"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
         "apiName": "ServiceResourceCapacity"
     }, {
         "label": "Resource Capacity History",
@@ -49551,12 +51073,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ServiceResourceCapacityFeed"
@@ -49682,26 +51215,41 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "ResourcePreferenceFeed"
         }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "ResourcePreferenceId",
             "childAPIName": "ResourcePreferenceHistory"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
         "apiName": "ResourcePreference"
     }, {
         "label": "Resource Preference History",
@@ -49918,12 +51466,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ResourcePreferenceFeed"
@@ -50082,44 +51641,73 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
-        }, {"relationshipName": "ProductsConsumed", "childAPIName": "ProductConsumed"}, {
+        }, {
+            "relationshipName": "ProductsConsumed",
+            "childFieldAPIName": "ProductItemId",
+            "childAPIName": "ProductConsumed"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "ProductItemFeed"
         }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "ProductItemId",
             "childAPIName": "ProductItemHistory"
         }, {
             "relationshipName": "ProductItemTransactions",
+            "childFieldAPIName": "ProductItemId",
             "childAPIName": "ProductItemTransaction"
-        }, {"relationshipName": "ProductTransfers", "childAPIName": "ProductTransfer"}, {
+        }, {
+            "relationshipName": "ProductTransfers",
+            "childFieldAPIName": "SourceProductItemId",
+            "childAPIName": "ProductTransfer"
+        }, {
             "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
         "apiName": "ProductItem"
     }, {
         "label": "Product Item Share",
@@ -50418,12 +52006,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ProductItemFeed"
@@ -50608,33 +52207,63 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
-        }, {"relationshipName": "Feeds", "childAPIName": "ProductConsumedFeed"}, {
+        }, {
+            "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstance"
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "ProductConsumedFeed"
+        }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "ProductConsumedId",
             "childAPIName": "ProductConsumedHistory"
         }, {
             "relationshipName": "ProductItemTransactions",
+            "childFieldAPIName": "RelatedRecordId",
             "childAPIName": "ProductItemTransaction"
-        }, {"relationshipName": "Tasks", "childAPIName": "Task"}, {
+        }, {
+            "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Task"
+        }, {
             "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
         "apiName": "ProductConsumed"
@@ -50853,12 +52482,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ProductConsumedFeed"
@@ -51010,20 +52650,41 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Feeds", "childAPIName": "ProductRequiredFeed"}, {
+        }, {
+            "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstance"
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "ProductRequiredFeed"
+        }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "ProductRequiredId",
             "childAPIName": "ProductRequiredHistory"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
         "apiName": "ProductRequired"
     }, {
         "label": "Product Required History",
@@ -51240,12 +52901,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ProductRequiredFeed"
@@ -51385,26 +53057,41 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "ProductItemTransactionFeed"
         }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "ProductItemTransactionId",
             "childAPIName": "ProductItemTransactionHistory"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
         "apiName": "ProductItemTransaction"
     }, {
         "label": "Product Item Transaction History",
@@ -51621,12 +53308,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ProductItemTransactionFeed"
@@ -51769,7 +53467,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "Template"
         }],
-        "childRelationships": [{"relationshipName": "Histories", "childAPIName": "ServiceReportHistory"}],
+        "childRelationships": [{
+            "relationshipName": "Histories",
+            "childFieldAPIName": "ServiceReportId",
+            "childAPIName": "ServiceReportHistory"
+        }],
         "apiName": "ServiceReport"
     }, {
         "label": "Service Report History",
@@ -51993,8 +53695,13 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}],
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }],
         "apiName": "DigitalSignature"
     }, {
         "label": "Service Report Layout",
@@ -52089,11 +53796,17 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "WorkOrders",
+            "childFieldAPIName": "ServiceReportTemplateId",
             "childAPIName": "WorkOrder"
         }, {
             "relationshipName": "WorkOrderLineItems",
+            "childFieldAPIName": "ServiceReportTemplateId",
             "childAPIName": "WorkOrderLineItem"
-        }, {"relationshipName": "WorkTypes", "childAPIName": "WorkType"}],
+        }, {
+            "relationshipName": "WorkTypes",
+            "childFieldAPIName": "ServiceReportTemplateId",
+            "childAPIName": "WorkType"
+        }],
         "apiName": "ServiceReportLayout"
     }, {
         "label": "Field Service Mobile Settings",
@@ -52377,8 +54090,13 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AppExtensions",
+            "childFieldAPIName": "FieldServiceMobileSettingsId",
             "childAPIName": "AppExtension"
-        }, {"relationshipName": "MobileSettingsAssignments", "childAPIName": "MobileSettingsAssignment"}],
+        }, {
+            "relationshipName": "MobileSettingsAssignments",
+            "childFieldAPIName": "FieldServiceMobileSettingsId",
+            "childAPIName": "MobileSettingsAssignment"
+        }],
         "apiName": "FieldServiceMobileSettings"
     }, {
         "label": "App Extension",
@@ -52686,7 +54404,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "ParentContentFolderId"
         }],
-        "childRelationships": [{"relationshipName": "ContentFolderLinks", "childAPIName": "ContentFolderLink"}],
+        "childRelationships": [{
+            "relationshipName": "ContentFolderLinks",
+            "childFieldAPIName": "ContentFolderId",
+            "childAPIName": "ContentFolderLink"
+        }],
         "apiName": "ContentFolder"
     }, {
         "label": "Group Record",
@@ -52792,16 +54514,6 @@ var wrappers =
             }, {
                 "relationshipName": "Record",
                 "referenceFieldAPIName": "RecordId",
-                "parentLabel": "Graphviz Config",
-                "parentAPIName": "GraphvizConfig__c"
-            }, {
-                "relationshipName": "Record",
-                "referenceFieldAPIName": "RecordId",
-                "parentLabel": "Graphviz Diagram",
-                "parentAPIName": "Graphviz_Diagram__c"
-            }, {
-                "relationshipName": "Record",
-                "referenceFieldAPIName": "RecordId",
                 "parentLabel": "Lead",
                 "parentAPIName": "Lead"
             }, {
@@ -52809,6 +54521,16 @@ var wrappers =
                 "referenceFieldAPIName": "RecordId",
                 "parentLabel": "Opportunity",
                 "parentAPIName": "Opportunity"
+            }, {
+                "relationshipName": "Record",
+                "referenceFieldAPIName": "RecordId",
+                "parentLabel": "Graphviz Config",
+                "parentAPIName": "gvf2__GraphvizConfig__c"
+            }, {
+                "relationshipName": "Record",
+                "referenceFieldAPIName": "RecordId",
+                "parentLabel": "Graphviz Diagram",
+                "parentAPIName": "gvf2__Graphviz_Diagram__c"
             }],
             "label": "Record ID",
             "isMDOrCascadeDelete": false,
@@ -53044,8 +54766,13 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}],
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }],
         "apiName": "StreamingChannel"
     }, {
         "label": "Streaming Channel Share",
@@ -53248,7 +54975,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "IsPublished"
         }],
-        "childRelationships": [{"relationshipName": "ActionLinkTemplates", "childAPIName": "ActionLinkTemplate"}],
+        "childRelationships": [{
+            "relationshipName": "ActionLinkTemplates",
+            "childFieldAPIName": "ActionLinkGroupTemplateId",
+            "childAPIName": "ActionLinkTemplate"
+        }],
         "apiName": "ActionLinkGroupTemplate"
     }, {
         "label": "Action Link Template",
@@ -53593,8 +55324,13 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}],
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }],
         "apiName": "Address"
     }, {
         "label": "Location",
@@ -53854,72 +55590,107 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Addresses",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Address"
-        }, {"relationshipName": "Assets", "childAPIName": "Asset"}, {
+        }, {
+            "relationshipName": "Assets",
+            "childFieldAPIName": "LocationId",
+            "childAPIName": "Asset"
+        }, {
             "relationshipName": "AssociatedLocations",
+            "childFieldAPIName": "LocationId",
             "childAPIName": "AssociatedLocation"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "ChildLocations", "childAPIName": "Location"}, {
+        }, {
+            "relationshipName": "ChildLocations",
+            "childFieldAPIName": "ParentLocationId",
+            "childAPIName": "Location"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "LocationFeed"
         }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "LocationId",
             "childAPIName": "LocationHistory"
         }, {
             "relationshipName": "MaintenancePlans",
+            "childFieldAPIName": "LocationId",
             "childAPIName": "MaintenancePlan"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ProductItems",
+            "childFieldAPIName": "LocationId",
             "childAPIName": "ProductItem"
         }, {
             "relationshipName": "DestinationProductRequests",
+            "childFieldAPIName": "DestinationLocationId",
             "childAPIName": "ProductRequest"
         }, {
             "relationshipName": "SourceProductRequests",
+            "childFieldAPIName": "SourceLocationId",
             "childAPIName": "ProductRequest"
         }, {
             "relationshipName": "DestinationProductRequestLineItems",
+            "childFieldAPIName": "DestinationLocationId",
             "childAPIName": "ProductRequestLineItem"
         }, {
             "relationshipName": "SourceProductRequestLineItems",
+            "childFieldAPIName": "SourceLocationId",
             "childAPIName": "ProductRequestLineItem"
         }, {
             "relationshipName": "DestinationProductTransfers",
+            "childFieldAPIName": "DestinationLocationId",
             "childAPIName": "ProductTransfer"
         }, {
             "relationshipName": "SourceProductTransfers",
+            "childFieldAPIName": "SourceLocationId",
             "childAPIName": "ProductTransfer"
         }, {
             "relationshipName": "ServiceResources",
+            "childFieldAPIName": "LocationId",
             "childAPIName": "ServiceResource"
         }, {
             "relationshipName": "ServiceTerritories",
+            "childFieldAPIName": "LocationId",
             "childAPIName": "ServiceTerritoryLocation"
         }, {
             "relationshipName": "DestinationLocationShipments",
+            "childFieldAPIName": "DestinationLocationId",
             "childAPIName": "Shipment"
         }, {
             "relationshipName": "SourceLocationShipments",
+            "childFieldAPIName": "SourceLocationId",
             "childAPIName": "Shipment"
-        }, {"relationshipName": "WorkOrders", "childAPIName": "WorkOrder"}, {
+        }, {
+            "relationshipName": "WorkOrders",
+            "childFieldAPIName": "LocationId",
+            "childAPIName": "WorkOrder"
+        }, {
             "relationshipName": "WorkOrderLineItems",
+            "childFieldAPIName": "LocationId",
             "childAPIName": "WorkOrderLineItem"
         }],
         "apiName": "Location"
@@ -54220,12 +55991,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "LocationFeed"
@@ -54358,7 +56140,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "ActiveTo"
         }],
-        "childRelationships": [{"relationshipName": "Histories", "childAPIName": "AssociatedLocationHistory"}],
+        "childRelationships": [{
+            "relationshipName": "Histories",
+            "childFieldAPIName": "AssociatedLocationId",
+            "childAPIName": "AssociatedLocationHistory"
+        }],
         "apiName": "AssociatedLocation"
     }, {
         "label": "Associated Location History",
@@ -55109,7 +56895,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "TestSuiteName"
         }],
-        "childRelationships": [{"relationshipName": "ApexClassJunctions", "childAPIName": "TestSuiteMembership"}],
+        "childRelationships": [{
+            "relationshipName": "ApexClassJunctions",
+            "childFieldAPIName": "ApexTestSuiteId",
+            "childAPIName": "TestSuiteMembership"
+        }],
         "apiName": "ApexTestSuite"
     }, {
         "label": "Test Suite Membership",
@@ -55453,7 +57243,7 @@ var wrappers =
         }, {
             "type": "BOOLEAN",
             "referenceFields": null,
-            "label": "Manage Public Templates",
+            "label": "Manage Public Classic Email Templates",
             "isMDOrCascadeDelete": false,
             "isCustom": false,
             "apiName": "MaximumPermissionsEditPublicTemplates"
@@ -56370,13 +58160,6 @@ var wrappers =
         }, {
             "type": "BOOLEAN",
             "referenceFields": null,
-            "label": "Access Chatter For SharePoint",
-            "isMDOrCascadeDelete": false,
-            "isCustom": false,
-            "apiName": "MaximumPermissionsChatterForSharePoint"
-        }, {
-            "type": "BOOLEAN",
-            "referenceFields": null,
             "label": "Upload External Data to Analytics",
             "isMDOrCascadeDelete": false,
             "isCustom": false,
@@ -56769,8 +58552,13 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "GrantedByLicenses",
+            "childFieldAPIName": "PermissionSetLicenseId",
             "childAPIName": "GrantedByLicense"
-        }, {"relationshipName": "PermissionSetLicenseAssignments", "childAPIName": "PermissionSetLicenseAssign"}],
+        }, {
+            "relationshipName": "PermissionSetLicenseAssignments",
+            "childFieldAPIName": "PermissionSetLicenseId",
+            "childAPIName": "PermissionSetLicenseAssign"
+        }],
         "apiName": "PermissionSetLicense"
     }, {
         "label": "Permission Set License Assignment",
@@ -57232,7 +59020,7 @@ var wrappers =
         }, {
             "type": "BOOLEAN",
             "referenceFields": null,
-            "label": "Manage Public Templates",
+            "label": "Manage Public Classic Email Templates",
             "isMDOrCascadeDelete": false,
             "isCustom": false,
             "apiName": "PermissionsEditPublicTemplates"
@@ -58149,13 +59937,6 @@ var wrappers =
         }, {
             "type": "BOOLEAN",
             "referenceFields": null,
-            "label": "Access Chatter For SharePoint",
-            "isMDOrCascadeDelete": false,
-            "isCustom": false,
-            "apiName": "PermissionsChatterForSharePoint"
-        }, {
-            "type": "BOOLEAN",
-            "referenceFields": null,
             "label": "Upload External Data to Analytics",
             "isMDOrCascadeDelete": false,
             "isCustom": false,
@@ -58607,14 +60388,25 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FieldPerms",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "FieldPermissions"
-        }, {"relationshipName": "ObjectPerms", "childAPIName": "ObjectPermissions"}, {
+        }, {
+            "relationshipName": "ObjectPerms",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "ObjectPermissions"
+        }, {
             "relationshipName": "Assignments",
+            "childFieldAPIName": "PermissionSetId",
             "childAPIName": "PermissionSetAssignment"
         }, {
             "relationshipName": "SessionActivations",
+            "childFieldAPIName": "PermissionSetId",
             "childAPIName": "SessionPermSetActivation"
-        }, {"relationshipName": "SetupEntityAccessItems", "childAPIName": "SetupEntityAccess"}],
+        }, {
+            "relationshipName": "SetupEntityAccessItems",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "SetupEntityAccess"
+        }],
         "apiName": "PermissionSet"
     }, {
         "label": "Custom Permission Dependency",
@@ -58812,14 +60604,21 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "CustomPermissionItem",
+            "childFieldAPIName": "CustomPermissionId",
             "childAPIName": "CustomPermissionDependency"
         }, {
             "relationshipName": "CustomPermissionDependencyItem",
+            "childFieldAPIName": "RequiredCustomPermissionId",
             "childAPIName": "CustomPermissionDependency"
         }, {
             "relationshipName": "GrantedByLicenses",
+            "childFieldAPIName": "CustomPermissionId",
             "childAPIName": "GrantedByLicense"
-        }, {"relationshipName": "SetupEntityAccessItems", "childAPIName": "SetupEntityAccess"}],
+        }, {
+            "relationshipName": "SetupEntityAccessItems",
+            "childFieldAPIName": "SetupEntityId",
+            "childAPIName": "SetupEntityAccess"
+        }],
         "apiName": "CustomPermission"
     }, {
         "label": "Session Permission Set Activation",
@@ -59977,8 +61776,9 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Accounts",
+            "childFieldAPIName": "DandbCompanyId",
             "childAPIName": "Account"
-        }, {"relationshipName": "Leads", "childAPIName": "Lead"}],
+        }, {"relationshipName": "Leads", "childFieldAPIName": "DandbCompanyId", "childAPIName": "Lead"}],
         "apiName": "DandBCompany"
     }, {
         "label": "Account Clean Info",
@@ -63598,8 +65398,13 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ServiceResources",
+            "childFieldAPIName": "SkillId",
             "childAPIName": "ServiceResourceSkill"
-        }, {"relationshipName": "SkillRequirements", "childAPIName": "SkillRequirement"}],
+        }, {
+            "relationshipName": "SkillRequirements",
+            "childFieldAPIName": "SkillId",
+            "childAPIName": "SkillRequirement"
+        }],
         "apiName": "Skill"
     }, {
         "label": "Quick Text",
@@ -63723,7 +65528,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "Channel"
         }],
-        "childRelationships": [{"relationshipName": "Histories", "childAPIName": "QuickTextHistory"}],
+        "childRelationships": [{
+            "relationshipName": "Histories",
+            "childFieldAPIName": "QuickTextId",
+            "childAPIName": "QuickTextHistory"
+        }],
         "apiName": "QuickText"
     }, {
         "label": "Quick Text Share",
@@ -63968,7 +65777,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "Description"
         }],
-        "childRelationships": [{"relationshipName": "CustomBrands", "childAPIName": "CustomBrand"}],
+        "childRelationships": [{
+            "relationshipName": "CustomBrands",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "CustomBrand"
+        }],
         "apiName": "Stamp"
     }, {
         "label": "Stamp Assignment",
@@ -64212,7 +66025,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "NamespacePrefix"
         }],
-        "childRelationships": [{"relationshipName": "Bundle", "childAPIName": "AuraDefinitionInfo"}],
+        "childRelationships": [{
+            "relationshipName": "Bundle",
+            "childFieldAPIName": "AuraDefinitionBundleInfoId",
+            "childAPIName": "AuraDefinitionInfo"
+        }],
         "apiName": "AuraDefinitionBundleInfo"
     }, {
         "label": "Lightning Component Definition",
@@ -65307,7 +67124,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "Type"
         }],
-        "childRelationships": [{"relationshipName": "AuthProvidersForConfig", "childAPIName": "AuthConfigProviders"}],
+        "childRelationships": [{
+            "relationshipName": "AuthProvidersForConfig",
+            "childFieldAPIName": "AuthConfigId",
+            "childAPIName": "AuthConfigProviders"
+        }],
         "apiName": "AuthConfig"
     }, {
         "label": "SAML Single Sign-On Setting",
@@ -66424,8 +68245,13 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}],
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }],
         "apiName": "UserProvisioningRequest"
     }, {
         "label": "User Provisioning Request Share",
@@ -67265,35 +69091,35 @@ var wrappers =
         }, {
             "type": "BOOLEAN",
             "referenceFields": null,
-            "label": "Has Verified Mobile Number",
+            "label": "Admin Trusted Mobile Number",
             "isMDOrCascadeDelete": false,
             "isCustom": false,
             "apiName": "HasVerifiedMobileNumber"
         }, {
             "type": "BOOLEAN",
             "referenceFields": null,
-            "label": "Has One-Time Password App",
+            "label": "One-Time Password App",
             "isMDOrCascadeDelete": false,
             "isCustom": false,
             "apiName": "HasTotp"
         }, {
             "type": "BOOLEAN",
             "referenceFields": null,
-            "label": "Has Salesforce Authenticator",
+            "label": "Salesforce Authenticator",
             "isMDOrCascadeDelete": false,
             "isCustom": false,
             "apiName": "HasSalesforceAuthenticator"
         }, {
             "type": "BOOLEAN",
             "referenceFields": null,
-            "label": "Has Temporary Code",
+            "label": "Temporary Code",
             "isMDOrCascadeDelete": false,
             "isCustom": false,
             "apiName": "HasTempCode"
         }, {
             "type": "BOOLEAN",
             "referenceFields": null,
-            "label": "Has U2F Security Key",
+            "label": "U2F Security Key",
             "isMDOrCascadeDelete": false,
             "isCustom": false,
             "apiName": "HasU2F"
@@ -67599,7 +69425,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "FeedItemId"
         }],
-        "childRelationships": [{"relationshipName": "Badges", "childAPIName": "WorkBadge"}],
+        "childRelationships": [{
+            "relationshipName": "Badges",
+            "childFieldAPIName": "SourceId",
+            "childAPIName": "WorkBadge"
+        }],
         "apiName": "WorkThanks"
     }, {
         "label": "Thanks Share",
@@ -67861,27 +69691,43 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
-        }, {"relationshipName": "WorkAccesses", "childAPIName": "WorkAccess"}, {
+        }, {
+            "relationshipName": "WorkAccesses",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "WorkAccess"
+        }, {
             "relationshipName": "Badges",
+            "childFieldAPIName": "DefinitionId",
             "childAPIName": "WorkBadge"
-        }, {"relationshipName": "Feeds", "childAPIName": "WorkBadgeDefinitionFeed"}, {
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "WorkBadgeDefinitionFeed"
+        }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "WorkBadgeDefinitionId",
             "childAPIName": "WorkBadgeDefinitionHistory"
         }],
         "apiName": "WorkBadgeDefinition"
@@ -68182,12 +70028,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "WorkBadgeDefinitionFeed"
@@ -68504,14 +70361,17 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
-        }, {"relationshipName": "Badges", "childAPIName": "WorkBadge"}, {
-            "relationshipName": "Histories",
-            "childAPIName": "WorkRewardHistory"
-        }],
+        }, {
+            "relationshipName": "Badges",
+            "childFieldAPIName": "RewardId",
+            "childAPIName": "WorkBadge"
+        }, {"relationshipName": "Histories", "childFieldAPIName": "WorkRewardId", "childAPIName": "WorkRewardHistory"}],
         "apiName": "WorkReward"
     }, {
         "label": "Reward Share",
@@ -68817,29 +70677,45 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "BadgeDefinitions",
+            "childFieldAPIName": "RewardFundId",
             "childAPIName": "WorkBadgeDefinition"
-        }, {"relationshipName": "Rewards", "childAPIName": "WorkReward"}, {
+        }, {
+            "relationshipName": "Rewards",
+            "childFieldAPIName": "RewardFundId",
+            "childAPIName": "WorkReward"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "WorkRewardFundFeed"
-        }, {"relationshipName": "Histories", "childAPIName": "WorkRewardFundHistory"}],
+        }, {
+            "relationshipName": "Histories",
+            "childFieldAPIName": "WorkRewardFundId",
+            "childAPIName": "WorkRewardFundHistory"
+        }],
         "apiName": "WorkRewardFund"
     }, {
         "label": "Reward Fund Share",
@@ -69138,12 +71014,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "WorkRewardFundFeed"
@@ -69464,42 +71351,67 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "Notes",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
-        }, {"relationshipName": "Feeds", "childAPIName": "WorkCoachingFeed"}, {
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "WorkCoachingFeed"
+        }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "WorkCoachingId",
             "childAPIName": "WorkCoachingHistory"
         }],
         "apiName": "WorkCoaching"
@@ -69800,12 +71712,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "WorkCoachingFeed"
@@ -69982,26 +71905,41 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
-        }, {"relationshipName": "RewardFunds", "childAPIName": "WorkRewardFund"}, {
+        }, {
+            "relationshipName": "RewardFunds",
+            "childFieldAPIName": "RewardFundTypeId",
+            "childAPIName": "WorkRewardFund"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "WorkRewardFundTypeFeed"
-        }, {"relationshipName": "Histories", "childAPIName": "WorkRewardFundTypeHistory"}],
+        }, {
+            "relationshipName": "Histories",
+            "childFieldAPIName": "WorkRewardFundTypeId",
+            "childAPIName": "WorkRewardFundTypeHistory"
+        }],
         "apiName": "WorkRewardFundType"
     }, {
         "label": "Reward Fund Type Share",
@@ -70300,12 +72238,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "WorkRewardFundTypeFeed"
@@ -70468,47 +72417,85 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "GoalFeed"
-        }, {"relationshipName": "Histories", "childAPIName": "GoalHistory"}, {
+        }, {
+            "relationshipName": "Histories",
+            "childFieldAPIName": "GoalId",
+            "childAPIName": "GoalHistory"
+        }, {
             "relationshipName": "Subgoals",
+            "childFieldAPIName": "ParentGoalId",
             "childAPIName": "GoalLink"
-        }, {"relationshipName": "ParentGoals", "childAPIName": "GoalLink"}, {
+        }, {
+            "relationshipName": "ParentGoals",
+            "childFieldAPIName": "SubgoalId",
+            "childAPIName": "GoalLink"
+        }, {
             "relationshipName": "Metrics",
+            "childFieldAPIName": "GoalId",
             "childAPIName": "Metric"
-        }, {"relationshipName": "Notes", "childAPIName": "Note"}, {
+        }, {
+            "relationshipName": "Notes",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "Note"
+        }, {
             "relationshipName": "NotesAndAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
-        }, {"relationshipName": "RelatedObjects", "childAPIName": "WorkFeedbackRequest"}],
+        }, {
+            "relationshipName": "RelatedObjects",
+            "childFieldAPIName": "RelatedObjectId",
+            "childAPIName": "WorkFeedbackRequest"
+        }],
         "apiName": "Goal"
     }, {
         "label": "Goal Share",
@@ -70807,12 +72794,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "GoalFeed"
@@ -71027,44 +73025,69 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "LinkTarget",
+            "childFieldAPIName": "TargetId",
             "childAPIName": "MetricDataLink"
-        }, {"relationshipName": "Feeds", "childAPIName": "MetricFeed"}, {
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "MetricFeed"
+        }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "MetricId",
             "childAPIName": "MetricHistory"
-        }, {"relationshipName": "Notes", "childAPIName": "Note"}, {
+        }, {
+            "relationshipName": "Notes",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "Note"
+        }, {
             "relationshipName": "NotesAndAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
-            "relationshipName": "Tasks",
-            "childAPIName": "Task"
-        }],
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {"relationshipName": "Tasks", "childFieldAPIName": "WhatId", "childAPIName": "Task"}],
         "apiName": "Metric"
     }, {
         "label": "Metric Share",
@@ -71363,12 +73386,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "MetricFeed"
@@ -71576,7 +73610,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "DatasourceFieldName"
         }],
-        "childRelationships": [{"relationshipName": "Histories", "childAPIName": "MetricDataLinkHistory"}],
+        "childRelationships": [{
+            "relationshipName": "Histories",
+            "childFieldAPIName": "MetricDataLinkId",
+            "childAPIName": "MetricDataLinkHistory"
+        }],
         "apiName": "MetricDataLink"
     }, {
         "label": "Metric Data Link History",
@@ -71788,32 +73826,49 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "FeedbackQuestionSets",
+            "childFieldAPIName": "PerformanceCycleId",
             "childAPIName": "WorkFeedbackQuestionSet"
         }, {
             "relationshipName": "FeedbackRequests",
+            "childFieldAPIName": "PerformanceCycleId",
             "childAPIName": "WorkFeedbackRequest"
-        }, {"relationshipName": "RelatedObjects", "childAPIName": "WorkFeedbackRequest"}, {
+        }, {
+            "relationshipName": "RelatedObjects",
+            "childFieldAPIName": "RelatedObjectId",
+            "childAPIName": "WorkFeedbackRequest"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "WorkPerformanceCycleFeed"
-        }, {"relationshipName": "Histories", "childAPIName": "WorkPerformanceCycleHistory"}],
+        }, {
+            "relationshipName": "Histories",
+            "childFieldAPIName": "WorkPerformanceCycleId",
+            "childAPIName": "WorkPerformanceCycleHistory"
+        }],
         "apiName": "WorkPerformanceCycle"
     }, {
         "label": "Performance Cycle Share",
@@ -72112,12 +74167,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "WorkPerformanceCycleFeed"
@@ -72236,20 +74302,29 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "FeedbackQuestions",
+            "childFieldAPIName": "QuestionSetId",
             "childAPIName": "WorkFeedbackQuestion"
         }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "WorkFeedbackQuestionSetId",
             "childAPIName": "WorkFeedbackQuestionSetHistory"
         }, {
             "relationshipName": "FeedbackRequests",
+            "childFieldAPIName": "QuestionSetId",
             "childAPIName": "WorkFeedbackRequest"
-        }, {"relationshipName": "Templates", "childAPIName": "WorkFeedbackTemplate"}],
+        }, {
+            "relationshipName": "Templates",
+            "childFieldAPIName": "QuestionSetId",
+            "childAPIName": "WorkFeedbackTemplate"
+        }],
         "apiName": "WorkFeedbackQuestionSet"
     }, {
         "label": "Feedback Question Set Share",
@@ -72555,12 +74630,19 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
-        }, {"relationshipName": "Feedbacks", "childAPIName": "WorkFeedback"}, {
+        }, {
+            "relationshipName": "Feedbacks",
+            "childFieldAPIName": "QuestionId",
+            "childAPIName": "WorkFeedback"
+        }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "WorkFeedbackQuestionId",
             "childAPIName": "WorkFeedbackQuestionHistory"
         }],
         "apiName": "WorkFeedbackQuestion"
@@ -72838,11 +74920,17 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
-        }, {"relationshipName": "Histories", "childAPIName": "WorkFeedbackHistory"}],
+        }, {
+            "relationshipName": "Histories",
+            "childFieldAPIName": "WorkFeedbackId",
+            "childAPIName": "WorkFeedbackHistory"
+        }],
         "apiName": "WorkFeedback"
     }, {
         "label": "Feedback Share",
@@ -73294,26 +75382,41 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
-        }, {"relationshipName": "Feedbacks", "childAPIName": "WorkFeedback"}, {
+        }, {
+            "relationshipName": "Feedbacks",
+            "childFieldAPIName": "RequestId",
+            "childAPIName": "WorkFeedback"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "WorkFeedbackRequestFeed"
-        }, {"relationshipName": "Histories", "childAPIName": "WorkFeedbackRequestHistory"}],
+        }, {
+            "relationshipName": "Histories",
+            "childFieldAPIName": "WorkFeedbackRequestId",
+            "childAPIName": "WorkFeedbackRequestHistory"
+        }],
         "apiName": "WorkFeedbackRequest"
     }, {
         "label": "Feedback Request Share",
@@ -73612,12 +75715,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "WorkFeedbackRequestFeed"
@@ -73736,8 +75850,13 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}],
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }],
         "apiName": "WorkFeedbackTemplate"
     }, {
         "label": "Feedback Template Share",
@@ -74634,8 +76753,13 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}],
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }],
         "apiName": "ExternalEventMapping"
     }, {
         "label": "External Event Mapping Share",
@@ -74824,7 +76948,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "Time"
         }],
-        "childRelationships": [{"relationshipName": "ConferenceNumbers", "childAPIName": "ConferenceNumber"}],
+        "childRelationships": [{
+            "relationshipName": "ConferenceNumbers",
+            "childFieldAPIName": "ExternalEventId",
+            "childAPIName": "ConferenceNumber"
+        }],
         "apiName": "ExternalEvent"
     }, {
         "label": "Matching Information",
@@ -75259,7 +77387,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "LastViewedDate"
         }],
-        "childRelationships": [{"relationshipName": "DuplicateRecordSets", "childAPIName": "DuplicateRecordSet"}],
+        "childRelationships": [{
+            "relationshipName": "DuplicateRecordSets",
+            "childFieldAPIName": "DuplicateRuleId",
+            "childAPIName": "DuplicateRecordSet"
+        }],
         "apiName": "DuplicateRule"
     }, {
         "label": "Duplicate Record Set",
@@ -75366,11 +77498,17 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "DuplicateRecordItems",
+            "childFieldAPIName": "DuplicateRecordSetId",
             "childAPIName": "DuplicateRecordItem"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}],
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }],
         "apiName": "DuplicateRecordSet"
     }, {
         "label": "Duplicate Record Item",
@@ -75468,18 +77606,18 @@ var wrappers =
             }, {
                 "relationshipName": "Record",
                 "referenceFieldAPIName": "RecordId",
+                "parentLabel": "Lead",
+                "parentAPIName": "Lead"
+            }, {
+                "relationshipName": "Record",
+                "referenceFieldAPIName": "RecordId",
                 "parentLabel": "Graphviz Config",
-                "parentAPIName": "GraphvizConfig__c"
+                "parentAPIName": "gvf2__GraphvizConfig__c"
             }, {
                 "relationshipName": "Record",
                 "referenceFieldAPIName": "RecordId",
                 "parentLabel": "Graphviz Diagram",
-                "parentAPIName": "Graphviz_Diagram__c"
-            }, {
-                "relationshipName": "Record",
-                "referenceFieldAPIName": "RecordId",
-                "parentLabel": "Lead",
-                "parentAPIName": "Lead"
+                "parentAPIName": "gvf2__Graphviz_Diagram__c"
             }],
             "label": "Record ID",
             "isMDOrCascadeDelete": false,
@@ -75488,8 +77626,13 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}],
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }],
         "apiName": "DuplicateRecordItem"
     }, {
         "label": "Matching Rule",
@@ -75624,7 +77767,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "SobjectSubtype"
         }],
-        "childRelationships": [{"relationshipName": "MatchingRuleItems", "childAPIName": "MatchingRuleItem"}],
+        "childRelationships": [{
+            "relationshipName": "MatchingRuleItems",
+            "childFieldAPIName": "MatchingRuleId",
+            "childAPIName": "MatchingRuleItem"
+        }],
         "apiName": "MatchingRule"
     }, {
         "label": "Matching Rule Item",
@@ -75934,7 +78081,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "MetadataJson"
         }],
-        "childRelationships": [{"relationshipName": "ExternalDataIds", "childAPIName": "InsightsExternalDataPart"}],
+        "childRelationships": [{
+            "relationshipName": "ExternalDataIds",
+            "childFieldAPIName": "InsightsExternalDataId",
+            "childAPIName": "InsightsExternalDataPart"
+        }],
         "apiName": "InsightsExternalData"
     }, {
         "label": "External Data Part",
@@ -76163,7 +78314,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "Priority"
         }],
-        "childRelationships": [{"relationshipName": "SecureAgentPlugins", "childAPIName": "SecureAgentPlugin"}],
+        "childRelationships": [{
+            "relationshipName": "SecureAgentPlugins",
+            "childFieldAPIName": "SecureAgentId",
+            "childAPIName": "SecureAgentPlugin"
+        }],
         "apiName": "SecureAgent"
     }, {
         "label": "Secure Agent Cluster",
@@ -76370,6 +78525,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "SecureAgentPluginProperties",
+            "childFieldAPIName": "SecureAgentPluginId",
             "childAPIName": "SecureAgentPluginProperty"
         }],
         "apiName": "SecureAgentPlugin"
@@ -76642,8 +78798,13 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "UserAuths",
+            "childFieldAPIName": "ExternalDataSourceId",
             "childAPIName": "ExternalDataUserAuth"
-        }, {"relationshipName": "SetupEntityAccessItems", "childAPIName": "SetupEntityAccess"}],
+        }, {
+            "relationshipName": "SetupEntityAccessItems",
+            "childFieldAPIName": "SetupEntityId",
+            "childAPIName": "SetupEntityAccess"
+        }],
         "apiName": "ExternalDataSource"
     }, {
         "label": "Named Credential",
@@ -76785,8 +78946,13 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "UserAuths",
+            "childFieldAPIName": "ExternalDataSourceId",
             "childAPIName": "ExternalDataUserAuth"
-        }, {"relationshipName": "SetupEntityAccessItems", "childAPIName": "SetupEntityAccess"}],
+        }, {
+            "relationshipName": "SetupEntityAccessItems",
+            "childFieldAPIName": "SetupEntityId",
+            "childAPIName": "SetupEntityAccess"
+        }],
         "apiName": "NamedCredential"
     }, {
         "label": "Background Operation",
@@ -76989,7 +79155,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "Error"
         }],
-        "childRelationships": [{"relationshipName": "MergedOperations", "childAPIName": "BackgroundOperation"}],
+        "childRelationships": [{
+            "relationshipName": "MergedOperations",
+            "childFieldAPIName": "GroupLeaderId",
+            "childAPIName": "BackgroundOperation"
+        }],
         "apiName": "BackgroundOperation"
     }, {
         "label": "Tenant Secret",
@@ -77576,8 +79746,13 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
-        }, {"relationshipName": "OutgoingEmailRelations", "childAPIName": "OutgoingEmailRelation"}],
+        }, {
+            "relationshipName": "OutgoingEmailRelations",
+            "childFieldAPIName": "OutgoingEmailId",
+            "childAPIName": "OutgoingEmailRelation"
+        }],
         "apiName": "OutgoingEmail"
     }, {
         "label": "Outgoing Email Relation",
@@ -77754,6 +79929,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "DataAssessmentMetrics",
+            "childFieldAPIName": "DataAssessmentMetricId",
             "childAPIName": "DataAssessmentFieldMetric"
         }],
         "apiName": "DataAssessmentMetric"
@@ -77876,6 +80052,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "DataAssessmentValueMetrics",
+            "childFieldAPIName": "DataAssessmentFieldMetricId",
             "childAPIName": "DataAssessmentValueMetric"
         }],
         "apiName": "DataAssessmentFieldMetric"
@@ -78084,6 +80261,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "PlatforCachePartitionTypes",
+            "childFieldAPIName": "PlatformCachePartitionId",
             "childAPIName": "PlatformCachePartitionType"
         }],
         "apiName": "PlatformCachePartition"
@@ -78610,41 +80788,65 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "MaintenanceAssets",
+            "childFieldAPIName": "MaintenancePlanId",
             "childAPIName": "MaintenanceAsset"
-        }, {"relationshipName": "Feeds", "childAPIName": "MaintenancePlanFeed"}, {
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "MaintenancePlanFeed"
+        }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "MaintenancePlanId",
             "childAPIName": "MaintenancePlanHistory"
         }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
-        }, {"relationshipName": "WorkOrders", "childAPIName": "WorkOrder"}],
+        }, {"relationshipName": "WorkOrders", "childFieldAPIName": "MaintenancePlanId", "childAPIName": "WorkOrder"}],
         "apiName": "MaintenancePlan"
     }, {
         "label": "Maintenance Plan Share",
@@ -78943,12 +81145,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "MaintenancePlanFeed"
@@ -79048,23 +81261,37 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "ServiceTerritoryLocationFeed"
-        }, {"relationshipName": "Histories", "childAPIName": "ServiceTerritoryLocationHistory"}],
+        }, {
+            "relationshipName": "Histories",
+            "childFieldAPIName": "ServiceTerritoryLocationId",
+            "childAPIName": "ServiceTerritoryLocationHistory"
+        }],
         "apiName": "ServiceTerritoryLocation"
     }, {
         "label": "Territory Location History",
@@ -79281,12 +81508,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ServiceTerritoryLocationFeed"
@@ -79412,38 +81650,61 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "MaintenanceAssetFeed"
         }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "MaintenanceAssetId",
             "childAPIName": "MaintenanceAssetHistory"
         }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
         "apiName": "MaintenanceAsset"
     }, {
         "label": "Maintenance Asset History",
@@ -79660,12 +81921,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "MaintenanceAssetFeed"
@@ -79935,41 +82207,69 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "ProductRequestFeed"
         }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "ProductRequestId",
             "childAPIName": "ProductRequestHistory"
         }, {
             "relationshipName": "ProductRequestLineItems",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "ProductRequestLineItem"
-        }, {"relationshipName": "ProductTransfers", "childAPIName": "ProductTransfer"}, {
+        }, {
+            "relationshipName": "ProductTransfers",
+            "childFieldAPIName": "ProductRequestId",
+            "childAPIName": "ProductTransfer"
+        }, {
             "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
         "apiName": "ProductRequest"
     }, {
         "label": "Product Request Share",
@@ -80268,12 +82568,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ProductRequestFeed"
@@ -80558,39 +82869,63 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ProductItemTransactions",
+            "childFieldAPIName": "RelatedRecordId",
             "childAPIName": "ProductItemTransaction"
-        }, {"relationshipName": "Feeds", "childAPIName": "ProductTransferFeed"}, {
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "ProductTransferFeed"
+        }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "ProductTransferId",
             "childAPIName": "ProductTransferHistory"
-        }, {"relationshipName": "Tasks", "childAPIName": "Task"}, {
+        }, {
+            "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Task"
+        }, {
             "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
         "apiName": "ProductTransfer"
@@ -80891,12 +83226,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ProductTransferFeed"
@@ -81187,47 +83533,77 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "Notes",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "ProductRequestLineItemFeed"
         }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "ProductRequestLineItemId",
             "childAPIName": "ProductRequestLineItemHistory"
-        }, {"relationshipName": "ProductTransfers", "childAPIName": "ProductTransfer"}, {
+        }, {
+            "relationshipName": "ProductTransfers",
+            "childFieldAPIName": "ProductRequestLineItemId",
+            "childAPIName": "ProductTransfer"
+        }, {
             "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
         "apiName": "ProductRequestLineItem"
     }, {
         "label": "Product Request Line Item History ",
@@ -81444,12 +83820,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ProductRequestLineItemFeed"
@@ -81779,38 +84166,65 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
-        }, {"relationshipName": "ProductTransfers", "childAPIName": "ProductTransfer"}, {
+        }, {
+            "relationshipName": "ProductTransfers",
+            "childFieldAPIName": "ShipmentId",
+            "childAPIName": "ProductTransfer"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "ShipmentFeed"
-        }, {"relationshipName": "Histories", "childAPIName": "ShipmentHistory"}, {
+        }, {
+            "relationshipName": "Histories",
+            "childFieldAPIName": "ShipmentId",
+            "childAPIName": "ShipmentHistory"
+        }, {
             "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
         "apiName": "Shipment"
     }, {
         "label": "Shipment Share",
@@ -82109,12 +84523,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ShipmentFeed"
@@ -82422,38 +84847,65 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
-        }, {"relationshipName": "TimeSheetEntries", "childAPIName": "TimeSheetEntry"}, {
+        }, {
+            "relationshipName": "TimeSheetEntries",
+            "childFieldAPIName": "TimeSheetId",
+            "childAPIName": "TimeSheetEntry"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "TimeSheetFeed"
         }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "TimeSheetId",
             "childAPIName": "TimeSheetHistory"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
         "apiName": "TimeSheet"
     }, {
         "label": "Time Sheet Share",
@@ -82752,12 +85204,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "TimeSheetFeed"
@@ -82938,35 +85401,53 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
-        }, {"relationshipName": "Feeds", "childAPIName": "AssetRelationshipFeed"}, {
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "AssetRelationshipFeed"
+        }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "AssetRelationshipId",
             "childAPIName": "AssetRelationshipHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
-            "relationshipName": "Tasks",
-            "childAPIName": "Task"
-        }],
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {"relationshipName": "Tasks", "childFieldAPIName": "WhatId", "childAPIName": "Task"}],
         "apiName": "AssetRelationship"
     }, {
         "label": "Asset Relationship History",
@@ -83183,12 +85664,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "AssetRelationshipFeed"
@@ -83363,35 +85855,61 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
-        }, {"relationshipName": "Feeds", "childAPIName": "TimeSheetEntryFeed"}, {
+        }, {
+            "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "TimeSheetEntryFeed"
+        }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "TimeSheetEntryId",
             "childAPIName": "TimeSheetEntryHistory"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
         "apiName": "TimeSheetEntry"
     }, {
         "label": "Time Sheet Entry History",
@@ -83608,12 +86126,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "TimeSheetEntryFeed"
@@ -84061,44 +86590,73 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AssignedResources",
+            "childFieldAPIName": "ServiceCrewId",
             "childAPIName": "AssignedResource"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "ServiceCrewFeed"
         }, {
             "relationshipName": "Histories",
+            "childFieldAPIName": "ServiceCrewId",
             "childAPIName": "ServiceCrewHistory"
         }, {
             "relationshipName": "ServiceCrewMembers",
+            "childFieldAPIName": "ServiceCrewId",
             "childAPIName": "ServiceCrewMember"
-        }, {"relationshipName": "ServiceResources", "childAPIName": "ServiceResource"}, {
+        }, {
+            "relationshipName": "ServiceResources",
+            "childFieldAPIName": "ServiceCrewId",
+            "childAPIName": "ServiceResource"
+        }, {
             "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
         "apiName": "ServiceCrew"
     }, {
         "label": "Service Crew Share",
@@ -84397,12 +86955,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ServiceCrewFeed"
@@ -84537,35 +87106,61 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Events", "childAPIName": "Event"}, {
+        }, {
+            "relationshipName": "Events",
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Event"
+        }, {
             "relationshipName": "OpenActivities",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
-        }, {"relationshipName": "ProcessSteps", "childAPIName": "ProcessInstanceHistory"}, {
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
             "relationshipName": "Feeds",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "ServiceCrewMemberFeed"
-        }, {"relationshipName": "Histories", "childAPIName": "ServiceCrewMemberHistory"}, {
+        }, {
+            "relationshipName": "Histories",
+            "childFieldAPIName": "ServiceCrewMemberId",
+            "childAPIName": "ServiceCrewMemberHistory"
+        }, {
             "relationshipName": "Tasks",
+            "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
         "apiName": "ServiceCrewMember"
     }, {
         "label": "Service Crew Member History",
@@ -84782,12 +87377,23 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedComments", "childAPIName": "FeedComment"}, {
+        }, {
+            "relationshipName": "FeedComments",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedComment"
+        }, {
             "relationshipName": "FeedLikes",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
-        }, {"relationshipName": "FeedSignals", "childAPIName": "FeedSignal"}, {
+        }, {
+            "relationshipName": "FeedSignals",
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "FeedSignal"
+        }, {
             "relationshipName": "FeedTrackedChanges",
+            "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
         "apiName": "ServiceCrewMemberFeed"
@@ -84957,11 +87563,17 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
-        }, {"relationshipName": "ContentDocumentLinks", "childAPIName": "ContentDocumentLink"}],
+        }, {
+            "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
+            "childAPIName": "ContentDocumentLink"
+        }],
         "apiName": "ListEmail"
     }, {
         "label": "List Email Share",
@@ -85129,6 +87741,11 @@ var wrappers =
         }, {
             "type": "REFERENCE",
             "referenceFields": [{
+                "relationshipName": "SourceList",
+                "referenceFieldAPIName": "SourceListId",
+                "parentLabel": "Campaign",
+                "parentAPIName": "Campaign"
+            }, {
                 "relationshipName": "SourceList",
                 "referenceFieldAPIName": "SourceListId",
                 "parentLabel": "List View",
@@ -85320,7 +87937,7 @@ var wrappers =
         }, {
             "type": "BOOLEAN",
             "referenceFields": null,
-            "label": "Manage Public Templates",
+            "label": "Manage Public Classic Email Templates",
             "isMDOrCascadeDelete": false,
             "isCustom": false,
             "apiName": "PermissionsEditPublicTemplates"
@@ -86237,13 +88854,6 @@ var wrappers =
         }, {
             "type": "BOOLEAN",
             "referenceFields": null,
-            "label": "Access Chatter For SharePoint",
-            "isMDOrCascadeDelete": false,
-            "isCustom": false,
-            "apiName": "PermissionsChatterForSharePoint"
-        }, {
-            "type": "BOOLEAN",
-            "referenceFields": null,
             "label": "Upload External Data to Analytics",
             "isMDOrCascadeDelete": false,
             "isCustom": false,
@@ -86848,7 +89458,11 @@ var wrappers =
             "isCustom": false,
             "apiName": "Metadata"
         }],
-        "childRelationships": [{"relationshipName": "DatasetExportParts", "childAPIName": "DatasetExportPart"}],
+        "childRelationships": [{
+            "relationshipName": "DatasetExportParts",
+            "childFieldAPIName": "DatasetExportId",
+            "childAPIName": "DatasetExportPart"
+        }],
         "apiName": "DatasetExport"
     }, {
         "label": "Dataset Export Part",
@@ -87044,135 +89658,6 @@ var wrappers =
         "childRelationships": null,
         "apiName": "DatasetExportEvent"
     }, {
-        "label": "Graphviz Diagram",
-        "isCustom": true,
-        "fields": [{
-            "type": "ID",
-            "referenceFields": null,
-            "label": "Record ID",
-            "isMDOrCascadeDelete": false,
-            "isCustom": false,
-            "apiName": "Id"
-        }, {
-            "type": "REFERENCE",
-            "referenceFields": [{
-                "relationshipName": "Owner",
-                "referenceFieldAPIName": "OwnerId",
-                "parentLabel": "Group",
-                "parentAPIName": "Group"
-            }, {
-                "relationshipName": "Owner",
-                "referenceFieldAPIName": "OwnerId",
-                "parentLabel": "User",
-                "parentAPIName": "User"
-            }],
-            "label": "Owner ID",
-            "isMDOrCascadeDelete": false,
-            "isCustom": false,
-            "apiName": "OwnerId"
-        }, {
-            "type": "BOOLEAN",
-            "referenceFields": null,
-            "label": "Deleted",
-            "isMDOrCascadeDelete": false,
-            "isCustom": false,
-            "apiName": "IsDeleted"
-        }, {
-            "type": "STRING",
-            "referenceFields": null,
-            "label": "Graphviz Diagram Number",
-            "isMDOrCascadeDelete": false,
-            "isCustom": false,
-            "apiName": "Name"
-        }, {
-            "type": "DATETIME",
-            "referenceFields": null,
-            "label": "Created Date",
-            "isMDOrCascadeDelete": false,
-            "isCustom": false,
-            "apiName": "CreatedDate"
-        }, {
-            "type": "REFERENCE",
-            "referenceFields": [{
-                "relationshipName": "CreatedBy",
-                "referenceFieldAPIName": "CreatedById",
-                "parentLabel": "User",
-                "parentAPIName": "User"
-            }],
-            "label": "Created By ID",
-            "isMDOrCascadeDelete": false,
-            "isCustom": false,
-            "apiName": "CreatedById"
-        }, {
-            "type": "DATETIME",
-            "referenceFields": null,
-            "label": "Last Modified Date",
-            "isMDOrCascadeDelete": false,
-            "isCustom": false,
-            "apiName": "LastModifiedDate"
-        }, {
-            "type": "REFERENCE",
-            "referenceFields": [{
-                "relationshipName": "LastModifiedBy",
-                "referenceFieldAPIName": "LastModifiedById",
-                "parentLabel": "User",
-                "parentAPIName": "User"
-            }],
-            "label": "Last Modified By ID",
-            "isMDOrCascadeDelete": false,
-            "isCustom": false,
-            "apiName": "LastModifiedById"
-        }, {
-            "type": "DATETIME",
-            "referenceFields": null,
-            "label": "System Modstamp",
-            "isMDOrCascadeDelete": false,
-            "isCustom": false,
-            "apiName": "SystemModstamp"
-        }, {
-            "type": "TEXTAREA",
-            "referenceFields": null,
-            "label": "Content",
-            "isMDOrCascadeDelete": false,
-            "isCustom": true,
-            "apiName": "Content__c"
-        }],
-        "childRelationships": [{
-            "relationshipName": "AttachedContentDocuments",
-            "childAPIName": "AttachedContentDocument"
-        }, {
-            "relationshipName": "Attachments",
-            "childAPIName": "Attachment"
-        }, {
-            "relationshipName": "RecordAssociatedGroups",
-            "childAPIName": "CollaborationGroupRecord"
-        }, {
-            "relationshipName": "CombinedAttachments",
-            "childAPIName": "CombinedAttachment"
-        }, {
-            "relationshipName": "ContentDocumentLinks",
-            "childAPIName": "ContentDocumentLink"
-        }, {
-            "relationshipName": "DuplicateRecordItems",
-            "childAPIName": "DuplicateRecordItem"
-        }, {
-            "relationshipName": "Emails",
-            "childAPIName": "EmailMessage"
-        }, {
-            "relationshipName": "FeedSubscriptionsForEntity",
-            "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Notes", "childAPIName": "Note"}, {
-            "relationshipName": "NotesAndAttachments",
-            "childAPIName": "NoteAndAttachment"
-        }, {
-            "relationshipName": "ProcessInstances",
-            "childAPIName": "ProcessInstance"
-        }, {
-            "relationshipName": "ProcessSteps",
-            "childAPIName": "ProcessInstanceHistory"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
-        "apiName": "Graphviz_Diagram__c"
-    }, {
         "label": "Graphviz Config",
         "isCustom": true,
         "fields": [{
@@ -87269,44 +89754,219 @@ var wrappers =
             "label": "Name",
             "isMDOrCascadeDelete": false,
             "isCustom": true,
-            "apiName": "Name__c"
+            "apiName": "gvf2__Name__c"
         }, {
             "type": "STRING",
             "referenceFields": null,
             "label": "Value",
             "isMDOrCascadeDelete": false,
             "isCustom": true,
-            "apiName": "Value__c"
+            "apiName": "gvf2__Value__c"
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "RecordAssociatedGroups",
+            "childFieldAPIName": "RecordId",
             "childAPIName": "CollaborationGroupRecord"
         }, {
             "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "DuplicateRecordItems",
+            "childFieldAPIName": "RecordId",
             "childAPIName": "DuplicateRecordItem"
         }, {
             "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
-        }, {"relationshipName": "TopicAssignments", "childAPIName": "TopicAssignment"}],
-        "apiName": "GraphvizConfig__c"
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
+        "apiName": "gvf2__GraphvizConfig__c"
+    }, {
+        "label": "Graphviz Diagram",
+        "isCustom": true,
+        "fields": [{
+            "type": "ID",
+            "referenceFields": null,
+            "label": "Record ID",
+            "isMDOrCascadeDelete": false,
+            "isCustom": false,
+            "apiName": "Id"
+        }, {
+            "type": "REFERENCE",
+            "referenceFields": [{
+                "relationshipName": "Owner",
+                "referenceFieldAPIName": "OwnerId",
+                "parentLabel": "Group",
+                "parentAPIName": "Group"
+            }, {
+                "relationshipName": "Owner",
+                "referenceFieldAPIName": "OwnerId",
+                "parentLabel": "User",
+                "parentAPIName": "User"
+            }],
+            "label": "Owner ID",
+            "isMDOrCascadeDelete": false,
+            "isCustom": false,
+            "apiName": "OwnerId"
+        }, {
+            "type": "BOOLEAN",
+            "referenceFields": null,
+            "label": "Deleted",
+            "isMDOrCascadeDelete": false,
+            "isCustom": false,
+            "apiName": "IsDeleted"
+        }, {
+            "type": "STRING",
+            "referenceFields": null,
+            "label": "Graphviz Diagram Number",
+            "isMDOrCascadeDelete": false,
+            "isCustom": false,
+            "apiName": "Name"
+        }, {
+            "type": "DATETIME",
+            "referenceFields": null,
+            "label": "Created Date",
+            "isMDOrCascadeDelete": false,
+            "isCustom": false,
+            "apiName": "CreatedDate"
+        }, {
+            "type": "REFERENCE",
+            "referenceFields": [{
+                "relationshipName": "CreatedBy",
+                "referenceFieldAPIName": "CreatedById",
+                "parentLabel": "User",
+                "parentAPIName": "User"
+            }],
+            "label": "Created By ID",
+            "isMDOrCascadeDelete": false,
+            "isCustom": false,
+            "apiName": "CreatedById"
+        }, {
+            "type": "DATETIME",
+            "referenceFields": null,
+            "label": "Last Modified Date",
+            "isMDOrCascadeDelete": false,
+            "isCustom": false,
+            "apiName": "LastModifiedDate"
+        }, {
+            "type": "REFERENCE",
+            "referenceFields": [{
+                "relationshipName": "LastModifiedBy",
+                "referenceFieldAPIName": "LastModifiedById",
+                "parentLabel": "User",
+                "parentAPIName": "User"
+            }],
+            "label": "Last Modified By ID",
+            "isMDOrCascadeDelete": false,
+            "isCustom": false,
+            "apiName": "LastModifiedById"
+        }, {
+            "type": "DATETIME",
+            "referenceFields": null,
+            "label": "System Modstamp",
+            "isMDOrCascadeDelete": false,
+            "isCustom": false,
+            "apiName": "SystemModstamp"
+        }, {
+            "type": "DATETIME",
+            "referenceFields": null,
+            "label": "Last Viewed Date",
+            "isMDOrCascadeDelete": false,
+            "isCustom": false,
+            "apiName": "LastViewedDate"
+        }, {
+            "type": "DATETIME",
+            "referenceFields": null,
+            "label": "Last Referenced Date",
+            "isMDOrCascadeDelete": false,
+            "isCustom": false,
+            "apiName": "LastReferencedDate"
+        }, {
+            "type": "TEXTAREA",
+            "referenceFields": null,
+            "label": "Content",
+            "isMDOrCascadeDelete": false,
+            "isCustom": true,
+            "apiName": "gvf2__Content__c"
+        }],
+        "childRelationships": [{
+            "relationshipName": "AttachedContentDocuments",
+            "childFieldAPIName": "LinkedEntityId",
+            "childAPIName": "AttachedContentDocument"
+        }, {
+            "relationshipName": "Attachments",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "Attachment"
+        }, {
+            "relationshipName": "RecordAssociatedGroups",
+            "childFieldAPIName": "RecordId",
+            "childAPIName": "CollaborationGroupRecord"
+        }, {
+            "relationshipName": "CombinedAttachments",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "CombinedAttachment"
+        }, {
+            "relationshipName": "ContentDocumentLinks",
+            "childFieldAPIName": "LinkedEntityId",
+            "childAPIName": "ContentDocumentLink"
+        }, {
+            "relationshipName": "DuplicateRecordItems",
+            "childFieldAPIName": "RecordId",
+            "childAPIName": "DuplicateRecordItem"
+        }, {
+            "relationshipName": "Emails",
+            "childFieldAPIName": "RelatedToId",
+            "childAPIName": "EmailMessage"
+        }, {
+            "relationshipName": "FeedSubscriptionsForEntity",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "EntitySubscription"
+        }, {
+            "relationshipName": "Notes",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "Note"
+        }, {
+            "relationshipName": "NotesAndAttachments",
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "NoteAndAttachment"
+        }, {
+            "relationshipName": "ProcessInstances",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstance"
+        }, {
+            "relationshipName": "ProcessSteps",
+            "childFieldAPIName": "TargetObjectId",
+            "childAPIName": "ProcessInstanceHistory"
+        }, {
+            "relationshipName": "TopicAssignments",
+            "childFieldAPIName": "EntityId",
+            "childAPIName": "TopicAssignment"
+        }],
+        "apiName": "gvf2__Graphviz_Diagram__c"
     }, {
         "label": "Graphviz AutoBuild",
         "isCustom": true,
@@ -87365,94 +90025,24 @@ var wrappers =
             "label": "Apex Class",
             "isMDOrCascadeDelete": false,
             "isCustom": true,
-            "apiName": "Apex_Class__c"
+            "apiName": "gvf2__Apex_Class__c"
         }, {
             "type": "TEXTAREA",
             "referenceFields": null,
             "label": "Description",
             "isMDOrCascadeDelete": false,
             "isCustom": true,
-            "apiName": "Description__c"
+            "apiName": "gvf2__Description__c"
         }, {
             "type": "STRING",
             "referenceFields": null,
             "label": "Lightning Config Component",
             "isMDOrCascadeDelete": false,
             "isCustom": true,
-            "apiName": "Lightning_Config_Component__c"
+            "apiName": "gvf2__Lightning_Config_Component__c"
         }],
         "childRelationships": null,
-        "apiName": "Graphviz_AutoBuild__mdt"
-    },
-        {
-            "label": "Master Object",
-            "isCustom": true,
-            "fields": [{
-                "type": "ID",
-                "referenceFields": null,
-                "label": "Record ID",
-                "isMDOrCascadeDelete": false,
-                "isCustom": false,
-                "apiName": "Id"
-            }, {
-                "type": "STRING",
-                "referenceFields": null,
-                "label": "Name",
-                "isMDOrCascadeDelete": false,
-                "isCustom": false,
-                "apiName": "Name"
-            }, {
-                "type": "DATETIME",
-                "referenceFields": null,
-                "label": "Created Date",
-                "isMDOrCascadeDelete": false,
-                "isCustom": false,
-                "apiName": "CreatedDate"
-            }],
-            "childRelationships": [{
-                "relationshipName": "DetialObjects",
-                "childAPIName": "DetailObject__c"
-            }],
-            "apiName": "MasterObject__c"
-        },
-        {
-            "label": "Detail Object",
-            "isCustom": true,
-            "fields": [{
-                "type": "ID",
-                "referenceFields": null,
-                "label": "Record ID",
-                "isMDOrCascadeDelete": false,
-                "isCustom": false,
-                "apiName": "Id"
-            }, {
-                "type": "STRING",
-                "referenceFields": null,
-                "label": "Name",
-                "isMDOrCascadeDelete": false,
-                "isCustom": false,
-                "apiName": "Name"
-            }, {
-                "type": "DATETIME",
-                "referenceFields": null,
-                "label": "Created Date",
-                "isMDOrCascadeDelete": false,
-                "isCustom": false,
-                "apiName": "CreatedDate"
-            }, {
-                "type": "REFERENCE",
-                "referenceFields": [{
-                    "relationshipName": "DetialObjects",
-                    "referenceFieldAPIName": "MasterParent__c",
-                    "parentLabel": "MasterParent",
-                    "parentAPIName": "MasterObject__c"
-                }],
-                "label": "Master Parent",
-                "isMDOrCascadeDelete": true,
-                "isCustom": true,
-                "apiName": "MasterParent__c"
-            }],
-            "apiName": "DetailObject__c"
-        }];
+        "apiName": "gvf2__Graphviz_AutoBuild__mdt"
+    }];
 
 module.exports = {wrappers: wrappers};

@@ -45,10 +45,16 @@ var soql = {
                 // record relationships to other objects
                 if (entityDescribe.childRelationships) {
                     entityDescribe.childRelationships.forEach(function (rel) {
+                        // ensure a lookup for each entity
                         if (!allChildRelationships[entityDescribe.apiName]) {
                             allChildRelationships[entityDescribe.apiName] = {};
                         }
-                        allChildRelationships[entityDescribe.apiName][rel.childAPIName] = rel.relationshipName;
+                        // ensure a lookup for each child entity
+                        if (!allChildRelationships[entityDescribe.apiName][rel.childAPIName]) {
+                            allChildRelationships[entityDescribe.apiName][rel.childAPIName] = {};
+                        }
+                        // record the relationship name using parent.child.child-fk-field
+                        allChildRelationships[entityDescribe.apiName][rel.childAPIName][rel.childFieldAPIName] = rel.relationshipName;
                     });
                 }
             });
@@ -65,7 +71,7 @@ var soql = {
                                 var relation = {
                                     field: attribute.apiName,
                                     relationshipNameFromChild: ref.relationshipName,
-                                    relationshipNameToChild: allChildRelationships[ref.parentAPIName][entityDescribe.apiName],
+                                    relationshipNameToChild: allChildRelationships[ref.parentAPIName][entityDescribe.apiName][ref.referenceFieldAPIName],
                                     parentEntity: ref.parentAPIName,
                                     childEntity: entityDescribe.apiName,
                                 };

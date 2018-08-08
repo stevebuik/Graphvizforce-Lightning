@@ -19,8 +19,19 @@ describe("query edge cases", function () {
     describe("No fields selected", function () {
         var result = renderAndSave(samples.account_contact_no_fields, "Account",
             "account-contact-without-fields");
-        it("Ids are added for all entities with no selected fields", function() {
-            expect(result.selectLists).toEqual([ 'Id', '(SELECT Id FROM Contacts)' ]);
+        it("Ids are added for all entities with no selected fields", function () {
+            expect(result.selectLists).toEqual(['Id', '(SELECT Id FROM Contacts)']);
+        });
+    })
+
+    describe("Duplicate child joins", function () {
+        var result = renderAndSave(samples.account_partners, "Account",
+            "account-partners");
+        it("Child relationship joins use correct names when > 1 relationship from parent", function () {
+            expect(result.selectLists).toEqual([
+                'Id',
+                '(SELECT Id FROM AccountPartnersFrom)',
+                '(SELECT Id FROM AccountPartnersTo)']);
         });
     })
 });

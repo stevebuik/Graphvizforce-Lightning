@@ -53,6 +53,52 @@ exports.account_contact_user =
         "id": "a01p0000006pVQQAA2"
     };
 
+exports.account_contact_no_fields =
+    {
+        "name": "AccountContactUser",
+        "entities": [
+            {
+                "apiName": "Account",
+                "fields": []
+            },
+            {
+                "apiName": "Contact",
+                "fields": []
+            }],
+        "groups": [{"name": "ContainerGroup", "entities": ["Account", "Contact"]}],
+        "settings": {
+            "showStandardUserRelationships": false,
+            "showSelfRelations": false,
+            "obscureEntities": []
+        },
+        "id": "a01p0000006pVQQAA2"
+    };
+
+exports.account_partners =
+    {
+        "name": "ffff",
+        "entities": [
+            {
+                "apiName": "AccountPartner",
+                "fields": []
+            },
+            {
+                "apiName": "Account",
+                "fields": []
+            }
+        ],
+        "groups": [{"name": "ContainerGroup", "entities": ["AccountPartner", "Account"]}],
+        "settings": {
+            "obscureEntities": [],
+            "from": "Account",
+            "showSelfRelations": false,
+            "showAPINames": true,
+            "showStandardUserRelations": false,
+            "showStandardUserRelationships": false
+        },
+        "id": "a010l0000058iHuAAI"
+    };
+
 exports.account_contact_feed2 =
     {
         "name": "Customer Support",
@@ -128,36 +174,12 @@ exports.master_detail_relationship =
                         {"apiName": "Name"},
                         {"apiName": "Type"}
                     ]
-                },
-                {
-                    "apiName": "MasterObject__c",
-                    "fields": [
-                        {"apiName": "Name"},
-                        {"apiName": "CreatedDate"}
-                    ]
-                },
-                {
-                    "apiName": "DetailObject__c",
-                    "fields": [
-                        {"apiName": "Name"},
-                        {"apiName": "MasterParent__c"},
-                        {"apiName": "CreatedDate"}
-                    ]
-                },
+                }
             ],
         // when no groups are present, the render will show all entities from above
-        "groups": [
-            {
-                "name": "Base",
-                "entities": ["Account", "Contact"]
-            },
-            {
-                "name": "Master Detail",
-                "entities": ["MasterObject__c", "DetailObject__c"]
-            }
-        ],
+        "groups": [],
         "settings": {
             "showSelfRelations": true,
-            "obscureEntities": ["MasterObject__c"]
+            "obscureEntities": []
         }
     };
