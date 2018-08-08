@@ -130,25 +130,19 @@ describe("persisted diagram samples (lean v2) are translated and rendered ok", f
 
 describe("master detail relationships are translated and rendered ok", function () {
 
-    var sample = samples["master_detail_relationship"];
-    describe("Custom objects with master detail relationship are translated and rendered ok", function () {
-        var rendered = renderAndValidate(sample, "master_detail_relationship__with-basic");
-        // Manually add the M-D relationship to the render result for testing purpose (because not every org has master detail custom relationship)
-        rendered.translated.relationships.push({
-                                     from: 'DetailObject__c',
-                                     to: 'MasterObject__c',
-                                     field: 'MasterParent__c',
-                                     style: "solid"
-                                 });
-
-        it("relationships would use solid line if it is master detail relation", function () {
-            expect(rendered.translated.relationships[rendered.translated.relationships.length - 1])
-                .toEqual({ from: 'DetailObject__c',
-                    to: 'MasterObject__c',
-                    field: 'MasterParent__c',
-                    style: 'solid' });
-        })
-    });
+    // TODO redo this test once standard object MD relationships work e.g. Asset -> AssetRelationship
+    // var sample = samples["master_detail_relationship"];
+    // describe("Standard objects with master detail relationship are translated and rendered ok", function () {
+    //
+    //     it("relationships would use solid line if it is master detail relation", function () {
+    //         expect(rendered.translated.relationships[rendered.translated.relationships.length - 1])
+    //             .toEqual({ from: 'DetailObject__c',
+    //                 to: 'MasterObject__c',
+    //                 field: 'MasterParent__c',
+    //                 style: 'solid' });
+    //     })
+    //
+    // });
 })
 
 ////// CANONICAL VIEW MODEL ///////
