@@ -40,11 +40,11 @@ var gv = {
      *  obscureEntities : an array of entity names that should be faded to de-emphasise them in the diagram
      *  from : the entity used as the SOQL from. It is rendered using a green color to highlight it
      *  showStandardUserRelationships : true will show OwnerId, CreatedBy and LastModifiedBy fields and the relationships to user. defaults to false
+     *  showAPINames : true will show objects/fields using their API Names instead of Labels
      * TODO
      *  showEdgeSingularLabels : true will show relationship labels for child to parent
      *  showEdgePluralLabels : true will show relationship labels for parent to children
      *  showTypes : true will show field types
-     *  showAPINames : true will show field using their API Names instead of Labels
      *  layout : TD (topdown) or LR (leftright). default is LR.
      *
      * @param diagram a valid persisted diagram object
@@ -98,8 +98,12 @@ var gv = {
                     color = gv.entityObscured;
                 }
 
+                var entityLabel = entityDescribe.label;
+                if (diagram.settings.showAPINames) {
+                    entityLabel = entityDescribe.apiName;
+                }
                 var viewEntity = {
-                    "name": entityDescribe.label,
+                    "name": entityLabel,
                     "id": entity.apiName,
                     "color": color,
                     "fields": []
@@ -130,8 +134,12 @@ var gv = {
                                         });
 
                                         // add the reference field to the entity
+                                        var fieldLabel = fieldDescribe.label;
+                                        if (diagram.settings.showAPINames) {
+                                            fieldLabel = fieldDescribe.apiName;
+                                        }
                                         viewEntity.fields.push({
-                                            "name": fieldDescribe.label,
+                                            "name": fieldLabel,
                                             "id": fieldDescribe.apiName,
                                             "type": fieldDescribe.type
                                         });
@@ -153,8 +161,12 @@ var gv = {
 
                     var fieldDescribe = fieldDescribesByAPIName[field.apiName];
                     if (fieldDescribe) {
+                        var fieldLabel = fieldDescribe.label;
+                        if (diagram.settings.showAPINames) {
+                            fieldLabel = fieldDescribe.apiName;
+                        }
                         var viewField = {
-                            "name": fieldDescribe.label,
+                            "name": fieldLabel,
                             "id": field.apiName,
                             "type": fieldDescribe.type
                         };

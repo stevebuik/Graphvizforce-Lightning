@@ -3,6 +3,31 @@
 // they're also translated to SOQL
 // to create/update them, just create a diagram in the Lightning client and then copy the JSON from the custom object record
 
+exports.account_contact_api_names =
+    {
+        "name": "AccountContactUser",
+        "entities": [
+            {
+                "apiName": "Account",
+                "fields": [
+                    {"apiName": "Name"},
+                    {"apiName": "Type"}
+                ]
+            },
+            {
+                "apiName": "Contact",
+                "fields": []
+            }],
+        "groups": [{"name": "ContainerGroup", "entities": ["Account", "Contact"]}],
+        "settings": {
+            "showAPINames": true,
+            "showStandardUserRelationships": false,
+            "showSelfRelations": false,
+            "obscureEntities": []
+        },
+        "id": "a01p0000006pVQQAA2"
+    };
+
 exports.account_contact_user =
     {
         "name": "AccountContactUser",

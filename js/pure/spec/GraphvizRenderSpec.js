@@ -20,6 +20,14 @@ var renderAndValidate = function (sample, variation) {
     }
 };
 
+describe("contact and account showing api names", function () {
+
+    var sample = samples["account_contact_api_names"];
+    sample.groups = [];
+
+    var result = renderAndValidate(sample, "account_contact_user_api_names");
+})
+
 describe("contact, account, user without groups", function () {
 
     var sample = samples["account_contact_user"];
