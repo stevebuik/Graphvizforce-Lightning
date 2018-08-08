@@ -74,7 +74,7 @@
                         </li>
                     </aura:iteration>
 
-                    <aura:if isTrue="{!empty(v.diagrams)}">
+                    <aura:if isTrue="{!and(v.schemaReady,empty(v.diagrams))}">
 
                         <div class="slds-align_absolute-center" style="height: 5rem;">
                             <div>
