@@ -2,10 +2,6 @@
     min-height: 200px;
 }
 
-.THIS hr.diagramBottom {
-    margin: 0px;
-}
-
 .THIS .toolbar button {
     margin-top: 10px;
     background-color: #ffffff;
@@ -13,4 +9,8 @@
 
 .THIS .toolbar button.sticky {
     background-color: #cef3ff;
+}
+
+.THIS .sections > * {
+    border: solid 1px lightgrey;
 }

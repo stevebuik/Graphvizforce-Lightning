@@ -1,60 +1,80 @@
 <aura:component description="DiagramOutput">
 
-    <aura:attribute name="diagram" type="Object" description="Diagram object" />
+    <aura:attribute name="diagram" type="Object" description="Diagram object"/>
     <aura:attribute name="describes" type="Object" description="The schema describe wrappers from Apex"/>
-    <aura:attribute name="isExpanded" type="Boolean" default="false" description="Indicates current state of the view: expanded or collapsed" />
-    <aura:attribute name="graphvizContent" type="String" description="Graphviz content value for diagram rendering" />
-    <aura:attribute name="svgContent" type="String" description="SVG content value for download" />
+    <aura:attribute name="isExpanded" type="Boolean" default="false"
+                    description="Indicates current state of the view: expanded or collapsed"/>
+    <aura:attribute name="graphvizContent" type="String" description="Graphviz content value for diagram rendering"/>
+    <aura:attribute name="svgContent" type="String" description="SVG content value for download"/>
 
-    <aura:registerEvent name="onTogglePreview" type="gvf2:ActionEvent" />
-    <aura:registerEvent name="onDiagramMutate" type="gvf2:DiagramMutateEvent" />
-    <aura:registerEvent name="onSettingsChange" type="gvf2:DiagramSettingsChangeEvent" />
+    <aura:registerEvent name="onTogglePreview" type="gvf2:ActionEvent"/>
+    <aura:registerEvent name="onDiagramMutate" type="gvf2:DiagramMutateEvent"/>
+    <aura:registerEvent name="onSettingsChange" type="gvf2:DiagramSettingsChangeEvent"/>
 
     <aura:handler name="onSettingsChange" event="gvf2:DiagramSettingsChangeEvent" action="{!c.onSettingsChanged}"/>
-    <aura:handler event="gvf2:DiagramUpdatedEvent" action="{!c.onDiagramUpdated}" />
+    <aura:handler event="gvf2:DiagramUpdatedEvent" action="{!c.onDiagramUpdated}"/>
 
     <ltng:require scripts="{!join(',', $Resource.GraphvizForceUtils, $Resource.pure)}"/>
 
     <lightning:tabset>
         <lightning:tab label="Diagram">
-            <div class="slds-clearfix" style="width:100%;max-width:100%;max-height:100%;">
-                <div class="toolbar" style="position:absolute;top:15px;left:10px;">
-                    <div>
-                        <aura:if isTrue="{!v.isExpanded}">
-                            <lightning:buttonIcon iconName="utility:contract" alternativeText="Contract" iconClass="slds-button_icon-x-small" onclick="{!c.onToggleState}" />
-                            <aura:set attribute="else">
-                                <lightning:buttonIcon iconName="utility:expand" alternativeText="Expand" iconClass="slds-button_icon-x-small" onclick="{!c.onToggleState}" />
-                            </aura:set>
-                        </aura:if>
+
+            <lightning:layout multipleRows="true"
+                              class="sections">
+
+                <lightning:layoutItem size="12" padding="around-small">
+                    <div class="toolbar" style="position:absolute;top:15px;left:10px;">
+                        <div>
+                            <aura:if isTrue="{!v.isExpanded}">
+                                <lightning:buttonIcon iconName="utility:contract" alternativeText="Contract"
+                                                      iconClass="slds-button_icon-x-small"
+                                                      onclick="{!c.onToggleState}"/>
+                                <aura:set attribute="else">
+                                    <lightning:buttonIcon iconName="utility:expand" alternativeText="Expand"
+                                                          iconClass="slds-button_icon-x-small"
+                                                          onclick="{!c.onToggleState}"/>
+                                </aura:set>
+                            </aura:if>
+                        </div>
+                        <div>
+                            <lightning:buttonIcon iconName="utility:sync" alternativeText="Reset Zoom"
+                                                  iconClass="slds-button_icon-x-small" onclick="{!c.onResetZoom}"/>
+                        </div>
+                        <!--sticky/persisted buttons below here-->
+                        <div>
+                            <lightning:buttonIcon class="sticky" iconName="utility:refresh"
+                                                  alternativeText="Show Self Relationships"
+                                                  iconClass="slds-button_icon-x-small" onclick="{!c.onToggleSelf}"/>
+                        </div>
+                        <div>
+                            <lightning:buttonIcon class="sticky" iconName="utility:replace"
+                                                  alternativeText="Show Standard User Relationships"
+                                                  iconClass="slds-button_icon-x-small" onclick="{!c.onToggleStdUser}"/>
+                        </div>
                     </div>
-                    <div>
-                        <lightning:buttonIcon iconName="utility:sync" alternativeText="Reset Zoom" iconClass="slds-button_icon-x-small" onclick="{!c.onResetZoom}" />
-                    </div>
-                    <!--sticky/persisted buttons below here-->
-                    <div>
-                        <lightning:buttonIcon class="sticky" iconName="utility:refresh" alternativeText="Show Self Relationships" iconClass="slds-button_icon-x-small" onclick="{!c.onToggleSelf}" />
-                    </div>
-                    <div>
-                        <lightning:buttonIcon class="sticky" iconName="utility:replace" alternativeText="Show Standard User Relationships" iconClass="slds-button_icon-x-small" onclick="{!c.onToggleStdUser}" />
-                    </div>
-                </div>
-                <div style="border:2px solid #eeeeee;width:100%;height:80vh;">
-                    <gvf2:DiagramViewer aura:id="diagramViewer" graphvizContent="{!v.graphvizContent}" onDiagramRendered="{!c.onDiagramRendered}" />
-                    <hr class="diagramBottom"/>
+                    <gvf2:DiagramViewer aura:id="diagramViewer" graphvizContent="{!v.graphvizContent}"
+                                        onDiagramRendered="{!c.onDiagramRendered}"/>
+                </lightning:layoutItem>
+
+                <lightning:layoutItem size="12" padding="around-small">
                     <gvf2:SOQLRenderer aura:id="soql" diagram="{!v.diagram}" describes="{!v.describes}"/>
-                </div>
-            </div>
+                </lightning:layoutItem>
+
+            </lightning:layout>
+
         </lightning:tab>
 
         <lightning:tab label="Download">
 
-            <lightning:textarea aura:id="graphvizContentText" name="graphvizContent" value="{!v.graphvizContent}" label="Graphviz" readonly="true" class="downloadTextArea" />
-            <lightning:button label="Copy Graphviz" onclick="{! c.handleCopyGraphviz}" />
-            <lightning:button label="Download Graphviz" onclick="{! c.handleDownloadGraphviz}" />
-            <br /><br />
-            <lightning:textarea aura:id="svgContentText" name="svgContent" value="{!v.svgContent}" label="SVG" readonly="true" class="downloadTextArea" />
-            <lightning:button label="Copy SVG" onclick="{! c.handleCopySVG}" />
-            <lightning:button label="Download SVG" onclick="{! c.handleDownloadSVG}" />
+            <lightning:textarea aura:id="graphvizContentText" name="graphvizContent" value="{!v.graphvizContent}"
+                                label="Graphviz" readonly="true" class="downloadTextArea"/>
+            <lightning:button label="Copy Graphviz" onclick="{! c.handleCopyGraphviz}"/>
+            <lightning:button label="Download Graphviz" onclick="{! c.handleDownloadGraphviz}"/>
+            <br/><br/>
+            <lightning:textarea aura:id="svgContentText" name="svgContent" value="{!v.svgContent}" label="SVG"
+                                readonly="true" class="downloadTextArea"/>
+            <lightning:button label="Copy SVG" onclick="{! c.handleCopySVG}"/>
+            <lightning:button label="Download SVG" onclick="{! c.handleDownloadSVG}"/>
 
         </lightning:tab>
 
