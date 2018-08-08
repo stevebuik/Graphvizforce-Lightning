@@ -37,13 +37,6 @@ window.GraphvizForce;
                 var isValid = outputValidation.errors.length == 0;
                 return isValid;
             },
-
-            // Generate ERD markup to display in DiagramViewer
-            renderSVGMarkup: function(content, format){
-                var format = 'svg';
-                var erdMarkup = Viz(content, format);
-                return erdMarkup;
-            }
         };
     })();
     GraphvizForce.DiagramHelper = DiagramHelper;
