@@ -1295,11 +1295,12 @@ var persisted = {
             "type": "object",
             "properties": {
                 "showSelfRelations": { "type": "boolean" },
+                "showStandardUserRelationships": { "type": "boolean" },
+                "from": { "type": "string" },
                 "obscureEntities": {
                     "type": "array",
                     "items": { "type": "string" }
-                },
-                "from": { "type": "string" }
+                }
             },
             "required": []
         }
@@ -3990,10 +3991,11 @@ var gv = {
      *
      *  showSelfRelations : true will show hierarchical relationships i.e. loops
      *  obscureEntities : an array of entity names that should be faded to de-emphasise them in the diagram
+     *  from : the entity used as the SOQL from. It is rendered using a green color to highlight it
+     *  showStandardUserRelationships : true will show OwnerId, CreatedBy and LastModifiedBy fields and the relationships to user. defaults to false
      * TODO
      *  showEdgeSingularLabels : true will show relationship labels for child to parent
      *  showEdgePluralLabels : true will show relationship labels for parent to children
-     *  fromEntity : an entity name that should be highlight to emphasise it in the diagram
      *  showTypes : true will show field types
      *  showAPINames : true will show field using their API Names instead of Labels
      *  layout : TD (topdown) or LR (leftright). default is LR.
@@ -4057,6 +4059,7 @@ var gv = {
                 };
                 viewEntitiesByAPIName[entity.apiName] = viewEntity;
 
+                var userReferenceFields = { "OwnerId": true, "LastModifiedById": true, "CreatedById": true };
                 var fieldDescribesByAPIName = {};
                 entityDescribe.fields.forEach(function (fieldDescribe) {
                     // load all field describes into a lookup for use below
@@ -4066,22 +4069,26 @@ var gv = {
                     if (fieldDescribe.type == "REFERENCE") {
                         fieldDescribe.referenceFields.forEach(function (reference) {
                             if (entitiesInDiagramByAPIName[reference.parentAPIName]) {
-                                if (diagram.settings.showSelfRelations || !diagram.settings.showSelfRelations && entity.apiName != reference.parentAPIName) {
+                                var isStandardUserReference = userReferenceFields[reference.referenceFieldAPIName];
+                                var isBlockedUserReference = isStandardUserReference && !diagram.settings.showStandardUserRelationships;
+                                if (!isBlockedUserReference) {
+                                    if (diagram.settings.showSelfRelations || !diagram.settings.showSelfRelations && entity.apiName != reference.parentAPIName) {
 
-                                    // add the relationship
-                                    result.relationships.push({
-                                        from: entity.apiName,
-                                        to: reference.parentAPIName,
-                                        field: reference.referenceFieldAPIName,
-                                        style: fieldDescribe.isMDOrCascadeDelete ? "solid" : "dashed"
-                                    });
+                                        // add the relationship
+                                        result.relationships.push({
+                                            from: entity.apiName,
+                                            to: reference.parentAPIName,
+                                            field: reference.referenceFieldAPIName,
+                                            style: fieldDescribe.isMDOrCascadeDelete ? "solid" : "dashed"
+                                        });
 
-                                    // add the reference field to the entity
-                                    viewEntity.fields.push({
-                                        "name": fieldDescribe.label,
-                                        "id": fieldDescribe.apiName,
-                                        "type": fieldDescribe.type
-                                    });
+                                        // add the reference field to the entity
+                                        viewEntity.fields.push({
+                                            "name": fieldDescribe.label,
+                                            "id": fieldDescribe.apiName,
+                                            "type": fieldDescribe.type
+                                        });
+                                    }
                                 }
                             }
                         });

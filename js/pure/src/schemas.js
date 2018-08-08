@@ -42,11 +42,12 @@ var persisted =
                 "type": "object",
                 "properties": {
                     "showSelfRelations": {"type": "boolean"},
+                    "showStandardUserRelationships": {"type": "boolean"},
+                    "from": {"type": "string"},
                     "obscureEntities": {
                         "type": "array",
                         "items": {"type": "string"}
-                    },
-                    "from": {"type": "string"}
+                    }
                 },
                 "required": []
             }

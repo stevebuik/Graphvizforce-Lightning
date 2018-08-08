@@ -20,6 +20,23 @@ var renderAndValidate = function (sample, variation) {
     }
 };
 
+describe("contact, account, user without groups", function () {
+
+    var sample = samples["account_contact_user"];
+    sample.groups = [];
+
+    var result = renderAndValidate(sample, "account_contact_user");
+    it("input data was valid", function () {
+        expect(result.inputValidation.errors).toEqual([]);
+    });
+    it("output data was valid", function () {
+        expect(result.outputValidation.errors).toEqual([]);
+    });
+    it("no groups present generates a single/default group", function () {
+        expect(result.translated.groups.length).toEqual(1);
+    });
+})
+
 describe("persisted diagram samples (lean v2) are translated and rendered ok", function () {
 
     var sample = samples["account_contact_feed2"];
