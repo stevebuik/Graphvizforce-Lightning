@@ -180,6 +180,9 @@ var soql = {
                 fields += field.apiName;
             });
             selectList += fields;
+            if (selectList.length == 0) {
+                selectList += "Id";
+            }
             return selectList;
         },
 
@@ -188,6 +191,9 @@ var soql = {
             entity.fields.forEach(function (field) {
                 selected.push(field.apiName);
             });
+            if (selected.length == 0) {
+                selected.push("Id");
+            }
             return selected;
         },
 

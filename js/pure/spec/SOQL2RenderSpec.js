@@ -4,7 +4,7 @@ var wrappers = require('../test/describedObjectWrappers.js');
 var fs = require('fs');
 
 var renderAndSave = function (sample, from, name) {
-    var result = gvfp.soql.v2.diagramAsSelects(samples.account_contact_feed2, wrappers.wrappers, from);
+    var result = gvfp.soql.v2.diagramAsSelects(sample, wrappers.wrappers, from);
     result.query = gvfp.soql.v2.diagramSelectsAsSOQL(result.selectLists, from, false);
 
     // save to file-system to support testing of each query using the DX api
@@ -13,6 +13,17 @@ var renderAndSave = function (sample, from, name) {
 
     return result;
 }
+
+describe("query edge cases", function () {
+
+    describe("No fields selected", function () {
+        var result = renderAndSave(samples.account_contact_no_fields, "Account",
+            "account-contact-without-fields");
+        it("Ids are added for all entities with no selected fields", function() {
+            expect(result.selectLists).toEqual([ 'Id', '(SELECT Id FROM Contacts)' ]);
+        });
+    })
+});
 
 describe("account, contact and feed joins", function () {
 
