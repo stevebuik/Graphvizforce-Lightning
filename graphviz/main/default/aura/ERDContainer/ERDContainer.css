@@ -12,3 +12,7 @@
 .THIS .label-hidden label {
     display: none;
 }
+
+.THIS .empty {
+    margin-bottom: 2rem;
+}

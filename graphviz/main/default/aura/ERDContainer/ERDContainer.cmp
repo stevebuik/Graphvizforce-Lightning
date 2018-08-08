@@ -45,9 +45,9 @@
                 </aura:if>
                 <aura:if isTrue="{!v.currentState == 'LIST'}">
 
-                    <lightning:input type="text" placeholder="Add New Diagram" name="newDiagramName" label="x"
+                    <lightning:input type="text" placeholder="Enter diagram name" name="newDiagramName" label="x"
                                      class="slds-p-right_small label-hidden" value="{!v.newDiagramName}"/>
-                    <lightning:button class="slds-button slds-button_neutral" label="New"
+                    <lightning:button class="slds-button slds-button_neutral" label="Create Diagram"
                                       disabled="{!v.newDiagramName.length == 0}" onclick="{!c.onAddNewDiagram}"/>
 
                 </aura:if>
@@ -75,7 +75,16 @@
                     </aura:iteration>
 
                     <aura:if isTrue="{!empty(v.diagrams)}">
-                        <span class="slds-text-heading_label">Create a new diagram at top right.</span>
+
+                        <div class="slds-align_absolute-center" style="height: 5rem;">
+                            <div>
+                                <div class="slds-text-heading_medium empty">Start by creating a new diagram using the "Enter diagram name" above
+                                </div>
+                                <div class="slds-text-heading_small">Then click the "View" button on the new diagram.
+                                </div>
+                            </div>
+                        </div>
+
                     </aura:if>
                 </ul>
             </div>
