@@ -12,7 +12,7 @@ private class GraphvizForceControllerTest {
     }
 
     @IsTest
-    static void testBehavior() {
+    static void testCoverage() {
 
         Test.startTest();
         List<Graphviz_Diagram__c> testDiagrams = GraphVizForceController.loadDiagrams();
@@ -22,5 +22,18 @@ private class GraphvizForceControllerTest {
         System.assertNotEquals(null, testSchema);
 
         Test.stopTest();
+    }
+
+    @IsTest
+    static void testChildRelationships() {
+        List<GraphVizForceController.ObjectWrapper> wrappers = GraphVizForceController.loadSchemaWrappers();
+        for (GraphVizForceController.ObjectWrapper wrapper : wrappers) {
+            if (wrapper.apiName == 'Case') {
+                for (GraphVizForceController.ChildRelationshipWrapper childRel : wrapper.childRelationships) {
+                    System.debug(childRel.relationshipName + ' -> '+childRel.childAPIName);
+                }
+            }
+        }
+
     }
 }

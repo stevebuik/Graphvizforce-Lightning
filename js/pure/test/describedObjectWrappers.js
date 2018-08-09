@@ -390,86 +390,107 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "RecordAssociatedGroups",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RecordId",
             "childAPIName": "CollaborationGroupRecord"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "ContractContactRoles",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ContractId",
             "childAPIName": "ContractContactRole"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ContractFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ContractId",
             "childAPIName": "ContractHistory"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "Notes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "Opportunities",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ContractId",
             "childAPIName": "Opportunity"
         }, {
             "relationshipName": "Orders",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ContractId",
             "childAPIName": "Order"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -689,22 +710,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -1163,86 +1189,107 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "Notes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "Orders",
+            "isCascadeDelete": false,
             "childFieldAPIName": "OriginalOrderId",
             "childAPIName": "Order"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "OrderFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "OrderId",
             "childAPIName": "OrderHistory"
         }, {
             "relationshipName": "OrderItems",
+            "isCascadeDelete": true,
             "childFieldAPIName": "OrderId",
             "childAPIName": "OrderItem"
         }, {
             "relationshipName": "Shares",
+            "isCascadeDelete": true,
             "childFieldAPIName": "OrderId",
             "childAPIName": "OrderShare"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }, {
             "relationshipName": "WorkOrderLineItems",
+            "isCascadeDelete": false,
             "childFieldAPIName": "OrderId",
             "childAPIName": "WorkOrderLineItem"
         }],
@@ -1544,22 +1591,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -1740,29 +1792,40 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ChildOrderItems",
+            "isCascadeDelete": false,
             "childFieldAPIName": "OriginalOrderItemId",
             "childAPIName": "OrderItem"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "OrderItemFeed"
-        }, {"relationshipName": "Histories", "childFieldAPIName": "OrderItemId", "childAPIName": "OrderItemHistory"}],
+        }, {
+            "relationshipName": "Histories",
+            "isCascadeDelete": true,
+            "childFieldAPIName": "OrderItemId",
+            "childAPIName": "OrderItemHistory"
+        }],
         "apiName": "OrderItem"
     }, {
         "label": "Order Product History",
@@ -1979,22 +2042,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -3459,17 +3527,25 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
-        }, {"relationshipName": "CustomBrands", "childFieldAPIName": "ParentId", "childAPIName": "CustomBrand"}],
+        }, {
+            "relationshipName": "CustomBrands",
+            "isCascadeDelete": true,
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "CustomBrand"
+        }],
         "apiName": "Organization"
     }, {
         "label": "Mail Merge Template",
@@ -4607,18 +4683,22 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }],
@@ -5870,94 +5950,117 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "ChildCampaigns",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Campaign"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CampaignFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "CampaignId",
             "childAPIName": "CampaignHistory"
         }, {
             "relationshipName": "CampaignMembers",
+            "isCascadeDelete": true,
             "childFieldAPIName": "CampaignId",
             "childAPIName": "CampaignMember"
         }, {
             "relationshipName": "CampaignMemberStatuses",
+            "isCascadeDelete": true,
             "childFieldAPIName": "CampaignId",
             "childAPIName": "CampaignMemberStatus"
         }, {
             "relationshipName": "Shares",
+            "isCascadeDelete": true,
             "childFieldAPIName": "CampaignId",
             "childAPIName": "CampaignShare"
         }, {
             "relationshipName": "RecordAssociatedGroups",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RecordId",
             "childAPIName": "CollaborationGroupRecord"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "ListEmailRecipientSources",
+            "isCascadeDelete": true,
             "childFieldAPIName": "SourceListId",
             "childAPIName": "ListEmailRecipientSource"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "Opportunities",
+            "isCascadeDelete": false,
             "childFieldAPIName": "CampaignId",
             "childAPIName": "Opportunity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }, {
             "relationshipName": "RelatedObjects",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedObjectId",
             "childAPIName": "WorkFeedbackRequest"
         }],
@@ -6259,22 +6362,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -7141,181 +7249,230 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ChildAccounts",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Account"
         }, {
             "relationshipName": "AccountCleanInfos",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AccountId",
             "childAPIName": "AccountCleanInfo"
         }, {
             "relationshipName": "AccountContactRoles",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AccountId",
             "childAPIName": "AccountContactRole"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "AccountFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AccountId",
             "childAPIName": "AccountHistory"
         }, {
             "relationshipName": "AccountPartnersFrom",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AccountFromId",
             "childAPIName": "AccountPartner"
         }, {
             "relationshipName": "AccountPartnersTo",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AccountToId",
             "childAPIName": "AccountPartner"
         }, {
             "relationshipName": "Shares",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AccountId",
             "childAPIName": "AccountShare"
         }, {
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AccountId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "Assets",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AccountId",
             "childAPIName": "Asset"
         }, {
             "relationshipName": "ProvidedAssets",
+            "isCascadeDelete": false,
             "childFieldAPIName": "AssetProvidedById",
             "childAPIName": "Asset"
         }, {
             "relationshipName": "ServicedAssets",
+            "isCascadeDelete": false,
             "childFieldAPIName": "AssetServicedById",
             "childAPIName": "Asset"
         }, {
             "relationshipName": "AssociatedLocations",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentRecordId",
             "childAPIName": "AssociatedLocation"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "Cases",
+            "isCascadeDelete": false,
             "childFieldAPIName": "AccountId",
             "childAPIName": "Case"
         }, {
             "relationshipName": "RecordAssociatedGroups",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RecordId",
             "childAPIName": "CollaborationGroupRecord"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "Contacts",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AccountId",
             "childAPIName": "Contact"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Contracts",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AccountId",
             "childAPIName": "Contract"
         }, {
             "relationshipName": "DuplicateRecordItems",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RecordId",
             "childAPIName": "DuplicateRecordItem"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "MaintenancePlans",
+            "isCascadeDelete": false,
             "childFieldAPIName": "AccountId",
             "childAPIName": "MaintenancePlan"
         }, {
             "relationshipName": "Notes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AccountId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "Opportunities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AccountId",
             "childAPIName": "Opportunity"
         }, {
             "relationshipName": "OpportunityPartnersTo",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AccountToId",
             "childAPIName": "OpportunityPartner"
         }, {
             "relationshipName": "Orders",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AccountId",
             "childAPIName": "Order"
         }, {
             "relationshipName": "PartnersFrom",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AccountFromId",
             "childAPIName": "Partner"
         }, {
             "relationshipName": "PartnersTo",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AccountToId",
             "childAPIName": "Partner"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ProductRequests",
+            "isCascadeDelete": false,
             "childFieldAPIName": "AccountId",
             "childAPIName": "ProductRequest"
         }, {
             "relationshipName": "ProductRequestLineItems",
+            "isCascadeDelete": false,
             "childFieldAPIName": "AccountId",
             "childAPIName": "ProductRequestLineItem"
         }, {
             "relationshipName": "ResourcePreferences",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RelatedRecordId",
             "childAPIName": "ResourcePreference"
         }, {
             "relationshipName": "ServiceAppointments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentRecordId",
             "childAPIName": "ServiceAppointment"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }, {
             "relationshipName": "Users",
+            "isCascadeDelete": false,
             "childFieldAPIName": "AccountId",
             "childAPIName": "User"
         }, {
             "relationshipName": "RelatedObjects",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedObjectId",
             "childAPIName": "WorkFeedbackRequest"
-        }, {"relationshipName": "WorkOrders", "childFieldAPIName": "AccountId", "childAPIName": "WorkOrder"}],
+        }, {
+            "relationshipName": "WorkOrders",
+            "isCascadeDelete": false,
+            "childFieldAPIName": "AccountId",
+            "childAPIName": "WorkOrder"
+        }],
         "apiName": "Account"
     }, {
         "label": "Account Share",
@@ -7635,22 +7792,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -8118,157 +8280,200 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AcceptedEventRelations",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelationId",
             "childAPIName": "AcceptedEventRelation"
         }, {
             "relationshipName": "AccountContactRoles",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ContactId",
             "childAPIName": "AccountContactRole"
         }, {
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhoId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "Assets",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ContactId",
             "childAPIName": "Asset"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CampaignMembers",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ContactId",
             "childAPIName": "CampaignMember"
         }, {
             "relationshipName": "Cases",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ContactId",
             "childAPIName": "Case"
         }, {
             "relationshipName": "CaseContactRoles",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ContactId",
             "childAPIName": "CaseContactRole"
         }, {
             "relationshipName": "RecordAssociatedGroups",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RecordId",
             "childAPIName": "CollaborationGroupRecord"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContactCleanInfos",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ContactId",
             "childAPIName": "ContactCleanInfo"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ContactFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ContactId",
             "childAPIName": "ContactHistory"
         }, {
             "relationshipName": "Shares",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ContactId",
             "childAPIName": "ContactShare"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "ContractsSigned",
+            "isCascadeDelete": false,
             "childFieldAPIName": "CustomerSignedId",
             "childAPIName": "Contract"
         }, {
             "relationshipName": "ContractContactRoles",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ContactId",
             "childAPIName": "ContractContactRole"
         }, {
             "relationshipName": "DeclinedEventRelations",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelationId",
             "childAPIName": "DeclinedEventRelation"
         }, {
             "relationshipName": "DuplicateRecordItems",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RecordId",
             "childAPIName": "DuplicateRecordItem"
         }, {
             "relationshipName": "EmailMessageRelations",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RelationId",
             "childAPIName": "EmailMessageRelation"
         }, {
             "relationshipName": "EmailStatuses",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhoId",
             "childAPIName": "EmailStatus"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhoId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "EventRelations",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RelationId",
             "childAPIName": "EventRelation"
         }, {
             "relationshipName": "MaintenancePlans",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ContactId",
             "childAPIName": "MaintenancePlan"
         }, {
             "relationshipName": "Notes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhoId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "OpportunityContactRoles",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ContactId",
             "childAPIName": "OpportunityContactRole"
         }, {
             "relationshipName": "OutgoingEmailRelations",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelationId",
             "childAPIName": "OutgoingEmailRelation"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ServiceAppointments",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ContactId",
             "childAPIName": "ServiceAppointment"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhoId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }, {
             "relationshipName": "UndecidedEventRelations",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelationId",
             "childAPIName": "UndecidedEventRelation"
         }, {
             "relationshipName": "RelatedObjects",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedObjectId",
             "childAPIName": "WorkFeedbackRequest"
-        }, {"relationshipName": "WorkOrders", "childFieldAPIName": "ContactId", "childAPIName": "WorkOrder"}],
+        }, {
+            "relationshipName": "WorkOrders",
+            "isCascadeDelete": false,
+            "childFieldAPIName": "ContactId",
+            "childAPIName": "WorkOrder"
+        }],
         "apiName": "Contact"
     }, {
         "label": "Contact Share",
@@ -8567,22 +8772,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -9037,118 +9247,147 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AcceptedEventRelations",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelationId",
             "childAPIName": "AcceptedEventRelation"
         }, {
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhoId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CampaignMembers",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LeadId",
             "childAPIName": "CampaignMember"
         }, {
             "relationshipName": "RecordAssociatedGroups",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RecordId",
             "childAPIName": "CollaborationGroupRecord"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "DeclinedEventRelations",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelationId",
             "childAPIName": "DeclinedEventRelation"
         }, {
             "relationshipName": "DuplicateRecordItems",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RecordId",
             "childAPIName": "DuplicateRecordItem"
         }, {
             "relationshipName": "EmailMessageRelations",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RelationId",
             "childAPIName": "EmailMessageRelation"
         }, {
             "relationshipName": "EmailStatuses",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhoId",
             "childAPIName": "EmailStatus"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhoId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "EventRelations",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RelationId",
             "childAPIName": "EventRelation"
         }, {
             "relationshipName": "LeadCleanInfos",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LeadId",
             "childAPIName": "LeadCleanInfo"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "LeadFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LeadId",
             "childAPIName": "LeadHistory"
         }, {
             "relationshipName": "Shares",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LeadId",
             "childAPIName": "LeadShare"
         }, {
             "relationshipName": "Notes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhoId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "OutgoingEmailRelations",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelationId",
             "childAPIName": "OutgoingEmailRelation"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhoId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }, {
             "relationshipName": "UndecidedEventRelations",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelationId",
             "childAPIName": "UndecidedEventRelation"
         }, {
             "relationshipName": "RelatedObjects",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedObjectId",
             "childAPIName": "WorkFeedbackRequest"
         }],
@@ -9450,22 +9689,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -9777,118 +10021,147 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AccountPartners",
+            "isCascadeDelete": true,
             "childFieldAPIName": "OpportunityId",
             "childAPIName": "AccountPartner"
         }, {
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "RecordAssociatedGroups",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RecordId",
             "childAPIName": "CollaborationGroupRecord"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "Notes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "OpportunityCompetitors",
+            "isCascadeDelete": true,
             "childFieldAPIName": "OpportunityId",
             "childAPIName": "OpportunityCompetitor"
         }, {
             "relationshipName": "OpportunityContactRoles",
+            "isCascadeDelete": true,
             "childFieldAPIName": "OpportunityId",
             "childAPIName": "OpportunityContactRole"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "OpportunityFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "OpportunityId",
             "childAPIName": "OpportunityFieldHistory"
         }, {
             "relationshipName": "OpportunityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "OpportunityId",
             "childAPIName": "OpportunityHistory"
         }, {
             "relationshipName": "OpportunityLineItems",
+            "isCascadeDelete": true,
             "childFieldAPIName": "OpportunityId",
             "childAPIName": "OpportunityLineItem"
         }, {
             "relationshipName": "OpportunityPartnersFrom",
+            "isCascadeDelete": true,
             "childFieldAPIName": "OpportunityId",
             "childAPIName": "OpportunityPartner"
         }, {
             "relationshipName": "Shares",
+            "isCascadeDelete": true,
             "childFieldAPIName": "OpportunityId",
             "childAPIName": "OpportunityShare"
         }, {
             "relationshipName": "Orders",
+            "isCascadeDelete": false,
             "childFieldAPIName": "OpportunityId",
             "childAPIName": "Order"
         }, {
             "relationshipName": "Partners",
+            "isCascadeDelete": true,
             "childFieldAPIName": "OpportunityId",
             "childAPIName": "Partner"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ServiceAppointments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentRecordId",
             "childAPIName": "ServiceAppointment"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }, {
             "relationshipName": "RelatedObjects",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedObjectId",
             "childAPIName": "WorkFeedbackRequest"
         }],
@@ -10190,22 +10463,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -11492,6 +11770,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Periods",
+            "isCascadeDelete": false,
             "childFieldAPIName": "FiscalYearSettingsId",
             "childAPIName": "Period"
         }],
@@ -11708,18 +11987,22 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "OpportunityLineItems",
+            "isCascadeDelete": false,
             "childFieldAPIName": "PricebookEntryId",
             "childAPIName": "OpportunityLineItem"
         }, {
             "relationshipName": "OrderItems",
+            "isCascadeDelete": false,
             "childFieldAPIName": "PricebookEntryId",
             "childAPIName": "OrderItem"
         }, {
             "relationshipName": "ProductsConsumed",
+            "isCascadeDelete": false,
             "childFieldAPIName": "PricebookEntryId",
             "childAPIName": "ProductConsumed"
         }, {
             "relationshipName": "WorkOrderLineItems",
+            "isCascadeDelete": false,
             "childFieldAPIName": "PricebookEntryId",
             "childAPIName": "WorkOrderLineItem"
         }],
@@ -11878,98 +12161,122 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "Assets",
+            "isCascadeDelete": false,
             "childFieldAPIName": "Product2Id",
             "childAPIName": "Asset"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "Notes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "PricebookEntries",
+            "isCascadeDelete": true,
             "childFieldAPIName": "Product2Id",
             "childAPIName": "PricebookEntry"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Product2Feed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "Product2Id",
             "childAPIName": "Product2History"
         }, {
             "relationshipName": "ProductsConsumed",
+            "isCascadeDelete": false,
             "childFieldAPIName": "Product2Id",
             "childAPIName": "ProductConsumed"
         }, {
             "relationshipName": "ProductItems",
+            "isCascadeDelete": true,
             "childFieldAPIName": "Product2Id",
             "childAPIName": "ProductItem"
         }, {
             "relationshipName": "ProductRequestLineItems",
+            "isCascadeDelete": true,
             "childFieldAPIName": "Product2Id",
             "childAPIName": "ProductRequestLineItem"
         }, {
             "relationshipName": "ProductsRequired",
+            "isCascadeDelete": true,
             "childFieldAPIName": "Product2Id",
             "childAPIName": "ProductRequired"
         }, {
             "relationshipName": "ProductTransfers",
+            "isCascadeDelete": true,
             "childFieldAPIName": "Product2Id",
             "childAPIName": "ProductTransfer"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "WorkOrderLineItems",
+            "isCascadeDelete": false,
             "childFieldAPIName": "Product2Id",
             "childAPIName": "WorkOrderLineItem"
         }],
@@ -12189,22 +12496,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -12494,106 +12806,132 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "ChildAssets",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Asset"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "AssetFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AssetId",
             "childAPIName": "AssetHistory"
         }, {
             "relationshipName": "PrimaryAssets",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AssetId",
             "childAPIName": "AssetRelationship"
         }, {
             "relationshipName": "RelatedAssets",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedAssetId",
             "childAPIName": "AssetRelationship"
         }, {
             "relationshipName": "Shares",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AssetId",
             "childAPIName": "AssetShare"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "Cases",
+            "isCascadeDelete": false,
             "childFieldAPIName": "AssetId",
             "childAPIName": "Case"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "MaintenanceAssets",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AssetId",
             "childAPIName": "MaintenanceAsset"
         }, {
             "relationshipName": "Notes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ServiceAppointments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentRecordId",
             "childAPIName": "ServiceAppointment"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }, {
             "relationshipName": "WorkOrders",
+            "isCascadeDelete": false,
             "childFieldAPIName": "AssetId",
             "childAPIName": "WorkOrder"
         }, {
             "relationshipName": "WorkOrderLineItems",
+            "isCascadeDelete": false,
             "childFieldAPIName": "AssetId",
             "childAPIName": "WorkOrderLineItem"
         }],
@@ -12895,22 +13233,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -13106,9 +13449,15 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Cases",
+            "isCascadeDelete": false,
             "childFieldAPIName": "BusinessHoursId",
             "childAPIName": "Case"
-        }, {"relationshipName": "WorkOrders", "childFieldAPIName": "BusinessHoursId", "childAPIName": "WorkOrder"}],
+        }, {
+            "relationshipName": "WorkOrders",
+            "isCascadeDelete": false,
+            "childFieldAPIName": "BusinessHoursId",
+            "childAPIName": "WorkOrder"
+        }],
         "apiName": "BusinessHours"
     }, {
         "label": "Case",
@@ -13406,109 +13755,140 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "Cases",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Case"
         }, {
             "relationshipName": "CaseComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CaseComment"
         }, {
             "relationshipName": "CaseContactRoles",
+            "isCascadeDelete": true,
             "childFieldAPIName": "CasesId",
             "childAPIName": "CaseContactRole"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CaseFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "CaseId",
             "childAPIName": "CaseHistory"
         }, {
             "relationshipName": "Shares",
+            "isCascadeDelete": true,
             "childFieldAPIName": "CaseId",
             "childAPIName": "CaseShare"
         }, {
             "relationshipName": "CaseSolutions",
+            "isCascadeDelete": true,
             "childFieldAPIName": "CaseId",
             "childAPIName": "CaseSolution"
         }, {
             "relationshipName": "TeamMembers",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CaseTeamMember"
         }, {
             "relationshipName": "TeamTemplateRecords",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CaseTeamTemplateRecord"
         }, {
             "relationshipName": "RecordAssociatedGroups",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RecordId",
             "childAPIName": "CollaborationGroupRecord"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "EmailMessages",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ProductRequests",
+            "isCascadeDelete": false,
             "childFieldAPIName": "CaseId",
             "childAPIName": "ProductRequest"
         }, {
             "relationshipName": "ProductRequestLineItems",
+            "isCascadeDelete": false,
             "childFieldAPIName": "CaseId",
             "childAPIName": "ProductRequestLineItem"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
-        }, {"relationshipName": "WorkOrders", "childFieldAPIName": "CaseId", "childAPIName": "WorkOrder"}],
+        }, {
+            "relationshipName": "WorkOrders",
+            "isCascadeDelete": false,
+            "childFieldAPIName": "CaseId",
+            "childAPIName": "WorkOrder"
+        }],
         "apiName": "Case"
     }, {
         "label": "Case Share",
@@ -14322,22 +14702,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -14662,69 +15047,90 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CaseSolutions",
+            "isCascadeDelete": true,
             "childFieldAPIName": "SolutionId",
             "childAPIName": "CaseSolution"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "SolutionFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "SolutionId",
             "childAPIName": "SolutionHistory"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
-        }, {"relationshipName": "Votes", "childFieldAPIName": "ParentId", "childAPIName": "Vote"}],
+        }, {
+            "relationshipName": "Votes",
+            "isCascadeDelete": true,
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "Vote"
+        }],
         "apiName": "Solution"
     }, {
         "label": "Solution History",
@@ -14941,22 +15347,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -15990,6 +16401,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ContentVersionId",
             "childAPIName": "ContentVersionHistory"
         }],
@@ -16282,30 +16694,37 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ContentDistributions",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ContentDocumentId",
             "childAPIName": "ContentDistribution"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ContentDocumentFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ContentDocumentId",
             "childAPIName": "ContentDocumentHistory"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ContentDocumentId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "ContentVersions",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ContentDocumentId",
             "childAPIName": "ContentVersion"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -16525,22 +16944,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -17333,22 +17757,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "ContentFolderLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentEntityId",
             "childAPIName": "ContentFolderLink"
         }, {
             "relationshipName": "ContentWorkspaceMembers",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ContentWorkspaceId",
             "childAPIName": "ContentWorkspaceMember"
         }],
@@ -17952,6 +18381,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ContentDistributionViews",
+            "isCascadeDelete": true,
             "childFieldAPIName": "DistributionId",
             "childAPIName": "ContentDistributionView"
         }],
@@ -20269,33 +20699,45 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedRevisions",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedRevision"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
-        }, {"relationshipName": "FeedItemThanks", "childFieldAPIName": "FeedItemId", "childAPIName": "WorkThanks"}],
+        }, {
+            "relationshipName": "FeedItemThanks",
+            "isCascadeDelete": false,
+            "childFieldAPIName": "FeedItemId",
+            "childAPIName": "WorkThanks"
+        }],
         "apiName": "FeedItem"
     }, {
         "label": "Feed Tracked Change",
@@ -21423,9 +21865,15 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
-        }, {"relationshipName": "FeedRevisions", "childFieldAPIName": "FeedEntityId", "childAPIName": "FeedRevision"}],
+        }, {
+            "relationshipName": "FeedRevisions",
+            "isCascadeDelete": true,
+            "childFieldAPIName": "FeedEntityId",
+            "childAPIName": "FeedRevision"
+        }],
         "apiName": "FeedComment"
     }, {
         "label": "Feed Like",
@@ -22872,6 +23320,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedPollVotes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ChoiceId",
             "childAPIName": "FeedPollVote"
         }],
@@ -23839,34 +24288,42 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CollaborationGroupFeed"
         }, {
             "relationshipName": "GroupMembers",
+            "isCascadeDelete": true,
             "childFieldAPIName": "CollaborationGroupId",
             "childAPIName": "CollaborationGroupMember"
         }, {
             "relationshipName": "GroupMemberRequests",
+            "isCascadeDelete": true,
             "childFieldAPIName": "CollaborationGroupId",
             "childAPIName": "CollaborationGroupMemberRequest"
         }, {
             "relationshipName": "CollaborationGroupRecords",
+            "isCascadeDelete": true,
             "childFieldAPIName": "CollaborationGroupId",
             "childAPIName": "CollaborationGroupRecord"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }],
@@ -24014,22 +24471,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -24498,6 +24960,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ChatterMessages",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ConversationId",
             "childAPIName": "ChatterMessage"
         }],
@@ -24568,22 +25031,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "DirectMessageFeed"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }],
@@ -24726,22 +25194,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -25168,25 +25641,35 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "LinkDataSource",
+            "isCascadeDelete": false,
             "childFieldAPIName": "DataSourceId",
             "childAPIName": "MetricDataLink"
-        }, {"relationshipName": "Feeds", "childFieldAPIName": "ParentId", "childAPIName": "ReportFeed"}],
+        }, {
+            "relationshipName": "Feeds",
+            "isCascadeDelete": true,
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "ReportFeed"
+        }],
         "apiName": "Report"
     }, {
         "label": "Report Feed",
@@ -25331,22 +25814,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -25578,26 +26066,32 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "DashboardComponents",
+            "isCascadeDelete": false,
             "childFieldAPIName": "DashboardId",
             "childAPIName": "DashboardComponent"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "DashboardFeed"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }],
@@ -25745,22 +26239,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -25809,22 +26308,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "DashboardComponentFeed"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }],
@@ -25972,22 +26476,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -26699,18 +27208,22 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "StepsAndWorkitems",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ProcessInstanceId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Nodes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ProcessInstanceId",
             "childAPIName": "ProcessInstanceNode"
         }, {
             "relationshipName": "Steps",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ProcessInstanceId",
             "childAPIName": "ProcessInstanceStep"
         }, {
             "relationshipName": "Workitems",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ProcessInstanceId",
             "childAPIName": "ProcessInstanceWorkitem"
         }],
@@ -27559,6 +28072,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "SetupEntityAccessItems",
+            "isCascadeDelete": true,
             "childFieldAPIName": "SetupEntityId",
             "childAPIName": "SetupEntityAccess"
         }],
@@ -27957,6 +28471,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ApexTestResults",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ApexTestResultId",
             "childAPIName": "ApexTestResultLimits"
         }],
@@ -28087,6 +28602,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AsyncApex",
+            "isCascadeDelete": false,
             "childFieldAPIName": "AsyncApexJobId",
             "childAPIName": "ApexTestRunResult"
         }],
@@ -28323,6 +28839,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Users",
+            "isCascadeDelete": false,
             "childFieldAPIName": "UserRoleId",
             "childAPIName": "User"
         }],
@@ -28461,13 +28978,20 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "GroupMembers",
+            "isCascadeDelete": true,
             "childFieldAPIName": "GroupId",
             "childAPIName": "GroupMember"
         }, {
             "relationshipName": "QueueSobjects",
+            "isCascadeDelete": true,
             "childFieldAPIName": "QueueId",
             "childAPIName": "QueueSobject"
-        }, {"relationshipName": "DelegatedUsers", "childFieldAPIName": "DelegatedApproverId", "childAPIName": "User"}],
+        }, {
+            "relationshipName": "DelegatedUsers",
+            "isCascadeDelete": false,
+            "childFieldAPIName": "DelegatedApproverId",
+            "childAPIName": "User"
+        }],
         "apiName": "Group"
     }, {
         "label": "Group Member",
@@ -28771,6 +29295,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "SetupEntityAccessItems",
+            "isCascadeDelete": true,
             "childFieldAPIName": "SetupEntityId",
             "childAPIName": "SetupEntityAccess"
         }],
@@ -30721,9 +31246,15 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "MobileSettingsAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ProfileId",
             "childAPIName": "MobileSettingsAssignment"
-        }, {"relationshipName": "Users", "childFieldAPIName": "ProfileId", "childAPIName": "User"}],
+        }, {
+            "relationshipName": "Users",
+            "isCascadeDelete": false,
+            "childFieldAPIName": "ProfileId",
+            "childAPIName": "User"
+        }],
         "apiName": "Profile"
     }, {
         "label": "Permission Set Assignment",
@@ -31555,34 +32086,42 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "RecurringTasks",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RecurrenceActivityId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "TaskFeed"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -31730,22 +32269,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -32228,50 +32772,62 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AcceptedEventRelations",
+            "isCascadeDelete": false,
             "childFieldAPIName": "EventId",
             "childAPIName": "AcceptedEventRelation"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "DeclinedEventRelations",
+            "isCascadeDelete": false,
             "childFieldAPIName": "EventId",
             "childAPIName": "DeclinedEventRelation"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "RecurringEvents",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RecurrenceActivityId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EventFeed"
         }, {
             "relationshipName": "EventRelations",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EventId",
             "childAPIName": "EventRelation"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }, {
             "relationshipName": "UndecidedEventRelations",
+            "isCascadeDelete": false,
             "childFieldAPIName": "EventId",
             "childAPIName": "UndecidedEventRelation"
         }],
@@ -32419,22 +32975,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -34655,29 +35216,40 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "SiteDomainPaths",
+            "isCascadeDelete": true,
             "childFieldAPIName": "SiteId",
             "childAPIName": "DomainSite"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "SiteFeed"
-        }, {"relationshipName": "Histories", "childFieldAPIName": "SiteId", "childAPIName": "SiteHistory"}],
+        }, {
+            "relationshipName": "Histories",
+            "isCascadeDelete": true,
+            "childFieldAPIName": "SiteId",
+            "childAPIName": "SiteHistory"
+        }],
         "apiName": "Site"
     }, {
         "label": "Site History",
@@ -34894,22 +35466,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -34993,6 +35570,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "DomainSites",
+            "isCascadeDelete": true,
             "childFieldAPIName": "DomainId",
             "childAPIName": "DomainSite"
         }],
@@ -35238,6 +35816,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "CustomBrandAssets",
+            "isCascadeDelete": true,
             "childFieldAPIName": "CustomBrandId",
             "childAPIName": "CustomBrandAsset"
         }],
@@ -35464,10 +36043,12 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "InstalledMobileApps",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ConnectedApplicationId",
             "childAPIName": "InstalledMobileApp"
         }, {
             "relationshipName": "SetupEntityAccessItems",
+            "isCascadeDelete": true,
             "childFieldAPIName": "SetupEntityId",
             "childAPIName": "SetupEntityAccess"
         }],
@@ -36034,6 +36615,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Addresses",
+            "isCascadeDelete": false,
             "childFieldAPIName": "FunctionId",
             "childAPIName": "EmailServicesAddress"
         }],
@@ -36259,17 +36841,25 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "CustomBrands",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CustomBrand"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
-        }, {"relationshipName": "Feeds", "childFieldAPIName": "ParentId", "childAPIName": "TopicFeed"}],
+        }, {
+            "relationshipName": "Feeds",
+            "isCascadeDelete": true,
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "TopicFeed"
+        }],
         "apiName": "Topic"
     }, {
         "label": "Topic Feed",
@@ -36414,22 +37004,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -37889,173 +38484,220 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AcceptedEventRelations",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelationId",
             "childAPIName": "AcceptedEventRelation"
         }, {
             "relationshipName": "AccountCleanInfoReviewers",
+            "isCascadeDelete": false,
             "childFieldAPIName": "LastStatusChangedById",
             "childAPIName": "AccountCleanInfo"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "GroupMemberships",
+            "isCascadeDelete": true,
             "childFieldAPIName": "MemberId",
             "childAPIName": "CollaborationGroupMember"
         }, {
             "relationshipName": "GroupMembershipRequests",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RequesterId",
             "childAPIName": "CollaborationGroupMemberRequest"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContactCleanInfoReviewers",
+            "isCascadeDelete": false,
             "childFieldAPIName": "LastStatusChangedById",
             "childAPIName": "ContactCleanInfo"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "ContractsSigned",
+            "isCascadeDelete": false,
             "childFieldAPIName": "CompanySignedId",
             "childAPIName": "Contract"
         }, {
             "relationshipName": "DeclinedEventRelations",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelationId",
             "childAPIName": "DeclinedEventRelation"
         }, {
             "relationshipName": "EmailMessageRelations",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RelationId",
             "childAPIName": "EmailMessageRelation"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "FeedSubscriptions",
+            "isCascadeDelete": true,
             "childFieldAPIName": "SubscriberId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "EventRelations",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RelationId",
             "childAPIName": "EventRelation"
         }, {
             "relationshipName": "ExternalDataUserAuths",
+            "isCascadeDelete": false,
             "childFieldAPIName": "UserId",
             "childAPIName": "ExternalDataUserAuth"
         }, {
             "relationshipName": "Goals",
+            "isCascadeDelete": false,
             "childFieldAPIName": "OwnerId",
             "childAPIName": "Goal"
         }, {
             "relationshipName": "InstalledMobileApps",
+            "isCascadeDelete": true,
             "childFieldAPIName": "UserId",
             "childAPIName": "InstalledMobileApp"
         }, {
             "relationshipName": "LeadCleanInfoReviewers",
+            "isCascadeDelete": false,
             "childFieldAPIName": "LastStatusChangedById",
             "childAPIName": "LeadCleanInfo"
         }, {
             "relationshipName": "OutgoingEmailRelations",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelationId",
             "childAPIName": "OutgoingEmailRelation"
         }, {
             "relationshipName": "OwnedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "OwnerId",
             "childAPIName": "OwnedContentDocument"
         }, {
             "relationshipName": "PermissionSetAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AssigneeId",
             "childAPIName": "PermissionSetAssignment"
         }, {
             "relationshipName": "PermissionSetLicenseAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AssigneeId",
             "childAPIName": "PermissionSetLicenseAssign"
         }, {
             "relationshipName": "ReceivedByProductTransfers",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ReceivedById",
             "childAPIName": "ProductTransfer"
         }, {
             "relationshipName": "ServiceResources",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedRecordId",
             "childAPIName": "ServiceResource"
         }, {
             "relationshipName": "SessionPermSetActivations",
+            "isCascadeDelete": true,
             "childFieldAPIName": "UserId",
             "childAPIName": "SessionPermSetActivation"
         }, {
             "relationshipName": "DeliveredToShipments",
+            "isCascadeDelete": false,
             "childFieldAPIName": "DeliveredToId",
             "childAPIName": "Shipment"
         }, {
             "relationshipName": "UserSites",
+            "isCascadeDelete": false,
             "childFieldAPIName": "AdminId",
             "childAPIName": "Site"
         }, {
             "relationshipName": "UndecidedEventRelations",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelationId",
             "childAPIName": "UndecidedEventRelation"
         }, {
             "relationshipName": "DelegatedUsers",
+            "isCascadeDelete": false,
             "childFieldAPIName": "DelegatedApproverId",
             "childAPIName": "User"
         }, {
             "relationshipName": "ManagedUsers",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ManagerId",
             "childAPIName": "User"
         }, {
             "relationshipName": "UserEntityAccessRights",
+            "isCascadeDelete": false,
             "childFieldAPIName": "UserId",
             "childAPIName": "UserEntityAccess"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "UserFeed"
         }, {
             "relationshipName": "UserFieldAccessRights",
+            "isCascadeDelete": false,
             "childFieldAPIName": "UserId",
             "childAPIName": "UserFieldAccess"
         }, {
             "relationshipName": "UserPreferences",
+            "isCascadeDelete": true,
             "childFieldAPIName": "UserId",
             "childAPIName": "UserPreference"
         }, {
             "relationshipName": "Shares",
+            "isCascadeDelete": true,
             "childFieldAPIName": "UserId",
             "childAPIName": "UserShare"
         }, {
             "relationshipName": "Badges",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RecipientId",
             "childAPIName": "WorkBadge"
         }, {
             "relationshipName": "CoachingRelationships",
+            "isCascadeDelete": false,
             "childFieldAPIName": "CoachId",
             "childAPIName": "WorkCoaching"
         }, {
             "relationshipName": "Mentees",
+            "isCascadeDelete": false,
             "childFieldAPIName": "CoachedId",
             "childAPIName": "WorkCoaching"
         }, {
             "relationshipName": "RecipientFeedbackRequests",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RecipientId",
             "childAPIName": "WorkFeedbackRequest"
         }, {
             "relationshipName": "SubjectFeedbackRequests",
+            "isCascadeDelete": false,
             "childFieldAPIName": "SubjectId",
             "childAPIName": "WorkFeedbackRequest"
         }, {
             "relationshipName": "SubmitFeedbackTo",
+            "isCascadeDelete": false,
             "childFieldAPIName": "SubmitFeedbackToId",
             "childAPIName": "WorkFeedbackRequest"
         }, {
             "relationshipName": "Rewards",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RecipientId",
             "childAPIName": "WorkReward"
-        }, {"relationshipName": "GivenThanks", "childFieldAPIName": "GiverId", "childAPIName": "WorkThanks"}],
+        }, {
+            "relationshipName": "GivenThanks",
+            "isCascadeDelete": false,
+            "childFieldAPIName": "GiverId",
+            "childAPIName": "WorkThanks"
+        }],
         "apiName": "User"
     }, {
         "label": "User Share",
@@ -38282,22 +38924,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -38537,6 +39184,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "SessionPermSetActivations",
+            "isCascadeDelete": false,
             "childFieldAPIName": "AuthSessionId",
             "childAPIName": "SessionPermSetActivation"
         }],
@@ -38648,6 +39296,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ListEmailRecipientSources",
+            "isCascadeDelete": true,
             "childFieldAPIName": "SourceListId",
             "childAPIName": "ListEmailRecipientSource"
         }],
@@ -39046,30 +39695,37 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "EmailMessageRelations",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EmailMessageId",
             "childAPIName": "EmailMessageRelation"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }],
@@ -40897,26 +41553,32 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Particles",
+            "isCascadeDelete": false,
             "childFieldAPIName": "EntityDefinitionId",
             "childAPIName": "EntityParticle"
         }, {
             "relationshipName": "Fields",
+            "isCascadeDelete": false,
             "childFieldAPIName": "EntityDefinitionId",
             "childAPIName": "FieldDefinition"
         }, {
             "relationshipName": "OwnerChangeOptions",
+            "isCascadeDelete": false,
             "childFieldAPIName": "EntityDefinitionId",
             "childAPIName": "OwnerChangeOptionInfo"
         }, {
             "relationshipName": "RelationshipDomains",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ParentSobjectId",
             "childAPIName": "RelationshipDomain"
         }, {
             "relationshipName": "ChildRelationships",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ChildSobjectId",
             "childAPIName": "RelationshipInfo"
         }, {
             "relationshipName": "SearchLayouts",
+            "isCascadeDelete": false,
             "childFieldAPIName": "EntityDefinitionId",
             "childAPIName": "SearchLayout"
         }],
@@ -41705,6 +42367,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "PicklistValues",
+            "isCascadeDelete": false,
             "childFieldAPIName": "EntityParticleId",
             "childAPIName": "PicklistValueInfo"
         }],
@@ -41848,6 +42511,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "RelationshipDomains",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelationshipInfoId",
             "childAPIName": "RelationshipDomain"
         }],
@@ -42089,10 +42753,12 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "InstalledEntityDefinitions",
+            "isCascadeDelete": false,
             "childFieldAPIName": "PublisherId",
             "childAPIName": "EntityDefinition"
         }, {
             "relationshipName": "InstalledFieldDefinitions",
+            "isCascadeDelete": false,
             "childFieldAPIName": "PublisherId",
             "childAPIName": "FieldDefinition"
         }],
@@ -43180,25 +43846,35 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Contracts",
+            "isCascadeDelete": false,
             "childFieldAPIName": "Pricebook2Id",
             "childAPIName": "Contract"
         }, {
             "relationshipName": "Opportunities",
+            "isCascadeDelete": false,
             "childFieldAPIName": "Pricebook2Id",
             "childAPIName": "Opportunity"
         }, {
             "relationshipName": "Orders",
+            "isCascadeDelete": false,
             "childFieldAPIName": "Pricebook2Id",
             "childAPIName": "Order"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "Pricebook2Id",
             "childAPIName": "Pricebook2History"
         }, {
             "relationshipName": "PricebookEntries",
+            "isCascadeDelete": true,
             "childFieldAPIName": "Pricebook2Id",
             "childAPIName": "PricebookEntry"
-        }, {"relationshipName": "WorkOrders", "childFieldAPIName": "Pricebook2Id", "childAPIName": "WorkOrder"}],
+        }, {
+            "relationshipName": "WorkOrders",
+            "isCascadeDelete": false,
+            "childFieldAPIName": "Pricebook2Id",
+            "childAPIName": "WorkOrder"
+        }],
         "apiName": "Pricebook2"
     }, {
         "label": "Price Book History",
@@ -43506,9 +44182,15 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Comments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "IdeaId",
             "childAPIName": "IdeaComment"
-        }, {"relationshipName": "Votes", "childFieldAPIName": "ParentId", "childAPIName": "Vote"}],
+        }, {
+            "relationshipName": "Votes",
+            "isCascadeDelete": true,
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "Vote"
+        }],
         "apiName": "Idea"
     }, {
         "label": "Idea Comment",
@@ -43620,7 +44302,12 @@ var wrappers =
             "isCustom": false,
             "apiName": "UpVotes"
         }],
-        "childRelationships": [{"relationshipName": "Votes", "childFieldAPIName": "ParentId", "childAPIName": "Vote"}],
+        "childRelationships": [{
+            "relationshipName": "Votes",
+            "isCascadeDelete": true,
+            "childFieldAPIName": "ParentId",
+            "childAPIName": "Vote"
+        }],
         "apiName": "IdeaComment"
     }, {
         "label": "Macro",
@@ -43753,6 +44440,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "MacroId",
             "childAPIName": "MacroHistory"
         }],
@@ -44499,122 +45187,152 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "DigitalSignatures",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "DigitalSignature"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "Notes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ProductsConsumed",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WorkOrderId",
             "childAPIName": "ProductConsumed"
         }, {
             "relationshipName": "ProductRequests",
+            "isCascadeDelete": false,
             "childFieldAPIName": "WorkOrderId",
             "childAPIName": "ProductRequest"
         }, {
             "relationshipName": "ProductRequestLineItems",
+            "isCascadeDelete": false,
             "childFieldAPIName": "WorkOrderId",
             "childAPIName": "ProductRequestLineItem"
         }, {
             "relationshipName": "ProductsRequired",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentRecordId",
             "childAPIName": "ProductRequired"
         }, {
             "relationshipName": "ResourcePreferences",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RelatedRecordId",
             "childAPIName": "ResourcePreference"
         }, {
             "relationshipName": "ServiceAppointments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentRecordId",
             "childAPIName": "ServiceAppointment"
         }, {
             "relationshipName": "ServiceReports",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ServiceReport"
         }, {
             "relationshipName": "SkillRequirements",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RelatedRecordId",
             "childAPIName": "SkillRequirement"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TimeSheetEntries",
+            "isCascadeDelete": false,
             "childFieldAPIName": "WorkOrderId",
             "childAPIName": "TimeSheetEntry"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }, {
             "relationshipName": "ChildWorkOrders",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ParentWorkOrderId",
             "childAPIName": "WorkOrder"
         }, {
             "relationshipName": "DescendantWorkOrders",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RootWorkOrderId",
             "childAPIName": "WorkOrder"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "WorkOrderFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WorkOrderId",
             "childAPIName": "WorkOrderHistory"
         }, {
             "relationshipName": "WorkOrderLineItems",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WorkOrderId",
             "childAPIName": "WorkOrderLineItem"
         }],
@@ -44916,22 +45634,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -45357,114 +46080,142 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "DigitalSignatures",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "DigitalSignature"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "Notes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ProductsConsumed",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WorkOrderLineItemId",
             "childAPIName": "ProductConsumed"
         }, {
             "relationshipName": "ProductRequests",
+            "isCascadeDelete": false,
             "childFieldAPIName": "WorkOrderLineItemId",
             "childAPIName": "ProductRequest"
         }, {
             "relationshipName": "ProductRequestLineItems",
+            "isCascadeDelete": false,
             "childFieldAPIName": "WorkOrderLineItemId",
             "childAPIName": "ProductRequestLineItem"
         }, {
             "relationshipName": "ProductsRequired",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentRecordId",
             "childAPIName": "ProductRequired"
         }, {
             "relationshipName": "ServiceAppointments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentRecordId",
             "childAPIName": "ServiceAppointment"
         }, {
             "relationshipName": "ServiceReports",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ServiceReport"
         }, {
             "relationshipName": "SkillRequirements",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RelatedRecordId",
             "childAPIName": "SkillRequirement"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TimeSheetEntries",
+            "isCascadeDelete": false,
             "childFieldAPIName": "WorkOrderLineItemId",
             "childAPIName": "TimeSheetEntry"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }, {
             "relationshipName": "ChildWorkOrderLineItems",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ParentWorkOrderLineItemId",
             "childAPIName": "WorkOrderLineItem"
         }, {
             "relationshipName": "DescendantWorkOrderLineItems",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RootWorkOrderLineItemId",
             "childAPIName": "WorkOrderLineItem"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "WorkOrderLineItemFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WorkOrderLineItemId",
             "childAPIName": "WorkOrderLineItemHistory"
         }],
@@ -45684,22 +46435,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -46083,70 +46839,87 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "ServiceResources",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ServiceAppointmentId",
             "childAPIName": "AssignedResource"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "DigitalSignatures",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "DigitalSignature"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ServiceAppointmentFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ServiceAppointmentId",
             "childAPIName": "ServiceAppointmentHistory"
         }, {
             "relationshipName": "ServiceReports",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ServiceReport"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -46448,22 +47221,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -46632,57 +47410,75 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "MaintenanceAssets",
+            "isCascadeDelete": false,
             "childFieldAPIName": "WorkTypeId",
             "childAPIName": "MaintenanceAsset"
         }, {
             "relationshipName": "MaintenancePlans",
+            "isCascadeDelete": false,
             "childFieldAPIName": "WorkTypeId",
             "childAPIName": "MaintenancePlan"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ProductsRequired",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentRecordId",
             "childAPIName": "ProductRequired"
         }, {
             "relationshipName": "SkillRequirements",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RelatedRecordId",
             "childAPIName": "SkillRequirement"
         }, {
             "relationshipName": "WorkOrders",
+            "isCascadeDelete": false,
             "childFieldAPIName": "WorkTypeId",
             "childAPIName": "WorkOrder"
         }, {
             "relationshipName": "WorkOrderLineItems",
+            "isCascadeDelete": false,
             "childFieldAPIName": "WorkTypeId",
             "childAPIName": "WorkOrderLineItem"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "WorkTypeFeed"
-        }, {"relationshipName": "Histories", "childFieldAPIName": "WorkTypeId", "childAPIName": "WorkTypeHistory"}],
+        }, {
+            "relationshipName": "Histories",
+            "isCascadeDelete": true,
+            "childFieldAPIName": "WorkTypeId",
+            "childAPIName": "WorkTypeHistory"
+        }],
         "apiName": "WorkType"
     }, {
         "label": "Work Type Share",
@@ -46981,22 +47777,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -47196,90 +47997,112 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "ServiceAppointments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ServiceResourceId",
             "childAPIName": "AssignedResource"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ResourceAbsences",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ResourceId",
             "childAPIName": "ResourceAbsence"
         }, {
             "relationshipName": "ResourcePreferences",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ServiceResourceId",
             "childAPIName": "ResourcePreference"
         }, {
             "relationshipName": "ServiceCrewMembers",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ServiceResourceId",
             "childAPIName": "ServiceCrewMember"
         }, {
             "relationshipName": "ServiceResourceCapacities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ServiceResourceId",
             "childAPIName": "ServiceResourceCapacity"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ServiceResourceFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ServiceResourceId",
             "childAPIName": "ServiceResourceHistory"
         }, {
             "relationshipName": "ServiceResourceSkills",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ServiceResourceId",
             "childAPIName": "ServiceResourceSkill"
         }, {
             "relationshipName": "ServiceTerritories",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ServiceResourceId",
             "childAPIName": "ServiceTerritoryMember"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TimeSheets",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ServiceResourceId",
             "childAPIName": "TimeSheet"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -47581,22 +48404,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -47817,66 +48645,82 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ServiceAppointments",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ServiceTerritoryId",
             "childAPIName": "ServiceAppointment"
         }, {
             "relationshipName": "ChildServiceTerritories",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ParentTerritoryId",
             "childAPIName": "ServiceTerritory"
         }, {
             "relationshipName": "DescendantTerritories",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TopLevelTerritoryId",
             "childAPIName": "ServiceTerritory"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ServiceTerritoryFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ServiceTerritoryId",
             "childAPIName": "ServiceTerritoryHistory"
         }, {
             "relationshipName": "Locations",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ServiceTerritoryId",
             "childAPIName": "ServiceTerritoryLocation"
         }, {
             "relationshipName": "ServiceResources",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ServiceTerritoryId",
             "childAPIName": "ServiceTerritoryMember"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }, {
             "relationshipName": "WorkOrders",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ServiceTerritoryId",
             "childAPIName": "WorkOrder"
         }, {
             "relationshipName": "WorkOrderLineItems",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ServiceTerritoryId",
             "childAPIName": "WorkOrderLineItem"
         }],
@@ -48178,22 +49022,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -48404,38 +49253,47 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ServiceTerritoryMemberFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ServiceTerritoryMemberId",
             "childAPIName": "ServiceTerritoryMemberHistory"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -48655,22 +49513,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -48806,38 +49669,47 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ServiceResourceSkillFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ServiceResourceSkillId",
             "childAPIName": "ServiceResourceSkillHistory"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -49057,22 +49929,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -49204,34 +50081,42 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "SkillRequirementFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "SkillRequirementId",
             "childAPIName": "SkillRequirementHistory"
         }],
@@ -49451,22 +50336,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -49593,30 +50483,37 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "AssignedResourceFeed"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }],
@@ -49764,22 +50661,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -49884,33 +50786,45 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Accounts",
+            "isCascadeDelete": false,
             "childFieldAPIName": "OperatingHoursId",
             "childAPIName": "Account"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "OperatingHoursFeed"
         }, {
             "relationshipName": "ServiceTerritories",
+            "isCascadeDelete": false,
             "childFieldAPIName": "OperatingHoursId",
             "childAPIName": "ServiceTerritory"
-        }, {"relationshipName": "TimeSlots", "childFieldAPIName": "OperatingHoursId", "childAPIName": "TimeSlot"}],
+        }, {
+            "relationshipName": "TimeSlots",
+            "isCascadeDelete": true,
+            "childFieldAPIName": "OperatingHoursId",
+            "childAPIName": "TimeSlot"
+        }],
         "apiName": "OperatingHours"
     }, {
         "label": "Operating Hours Feed",
@@ -50055,22 +50969,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -50264,58 +51183,72 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ResourceAbsenceFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ResourceAbsenceId",
             "childAPIName": "ResourceAbsenceHistory"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -50535,22 +51468,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -50681,10 +51619,12 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }],
@@ -50822,38 +51762,47 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ServiceResourceCapacityFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ServiceResourceCapacityId",
             "childAPIName": "ServiceResourceCapacityHistory"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -51073,22 +52022,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -51215,38 +52169,47 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ResourcePreferenceFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ResourcePreferenceId",
             "childAPIName": "ResourcePreferenceHistory"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -51466,22 +52429,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -51641,70 +52609,87 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ProductsConsumed",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ProductItemId",
             "childAPIName": "ProductConsumed"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ProductItemFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ProductItemId",
             "childAPIName": "ProductItemHistory"
         }, {
             "relationshipName": "ProductItemTransactions",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ProductItemId",
             "childAPIName": "ProductItemTransaction"
         }, {
             "relationshipName": "ProductTransfers",
+            "isCascadeDelete": false,
             "childFieldAPIName": "SourceProductItemId",
             "childAPIName": "ProductTransfer"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -52006,22 +52991,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -52207,62 +53197,77 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ProductConsumedFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ProductConsumedId",
             "childAPIName": "ProductConsumedHistory"
         }, {
             "relationshipName": "ProductItemTransactions",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedRecordId",
             "childAPIName": "ProductItemTransaction"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -52482,22 +53487,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -52650,38 +53660,47 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ProductRequiredFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ProductRequiredId",
             "childAPIName": "ProductRequiredHistory"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -52901,22 +53920,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -53057,38 +54081,47 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ProductItemTransactionFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ProductItemTransactionId",
             "childAPIName": "ProductItemTransactionHistory"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -53308,22 +54341,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -53469,6 +54507,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ServiceReportId",
             "childAPIName": "ServiceReportHistory"
         }],
@@ -53695,10 +54734,12 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }],
@@ -53796,14 +54837,17 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "WorkOrders",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ServiceReportTemplateId",
             "childAPIName": "WorkOrder"
         }, {
             "relationshipName": "WorkOrderLineItems",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ServiceReportTemplateId",
             "childAPIName": "WorkOrderLineItem"
         }, {
             "relationshipName": "WorkTypes",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ServiceReportTemplateId",
             "childAPIName": "WorkType"
         }],
@@ -54090,10 +55134,12 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AppExtensions",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FieldServiceMobileSettingsId",
             "childAPIName": "AppExtension"
         }, {
             "relationshipName": "MobileSettingsAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FieldServiceMobileSettingsId",
             "childAPIName": "MobileSettingsAssignment"
         }],
@@ -54406,6 +55452,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ContentFolderLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ContentFolderId",
             "childAPIName": "ContentFolderLink"
         }],
@@ -54766,10 +55813,12 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }],
@@ -54977,6 +56026,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActionLinkTemplates",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ActionLinkGroupTemplateId",
             "childAPIName": "ActionLinkTemplate"
         }],
@@ -55324,10 +56374,12 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }],
@@ -55590,106 +56642,132 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Addresses",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Address"
         }, {
             "relationshipName": "Assets",
+            "isCascadeDelete": false,
             "childFieldAPIName": "LocationId",
             "childAPIName": "Asset"
         }, {
             "relationshipName": "AssociatedLocations",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LocationId",
             "childAPIName": "AssociatedLocation"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ChildLocations",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ParentLocationId",
             "childAPIName": "Location"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "LocationFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LocationId",
             "childAPIName": "LocationHistory"
         }, {
             "relationshipName": "MaintenancePlans",
+            "isCascadeDelete": false,
             "childFieldAPIName": "LocationId",
             "childAPIName": "MaintenancePlan"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ProductItems",
+            "isCascadeDelete": false,
             "childFieldAPIName": "LocationId",
             "childAPIName": "ProductItem"
         }, {
             "relationshipName": "DestinationProductRequests",
+            "isCascadeDelete": false,
             "childFieldAPIName": "DestinationLocationId",
             "childAPIName": "ProductRequest"
         }, {
             "relationshipName": "SourceProductRequests",
+            "isCascadeDelete": false,
             "childFieldAPIName": "SourceLocationId",
             "childAPIName": "ProductRequest"
         }, {
             "relationshipName": "DestinationProductRequestLineItems",
+            "isCascadeDelete": false,
             "childFieldAPIName": "DestinationLocationId",
             "childAPIName": "ProductRequestLineItem"
         }, {
             "relationshipName": "SourceProductRequestLineItems",
+            "isCascadeDelete": false,
             "childFieldAPIName": "SourceLocationId",
             "childAPIName": "ProductRequestLineItem"
         }, {
             "relationshipName": "DestinationProductTransfers",
+            "isCascadeDelete": false,
             "childFieldAPIName": "DestinationLocationId",
             "childAPIName": "ProductTransfer"
         }, {
             "relationshipName": "SourceProductTransfers",
+            "isCascadeDelete": false,
             "childFieldAPIName": "SourceLocationId",
             "childAPIName": "ProductTransfer"
         }, {
             "relationshipName": "ServiceResources",
+            "isCascadeDelete": false,
             "childFieldAPIName": "LocationId",
             "childAPIName": "ServiceResource"
         }, {
             "relationshipName": "ServiceTerritories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LocationId",
             "childAPIName": "ServiceTerritoryLocation"
         }, {
             "relationshipName": "DestinationLocationShipments",
+            "isCascadeDelete": false,
             "childFieldAPIName": "DestinationLocationId",
             "childAPIName": "Shipment"
         }, {
             "relationshipName": "SourceLocationShipments",
+            "isCascadeDelete": false,
             "childFieldAPIName": "SourceLocationId",
             "childAPIName": "Shipment"
         }, {
             "relationshipName": "WorkOrders",
+            "isCascadeDelete": false,
             "childFieldAPIName": "LocationId",
             "childAPIName": "WorkOrder"
         }, {
             "relationshipName": "WorkOrderLineItems",
+            "isCascadeDelete": false,
             "childFieldAPIName": "LocationId",
             "childAPIName": "WorkOrderLineItem"
         }],
@@ -55991,22 +57069,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -56142,6 +57225,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AssociatedLocationId",
             "childAPIName": "AssociatedLocationHistory"
         }],
@@ -56897,6 +57981,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ApexClassJunctions",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ApexTestSuiteId",
             "childAPIName": "TestSuiteMembership"
         }],
@@ -58552,10 +59637,12 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "GrantedByLicenses",
+            "isCascadeDelete": true,
             "childFieldAPIName": "PermissionSetLicenseId",
             "childAPIName": "GrantedByLicense"
         }, {
             "relationshipName": "PermissionSetLicenseAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "PermissionSetLicenseId",
             "childAPIName": "PermissionSetLicenseAssign"
         }],
@@ -60388,22 +61475,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FieldPerms",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "FieldPermissions"
         }, {
             "relationshipName": "ObjectPerms",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ObjectPermissions"
         }, {
             "relationshipName": "Assignments",
+            "isCascadeDelete": false,
             "childFieldAPIName": "PermissionSetId",
             "childAPIName": "PermissionSetAssignment"
         }, {
             "relationshipName": "SessionActivations",
+            "isCascadeDelete": false,
             "childFieldAPIName": "PermissionSetId",
             "childAPIName": "SessionPermSetActivation"
         }, {
             "relationshipName": "SetupEntityAccessItems",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "SetupEntityAccess"
         }],
@@ -60604,18 +61696,22 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "CustomPermissionItem",
+            "isCascadeDelete": true,
             "childFieldAPIName": "CustomPermissionId",
             "childAPIName": "CustomPermissionDependency"
         }, {
             "relationshipName": "CustomPermissionDependencyItem",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RequiredCustomPermissionId",
             "childAPIName": "CustomPermissionDependency"
         }, {
             "relationshipName": "GrantedByLicenses",
+            "isCascadeDelete": true,
             "childFieldAPIName": "CustomPermissionId",
             "childAPIName": "GrantedByLicense"
         }, {
             "relationshipName": "SetupEntityAccessItems",
+            "isCascadeDelete": true,
             "childFieldAPIName": "SetupEntityId",
             "childAPIName": "SetupEntityAccess"
         }],
@@ -61776,9 +62872,15 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Accounts",
+            "isCascadeDelete": false,
             "childFieldAPIName": "DandbCompanyId",
             "childAPIName": "Account"
-        }, {"relationshipName": "Leads", "childFieldAPIName": "DandbCompanyId", "childAPIName": "Lead"}],
+        }, {
+            "relationshipName": "Leads",
+            "isCascadeDelete": false,
+            "childFieldAPIName": "DandbCompanyId",
+            "childAPIName": "Lead"
+        }],
         "apiName": "DandBCompany"
     }, {
         "label": "Account Clean Info",
@@ -65398,10 +66500,12 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ServiceResources",
+            "isCascadeDelete": true,
             "childFieldAPIName": "SkillId",
             "childAPIName": "ServiceResourceSkill"
         }, {
             "relationshipName": "SkillRequirements",
+            "isCascadeDelete": true,
             "childFieldAPIName": "SkillId",
             "childAPIName": "SkillRequirement"
         }],
@@ -65530,6 +66634,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "QuickTextId",
             "childAPIName": "QuickTextHistory"
         }],
@@ -65779,6 +66884,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "CustomBrands",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CustomBrand"
         }],
@@ -66027,6 +67133,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Bundle",
+            "isCascadeDelete": false,
             "childFieldAPIName": "AuraDefinitionBundleInfoId",
             "childAPIName": "AuraDefinitionInfo"
         }],
@@ -67126,6 +68233,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AuthProvidersForConfig",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AuthConfigId",
             "childAPIName": "AuthConfigProviders"
         }],
@@ -68245,10 +69353,12 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }],
@@ -69427,6 +70537,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Badges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "SourceId",
             "childAPIName": "WorkBadge"
         }],
@@ -69691,42 +70802,52 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "WorkAccesses",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "WorkAccess"
         }, {
             "relationshipName": "Badges",
+            "isCascadeDelete": false,
             "childFieldAPIName": "DefinitionId",
             "childAPIName": "WorkBadge"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "WorkBadgeDefinitionFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WorkBadgeDefinitionId",
             "childAPIName": "WorkBadgeDefinitionHistory"
         }],
@@ -70028,22 +71149,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -70361,17 +71487,25 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Badges",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RewardId",
             "childAPIName": "WorkBadge"
-        }, {"relationshipName": "Histories", "childFieldAPIName": "WorkRewardId", "childAPIName": "WorkRewardHistory"}],
+        }, {
+            "relationshipName": "Histories",
+            "isCascadeDelete": true,
+            "childFieldAPIName": "WorkRewardId",
+            "childAPIName": "WorkRewardHistory"
+        }],
         "apiName": "WorkReward"
     }, {
         "label": "Reward Share",
@@ -70677,42 +71811,52 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "BadgeDefinitions",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RewardFundId",
             "childAPIName": "WorkBadgeDefinition"
         }, {
             "relationshipName": "Rewards",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RewardFundId",
             "childAPIName": "WorkReward"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "WorkRewardFundFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WorkRewardFundId",
             "childAPIName": "WorkRewardFundHistory"
         }],
@@ -71014,22 +72158,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -71351,66 +72500,82 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "Notes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "WorkCoachingFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WorkCoachingId",
             "childAPIName": "WorkCoachingHistory"
         }],
@@ -71712,22 +72877,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -71905,38 +73075,47 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "RewardFunds",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RewardFundTypeId",
             "childAPIName": "WorkRewardFund"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "WorkRewardFundTypeFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WorkRewardFundTypeId",
             "childAPIName": "WorkRewardFundTypeHistory"
         }],
@@ -72238,22 +73417,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -72417,82 +73601,102 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "GoalFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "GoalId",
             "childAPIName": "GoalHistory"
         }, {
             "relationshipName": "Subgoals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentGoalId",
             "childAPIName": "GoalLink"
         }, {
             "relationshipName": "ParentGoals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "SubgoalId",
             "childAPIName": "GoalLink"
         }, {
             "relationshipName": "Metrics",
+            "isCascadeDelete": false,
             "childFieldAPIName": "GoalId",
             "childAPIName": "Metric"
         }, {
             "relationshipName": "Notes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "RelatedObjects",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedObjectId",
             "childAPIName": "WorkFeedbackRequest"
         }],
@@ -72794,22 +73998,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -73025,69 +74234,90 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "LinkTarget",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetId",
             "childAPIName": "MetricDataLink"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "MetricFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "MetricId",
             "childAPIName": "MetricHistory"
         }, {
             "relationshipName": "Notes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
-        }, {"relationshipName": "Tasks", "childFieldAPIName": "WhatId", "childAPIName": "Task"}],
+        }, {
+            "relationshipName": "Tasks",
+            "isCascadeDelete": true,
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Task"
+        }],
         "apiName": "Metric"
     }, {
         "label": "Metric Share",
@@ -73386,22 +74616,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -73612,6 +74847,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "MetricDataLinkId",
             "childAPIName": "MetricDataLinkHistory"
         }],
@@ -73826,46 +75062,57 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "FeedbackQuestionSets",
+            "isCascadeDelete": true,
             "childFieldAPIName": "PerformanceCycleId",
             "childAPIName": "WorkFeedbackQuestionSet"
         }, {
             "relationshipName": "FeedbackRequests",
+            "isCascadeDelete": true,
             "childFieldAPIName": "PerformanceCycleId",
             "childAPIName": "WorkFeedbackRequest"
         }, {
             "relationshipName": "RelatedObjects",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedObjectId",
             "childAPIName": "WorkFeedbackRequest"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "WorkPerformanceCycleFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WorkPerformanceCycleId",
             "childAPIName": "WorkPerformanceCycleHistory"
         }],
@@ -74167,22 +75414,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -74302,26 +75554,32 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "FeedbackQuestions",
+            "isCascadeDelete": true,
             "childFieldAPIName": "QuestionSetId",
             "childAPIName": "WorkFeedbackQuestion"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WorkFeedbackQuestionSetId",
             "childAPIName": "WorkFeedbackQuestionSetHistory"
         }, {
             "relationshipName": "FeedbackRequests",
+            "isCascadeDelete": true,
             "childFieldAPIName": "QuestionSetId",
             "childAPIName": "WorkFeedbackRequest"
         }, {
             "relationshipName": "Templates",
+            "isCascadeDelete": false,
             "childFieldAPIName": "QuestionSetId",
             "childAPIName": "WorkFeedbackTemplate"
         }],
@@ -74630,18 +75888,22 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Feedbacks",
+            "isCascadeDelete": false,
             "childFieldAPIName": "QuestionId",
             "childAPIName": "WorkFeedback"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WorkFeedbackQuestionId",
             "childAPIName": "WorkFeedbackQuestionHistory"
         }],
@@ -74920,14 +76182,17 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WorkFeedbackId",
             "childAPIName": "WorkFeedbackHistory"
         }],
@@ -75382,38 +76647,47 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Feedbacks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RequestId",
             "childAPIName": "WorkFeedback"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "WorkFeedbackRequestFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WorkFeedbackRequestId",
             "childAPIName": "WorkFeedbackRequestHistory"
         }],
@@ -75715,22 +76989,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -75850,10 +77129,12 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }],
@@ -76753,10 +78034,12 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }],
@@ -76950,6 +78233,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ConferenceNumbers",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ExternalEventId",
             "childAPIName": "ConferenceNumber"
         }],
@@ -77389,6 +78673,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "DuplicateRecordSets",
+            "isCascadeDelete": false,
             "childFieldAPIName": "DuplicateRuleId",
             "childAPIName": "DuplicateRecordSet"
         }],
@@ -77498,14 +78783,17 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "DuplicateRecordItems",
+            "isCascadeDelete": true,
             "childFieldAPIName": "DuplicateRecordSetId",
             "childAPIName": "DuplicateRecordItem"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }],
@@ -77626,10 +78914,12 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }],
@@ -77769,6 +79059,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "MatchingRuleItems",
+            "isCascadeDelete": true,
             "childFieldAPIName": "MatchingRuleId",
             "childAPIName": "MatchingRuleItem"
         }],
@@ -78083,6 +79374,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ExternalDataIds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "InsightsExternalDataId",
             "childAPIName": "InsightsExternalDataPart"
         }],
@@ -78316,6 +79608,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "SecureAgentPlugins",
+            "isCascadeDelete": true,
             "childFieldAPIName": "SecureAgentId",
             "childAPIName": "SecureAgentPlugin"
         }],
@@ -78525,6 +79818,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "SecureAgentPluginProperties",
+            "isCascadeDelete": true,
             "childFieldAPIName": "SecureAgentPluginId",
             "childAPIName": "SecureAgentPluginProperty"
         }],
@@ -78798,10 +80092,12 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "UserAuths",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ExternalDataSourceId",
             "childAPIName": "ExternalDataUserAuth"
         }, {
             "relationshipName": "SetupEntityAccessItems",
+            "isCascadeDelete": true,
             "childFieldAPIName": "SetupEntityId",
             "childAPIName": "SetupEntityAccess"
         }],
@@ -78946,10 +80242,12 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "UserAuths",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ExternalDataSourceId",
             "childAPIName": "ExternalDataUserAuth"
         }, {
             "relationshipName": "SetupEntityAccessItems",
+            "isCascadeDelete": true,
             "childFieldAPIName": "SetupEntityId",
             "childAPIName": "SetupEntityAccess"
         }],
@@ -79157,6 +80455,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "MergedOperations",
+            "isCascadeDelete": false,
             "childFieldAPIName": "GroupLeaderId",
             "childAPIName": "BackgroundOperation"
         }],
@@ -79746,10 +81045,12 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "OutgoingEmailRelations",
+            "isCascadeDelete": false,
             "childFieldAPIName": "OutgoingEmailId",
             "childAPIName": "OutgoingEmailRelation"
         }],
@@ -79929,6 +81230,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "DataAssessmentMetrics",
+            "isCascadeDelete": true,
             "childFieldAPIName": "DataAssessmentMetricId",
             "childAPIName": "DataAssessmentFieldMetric"
         }],
@@ -80052,6 +81354,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "DataAssessmentValueMetrics",
+            "isCascadeDelete": true,
             "childFieldAPIName": "DataAssessmentFieldMetricId",
             "childAPIName": "DataAssessmentValueMetric"
         }],
@@ -80261,6 +81564,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "PlatforCachePartitionTypes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "PlatformCachePartitionId",
             "childAPIName": "PlatformCachePartitionType"
         }],
@@ -80788,65 +82092,85 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "MaintenanceAssets",
+            "isCascadeDelete": true,
             "childFieldAPIName": "MaintenancePlanId",
             "childAPIName": "MaintenanceAsset"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "MaintenancePlanFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "MaintenancePlanId",
             "childAPIName": "MaintenancePlanHistory"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
-        }, {"relationshipName": "WorkOrders", "childFieldAPIName": "MaintenancePlanId", "childAPIName": "WorkOrder"}],
+        }, {
+            "relationshipName": "WorkOrders",
+            "isCascadeDelete": false,
+            "childFieldAPIName": "MaintenancePlanId",
+            "childAPIName": "WorkOrder"
+        }],
         "apiName": "MaintenancePlan"
     }, {
         "label": "Maintenance Plan Share",
@@ -81145,22 +82469,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -81261,34 +82590,42 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ServiceTerritoryLocationFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ServiceTerritoryLocationId",
             "childAPIName": "ServiceTerritoryLocationHistory"
         }],
@@ -81508,22 +82845,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -81650,58 +82992,72 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "MaintenanceAssetFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "MaintenanceAssetId",
             "childAPIName": "MaintenanceAssetHistory"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -81921,22 +83277,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -82207,66 +83568,82 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ProductRequestFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ProductRequestId",
             "childAPIName": "ProductRequestHistory"
         }, {
             "relationshipName": "ProductRequestLineItems",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ProductRequestLineItem"
         }, {
             "relationshipName": "ProductTransfers",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ProductRequestId",
             "childAPIName": "ProductTransfer"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -82568,22 +83945,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -82869,62 +84251,77 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ProductItemTransactions",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedRecordId",
             "childAPIName": "ProductItemTransaction"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ProductTransferFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ProductTransferId",
             "childAPIName": "ProductTransferHistory"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -83226,22 +84623,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -83533,74 +84935,92 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "Notes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ProductRequestLineItemFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ProductRequestLineItemId",
             "childAPIName": "ProductRequestLineItemHistory"
         }, {
             "relationshipName": "ProductTransfers",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ProductRequestLineItemId",
             "childAPIName": "ProductTransfer"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -83820,22 +85240,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -84166,62 +85591,77 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "ProductTransfers",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ShipmentId",
             "childAPIName": "ProductTransfer"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ShipmentFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ShipmentId",
             "childAPIName": "ShipmentHistory"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -84523,22 +85963,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -84847,62 +86292,77 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TimeSheetEntries",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TimeSheetId",
             "childAPIName": "TimeSheetEntry"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "TimeSheetFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TimeSheetId",
             "childAPIName": "TimeSheetHistory"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -85204,22 +86664,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -85401,53 +86866,70 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "AssetRelationshipFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "AssetRelationshipId",
             "childAPIName": "AssetRelationshipHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
-        }, {"relationshipName": "Tasks", "childFieldAPIName": "WhatId", "childAPIName": "Task"}],
+        }, {
+            "relationshipName": "Tasks",
+            "isCascadeDelete": true,
+            "childFieldAPIName": "WhatId",
+            "childAPIName": "Task"
+        }],
         "apiName": "AssetRelationship"
     }, {
         "label": "Asset Relationship History",
@@ -85664,22 +87146,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -85855,58 +87342,72 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "TimeSheetEntryFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TimeSheetEntryId",
             "childAPIName": "TimeSheetEntryHistory"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -86126,22 +87627,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -86590,70 +88096,87 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AssignedResources",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ServiceCrewId",
             "childAPIName": "AssignedResource"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ServiceCrewFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ServiceCrewId",
             "childAPIName": "ServiceCrewHistory"
         }, {
             "relationshipName": "ServiceCrewMembers",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ServiceCrewId",
             "childAPIName": "ServiceCrewMember"
         }, {
             "relationshipName": "ServiceResources",
+            "isCascadeDelete": false,
             "childFieldAPIName": "ServiceCrewId",
             "childAPIName": "ServiceResource"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -86955,22 +88478,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -87106,58 +88634,72 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "ActivityHistories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "ActivityHistory"
         }, {
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Events",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Event"
         }, {
             "relationshipName": "OpenActivities",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "OpenActivity"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "Feeds",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "ServiceCrewMemberFeed"
         }, {
             "relationshipName": "Histories",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ServiceCrewMemberId",
             "childAPIName": "ServiceCrewMemberHistory"
         }, {
             "relationshipName": "Tasks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "WhatId",
             "childAPIName": "Task"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -87377,22 +88919,27 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "FeedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedEntityId",
             "childAPIName": "FeedAttachment"
         }, {
             "relationshipName": "FeedComments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedComment"
         }, {
             "relationshipName": "FeedLikes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedLike"
         }, {
             "relationshipName": "FeedSignals",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedSignal"
         }, {
             "relationshipName": "FeedTrackedChanges",
+            "isCascadeDelete": true,
             "childFieldAPIName": "FeedItemId",
             "childAPIName": "FeedTrackedChange"
         }],
@@ -87563,14 +89110,17 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }],
@@ -89460,6 +91010,7 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "DatasetExportParts",
+            "isCascadeDelete": true,
             "childFieldAPIName": "DatasetExportId",
             "childAPIName": "DatasetExportPart"
         }],
@@ -89765,42 +91316,52 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "RecordAssociatedGroups",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RecordId",
             "childAPIName": "CollaborationGroupRecord"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "DuplicateRecordItems",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RecordId",
             "childAPIName": "DuplicateRecordItem"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],
@@ -89915,54 +91476,67 @@ var wrappers =
         }],
         "childRelationships": [{
             "relationshipName": "AttachedContentDocuments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "AttachedContentDocument"
         }, {
             "relationshipName": "Attachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Attachment"
         }, {
             "relationshipName": "RecordAssociatedGroups",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RecordId",
             "childAPIName": "CollaborationGroupRecord"
         }, {
             "relationshipName": "CombinedAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "CombinedAttachment"
         }, {
             "relationshipName": "ContentDocumentLinks",
+            "isCascadeDelete": true,
             "childFieldAPIName": "LinkedEntityId",
             "childAPIName": "ContentDocumentLink"
         }, {
             "relationshipName": "DuplicateRecordItems",
+            "isCascadeDelete": true,
             "childFieldAPIName": "RecordId",
             "childAPIName": "DuplicateRecordItem"
         }, {
             "relationshipName": "Emails",
+            "isCascadeDelete": false,
             "childFieldAPIName": "RelatedToId",
             "childAPIName": "EmailMessage"
         }, {
             "relationshipName": "FeedSubscriptionsForEntity",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "EntitySubscription"
         }, {
             "relationshipName": "Notes",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "Note"
         }, {
             "relationshipName": "NotesAndAttachments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "ParentId",
             "childAPIName": "NoteAndAttachment"
         }, {
             "relationshipName": "ProcessInstances",
+            "isCascadeDelete": true,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstance"
         }, {
             "relationshipName": "ProcessSteps",
+            "isCascadeDelete": false,
             "childFieldAPIName": "TargetObjectId",
             "childAPIName": "ProcessInstanceHistory"
         }, {
             "relationshipName": "TopicAssignments",
+            "isCascadeDelete": true,
             "childFieldAPIName": "EntityId",
             "childAPIName": "TopicAssignment"
         }],

@@ -41,6 +41,33 @@ public without sharing class GraphVizForceController {
         return result;
     }
 
+    @TestVisible
+    private static List<ChildRelationshipWrapper> getChildRelationships(DescribeSObjectResult describe) {
+
+        List<ChildRelationshipWrapper> result = new List<ChildRelationshipWrapper>();
+
+        // start with child relationships described for top level objects
+        List<ChildRelationship> childRelationships = describe.getChildRelationships();
+        if (!childRelationships.isEmpty()) {
+            for (ChildRelationship rel : childRelationships) {
+                // only return relationships with names since they are used in diagram arrows
+                // and SOQL joins and these features don't work without a name
+                if (rel.getRelationshipName() != NULL) {
+                    ChildRelationshipWrapper wrapper = new ChildRelationshipWrapper();
+
+                    wrapper.childAPIName = rel.getChildSObject().getDescribe().getName();
+                    wrapper.childFieldAPIName = rel.getField().getDescribe().getName();
+                    wrapper.isCascadeDelete = rel.isCascadeDelete();
+                    wrapper.relationshipName = rel.getRelationshipName();
+
+                    result.add(wrapper);
+                }
+            }
+        }
+
+        return result;
+    }
+
     public static List<ObjectWrapper> loadSchemaWrappers(){
         List<ObjectWrapper> objectWrappers = new List<ObjectWrapper>();
         Map<String, Schema.SObjectType> gd = Schema.getGlobalDescribe();
@@ -55,22 +82,7 @@ public without sharing class GraphVizForceController {
                 objWrapper.label = sObjResult.getLabel();
                 objWrapper.apiName = sObjResult.getName();
                 objWrapper.isCustom = sObjResult.isCustom();
-
-                List<ChildRelationship> childRelationships = sObjResult.getChildRelationships();
-                if (!childRelationships.isEmpty()) {
-                    objWrapper.childRelationships = new List<ChildRelationshipWrapper>();
-                    for (ChildRelationship rel : childRelationships) {
-                        // only return relationships with names since they are used in diagram arrows
-                        // and SOQL joins and these features don't work without a name
-                        if (rel.getRelationshipName() != NULL) {
-                            ChildRelationshipWrapper wrapper = new ChildRelationshipWrapper();
-                            wrapper.childAPIName = rel.getChildSObject().getDescribe().getName();
-                            wrapper.childFieldAPIName = rel.getField().getDescribe().getName();
-                            wrapper.relationshipName = rel.getRelationshipName();
-                            objWrapper.childRelationships.add(wrapper);
-                        }
-                    }
-                }
+                objWrapper.childRelationships = getChildRelationships(sObjResult);
 
                 // Describe Fields
                 Map<String, Schema.SObjectField> fieldsMap = sObjResult.fields.getMap();
@@ -131,6 +143,7 @@ public without sharing class GraphVizForceController {
         public String relationshipName;
         public String childAPIName;
         public String childFieldAPIName;
+        public Boolean isCascadeDelete;
     }
 
     public class RelationshipWrapper{
