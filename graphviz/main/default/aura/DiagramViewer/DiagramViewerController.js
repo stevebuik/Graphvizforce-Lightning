@@ -21,15 +21,17 @@
                                 .graphviz()
                                 .fade(false)
                                 .zoom(true)
+                                .on("end", function () {
+                                    var s = component.find("content").getElement();
+                                    component.getEvent('onDiagramRendered').setParams({scope:s.innerHTML}).fire();
+                                })
                                 .renderDot(graphvizContent, function(){
                                     d3.select("#graph > svg")
                                         .attr("width", "100%")
                                         .attr("height", "70vh");
                                 });
-
             // Set markup
             component.set('v.graphviz', erdMarkup);
-            component.getEvent('onDiagramRendered').setParams({scope:erdMarkup}).fire();
         }
     },
 })

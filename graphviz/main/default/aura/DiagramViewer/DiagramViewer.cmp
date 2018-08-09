@@ -16,6 +16,6 @@
     <ltng:require scripts="{! join(',', $Resource.GraphvizForceUtils, $Resource.VizJS, $Resource.d3v4, $Resource.d3graphviz)}"
                   afterScriptsLoaded="{!c.doInit}"/>
 
-    <div id="graph" style="text-align: center; width:100%;max-width:100%;"></div>
+    <div id="graph" aura:id="content" style="text-align: center; width:100%;max-width:100%;"></div>
 
 </aura:component>
