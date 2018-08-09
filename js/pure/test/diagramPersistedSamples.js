@@ -3,6 +3,70 @@
 // they're also translated to SOQL
 // to create/update them, just create a diagram in the Lightning client and then copy the JSON from the custom object record
 
+exports.account_user =
+    {
+        "name": "users",
+        "entities": [
+            {
+                "apiName": "Account",
+                "fields": []
+            },
+            {
+                "apiName": "User",
+                "fields": []
+            }],
+        "groups": [{"name": "ContainerGroup", "entities": ["Account", "User"]}],
+        "settings": {
+            "obscureEntities": []
+        },
+        "id": "a010l0000058jgjAAA"
+    };
+
+exports.case_teams =
+    {
+        "name": "case",
+        "entities": [
+            {
+                "apiName": "Case",
+                "fields": []
+            },
+            {
+                "apiName": "CaseTeamMember",
+                "fields": []
+            },
+            {
+                "apiName": "CaseTeamRole",
+                "fields": []
+            }],
+        "groups": [{"name": "ContainerGroup", "entities": ["Case", "CaseTeamMember", "CaseTeamRole"]}],
+        "settings": {},
+        "id": "a010l0000058j81AAA"
+    };
+
+exports.timesheets =
+    {
+        "name": "timesheets",
+        "entities": [
+            {
+                "apiName": "TimeSheet",
+                "fields": []
+            },
+            {
+                "apiName": "TimeSheetEntry",
+                "fields": []
+            },
+            {
+                "apiName": "WorkOrder",
+                "fields": []
+            }],
+        "groups": [{"name": "ContainerGroup", "entities": ["TimeSheet", "TimeSheetEntry", "WorkOrder"]}],
+        "settings": {
+            "showAPINames": true,
+            "obscureEntities": []
+        },
+        "id": "a010l0000058ikZAAQ"
+    };
+
 exports.account_contact_api_names =
     {
         "name": "AccountContactUser",
@@ -11,14 +75,14 @@ exports.account_contact_api_names =
                 "apiName": "Account",
                 "fields": [
                     {"apiName": "Name"},
-                    {"apiName": "Type"}
+                    {"apiName": "CreatedById"},
                 ]
             },
             {
                 "apiName": "Contact",
                 "fields": []
             }],
-        "groups": [{"name": "ContainerGroup", "entities": ["Account", "Contact"]}],
+        "groups": [],
         "settings": {
             "showAPINames": true,
             "showStandardUserRelationships": false,

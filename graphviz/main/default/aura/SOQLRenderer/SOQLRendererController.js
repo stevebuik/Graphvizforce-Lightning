@@ -8,39 +8,46 @@
 
         var obscured = {};
 
-        // update the UI, generating new SOQL if required
-        if ($A.util.isEmpty(component.get("v.from"))) {
-            component.set("v.prompt", "Choose a SOQL FROM object:");
-            component.set("v.fromStyle", "");
-        } else {
-            component.set("v.fromStyle", "border: solid 2px " + window.pure.graphviz.entityFrom + ";padding:3px;border-radius:7px;");
-            component.set("v.prompt", "FROM")
-            var rendered = window.pure.soql.v2.diagramAsSelects(component.get("v.diagram"), component.get("v.describes"), newFrom);
-            var soql = window.pure.soql.v2.diagramSelectsAsSOQL(rendered.selectLists, newFrom, false);
-            component.set("v.soql", soql);
-            component.set("v.selectLists", rendered.selectLists);
+        try {
+            // update the UI, generating new SOQL if required
+            if ($A.util.isEmpty(component.get("v.from"))) {
+                component.set("v.prompt", "Choose a SOQL FROM object:");
+                component.set("v.fromStyle", "");
+            } else {
+                var rendered = window.pure.soql.v2.diagramAsSelects(component.get("v.diagram"), component.get("v.describes"), newFrom);
+                var soql = window.pure.soql.v2.diagramSelectsAsSOQL(rendered.selectLists, newFrom, false);
+                component.set("v.fromStyle", "border: solid 2px " + window.pure.graphviz.entityFrom + ";padding:3px;border-radius:7px;");
+                component.set("v.prompt", "FROM")
+                component.set("v.soql", soql);
+                component.set("v.selectLists", rendered.selectLists);
 
-            // populate the obscured entities
-            rendered.entities.forEach(function (entity) {
-                obscured[entity] = true;
-            })
-            for (var key in rendered.selectedFields) {
-                delete obscured[key];
+                // populate the obscured entities
+                rendered.entities.forEach(function (entity) {
+                    obscured[entity] = true;
+                })
+                for (var key in rendered.selectedFields) {
+                    delete obscured[key];
+                }
             }
-        }
 
-        // translate obscured into a list
-        var obscuredList = [];
-        for (var e in obscured) {
-            obscuredList.push(e);
-        }
+            // translate obscured into a list
+            var obscuredList = [];
+            for (var e in obscured) {
+                obscuredList.push(e);
+            }
 
-        // now fire the component event to notify parent components
-        component.getEvent('onSettingsChange')
-            .setParams({
-                from: newFrom,
-                obscuredEntities: obscuredList
-            }).fire();
+            // now fire the component event to notify parent components
+            component.getEvent('onSettingsChange')
+                .setParams({
+                    from: newFrom,
+                    obscuredEntities: obscuredList
+                }).fire();
+
+        } catch (error) {
+            // the SOQL generation pure fn can throw errors intended to be seen by the user for
+            // some combinations of entities. handle that here
+            window.alert(error);
+        }
     },
     diagramChange: function (component, event, helper) {
         var newDiagram = event.getParam("value");

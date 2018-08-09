@@ -20,12 +20,25 @@ var renderAndValidate = function (sample, variation) {
     }
 };
 
-describe("contact and account showing api names", function () {
-
-    var sample = samples["account_contact_api_names"];
+describe("case team members", function () {
+    var sample = samples["case_teams"];
     sample.groups = [];
+    var result = renderAndValidate(sample, "case_teams");
+})
 
+describe("contact and account", function () {
+    var sample = samples["account_contact_api_names"];
     var result = renderAndValidate(sample, "account_contact_user_api_names");
+    describe("showing api names", function () {
+        it("displays fields using the API Name, not the label", function () {
+            expect(result.translated.groups[0].entities[0].fields[0].name).toEqual("CreatedById") // label is "Created By ID"
+        })
+    })
+    describe("relationships are correct", function () {
+        it("relationship from Contact to Account is lookup", function () {
+            expect(result.translated.relationships[0].style).toEqual("dashed");
+        })
+    })
 })
 
 describe("contact, account, user without groups", function () {
@@ -130,19 +143,22 @@ describe("persisted diagram samples (lean v2) are translated and rendered ok", f
 
 describe("master detail relationships are translated and rendered ok", function () {
 
-    // TODO redo this test once standard object MD relationships work e.g. Asset -> AssetRelationship
-    // var sample = samples["master_detail_relationship"];
-    // describe("Standard objects with master detail relationship are translated and rendered ok", function () {
-    //
-    //     it("relationships would use solid line if it is master detail relation", function () {
-    //         expect(rendered.translated.relationships[rendered.translated.relationships.length - 1])
-    //             .toEqual({ from: 'DetailObject__c',
-    //                 to: 'MasterObject__c',
-    //                 field: 'MasterParent__c',
-    //                 style: 'solid' });
-    //     })
-    //
-    // });
+    var sample = samples["timesheets"];
+    var result = renderAndValidate(sample, "timesheets");
+    describe("relationships correctly identify master-detail vs lookup relationships", function () {
+        result.translated.relationships.forEach(function (relationship) {
+            if (relationship.from == "TimeSheetEntry" && relationship.to == "TimeSheet") {
+                it("is a master detail relationship", function () {
+                    expect(relationship.style).toEqual("solid");
+                })
+            }
+            if (relationship.from == "TimeSheetEntry" && relationship.to == "WorkOrder") {
+                it("is a lookup relationship", function () {
+                    expect(relationship.style).toEqual("dashed");
+                })
+            }
+        })
+    });
 })
 
 ////// CANONICAL VIEW MODEL ///////

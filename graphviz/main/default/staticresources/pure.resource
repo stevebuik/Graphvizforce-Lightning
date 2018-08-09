@@ -4347,16 +4347,26 @@ var soql = {
                     if (attribute.type == "REFERENCE") {
                         attribute.referenceFields.forEach(function (ref) {
                             // all references fields from the describe
+
                             var isReferenceToAnEntityInDiagram = persistedEntitiesInDiagramByAPIName[ref.parentAPIName];
+
                             var isSelfReference = ref.parentAPIName == entityDescribe.apiName; // don't use self-relations in SOQL
+
                             if (isReferenceToAnEntityInDiagram && !isSelfReference) {
+
                                 var relation = {
                                     field: attribute.apiName,
                                     relationshipNameFromChild: ref.relationshipName,
-                                    relationshipNameToChild: allChildRelationships[ref.parentAPIName][entityDescribe.apiName][ref.referenceFieldAPIName],
                                     parentEntity: ref.parentAPIName,
                                     childEntity: entityDescribe.apiName
                                 };
+
+                                // for some "system" entities, parent relationship data is not present
+                                var relationshipsFromParent = allChildRelationships[ref.parentAPIName];
+                                if (relationshipsFromParent && relationshipsFromParent[entityDescribe.apiName]) {
+                                    relation.relationshipNameToChild = relationshipsFromParent[entityDescribe.apiName][ref.referenceFieldAPIName];
+                                }
+
                                 // add child relations for entities in the diagram
                                 if (childRelationshipsInDiagram[ref.parentAPIName]) {
                                     childRelationshipsInDiagram[ref.parentAPIName].push(relation);
@@ -4364,6 +4374,7 @@ var soql = {
                                     // first one seen
                                     childRelationshipsInDiagram[ref.parentAPIName] = [relation];
                                 }
+
                                 // add parent relations for entities in the diagram
                                 if (parentRelationshipsInDiagram[entityDescribe.apiName]) {
                                     parentRelationshipsInDiagram[entityDescribe.apiName].push(relation);
@@ -4397,6 +4408,7 @@ var soql = {
             // generate parent joins, traversing up 5 levels
             if (parentRelationshipsInDiagram[from]) {
                 var ancestorPaths = soql.v2.ancestorEntityPaths(0, {}, persistedEntitiesInDiagramByAPIName[from], [], parentRelationshipsInDiagram, persistedEntitiesInDiagramByAPIName);
+
                 var ancestorSelectLists = [];
                 for (var ancestorEntity in ancestorPaths) {
                     var path = ancestorPaths[ancestorEntity];
@@ -4416,6 +4428,12 @@ var soql = {
             // generate child relationship joins, traversing down a single level
             if (childRelationshipsInDiagram[from]) {
                 childRelationshipsInDiagram[from].forEach(function (childRelation) {
+
+                    // some entities are not supported by SOQL joins. In that case, throw an error to be displayed to the user
+                    if (childRelation.relationshipNameToChild === undefined) {
+                        throw new Error("The '" + childRelation.childEntity + "' object cannot be used in a parent -> child relationship query from the '" + childRelation.parentEntity + "' entity!");
+                    }
+
                     var selectListForChildEntity = soql.v2.selectList(persistedEntitiesInDiagramByAPIName[childRelation.childEntity]);
                     selectedFields[childRelation.childEntity] = soql.v2.selectedFieldsFromEntity(persistedEntitiesInDiagramByAPIName[childRelation.childEntity]);
 
@@ -4470,7 +4488,11 @@ var soql = {
             });
             selectList += fields;
             if (selectList.length == 0) {
-                selectList += "Id";
+                if (prefix === undefined) {
+                    selectList += "Id";
+                } else {
+                    selectList += prefix + ".Id";
+                }
             }
             return selectList;
         },
