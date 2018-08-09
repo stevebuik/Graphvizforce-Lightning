@@ -44,6 +44,10 @@ var persisted =
                     "showSelfRelations": {"type": "boolean"},
                     "showStandardUserRelationships": {"type": "boolean"},
                     "from": {"type": "string"},
+                    "layout": {
+                        "type": "string",
+                        "enum": ["TD", "LR"]
+                    },
                     "obscureEntities": {
                         "type": "array",
                         "items": {"type": "string"}

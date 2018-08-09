@@ -1297,6 +1297,10 @@ var persisted = {
                 "showSelfRelations": { "type": "boolean" },
                 "showStandardUserRelationships": { "type": "boolean" },
                 "from": { "type": "string" },
+                "layout": {
+                    "type": "string",
+                    "enum": ["TD", "LR"]
+                },
                 "obscureEntities": {
                     "type": "array",
                     "items": { "type": "string" }
@@ -3984,7 +3988,7 @@ var Mustache = __webpack_require__(14);
 
 var gv = {
 
-    template: "digraph G { \n\n" + "   graph [rankdir=LR,nodesep=1.0]; \n" + "   node [shape=plaintext, fontsize=12]; \n" + "   edge  []; \n\n" + "{{#groups}}" + "   {{#entities}}" + "{{id}} [label=<<TABLE BORDER='0' CELLBORDER='1' CELLSPACING='0' COLOR='{{color}}'>\n" + "     <TR><TD PORT='{{id}}' BGCOLOR='lightgray'><FONT COLOR='{{color}}'>{{name}}</FONT></TD></TR>\n" + "  {{#fields}}" + "   <TR>\n" + "       <TD PORT='{{id}}' BGCOLOR='white' ALIGN='LEFT'><FONT COLOR='{{color}}'>{{name}}</FONT></TD>\n" + "     </TR>\n" + "{{/fields}}" + "     </TABLE>>];\n" + "   {{/entities}}" + "{{/groups}}" + "\n\n" + "{{#relationships}}" + "{{from}}:{{field}}:e -> {{to}}:{{to}}:w [style={{style}}] \n" + "{{/relationships}}" + "}",
+    template: "digraph G { \n\n" + "   graph [rankdir={{layout}},nodesep=1.0]; \n" + "   node [shape=plaintext, fontsize=12]; \n" + "   edge  []; \n\n" + "{{#groups}}" + "   {{#entities}}" + "{{id}} [label=<<TABLE BORDER='0' CELLBORDER='1' CELLSPACING='0' COLOR='{{color}}'>\n" + "     <TR><TD PORT='{{id}}' BGCOLOR='lightgray'><FONT COLOR='{{color}}'>{{name}}</FONT></TD></TR>\n" + "  {{#fields}}" + "   <TR>\n" + "       <TD PORT='{{id}}' BGCOLOR='white' ALIGN='LEFT'><FONT COLOR='{{color}}'>{{name}}</FONT></TD>\n" + "     </TR>\n" + "{{/fields}}" + "     </TABLE>>];\n" + "   {{/entities}}" + "{{/groups}}" + "\n\n" + "{{#relationships}}" + "{{from}}:{{field}}:e -> {{to}}:{{to}}:w [style={{style}}] \n" + "{{/relationships}}" + "}",
 
     /** translate a persisted diagram into a rendering view object. the input and outputs will be validated using schemas in tests.
      *  the settings key in the diagram contains values which change the way the view data is transformed. valid settings are:
@@ -3994,11 +3998,11 @@ var gv = {
      *  from : the entity used as the SOQL from. It is rendered using a green color to highlight it
      *  showStandardUserRelationships : true will show OwnerId, CreatedBy and LastModifiedBy fields and the relationships to user. defaults to false
      *  showAPINames : true will show objects/fields using their API Names instead of Labels
+     *  layout : TD (topdown) or LR (leftright). default is LR.
      * TODO
      *  showEdgeSingularLabels : true will show relationship labels for child to parent
      *  showEdgePluralLabels : true will show relationship labels for parent to children
      *  showTypes : true will show field types
-     *  layout : TD (topdown) or LR (leftright). default is LR.
      *
      * @param diagram a valid persisted diagram object
      * @param objectWrappers the list of wrappers returned by the Apex GraphVizForceController.loadSchema method
@@ -4006,6 +4010,7 @@ var gv = {
      */
     diagramAsView: function diagramAsView(diagram, objectWrappers) {
         var result = {
+            layout: diagram.settings.layout === undefined ? "LR" : diagram.settings.layout,
             groups: [],
             relationships: []
         };

@@ -5,7 +5,7 @@ var gv = {
     template:
 
     "digraph G { \n\n" +
-    "   graph [rankdir=LR,nodesep=1.0]; \n" +
+    "   graph [rankdir={{layout}},nodesep=1.0]; \n" +
     "   node [shape=plaintext, fontsize=12]; \n" +
     "   edge  []; \n\n" +
 
@@ -41,11 +41,11 @@ var gv = {
      *  from : the entity used as the SOQL from. It is rendered using a green color to highlight it
      *  showStandardUserRelationships : true will show OwnerId, CreatedBy and LastModifiedBy fields and the relationships to user. defaults to false
      *  showAPINames : true will show objects/fields using their API Names instead of Labels
+     *  layout : TD (topdown) or LR (leftright). default is LR.
      * TODO
      *  showEdgeSingularLabels : true will show relationship labels for child to parent
      *  showEdgePluralLabels : true will show relationship labels for parent to children
      *  showTypes : true will show field types
-     *  layout : TD (topdown) or LR (leftright). default is LR.
      *
      * @param diagram a valid persisted diagram object
      * @param objectWrappers the list of wrappers returned by the Apex GraphVizForceController.loadSchema method
@@ -53,6 +53,7 @@ var gv = {
      */
     diagramAsView: function (diagram, objectWrappers) {
         var result = {
+            layout: diagram.settings.layout === undefined ? "LR" : diagram.settings.layout,
             groups: [],
             relationships: []
         };

@@ -13,9 +13,14 @@ var renderAndValidate = function (sample, variation) {
     fs.mkdir("./generated");
     fs.writeFileSync("./generated/" + variation + ".gv", gvfp.graphviz.diagramAsText(translated));
     var v = new Validator();
+    var inputValidation = v.validate(sample, schemas.persisted);
+    if (inputValidation.errors.length > 0) {
+        console.log(inputValidation.errors);
+        throw Error("invalid persisted sample");
+    }
     return {
         translated: translated,
-        inputValidation: v.validate(sample, schemas.persisted),
+        inputValidation: inputValidation,
         outputValidation: v.validate(translated, schemas.view)
     }
 };
@@ -144,7 +149,11 @@ describe("persisted diagram samples (lean v2) are translated and rendered ok", f
 describe("master detail relationships are translated and rendered ok", function () {
 
     var sample = samples["timesheets"];
+    sample.settings.layout = "TD";
     var result = renderAndValidate(sample, "timesheets");
+    it("is a valid persisted diagram", function () {
+        expect(result.inputValidation.errors).toEqual([]);
+    });
     describe("relationships correctly identify master-detail vs lookup relationships", function () {
         result.translated.relationships.forEach(function (relationship) {
             if (relationship.from == "TimeSheetEntry" && relationship.to == "TimeSheet") {
