@@ -124,6 +124,8 @@ TODO use npm run for these two
 
 Now you can refresh the Test app or the full app to see your new code in action.
 
+You should also enable *Debug Mode* for Lightning Components to see the extra checks done for the components at runtime.
+
 ## Description of Files and Directories
 
 This project uses SFDX for all stages.

@@ -4,7 +4,7 @@ A Salesforce Entity Relationship diagramming and visual SOQL builder.
 
 Replaces [Graphvizforce for Visualforce](http://stevebuik.github.io/GraphVizForce)
 
-Status: BETA release. Stable but needs minor features and bug fixes.
+Status: BETA **Stable**. Needs minor features and bug fixes.
 
 Distributed as a *managed* package but we will convert to an *unlocked* package as soon as they are available.
 
