@@ -4016,6 +4016,28 @@ var gv = {
             entityDescribesByAPIName[entity.apiName] = entity;
         });
 
+        var allChildRelationships = {};
+        diagram.entities.forEach(function (persistedEntity) {
+
+            var entityDescribe = entityDescribesByAPIName[persistedEntity.apiName];
+
+            // record relationships to other objects
+            if (entityDescribe.childRelationships) {
+                entityDescribe.childRelationships.forEach(function (rel) {
+                    // ensure a lookup for each entity
+                    if (!allChildRelationships[entityDescribe.apiName]) {
+                        allChildRelationships[entityDescribe.apiName] = {};
+                    }
+                    // ensure a lookup for each child entity
+                    if (!allChildRelationships[entityDescribe.apiName][rel.childAPIName]) {
+                        allChildRelationships[entityDescribe.apiName][rel.childAPIName] = {};
+                    }
+                    // record the relationship name using parent.child.child-fk-field
+                    allChildRelationships[entityDescribe.apiName][rel.childAPIName][rel.childFieldAPIName] = rel;
+                });
+            }
+        });
+
         // create lookup for all entities in diagram
         var entitiesInDiagramByAPIName = {};
         diagram.entities.forEach(function (entity) {
@@ -4078,12 +4100,45 @@ var gv = {
                                 if (!isBlockedUserReference) {
                                     if (diagram.settings.showSelfRelations || !diagram.settings.showSelfRelations && entity.apiName != reference.parentAPIName) {
 
+                                        var isMasterDetailRelationship;
+                                        if (reference.parentAPIName == entity.apiName) {
+                                            // self relations always lookups
+                                            isMasterDetailRelationship = false;
+                                        } else if (entity.apiName == "Contact" && reference.parentAPIName == "Account") {
+                                            // this is a special/legacy standard relationship in SFDC. Lookup with cascade delete.
+                                            isMasterDetailRelationship = false;
+                                        } else {
+                                            // can only infer relationship type from cascade delete attribute on the child relationship.
+                                            // Note : cannot use the cascade delete attribute on the reference. it doesn't match the MD vs Lookup requirement.
+
+                                            var childRelationshipDataFromParent = allChildRelationships[reference.parentAPIName]; // child rels start from parent
+                                            if (childRelationshipDataFromParent === undefined) {
+                                                // some entities don't have parent relationship data in Apex describe. assume lookup in that case
+                                                // CaseTeamMember -> CaseTeamRole is an example. these entities are not visible in the schema builder
+                                                // so the missing data could be absent for "system" entities.
+                                                // uncomment line below to observe
+                                                //console.log(entity.apiName + " -> " + reference.parentAPIName);
+                                                isMasterDetailRelationship = true; // assume master detail for "system" entity relationships
+                                            } else {
+                                                var entityChildRelationships = childRelationshipDataFromParent[entity.apiName]; // to the child i.e. the current entity
+                                                if (entityChildRelationships === undefined) {
+                                                    // some entities don't have child relationship data in Apex describe. Assume lookup in that case.
+                                                    // User -> Contact is an example. uncomment the line below to observe
+                                                    //console.log(entity.apiName + " -> " + reference.parentAPIName);
+                                                    isMasterDetailRelationship = false;
+                                                } else {
+                                                    isMasterDetailRelationship = entityChildRelationships[reference.referenceFieldAPIName] // field on current entity (could be > 1)
+                                                    .isCascadeDelete;
+                                                }
+                                            }
+                                        }
+
                                         // add the relationship
                                         result.relationships.push({
                                             from: entity.apiName,
                                             to: reference.parentAPIName,
                                             field: reference.referenceFieldAPIName,
-                                            style: fieldDescribe.isMDOrCascadeDelete ? "solid" : "dashed"
+                                            style: isMasterDetailRelationship ? "solid" : "dashed"
                                         });
 
                                         // add the reference field to the entity
