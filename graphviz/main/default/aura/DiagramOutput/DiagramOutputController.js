@@ -53,6 +53,20 @@
         component.getEvent('onSettingsChange').setParams({showAPINames: newValue}).fire();
     },
 
+    onToggleLayout: function (component, event, helper) {
+        var diagram = component.get("v.diagram");
+        var oldValue = diagram.settings.layout;
+        var newValue;
+        if ($A.util.isUndefined(oldValue)) {
+            newValue = "TD";
+        } else {
+            newValue = oldValue == "LR"? "TD" : "LR";
+        }
+        diagram.settings.layout = newValue;
+        component.set("v.diagram", diagram);
+        component.getEvent('onSettingsChange').setParams({layout: newValue}).fire();
+    },
+
     /**
      * Handler when user reset zoom level
      */

@@ -58,6 +58,11 @@
                                                   alternativeText="Show API Names"
                                                   iconClass="slds-button_icon-x-small slds-button_icon-inverse" onclick="{!c.onToggleAPINames}"/>
                         </div>
+                        <div>
+                            <lightning:buttonIcon variant="brand" iconName="utility:retweet"
+                                                  alternativeText="Change layout"
+                                                  iconClass="slds-button_icon-x-small slds-button_icon-inverse" onclick="{!c.onToggleLayout}"/>
+                        </div>
                     </div>
                     <gvf2:DiagramViewer aura:id="diagramViewer" graphvizContent="{!v.graphvizContent}"
                                         onDiagramRendered="{!c.onDiagramRendered}"/>
