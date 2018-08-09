@@ -187,7 +187,11 @@ var soql = {
             });
             selectList += fields;
             if (selectList.length == 0) {
-                selectList += "Id";
+                if (prefix === undefined) {
+                    selectList += "Id";
+                } else {
+                    selectList += prefix + ".Id";
+                }
             }
             return selectList;
         },
