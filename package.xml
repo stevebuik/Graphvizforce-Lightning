@@ -79,6 +79,8 @@
         <members>LightningUtils</members>
         <members>pure</members>
         <members>VizJS</members>
+        <members>d3graphviz</members>
+        <members>d3v4</members>
         <name>StaticResource</name>
     </types>
     <types>

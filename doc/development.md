@@ -139,3 +139,4 @@ This project uses SFDX for all stages.
 5. In terminal, run `ant deployUnpackaged`
 6. Test the application in the target DE org
 7. Create a managed package in the target DE org (Ensure permission set is included)
+8. Add a tag to github that matches the package version. good practice.
