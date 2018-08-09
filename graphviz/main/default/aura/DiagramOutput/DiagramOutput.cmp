@@ -27,34 +27,36 @@
                         <div>
                             <aura:if isTrue="{!v.isExpanded}">
                                 <lightning:buttonIcon iconName="utility:contract" alternativeText="Contract"
-                                                      iconClass="slds-button_icon-x-small"
+                                                      class="transient" iconClass="slds-button_icon-x-small"
                                                       onclick="{!c.onToggleState}"/>
                                 <aura:set attribute="else">
                                     <lightning:buttonIcon iconName="utility:expand" alternativeText="Expand"
-                                                          iconClass="slds-button_icon-x-small"
+                                                          class="transient" iconClass="slds-button_icon-x-small"
                                                           onclick="{!c.onToggleState}"/>
                                 </aura:set>
                             </aura:if>
                         </div>
                         <div>
                             <lightning:buttonIcon iconName="utility:undo" alternativeText="Reset Zoom"
-                                                  iconClass="slds-button_icon-x-small" onclick="{!c.onResetZoom}"/>
+                                                  class="transient" iconClass="slds-button_icon-x-small"
+                                                  onclick="{!c.onResetZoom}"/>
                         </div>
                         <!--sticky/persisted buttons below here-->
                         <div>
-                            <lightning:buttonIcon class="sticky" iconName="utility:refresh"
+                            <lightning:buttonIcon variant="brand" iconName="utility:refresh"
                                                   alternativeText="Show Self Relationships"
-                                                  iconClass="slds-button_icon-x-small" onclick="{!c.onToggleSelf}"/>
+                                                  iconClass="slds-button_icon-x-small slds-button_icon-inverse"
+                                                  onclick="{!c.onToggleSelf}"/>
                         </div>
                         <div>
-                            <lightning:buttonIcon class="sticky" iconName="utility:replace"
+                            <lightning:buttonIcon variant="brand" iconName="utility:replace"
                                                   alternativeText="Show Standard User Relationships"
-                                                  iconClass="slds-button_icon-x-small" onclick="{!c.onToggleStdUser}"/>
+                                                  iconClass="slds-button_icon-x-small slds-button_icon-inverse" onclick="{!c.onToggleStdUser}"/>
                         </div>
                         <div>
-                            <lightning:buttonIcon class="sticky" iconName="utility:type_tool"
+                            <lightning:buttonIcon variant="brand" iconName="utility:type_tool"
                                                   alternativeText="Show API Names"
-                                                  iconClass="slds-button_icon-x-small" onclick="{!c.onToggleAPINames}"/>
+                                                  iconClass="slds-button_icon-x-small slds-button_icon-inverse" onclick="{!c.onToggleAPINames}"/>
                         </div>
                     </div>
                     <gvf2:DiagramViewer aura:id="diagramViewer" graphvizContent="{!v.graphvizContent}"
