@@ -135,8 +135,11 @@ This project uses SFDX for all stages.
 1. Add all components into `./package.xml`
 2. In terminal, run `sfdx force:mdapi:retrieve -r ./mdapipkg -k ./package.xml`
 3. Extract `./mdapipkg/unpackaged.zip` to directory './mdapipkg/unpackaged'
-4. Create your own build.properties and add target DE org credentials.
-5. In terminal, run `ant deployUnpackaged`
+4. Create your own CI dir with sfdc jar, build.xml and/or build.properties. Add target DE org credentials.
+5. In terminal, run `ant deployTarget` where *deployTarget* is the target in the build.xml
 6. Test the application in the target DE org
-7. Create a managed package in the target DE org (Ensure permission set is included)
-8. Add a tag to github that matches the package version. good practice.
+7. Upload a new version a managed package in the target DE org
+    * Ensure permission set is included
+    * Must be *Managed* and not *Managed - Beta* or it cannot be installed in prod/DE orgs
+8. Add a tag to github that matches the package version. good practice
+9. Ask @steveb8n to update the tiny.cc urls
