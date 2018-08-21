@@ -44,24 +44,32 @@
                 }).fire();
 
         } catch (error) {
-            // the SOQL generation pure fn can throw errors intended to be seen by the user for
-            // some combinations of entities. handle that here
-            window.alert(error);
+            var wasUserError = helper.handleError(component, error);
+            if (wasUserError) {
+                component.set("v.from", undefined);
+            }
         }
     },
     diagramChange: function (component, event, helper) {
-        var newDiagram = event.getParam("value");
-        component.set("v.from", newDiagram.settings.from);
-        if ($A.util.isEmpty(component.get("v.from"))) {
-            // load entities from diagram but don't generate SOQL
-            var entities = window.pure.soql.v2.entities(event.getParam("value"));
-            helper.updateEntities(component, entities);
-        } else {
-            var rendered = window.pure.soql.v2.diagramAsSelects(newDiagram, component.get("v.describes"), component.get("v.from"));
-            helper.updateEntities(component, rendered.entities);
-            var soql = window.pure.soql.v2.diagramSelectsAsSOQL(rendered.selectLists, component.get("v.from"), false);
-            component.set("v.soql", soql);
-            component.set("v.selectLists", rendered.selectLists);
+        try {
+            var newDiagram = event.getParam("value");
+            component.set("v.from", newDiagram.settings.from);
+            if ($A.util.isEmpty(component.get("v.from"))) {
+                // load entities from diagram but don't generate SOQL
+                var entities = window.pure.soql.v2.entities(event.getParam("value"));
+                helper.updateEntities(component, entities);
+            } else {
+                var rendered = window.pure.soql.v2.diagramAsSelects(newDiagram, component.get("v.describes"), component.get("v.from"));
+                helper.updateEntities(component, rendered.entities);
+                var soql = window.pure.soql.v2.diagramSelectsAsSOQL(rendered.selectLists, component.get("v.from"), false);
+                component.set("v.soql", soql);
+                component.set("v.selectLists", rendered.selectLists);
+            }
+        } catch (error) {
+            var wasUserError = helper.handleError(component, error);
+            if (wasUserError) {
+                component.set("v.from", undefined);
+            }
         }
     },
     handleClearClick: function (component, event, helper) {
