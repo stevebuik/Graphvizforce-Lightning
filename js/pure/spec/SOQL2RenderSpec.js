@@ -61,10 +61,7 @@ describe("query edge cases", function () {
     describe("User joins ok", function () {
         var result = renderAndSave(samples.account_user, "Account", "account-user");
         it("Account to user join returns only fields visible in the diagram", function () {
-            // TODO user joins are still broken. they don't accurately reflect what is visible in the diagram
-            // TODO the solution is probably to use output from the diagram generation to filter fiels in the SOQL so that they accurately match
-            // disabling this test for now
-            //expect(result.selectLists).toEqual(['Id', 'Owner.Id']);
+            expect(result.selectLists).toEqual(['Id', '(SELECT Id FROM Users)']);
         })
     })
 

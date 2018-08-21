@@ -124,7 +124,13 @@ var soql = {
 
             // generate parent joins, traversing up 5 levels
             if (parentRelationshipsInDiagram[from]) {
-                var ancestorPaths = soql.v2.ancestorEntityPaths(0, {}, persistedEntitiesInDiagramByAPIName[from], [], parentRelationshipsInDiagram, persistedEntitiesInDiagramByAPIName);
+                var ancestorPaths = soql.v2.ancestorEntityPaths(
+                    0,
+                    {},
+                    persistedEntitiesInDiagramByAPIName[from],
+                    [],
+                    parentRelationshipsInDiagram,
+                    persistedEntitiesInDiagramByAPIName);
 
                 var ancestorSelectLists = [];
                 for (var ancestorEntity in ancestorPaths) {
@@ -136,7 +142,8 @@ var soql = {
                         }
                         prefix += relationshipName;
                     });
-                    selectedFields[ancestorEntity] = soql.v2.selectedFieldsFromEntity(persistedEntitiesInDiagramByAPIName[ancestorEntity]);
+                    selectedFields[ancestorEntity] = soql.v2.selectedFieldsFromEntity(
+                        persistedEntitiesInDiagramByAPIName[ancestorEntity]);
                     ancestorSelectLists.push(soql.v2.selectList(persistedEntitiesInDiagramByAPIName[ancestorEntity], prefix));
                 }
                 selectLists = selectLists.concat(ancestorSelectLists)
@@ -181,15 +188,22 @@ var soql = {
          * @param entitiesInDiagramByAPIName an object mapping entity names to entities
          */
         ancestorEntityPaths: function (level, descendantPaths, entity, descendentPath, parentRelationshipsInDiagram, entitiesInDiagramByAPIName) {
+            var excluded = {
+                "OwnerId": true,
+                "CreatedById": true,
+                "LastModifiedById": true
+            };
             if (level < 5) {
                 if (parentRelationshipsInDiagram[entity.apiName]) {
                     parentRelationshipsInDiagram[entity.apiName].forEach(function (parentRelationship) {
-                        var pathToParent = descendentPath.slice(0); // clone the path passed in
-                        pathToParent.push(parentRelationship.relationshipNameFromChild);
-                        descendantPaths[parentRelationship.parentEntity] = pathToParent;
-                        // recurse up to parent here
-                        soql.v2.ancestorEntityPaths(level + 1, descendantPaths, entitiesInDiagramByAPIName[parentRelationship.parentEntity], pathToParent,
-                            parentRelationshipsInDiagram, entitiesInDiagramByAPIName);
+                        if (!excluded[parentRelationship.field]) {
+                            var pathToParent = descendentPath.slice(0); // clone the path passed in
+                            pathToParent.push(parentRelationship.relationshipNameFromChild);
+                            descendantPaths[parentRelationship.parentEntity] = pathToParent;
+                            // recurse up to parent here
+                            soql.v2.ancestorEntityPaths(level + 1, descendantPaths, entitiesInDiagramByAPIName[parentRelationship.parentEntity], pathToParent,
+                                parentRelationshipsInDiagram, entitiesInDiagramByAPIName);
+                        }
                     });
                 }
             }
