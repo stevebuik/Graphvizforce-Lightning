@@ -155,11 +155,12 @@ var soql = {
 
                     // some entities are not supported by SOQL joins. In that case, throw an error to be displayed to the user
                     if (childRelation.relationshipNameToChild === undefined) {
-                        throw new Error("The '"
+                        throw new soql.v2.UserException(
+                            "The '"
                             + childRelation.childEntity
-                            + "' object cannot be used in a parent -> child relationship query from the '"
+                            + "' object cannot be used as a child in a parent -> child relationship query with the '"
                             + childRelation.parentEntity
-                            + "' entity!");
+                            + "' entity as the parent/from entity!");
                     }
 
                     var selectListForChildEntity = soql.v2.selectList(persistedEntitiesInDiagramByAPIName[childRelation.childEntity]);
@@ -256,6 +257,18 @@ var soql = {
 
             query += " FROM " + from;
             return "SELECT " + query;
+        },
+
+        /** Constructor for an Error that intended to be seen by the User.
+         *  Lightning components can catch these errors and alert the user instead of
+         *  handling them as unexpected errors.
+         *
+         * @param message will be displayed to the user
+         * @constructor
+         */
+        UserException: function (message) {
+            this.message = message;
+            this.name = 'UserException';
         }
     }
 

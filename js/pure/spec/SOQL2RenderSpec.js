@@ -23,7 +23,7 @@ describe("query edge cases", function () {
         it("will throw an error to the user", function () {
             expect(function () {
                 renderAndSave(samples.case_teams, "CaseTeamRole", "case-teams-from-role");
-            }).toThrow("The 'CaseTeamMember' object cannot be used in a parent -> child relationship query from the 'CaseTeamRole' entity!");
+            }).toThrow("The 'CaseTeamMember' object cannot be used as a child in a parent -> child relationship query with the 'CaseTeamRole' entity as the parent/from entity!");
         })
     })
     // but querying from the other side works ok so SOQL generation should work with errors
@@ -58,11 +58,17 @@ describe("query edge cases", function () {
         });
     })
 
-    describe("User joins ok", function () {
-        var result = renderAndSave(samples.account_user, "Account", "account-user");
+    describe("User joins", function () {
+        var fromAccount = renderAndSave(samples.account_user, "Account", "account-user-from-account");
         it("Account to user join returns only fields visible in the diagram", function () {
-            expect(result.selectLists).toEqual(['Id', '(SELECT Id FROM Users)']);
-        })
+            expect(fromAccount.selectLists).toEqual(['Id', '(SELECT Id FROM Users)']);
+        });
+
+        it("User to Account joins alerts user of invalid join", function () {
+            expect(function () {
+                renderAndSave(samples.account_user, "User", "account-user-from-user");
+            }).toThrow("The 'Account' object cannot be used as a child in a parent -> child relationship query with the 'User' entity as the parent/from entity!");
+        });
     })
 
 });
