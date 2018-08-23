@@ -1,14 +1,18 @@
 <aura:component description="DiagramViewer: The Graphviz diagram displaying component">
 
-    <aura:attribute name="initialised" type="Boolean" default="false" description="Indicates required static resources are loaded" />
-    <aura:attribute name="graphvizContent" type="Object" description="The Graphviz content of the diagram" />
-    <aura:attribute name="graphviz" type="Object" description="The rendered graphpviz dom" />
+    <aura:attribute name="initialised" type="Boolean" default="false"
+                    description="Indicates required static resources are loaded" />
+    <aura:attribute name="graphvizContent" type="Object"
+                    description="The Graphviz content of the diagram" />
+    <aura:attribute name="graphvizSelection" type="Object"
+                    description="The D3 Graphviz selection, containing the zoom state etc." />
 
     <aura:method name="onContentChange" action="{!c.onContentChange}" access="public" description="Method to call when diagram is changed and content is ready to be rendered" />
     <!-- d3-graphviz resetZoom only works on static svg, once diagram is rerendered, resetZoom will not work
         Solution: remove innerHTML within graph div, and rerender the diagram without using resetZoom
      -->
-    <aura:method name="resetZoom" action="{!c.onContentChange}" access="public" description="Method to call when user reset zoom level" />
+    <aura:method name="resetZoom" action="{!c.onResetZoom}" access="public"
+                 description="Resets the diagram zoom level" />
 
     <aura:registerEvent name="onDiagramRendered" type="gvf2:ActionEvent"/>
     <aura:handler name="change" value="{!v.graphvizContent}" action="{!c.onContentChange}" />
@@ -16,6 +20,6 @@
     <ltng:require scripts="{! join(',', $Resource.GraphvizForceUtils, $Resource.VizJS, $Resource.d3v4, $Resource.d3graphviz)}"
                   afterScriptsLoaded="{!c.doInit}"/>
 
-    <div id="graph" aura:id="content" style="text-align: center; width:100%;max-width:100%;"></div>
+    <div id="graph" aura:id="content" style="text-align: center; width:100%;max-width:100%; height:60vh;"></div>
 
 </aura:component>
