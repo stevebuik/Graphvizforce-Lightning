@@ -5,7 +5,7 @@ var gv = {
     template:
 
     "digraph G { \n\n" +
-    "   graph [rankdir={{layout}},nodesep=1.0]; \n" +
+    "   graph [rankdir={{layout}},nodesep=1.0,ratio=0.5]; \n" +
     "   node [shape=plaintext, fontsize=12]; \n" +
     "   edge  []; \n\n" +
 
