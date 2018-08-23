@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="/dist/dev-viewer-app.js" type="application/javascript"></script>
+<script src="/dist/VizJS.js" type="javascript/worker"></script>
+
+<title>DiagramViewer</title>
+
+<body>
+
+<button id="render1">Render1</button>
+<button id="render2">Render2</button>
+<button id="reset">Reset</button>
+
+<div id="graph" style="text-align: center;"></div>
+
+<script>
+
+    setTimeout(function () {
+        render(getDiagramContent(false));
+    }, 500);
+
+    document.getElementById("render1").addEventListener("click",
+        function () {
+            render(getDiagramContent(false));
+        });
+    document.getElementById("render2").addEventListener("click",
+        function () {
+            var content = getDiagramContent(true);
+            render(content);
+        });
+    document.getElementById("reset").addEventListener("click",
+        function () {
+            viewer.lightningMessageHandler({
+                type: "reset"
+            });
+        });
+
+    function render(content) {
+        // invoke the diagram render by sending it a diagram
+        viewer.lightningMessageHandler({
+            type: "render",
+            content: content
+        });
+    }
+
+    function getDiagramContent(joined) {
+        var content = "digraph G { \n" +
+            "\n" +
+            "   graph [rankdir=LR,nodesep=1.0,ratio=0.5]; \n" +
+            "   node [shape=plaintext, fontsize=12]; \n" +
+            "   edge  []; \n" +
+            "\n" +
+            "   Account [label=<<TABLE BORDER='0' CELLBORDER='1' CELLSPACING='0' COLOR='#000000'>\n" +
+            "     <TR><TD PORT='Account' BGCOLOR='lightgray'><FONT COLOR='#000000'>Account</FONT></TD></TR>\n" +
+            "     <TR>\n" +
+            "       <TD PORT='Name' BGCOLOR='white' ALIGN='LEFT'><FONT COLOR='#000000'>Account Name</FONT></TD>\n" +
+            "     </TR>\n" +
+            "   <TR>\n" +
+            "       <TD PORT='Phone' BGCOLOR='white' ALIGN='LEFT'><FONT COLOR='#000000'>Account Phone</FONT></TD>\n" +
+            "     </TR>\n" +
+            "   <TR>\n" +
+            "       <TD PORT='AccountSource' BGCOLOR='white' ALIGN='LEFT'><FONT COLOR='#000000'>Account Source</FONT></TD>\n" +
+            "     </TR>\n" +
+            "   <TR>\n" +
+            "       <TD PORT='Type' BGCOLOR='white' ALIGN='LEFT'><FONT COLOR='#000000'>Account Type</FONT></TD>\n" +
+            "     </TR>\n" +
+            "     </TABLE>>];\n" +
+            "Lead [label=<<TABLE BORDER='0' CELLBORDER='1' CELLSPACING='0' COLOR='#0a9905'>\n" +
+            "     <TR><TD PORT='Lead' BGCOLOR='lightgray'><FONT COLOR='#0a9905'>Lead</FONT></TD></TR>\n" +
+            "     <TR>\n" +
+            "       <TD PORT='IsConverted' BGCOLOR='white' ALIGN='LEFT'><FONT COLOR='#0a9905'>Converted</FONT></TD>\n" +
+            "     </TR>\n" +
+            "   <TR>\n" +
+            "       <TD PORT='ConvertedAccountId' BGCOLOR='white' ALIGN='LEFT'><FONT COLOR='#0a9905'>Converted Account ID</FONT></TD>\n" +
+            "     </TR>\n" +
+            "   <TR>\n" +
+            "       <TD PORT='ConvertedDate' BGCOLOR='white' ALIGN='LEFT'><FONT COLOR='#0a9905'>Converted Date</FONT></TD>\n" +
+            "     </TR>\n";
+
+        if (joined) {
+            content = content + "   <TR>\n" +
+                "       <TD PORT='ConvertedOpportunityId' BGCOLOR='white' ALIGN='LEFT'><FONT COLOR='#0a9905'>Converted Opportunity ID</FONT></TD>\n" +
+                "     </TR>\n";
+        }
+
+        content = content + "     </TABLE>>];\n" +
+            "\n";
+
+        if (joined) {
+            content = content + "Lead:ConvertedAccountId:e -> Account:Account:w [style=dashed] \n";
+        }
+        content = content + "}";
+
+        return content;
+    }
+
+</script>

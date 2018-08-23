@@ -15,3 +15,5 @@ mdapipkg/
 /js/pure/node_modules
 /js/pure/generated
 /js/pure/package-lock.json
+/js/diagram-viewer/dist/dev-viewer-app.js
+/js/diagram-viewer/node_modules
