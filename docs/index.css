@@ -1,11 +1,21 @@
+@charset "UTF-8";
+
 body {
+    font-family: "Open Sans";
+}
+
+.header {
+    padding: 2rem 2rem 0 2rem;
+}
+
+.marketing-site-features .row {
     background-color: #E6E8EB;
-    padding: 1em 3em;
+    padding: 2rem 0 0rem 0;
 }
 
 .marketing-site-features {
     text-align: center;
-    padding: 2rem 0;
+    padding: 1rem 0;
 }
 
 .marketing-site-features .fa {
@@ -16,6 +26,7 @@ body {
 
 .marketing-site-features .marketing-site-features-title {
     font-size: 1.125rem;
+    font-weight: bold;
     margin-bottom: 1rem;
 }
 
@@ -25,14 +36,34 @@ body {
     }
 }
 
-.marketing-site-features-headline {
+.header h3 {
     text-align: center;
-    font-size: 24px;
+    font-family: "Archivo Black";
+    margin-bottom: 1rem;
 }
 
 .marketing-site-features-subheadline {
     margin-bottom: 2rem;
     text-align: center;
+}
+
+.feature {
+    background-color: white;
+    padding: 1rem 0 0 1rem;
+    min-height: 200px;
+}
+
+.install.row {
+    padding-bottom: 2rem;
+}
+
+.install a {
+    width: 300px;
+}
+
+.row.content {
+    padding-top: 3rem;
+    background-color: #CCCCCC;
 }
 
 .button-rounded-hover {
@@ -87,10 +118,6 @@ body {
     -ms-transform: translateX(0%);
     transform: translateX(0%);
     opacity: 0.25;
-}
-
-.install a {
-    width: 300px;
 }
 
 
