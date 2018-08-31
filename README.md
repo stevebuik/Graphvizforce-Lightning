@@ -2,8 +2,6 @@
 
 A Salesforce Entity Relationship diagramming and visual SOQL builder.
 
-Replaces [Graphvizforce for Visualforce](http://stevebuik.github.io/GraphVizForce)
-
 Status: BETA **Stable**. Needs minor features and bug fixes.
 
 Distributed as a *managed* package but we will convert to an *unlocked* package as soon as they are available.
@@ -16,28 +14,7 @@ Install into a Sandbox Org using [tiny.cc/gvf2t](https://tiny.cc/gvf2t)
 
 ## Features
 
-**Graphviz Rendering**
-
-Automatically layout of an ERD diagram based on Objects/Fields of your choice.
-Exportable in Graphviz or SVG format if you want to use these diagrams in documentation.
-
-Save (or clone) your diagrams for later so that you can modify them later.
-
-**Automatic diagram generation**
-
-Scans Apex Classes or Triggers to find Object/Field references and adds them to the diagram.
-
-![Demo](doc/assets/auto-build-demo.gif)
-
-In future, other sources will be added e.g. Reports and Dashboards.
-It's open for extension so you can create your own custom sources if required.
-
-**SOQL Generation**
-
-Any diagram can be rendered as a SOQL join query, with support for joins via parent and child relationships.
-1-click copy of the SOQL makes it easy to move into your favourite query runner.
-
-![Demo](doc/assets/gvf2-demo.gif)
+[Watch the videos](https://stevebuik.github.io/Graphvizforce-Lightning/)
 
 ## Developers
 
