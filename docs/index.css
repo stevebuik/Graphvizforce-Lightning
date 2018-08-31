@@ -10,12 +10,12 @@ body {
 
 .marketing-site-features .row {
     background-color: #E6E8EB;
-    padding: 2rem 0 0rem 0;
+    padding: 2rem 0 2rem 0;
 }
 
 .marketing-site-features {
     text-align: center;
-    padding: 1rem 0;
+    padding: 1rem 0 0 0;
 }
 
 .marketing-site-features .fa {
@@ -54,6 +54,8 @@ body {
 }
 
 .install.row {
+    background-color: #CCCCCC;
+    padding-top: 2rem;
     padding-bottom: 2rem;
 }
 
@@ -61,9 +63,9 @@ body {
     width: 300px;
 }
 
-.row.content {
-    padding-top: 3rem;
+.content {
     background-color: #CCCCCC;
+    padding-bottom: 5rem;
 }
 
 .button-rounded-hover {
