@@ -8,9 +8,13 @@ body {
     padding: 2rem 2rem 0 2rem;
 }
 
+.icons a {
+    margin-right: 1rem;
+}
+
 .marketing-site-features .row {
     background-color: #E6E8EB;
-    padding: 2rem 0 2rem 0;
+    padding: 2rem 1rem 2rem 1rem;
 }
 
 .marketing-site-features {
@@ -50,11 +54,15 @@ body {
 .feature {
     background-color: white;
     padding: 1rem 0 0 1rem;
-    min-height: 200px;
+    min-height: 175px;
+}
+
+.feature i {
+    margin-right: 1rem;
 }
 
 .install.row {
-    background-color: #CCCCCC;
+    background-color: #d5d5d5;
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
@@ -64,7 +72,7 @@ body {
 }
 
 .content {
-    background-color: #CCCCCC;
+    background-color: #d5d5d5;
     padding-bottom: 5rem;
 }
 
