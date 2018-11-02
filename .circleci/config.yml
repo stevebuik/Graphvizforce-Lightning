@@ -17,7 +17,7 @@ jobs:
         name: Remove auth token
         command: rm hubauth.txt
     - run:
-        name: Delete prev Scratch Org (ignoring bash return code)
+        name: Delete prev Scratch Org (ignoring bash return code) in case of previous failure
         command: sfdx force:org:delete --noprompt --targetusername circleci || true
     - run:
         name: Create Scratch Org
@@ -33,3 +33,8 @@ jobs:
         command: |
           mkdir -p ~/junit
           sfdx force:apex:test:run --codecoverage --outputdir ~/junit --resultformat junit --wait 5
+    - store_test_results:
+        path: ~/junit
+    - run:
+        name: Delete Scratch Org (ignoring bash return code)
+        command: sfdx force:org:delete --noprompt --targetusername circleci || true
