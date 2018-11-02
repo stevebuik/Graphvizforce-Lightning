@@ -8,8 +8,15 @@ jobs:
     - setup_remote_docker:
         docker_layer_caching: true
     - run:
+        name: Run node.js pure function tests
+        command: |
+          cd js/pure
+          ./node_modules/jasmine-node/bin/jasmine-node spec
+    - run:
         name: Create auth token
-        command: echo $SFDC_AUTH > hubauth.txt
+        command: |
+        cd ~
+        echo $SFDC_AUTH > hubauth.txt
     - run:
         name: Authenticate to Hub Org (using sfdxurl flow)
         command: sfdx force:auth:sfdxurl:store --setdefaultdevhubusername --sfdxurlfile hubauth.txt
