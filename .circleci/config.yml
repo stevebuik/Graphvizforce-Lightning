@@ -2,12 +2,23 @@ version: 2
 jobs:
   build:
     docker:
-    - image: debian:stretch
+    - image: ncino/ci-sfdx-lite:latest
     steps:
     - checkout
     - run:
-        name: Greeting
-        command: echo Hello, world.
+        name: Authenticate to Hub Org
+        command: sfdx force:auth:sfdxurl:store --setdefaultdevhubusername --sfdxurlfile hubauth.txt
     - run:
-        name: Print the Current Time
-        command: date
+        name: Create Scratch Org
+        command: sfdx force:org:create --definitionfile config/project-scratch-def.json --durationdays 1 --setdefaultusername
+    - run:
+        name: Install Lightning Testing Service package
+        command: sfdx force:lightning:test:install
+    - run:
+        name: Deploy Source
+        command: sfdx force:source:push
+    - run:
+        name: Run Apex Tests
+        command: |
+          mkdir -p ~/junit
+          sfdx force:apex:test:run --codecoverage --outputdir ~/junit --resultformat junit --wait 5
