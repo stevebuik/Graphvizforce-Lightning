@@ -9,7 +9,7 @@ jobs:
         docker_layer_caching: true
     - run:
         name: Create auth token
-        command: echo $SFDC_AUTH hubauth.txt
+        command: echo $SFDC_AUTH > hubauth.txt
     - run:
         name: Authenticate to Hub Org
         command: sfdx force:auth:sfdxurl:store --setdefaultdevhubusername --sfdxurlfile hubauth.txt
