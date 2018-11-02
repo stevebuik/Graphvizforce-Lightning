@@ -11,7 +11,7 @@ jobs:
         name: Create auth token
         command: echo $SFDC_AUTH > hubauth.txt
     - run:
-        name: Authenticate to Hub Org
+        name: Authenticate to Hub Org (using sfdxurl flow)
         command: sfdx force:auth:sfdxurl:store --setdefaultdevhubusername --sfdxurlfile hubauth.txt
     - run:
         name: Remove auth token
