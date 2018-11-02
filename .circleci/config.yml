@@ -17,9 +17,6 @@ jobs:
         name: Remove auth token
         command: rm hubauth.txt
     - run:
-        name: Delete prev Scratch Org (ignoring bash return code) in case of previous failure
-        command: sfdx force:org:delete --noprompt --targetusername circleci || true
-    - run:
         name: Create Scratch Org
         command: sfdx force:org:create --definitionfile config/project-scratch-def.json --durationdays 1 --setdefaultusername --setalias circleci
     - run:
@@ -41,3 +38,4 @@ jobs:
     - run:
         name: Delete Scratch Org (ignoring bash return code)
         command: sfdx force:org:delete --noprompt --targetusername circleci || true
+        when: always
