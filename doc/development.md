@@ -23,7 +23,7 @@ You no longer need to keep the hub org open in the browser once linked.
 
 Now you are ready to create a new scratch org:
 
-`sfdx force:org:create --definitionfile config/project-scratch-def.json --durationdays 30 --setalias scratch1 --setdefaultusername`
+`sfdx force:org:create --definitionfile config/project-scratch-def.json --durationdays 29 --setalias scratch1 --setdefaultusername`
 
 List all orgs to see which you have setup and connected to your SFDX CLI:
 
@@ -31,7 +31,7 @@ List all orgs to see which you have setup and connected to your SFDX CLI:
 
 At any time you can open/login a window to new (default) scratch org:
 
-`sfdx force:org:open --path one/one.app`
+`sfdx force:org:open --path lightning/page/home`
 
 Now, install the Lightning Testing Service:
 
