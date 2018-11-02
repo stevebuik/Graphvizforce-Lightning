@@ -11,8 +11,9 @@ jobs:
         name: Run node.js pure function tests
         working_directory: js/pure
         command: |
+          mkdir -p ~/junit
           npm install
-          ./node_modules/jasmine-node/bin/jasmine-node spec
+          ./node_modules/jasmine-node/bin/jasmine-node spec --junitreport --output ~/junit
     - run:
         name: Create auth token
         command: echo $SFDC_AUTH > hubauth.txt
@@ -33,9 +34,7 @@ jobs:
         command: sfdx force:source:push
     - run:
         name: Run Apex Tests
-        command: |
-          mkdir -p ~/junit
-          sfdx force:apex:test:run --codecoverage --outputdir ~/junit --resultformat junit --wait 5
+        command: sfdx force:apex:test:run --codecoverage --outputdir ~/junit --resultformat junit --wait 5
     - store_test_results:
         path: ~/junit
     - run:
