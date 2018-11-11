@@ -8,7 +8,9 @@ var renderAndSave = function (sample, from, name) {
     result.query = gvfp.soql.v2.diagramSelectsAsSOQL(result.selectLists, from, false);
 
     // save to file-system to support testing of each query using the DX api
-    fs.mkdir("./generated/soql");
+    fs.mkdir("./generated/soql", function (error) {
+        // ignore errors when dir already exists
+    });
     fs.writeFileSync("./generated/soql/" + name + ".soql", result.query);
 
     return result;

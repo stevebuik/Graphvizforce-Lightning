@@ -10,7 +10,9 @@ var Validator = require('jsonschema').Validator;
 
 var renderAndValidate = function (sample, variation) {
     var translated = gvfp.graphviz.diagramAsView(sample, wrappers.wrappers);
-    fs.mkdir("./generated");
+    fs.mkdir("./generated", function (error) {
+        // ignore errors when dir already exists
+    });
     fs.writeFileSync("./generated/" + variation + ".gv", gvfp.graphviz.diagramAsText(translated));
     var v = new Validator();
     var inputValidation = v.validate(sample, schemas.persisted);
@@ -187,7 +189,9 @@ describe("validation and generation from canonical view JSON", function () {
     describe("rendering view samples to graphviz artifacts ", function () {
         var result = gvfp.graphviz.diagramAsText(views.samples.account_contact);
         //console.log(result);
-        fs.mkdir("./generated");
+        fs.mkdir("./generated", function (error) {
+            // ignore errors when dir already exists
+        });
         fs.writeFileSync("./generated/canonical_account_contact.gv", result);
     })
 })
