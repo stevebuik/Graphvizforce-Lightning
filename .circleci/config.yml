@@ -39,7 +39,7 @@ jobs:
         path: ~/junit
     - run:
         name: Run Lightning Testing Service Tests
-        command: sfdx force:lightning:test:run --configfile config/lts-config.json --appname DiagramViewerTests.app
+        command: sfdx force:lightning:test:run --configfile config/lts-config.json --appname DiagramViewerTests.app --resultformat junit --outputdir ~/junit
     - run:
         name: Delete Scratch Org (ignoring bash return code)
         command: sfdx force:org:delete --noprompt --targetusername circleci || true
