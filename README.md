@@ -6,6 +6,8 @@ Status: BETA **Stable**. Needs minor features and bug fixes.
 
 Distributed as a *managed* package but we will convert to an *unlocked* package as soon as they are available.
 
+Continuous Integration Build Status: [![CircleCI](https://circleci.com/gh/stevebuik/Graphvizforce-Lightning/tree/master.svg?style=svg)](https://circleci.com/gh/stevebuik/Graphvizforce-Lightning/tree/master)
+
 # Installation
 
 Install into a Production or DE Org using [tiny.cc/gvf2p](https://tiny.cc/gvf2p)
@@ -42,7 +44,7 @@ Thanks [Jason Guan](https://www.linkedin.com/in/jason-guan-3463a939/) for workin
 
 Thanks [Andrew Fawcett](https://www.linkedin.com/in/andyfawcett/) for the [UML Canvas](https://github.com/afawcett/apex-umlcanvas) project. We used [2 classes](https://github.com/stevebuik/Graphvizforce-Lightning/blob/master/graphviz/main/default/classes/ToolingAPI.cls) from that project to create the *Auto-Build* feature.
 
-And thank you if you are using this tool. We volunteer our time for the satisfaction of knowing that people use the tools that we make.
+Thank you if you are using this tool. We volunteer our time for the satisfaction of knowing that people use the tools that we make.
 
 ## Licence
 

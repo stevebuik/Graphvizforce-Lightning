@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-    - image: ncino/ci-sfdx-lite:latest
+    - image: steveb8n/circle-sfdx:latest
     steps:
     - checkout
     - setup_remote_docker:
@@ -39,7 +39,7 @@ jobs:
         path: ~/junit
     - run:
         name: Run Lightning Testing Service Tests
-        command: sfdx force:lightning:test:run --appname DiagramViewerTests.app
+        command: sfdx force:lightning:test:run --configfile config/lts-config.json --appname DiagramViewerTests.app
     - run:
         name: Delete Scratch Org (ignoring bash return code)
         command: sfdx force:org:delete --noprompt --targetusername circleci || true

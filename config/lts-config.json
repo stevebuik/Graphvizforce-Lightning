@@ -1,0 +1,21 @@
+{
+  "drivers": {
+    "chrome": {
+      "version": "71.0.3578.33",
+      "arch": "x64",
+      "baseURL": "https://chromedriver.storage.googleapis.com"
+    }
+  },
+  "webdriverio": {
+    "desiredCapabilities": {
+      "browserName": "chrome",
+      "chromeOptions": {
+        "args": [
+          "--headless",
+          "--disable-gpu",
+          "--no-sandbox"
+        ]
+      }
+    }
+  }
+}
