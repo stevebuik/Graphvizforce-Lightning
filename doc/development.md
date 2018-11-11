@@ -143,3 +143,18 @@ This project uses SFDX for all stages.
     * Must be *Managed* and not *Managed - Beta* or it cannot be installed in prod/DE orgs
 8. Add a tag to github that matches the package version. good practice
 9. Ask @steveb8n to update the tiny.cc urls
+
+## CI Maintenance
+
+The docker image is built to support the Chrome headless browser,
+configured using the lts-config.json file. There are some important values in that file:
+
+* the chrome driver version. always use the latest from https://chromedriver.storage.googleapis.com/index.html
+* must use --headless and --no-sandbox
+
+The docker commands for updating:
+
+`docker build . -t steveb8n/circle-sfdx`
+`docker run -it steveb8n/circle-sfdx bash` for testing locally
+`docker login`
+`docker push steveb8n/circle-sfdx`
