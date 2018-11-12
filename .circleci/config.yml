@@ -34,7 +34,7 @@ jobs:
         command: sfdx force:source:push
     - run:
         name: Run Apex Tests
-        command: sfdx force:apex:test:run --codecoverage --outputdir ~/junit --resultformat junit --wait 5
+        command: sfdx force:apex:test:run --codecoverage --outputdir ~/junit --resultformat junit
     - run:
         name: Run Lightning Testing Service Tests
         command: sfdx force:lightning:test:run --configfile config/lts-config.json --appname DiagramViewerTests.app --resultformat junit --outputdir ~/junit
