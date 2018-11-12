@@ -11,7 +11,10 @@ var renderAndSave = function (sample, from, name) {
     fs.mkdir("./generated/soql", function (error) {
         // ignore errors when dir already exists
     });
-    fs.writeFileSync("./generated/soql/" + name + ".soql", result.query);
+    fs.writeFile("./generated/soql/" + name + ".soql", result.query,
+        function (error) {
+            // ignore write errors
+        });
 
     return result;
 }
