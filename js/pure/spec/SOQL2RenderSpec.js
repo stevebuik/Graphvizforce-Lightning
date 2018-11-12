@@ -14,6 +14,7 @@ var renderAndSave = function (sample, from, name) {
     fs.writeFile("./generated/soql/" + name + ".soql", result.query,
         function (error) {
             // ignore write errors
+            console.log(error);
         });
 
     return result;
